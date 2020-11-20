@@ -1,12 +1,12 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./rootReducer";
-let middlewares = []
-if (process.env.NODE_ENV === `local` || process.env.NODE_ENV === `dev`) {
-  const { logger } = require(`redux-logger`);
-  middlewares.push(logger);
-}
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index';
+import promise from 'redux-promise-middleware';
+const { logger } = require(`redux-logger`);
+let middlewares = [];
+
 middlewares.push(thunk);
-export default function storeConfig(initialState = {}) {
-  return createStore(rootReducer, initialState, applyMiddleware(...middlewares));
-}
+middlewares.push(promise);
+middlewares.push(logger);
+
+export default createStore(rootReducer, {}, applyMiddleware(...middlewares));
