@@ -8,139 +8,42 @@ export const getNavbar = () => {
 export const metaDataNavbar = [
   {
     id: '1',
-    navText: 'Dashboard',
-    iconName: 'faHome',
-    hasSubNav: false,
-    isSubNavOpen: false,
-    route: '/dashboard',
-  },
-  {
-    id: '2',
-    navText: 'Grid',
-    iconName: 'faThLarge',
+    navText: 'Masters',
+    iconName: 'faMagnet',
     hasSubNav: true,
     isSubNavOpen: false,
-    route: '/grid',
+    route: '/masters',
     subNavs: [
       {
-        id: 'gridSub' + 2,
-        navText: 'Grid Layer - DPR',
-        route: '/grid/dpr',
+        id: 'mastersSub' + 2,
+        navText: 'Add Component',
+        route: '/masters/createComponent',
       },
-
       {
-        id: 'gridSub' + 3,
-        navText: 'View Grid',
-        route: '/grid/view',
+        id: 'mastersSub' + 3,
+        navText: 'Add Structure',
+        route: '/masters/createStructure',
+      },
+      {
+        id: 'mastersSub' + 4,
+        navText: 'Add Project',
+        route: '/masters/createProject',
+      },
+      {
+        id: 'mastersSub' + 5,
+        navText: 'Add WBS',
+        route: '/masters/addWBS',
+      },
+      {
+        id: 'mastersSub' + 6,
+        navText: 'Add Users',
+        route: '/masters/createUsers',
+      },
+      {
+        id: 'mastersSub' + 7,
+        navText: 'Add SubContractor',
+        route: '/masters/createSubcontractor',
       },
     ],
   },
-  {
-    id: '3',
-    navText: 'Planning Manager',
-    iconName: 'faUserTie',
-    hasSubNav: false,
-    route: '/planingmanager',
-  },
-  {
-    id: '4',
-    navText: 'Client Billing',
-    iconName: 'faFileInvoiceDollar',
-    hasSubNav: false,
-    isSubNavOpen: false,
-    route: '/clientbilling',
-  },
-  {
-    id: '5',
-    navText: 'Reports',
-    iconName: 'faChartPie',
-    hasSubNav: true,
-    route: '/report',
-    subNavs: [
-      {
-        id: 'ReportSub' + 1,
-        navText: 'Master Report',
-        route: '/report/master',
-      },
-      {
-        id: 'ReportSub' + 2,
-        navText: 'SubContractor Report',
-        route: '/report/subcontractor',
-      },
-      {
-        id: 'ReportSub' + 2,
-        navText: 'LayerMap Report',
-        route: '/report/map',
-      },
-    ],
-  },
-  {
-    id: '6',
-    navText: 'Master',
-    iconName: 'faChartPie',
-    hasSubNav: true,
-    route: '/master',
-    subNavs: [
-      {
-        id: 'MasterSub' + 1,
-        navText: 'Create Grid',
-        route: '/master/grid/create',
-      },
-      {
-        id: 'MasterSub' + 2,
-        navText: 'Create SubContractor',
-        route: '/master/subcontractor/create',
-      },
-      {
-        id: 'MasterSub' + 3,
-        navText: 'List - SubContractor',
-        route: '/master/subcontractor/list',
-      },
-      {
-        id: 'MasterSub' + 4,
-        navText: 'Role Management',
-        route: '/master/roles/list',
-      },
-      {
-        id: 'MasterSub' + 5,
-        navText: 'Users Management',
-        route: '/master/users',
-      },
-    ],
-  },
-  // {
-  //   id: '7',
-  //   navText: 'Sub-Contractor',
-  //   iconName: 'faUser',
-  //   hasSubNav: true,
-  //   isSubNavOpen: false,
-  //   route: '/subcontractor',
-  //   subNavs: [
-  //     {
-  //       id: 'SCRSub' + 1,
-  //       navText: 'Create SubContractor',
-  //       route: '/subcontractor/create',
-  //     },
-  //     {
-  //       id: 'SCRSub' + 2,
-  //       navText: 'List - SubContractor',
-  //       route: '/subcontractor/list',
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: '8',
-  //   navText: 'Role Management',
-  //   iconName: 'faUsersCog',
-  //   hasSubNav: false,
-  //   route: '/roles/list',
-  // },
-  // {
-  //   id: '9',
-  //   navText: 'Users Management',
-  //   iconName: 'faUsers',
-  //   hasSubNav: false,
-  //   isSubNavOpen: false,
-  //   route: '/users',
-  // },
 ];
