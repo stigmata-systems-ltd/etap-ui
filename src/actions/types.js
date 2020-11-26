@@ -6,3 +6,14 @@ export const STRUCTURE_ID = 'STRUCTURE_ID';
 export const STRUCTURE_WEIGHT = 'STRUCTURE_WEIGHT';
 export const DRAWING_NO = 'DRAWING_NO';
 export const RESET_STRUCTURE_FORM = 'RESET_STRUCTURE_FORM';
+
+//Add Users
+
+export const FIRST_NAME = 'FIRST_NAME';
+export const LAST_NAME = 'LAST_NAME';
+export const EMAIL = 'EMAIL';
+export const PS_NO = 'PS_NO';
+export const USER_ROLE = 'USER_ROLE';
+
+
+
