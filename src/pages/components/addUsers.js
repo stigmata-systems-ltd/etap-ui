@@ -61,6 +61,7 @@ class AddUsers extends Component {
                   this.props.handleChangePsNo(e.target.value)
                 }
                 // value={subprop.psNo}
+                
               />
             </FormRow>
             <FormRow>
