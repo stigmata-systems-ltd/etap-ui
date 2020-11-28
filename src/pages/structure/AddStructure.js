@@ -34,7 +34,7 @@ class Structure extends Component {
                 value={subprop.structureName}
               />
               <TextInput
-                label="Structure ID"
+                label="Structure Family"
                 name="structureID"
                 id="structureID"
                 onChange={e =>
@@ -45,7 +45,7 @@ class Structure extends Component {
             </FormRow>
             <FormRow>
               <TextInput
-                label="Structure Weight"
+                label="Attribute Description"
                 name="structureWeight"
                 id="structureWeight"
                 onChange={e =>
@@ -54,7 +54,7 @@ class Structure extends Component {
                 value={subprop.structureWeight}
               />
               <TextInput
-                label="Structure Type"
+                label="Type of Input"
                 name="structureType"
                 id="structureType"
                 onChange={e =>
@@ -65,7 +65,7 @@ class Structure extends Component {
             </FormRow>
             <FormRow>
               <TextInput
-                label="Drawing NO"
+                label="UoM"
                 name="drawingNo"
                 id="drawingNo"
                 onChange={e => this.props.handleChangeDrawingNo(e.target.value)}
@@ -74,12 +74,12 @@ class Structure extends Component {
             </FormRow>
 
             <Button
-              btnText="Save"
+              btnText="SAVE"
               onClick={this.props.saveSubContractorData}
               btnType="primary"
             />
             <Button
-              btnText="Cancel"
+              btnText="DISCARD"
               btnType="cancel"
               onClick={this.props.resetSubContractorData}
             />

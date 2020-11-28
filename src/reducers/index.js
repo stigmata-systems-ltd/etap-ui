@@ -9,8 +9,10 @@ import { combineReducers } from 'redux';
 // import userManagementReducer from './userManagementReducer';
 // import dashBoardReducer from './dashBoardReducer';
 import structureReducer from './structureReducer';
+
 const rootReducer = combineReducers({
   structure: structureReducer,
+ 
 });
 
 export default rootReducer;

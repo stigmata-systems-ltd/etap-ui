@@ -5,6 +5,7 @@ import {
     PS_NO,
     USER_ROLE,
     RESET_STRUCTURE_FORM,
+    PROJECT,
     
   } from '../actions/types';
   
@@ -13,6 +14,7 @@ import {
     lastName: '',
     email: '',
     psNo: '',
+    project : '',
     role : ''
   };
   
@@ -37,6 +39,11 @@ import {
         return {
           ...state,
           psNo: action.payload,
+        };
+      case PROJECT:
+        return {
+          ...state,
+          project: action.payload,
         };
       case USER_ROLE:
         return {

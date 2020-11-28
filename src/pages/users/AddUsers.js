@@ -24,6 +24,15 @@ class AddUsers extends Component {
         <ContentLoader>
           <FormContainer formTitle={'Add Users'}>
             <FormRow>
+              <Button
+                btnText="Edit User Status"
+                onClick={this.props.editUserStatus}
+                btnType="primary"
+
+              />
+            </FormRow>
+            
+            <FormRow>
               <TextInput
                 label="First Name"
                 name="firstName"
@@ -31,7 +40,7 @@ class AddUsers extends Component {
                 onChange={e =>
                   this.props.handleChangeFirstName(e.target.value)
                 }
-                // value={subprop.firstName}
+              // value={subprop.firstName}
               />
               <TextInput
                 label="Last Name"
@@ -40,7 +49,7 @@ class AddUsers extends Component {
                 onChange={e =>
                   this.props.handleChangeLastName(e.target.value)
                 }
-                // value={subprop.lastName}
+              // value={subprop.lastName}
               />
             </FormRow>
             <FormRow>
@@ -51,7 +60,7 @@ class AddUsers extends Component {
                 onChange={e =>
                   this.props.handleChangeEmail(e.target.value)
                 }
-                // value={subprop.email}
+              // value={subprop.email}
               />
               <TextInput
                 label="PS.No"
@@ -60,27 +69,34 @@ class AddUsers extends Component {
                 onChange={e =>
                   this.props.handleChangePsNo(e.target.value)
                 }
-                // value={subprop.psNo}
-                
+              // value={subprop.psNo}
+
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <SimpleDropDown
+                label="Project"
+                name="project"
+                onChange={e => this.props.handleChangeProject(e.target.value)}
+              // value={subprop.project}
+              />
+            </FormRow>
+            <FormRow>
+              <SimpleDropDown
                 label="Role"
                 name="role"
-                id="role"
                 onChange={e => this.props.handleChangeRole(e.target.value)}
-                // value={subprop.role}
+              // value={subprop.role}
               />
             </FormRow>
 
             <Button
-              btnText="Save"
+              btnText="SAVE"
               onClick={this.props.saveUsersData}
               btnType="primary"
             />
             <Button
-              btnText="Cancel"
+              btnText="DISCARD"
               btnType="cancel"
               onClick={this.props.resetUsersData}
             />

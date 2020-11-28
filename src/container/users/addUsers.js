@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Structure from '../../pages/structure/createStructure';
+import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
 
 import {
@@ -9,9 +9,10 @@ import {
   PS_NO,
   USER_ROLE,
   RESET_STRUCTURE_FORM,
+  PROJECT,
   
 } from '../../actions/types';
-import AddUsers from '../../pages/components/addUsers';
+import AddUsers from '../../pages/users/AddUsers';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -40,6 +41,12 @@ const mapDispatchToProps = dispatch => {
     handleChangePsNo(value) {
       dispatch({
         type: PS_NO,
+        payload: value,
+      });
+    },
+    handleChangeProject(value) {
+      dispatch({
+        type: PROJECT,
         payload: value,
       });
     },

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Structure from '../../pages/structure/createStructure';
+import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
 
 import {

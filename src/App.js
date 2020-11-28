@@ -5,14 +5,22 @@ import './App.css';
 import './assets/css/styles.css';
 
 //Pages Import
-import CreateStructure from './container/structure/createStructure';
+import AddStructure from './container/structure/addStructure';
 import AddUsers from './container/users/addUsers';
+import AddComponent from './container/component/addComponent';
+import AddIndependentCompany from './container/independentCompany/independentCompany';
+import AddProject from './container/project/addProject';
+import AddSubContractor from './container/subContractor/addSubContractor';
+import AddWorkBreak from './container/workBreak/addWorkBreak';
+import AssignStructure from './container/assignStructure/assignStructure';
+import AddRequirement from './container/requirement/addRequirement';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
 // import ViewComponent from './container/component/viewComponent';
 
 import unauthorized from './common/Unauthorized';
+
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
 // setRespInterceptor();
@@ -28,18 +36,48 @@ class App extends Component {
         <Switch>
           <Route
             exact
-            path="/masters/createComponent"
-            component={CreateStructure}
+            path="/masters/addComponent"
+            component={AddComponent}
           ></Route>
           <Route
             exact
-            path="/masters/createStructure"
-            component={CreateStructure}
+            path="/masters/addStructure"
+            component={AddStructure}
+          ></Route>
+          <Route
+            exact
+            path="/masters/addProject"
+            component={AddProject}
           ></Route>
           <Route
             exact
             path="/masters/addUsers"
             component={AddUsers}
+          ></Route>
+          <Route
+            exact
+            path="/masters/addWBS"
+            component={AddWorkBreak}
+          ></Route>
+          <Route
+            exact
+            path="/masters/addIndependentCompany"
+            component={AddIndependentCompany}
+          ></Route>
+          <Route
+            exact
+            path="/masters/addSubcontractor"
+            component={AddSubContractor}
+          ></Route>
+          <Route
+            exact
+            path="/structure/assignStructure"
+            component={AssignStructure}
+          ></Route>
+          <Route
+            exact
+            path="/structure/addRequirements"
+            component={AddRequirement}
           ></Route>
           <Route exact path="/unauthorized" component={unauthorized} />
         </Switch>
