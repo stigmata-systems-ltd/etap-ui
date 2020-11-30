@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => {
                 payload: value,
             });
         },
-        handleChangeComponentStructureType(value) {
+        handleChangeComponentStructureFamily(value) {
             dispatch({
                 type: STRUCTURE_TYPE,
                 payload: value,
@@ -74,7 +74,7 @@ const mapDispatchToProps = dispatch => {
                 payload: value,
             });
         },
-        handleChangeDiamensionLenght(value) {
+        handleChangeDiamensionLength(value) {
             dispatch({
                 type: DIAMENSION_LENGTH,
                 payload: value,

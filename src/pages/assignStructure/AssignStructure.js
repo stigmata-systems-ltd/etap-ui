@@ -54,13 +54,13 @@ class AssignStructure extends Component {
                         </FormRow>
                         <FormRow>
                             <TextInput
-                                label="Structure Type"
-                                name="structureType"
-                                id="structureType"
+                                label="Structure Family"
+                                name="structureFamily"
+                                id="structureFamily"
                                 onChange={e =>
-                                    this.props.handleChangeComponentStructureType(e.target.value)
+                                    this.props.handleChangeComponentStructureFamily(e.target.value)
                                 }
-                            // value={subprop.structureType}
+                            // value={subprop.structureFamily}
                             />
 
                         </FormRow>
@@ -150,13 +150,13 @@ class AssignStructure extends Component {
 
                             <TextInput
                                 size="col-sm-4"
-                                label="Lenght"
-                                name="diamensionLenght"
-                                id="diamensionLenght"
+                                label="Length"
+                                name="diamensionLength"
+                                id="diamensionLength"
                                 onChange={e =>
-                                    this.props.handleChangeDiamensionLenght(e.target.value)
+                                    this.props.handleChangeDiamensionLength(e.target.value)
                                 }
-                            // value={subprop.diamensionLenght}
+                            // value={subprop.diamensionLength}
                             />
 
 

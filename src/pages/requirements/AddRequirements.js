@@ -43,7 +43,7 @@ class AddRequirement extends Component {
                         </FormRow>
                         <FormRow>
                             <SimpleDropDown
-                                label="Structure,Family"
+                                label="Structure Family"
                                 name="structureName"
                                 id="structureName"
                                 onChange={e =>
@@ -73,8 +73,6 @@ class AddRequirement extends Component {
                             // value={subprop.noOfComponents}
                             />
 
-                        </FormRow>
-                        <FormRow>
                             <TextInput
                                 label="Drawing Number"
                                 name="drawingNumber"
@@ -86,6 +84,7 @@ class AddRequirement extends Component {
                             />
 
                         </FormRow>
+
 
                         <FormRow>
                             <TextInput
@@ -188,7 +187,7 @@ class AddRequirement extends Component {
                         </FormRow>
                         <FormRow>
                             <TextArea
-                               
+                                
                                 label="Remarks"
                                 name="remarks"
                                 id="remarks"

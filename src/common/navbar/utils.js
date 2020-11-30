@@ -67,14 +67,15 @@ export const metaDataNavbar = [
       },
       {
         id: 'structureSub' + 4,
-        navText: 'View Component',
-        route: '/structure/viewComponent',
-      },
-      {
-        id: 'structureSub' + 5,
         navText: 'View Structure',
         route: '/structure/viewStructure',
       },
+      {
+        id: 'structureSub' + 5,
+        navText: 'View Component',
+        route: '/structure/viewComponent',
+      },
+     
       {
         id: 'structureSub' + 6,
         navText: 'Add Requirements',
@@ -90,6 +91,16 @@ export const metaDataNavbar = [
         id: 'structureSub' + 8,
         navText: 'View Surplus',
         route: '/structure/viewSurplus',
+      },
+      {
+        id: 'structureSub' + 9,
+        navText: 'Dispatch Management',
+        route: '/structure/dispatchManagement',
+      },
+      {
+        id: 'structureSub' + 10,
+        navText: 'Technical Evaluation',
+        route: '/structure/technicalEvaluation',
       },
 
     ],

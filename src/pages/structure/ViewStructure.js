@@ -15,10 +15,10 @@ import CustomAlert from '../../common/forms/customAlert';
 import Loader from '../../common/Loader';
 import DataTable from '../../common/DataTable';
 
-import { _viewComponentData, _viewComponentBodyData,_viewComponentModificationHistoryData,_viewComponentModificationHistoryBodyData } from './utils';
+import { _viewStructureInputData, _viewStructureInputBodyData } from './utils';
 import Col6 from '../../common/forms/Col6';
 
-class ViewComponent extends Component {
+class ViewStructure extends Component {
     constructor(props) {
         super(props);
     }
@@ -39,18 +39,8 @@ class ViewComponent extends Component {
 
                             <DataTable
 
-                                metaData={_viewComponentData}
-                                bodyData={_viewComponentBodyData}
-
-                            />
-                        </FormRow><br />
-                        <p><b>Modification History :</b></p>
-                        <FormRow>
-
-                            <DataTable
-
-                                metaData={_viewComponentModificationHistoryData}
-                                bodyData={_viewComponentModificationHistoryBodyData}
+                                metaData={_viewStructureInputData}
+                                bodyData={_viewStructureInputBodyData}
 
                             />
                         </FormRow><br />
@@ -76,4 +66,4 @@ class ViewComponent extends Component {
     }
 }
 
-export default ViewComponent;
+export default ViewStructure;

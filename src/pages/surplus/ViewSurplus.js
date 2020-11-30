@@ -15,20 +15,20 @@ import CustomAlert from '../../common/forms/customAlert';
 import Loader from '../../common/Loader';
 import DataTable from '../../common/DataTable';
 
-import { _viewComponentData, _viewComponentBodyData,_viewComponentModificationHistoryData,_viewComponentModificationHistoryBodyData } from './utils';
-import Col6 from '../../common/forms/Col6';
+import { _viewSurplusInputData, _viewSurplusInputBodyData } from './utils';
 
-class ViewComponent extends Component {
+
+class ViewSurplus extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const subprop = this.props.assignStructure;
+        const subprop = this.props.viewSurplus;
         return (
             <>
                 <ContentLoader>
-                    <FormContainer formTitle={'Assign Structure/Component'}>
+                    <FormContainer formTitle={'View Surplus'}>
 
 
 
@@ -39,18 +39,9 @@ class ViewComponent extends Component {
 
                             <DataTable
 
-                                metaData={_viewComponentData}
-                                bodyData={_viewComponentBodyData}
-
-                            />
-                        </FormRow><br />
-                        <p><b>Modification History :</b></p>
-                        <FormRow>
-
-                            <DataTable
-
-                                metaData={_viewComponentModificationHistoryData}
-                                bodyData={_viewComponentModificationHistoryBodyData}
+                                metaData={_viewSurplusInputData}
+                                bodyData={_viewSurplusInputBodyData}
+                                
 
                             />
                         </FormRow><br />
@@ -59,13 +50,13 @@ class ViewComponent extends Component {
 
                         <Button
                             btnText="SAVE"
-                            onClick={this.props.saveViewStructureData}
+                            onClick={this.props.saveViewSurplusData}
                             btnType="primary"
                         />
                         <Button
                             btnText="DISCARD"
                             btnType="cancel"
-                            onClick={this.props.resetViewStructureData}
+                            onClick={this.props.resetViewSurplusData}
                         />
 
 
@@ -76,4 +67,4 @@ class ViewComponent extends Component {
     }
 }
 
-export default ViewComponent;
+export default ViewSurplus;

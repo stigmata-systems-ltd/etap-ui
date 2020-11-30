@@ -15,6 +15,13 @@ import AddWorkBreak from './container/workBreak/addWorkBreak';
 import AssignStructure from './container/assignStructure/assignStructure';
 import AddRequirement from './container/requirement/addRequirement';
 
+import ViewStructure from './pages/structure/ViewStructure';
+import ViewComponent from './pages/component/ViewComponent';
+import ViewRequirements from './pages/requirements/ViewRequirements';
+import ViewSurplus from './pages/surplus/ViewSurplus';
+
+import DispatchManagement from './container/dispatchManagement/dispatchManagement';
+
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
 // import ViewComponent from './container/component/viewComponent';
@@ -78,6 +85,31 @@ class App extends Component {
             exact
             path="/structure/addRequirements"
             component={AddRequirement}
+          ></Route>
+          <Route
+            exact
+            path="/structure/viewStructure"
+            component={ViewStructure}
+          ></Route>
+          <Route
+            exact
+            path="/structure/viewComponent"
+            component={ViewComponent}
+          ></Route>
+          <Route
+            exact
+            path="/structure/viewRequirements"
+            component={ViewRequirements}
+          ></Route>
+          <Route
+            exact
+            path="/structure/viewSurplus"
+            component={ViewSurplus}
+          ></Route>
+          <Route
+            exact
+            path="/structure/dispatchManagement"
+            component={DispatchManagement}
           ></Route>
           <Route exact path="/unauthorized" component={unauthorized} />
         </Switch>
