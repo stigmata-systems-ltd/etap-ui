@@ -1,5 +1,5 @@
 
-export const _technicalEvaluationInputData = ["DC Number", "Structure Family", "Structure ID", "Quantity Requested", "Empty", "Approval", "Remarks"];
+export const _technicalEvaluationInputData = ["DC Number", "Structure Family", "Structure ID", "Quantity Requested", "Dispatch Type", "Approval", "Remarks"];
 export const _technicalEvaluationInputBodyData = [
     {
 
@@ -7,7 +7,7 @@ export const _technicalEvaluationInputBodyData = [
         structureFamily: "",
         structureId: "",
         quantityRequested: "",
-        empty: "",
+        dispatchType: "",
         approval: "",
         remarks: "",
         
