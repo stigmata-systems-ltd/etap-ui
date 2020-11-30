@@ -28,7 +28,7 @@ class ViewStructure extends Component {
         return (
             <>
                 <ContentLoader>
-                    <FormContainer formTitle={'Assign Structure/Component'}>
+                    <FormContainer formTitle={'View Structure'}>
 
 
 

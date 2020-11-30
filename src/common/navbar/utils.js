@@ -54,8 +54,8 @@ export const metaDataNavbar = [
   },
   {
     id: '2',
-    navText: 'Structure',
-    iconName: 'faLink',
+    navText: 'Structure & Component',
+    iconName: 'faBuilding',
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/structure',
@@ -75,34 +75,74 @@ export const metaDataNavbar = [
         navText: 'View Component',
         route: '/structure/viewComponent',
       },
-     
+    ]
+  },
+  {
+    id: '3',
+    navText: 'Schedule Management',
+    iconName: 'faClock',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/requirementRequest',
+    subNavs: [
       {
-        id: 'structureSub' + 6,
+        id: 'requirementRequestSub' + 4,
         navText: 'Add Requirements',
-        route: '/structure/addRequirements',
+        route: '/requirementRequest/addRequirements',
       },
       {
-        id: 'structureSub' + 7,
+        id: 'requirementRequestSub' + 5,
         navText: 'View Requirements',
-        route: '/structure/viewRequirements',
+        route: '/requirementRequest/viewRequirements',
       },
 
       {
-        id: 'structureSub' + 8,
+        id: 'requirementRequestSub' + 6,
         navText: 'View Surplus',
-        route: '/structure/viewSurplus',
-      },
-      {
-        id: 'structureSub' + 9,
-        navText: 'Dispatch Management',
-        route: '/structure/dispatchManagement',
-      },
-      {
-        id: 'structureSub' + 10,
-        navText: 'Technical Evaluation',
-        route: '/structure/technicalEvaluation',
+        route: '/requirementRequest/viewSurplus',
       },
 
+
+    ],
+  },
+  {
+    id: '4',
+    navText: 'Dispatch Management',
+    iconName: 'faCogs',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/dispatchManagement',
+    subNavs: [
+      {
+        id: 'dispatchManagementSub' + 5,
+        navText: 'Dispatch Management',
+        route: '/dispatchManagement/dispatchManagement',
+      },
+      {
+        id: 'dispatchManagementSub' + 6,
+        navText: 'Technical Evaluation',
+        route: '/dispatchManagement/technicalEvaluation',
+      },
+    ],
+  },
+  {
+    id: '5',
+    navText: 'Vendor',
+    iconName: 'faUser',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/vendor',
+    subNavs: [
+      {
+        id: 'vendorSub' + 6,
+        navText: 'Dispatch Management',
+        route: '/vendor/dispatchManagement',
+      },
+      {
+        id: 'vendorSub' + 7,
+        navText: 'Technical Evaluation',
+        route: '/vendor/technicalEvaluation',
+      },
     ],
   },
 ];

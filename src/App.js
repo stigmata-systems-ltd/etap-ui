@@ -84,7 +84,7 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/structure/addRequirements"
+            path="/requirementRequest/addRequirements"
             component={AddRequirement}
           ></Route>
           <Route
@@ -99,22 +99,22 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/structure/viewRequirements"
+            path="/requirementRequest/viewRequirements"
             component={ViewRequirements}
           ></Route>
           <Route
             exact
-            path="/structure/viewSurplus"
+            path="/requirementRequest/viewSurplus"
             component={ViewSurplus}
           ></Route>
           <Route
             exact
-            path="/structure/dispatchManagement"
+            path="/dispatchManagement/dispatchManagement"
             component={DispatchManagement}
           ></Route>
           <Route
             exact
-            path="/structure/technicalEvaluation"
+            path="/dispatchManagement/technicalEvaluation"
             component={TechnicalEvaluation}
           ></Route>
 

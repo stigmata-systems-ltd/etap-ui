@@ -27,7 +27,7 @@ class AssignStructure extends Component {
         return (
             <>
                 <ContentLoader>
-                    <FormContainer formTitle={'Assign Structure/Component'}>
+                    <FormContainer formTitle={'Assign Structure'}>
                         <FormRow>
                             <SimpleDropDown
                                 label="Select Project"
