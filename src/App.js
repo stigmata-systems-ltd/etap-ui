@@ -19,6 +19,7 @@ import ViewStructure from './pages/structure/ViewStructure';
 import ViewComponent from './pages/component/ViewComponent';
 import ViewRequirements from './pages/requirements/ViewRequirements';
 import ViewSurplus from './pages/surplus/ViewSurplus';
+import TechnicalEvaluation from './pages/technicalEvaluation/TechnicalEvaluation';
 
 import DispatchManagement from './container/dispatchManagement/dispatchManagement';
 
@@ -111,6 +112,14 @@ class App extends Component {
             path="/structure/dispatchManagement"
             component={DispatchManagement}
           ></Route>
+          <Route
+            exact
+            path="/structure/technicalEvaluation"
+            component={TechnicalEvaluation}
+          ></Route>
+
+
+
           <Route exact path="/unauthorized" component={unauthorized} />
         </Switch>
       </Router>
