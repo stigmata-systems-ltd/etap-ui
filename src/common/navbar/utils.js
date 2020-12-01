@@ -135,13 +135,13 @@ export const metaDataNavbar = [
     subNavs: [
       {
         id: 'vendorSub' + 6,
-        navText: 'Dispatch Management',
-        route: '/vendor/dispatchManagement',
+        navText: 'New Fabrication',
+        route: '/vendor/newFabrication',
       },
       {
         id: 'vendorSub' + 7,
-        navText: 'Technical Evaluation',
-        route: '/vendor/technicalEvaluation',
+        navText: 'Outsource',
+        route: '/vendor/outsource',
       },
     ],
   },

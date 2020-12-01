@@ -74,6 +74,22 @@ export const STRUCTURE_FAMILY = 'STRUCTURE_FAMILY';
 export const QUANTITY_REQUESTED = 'QUANTITY_REQUESTED';
 export const DISPATCH_ADVICE_NUMBER = 'DISPATCH_ADVICE_NUMBER';
 
+// New Fabrication
+
+export const DC_NUMBER = 'DC_NUMBER';
+export const VENDOR = 'VENDOR';
+export const DISPATCHED_DATE = 'DISPATCHED_DATE';
+export const TO_SITE = 'TO_SITE';
+export const QUANTITY_DISPATCHED = 'QUANTITY_DISPATCHED';
+export const WORK_ORDER = 'WORK_ORDER';
+
+//Out Source
+export const MONTHLY_HIRE_CHARGES = 'MONTHLY_HIRE_CHARGES';
+
+
+
+
+
 
 
 

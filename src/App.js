@@ -22,6 +22,8 @@ import ViewSurplus from './pages/surplus/ViewSurplus';
 import TechnicalEvaluation from './pages/technicalEvaluation/TechnicalEvaluation';
 
 import DispatchManagement from './container/dispatchManagement/dispatchManagement';
+import NewFabrication from './container/newFabrication/newFabrication';
+import OutSource from './container/outSource/outSource';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
@@ -116,6 +118,16 @@ class App extends Component {
             exact
             path="/dispatchManagement/technicalEvaluation"
             component={TechnicalEvaluation}
+          ></Route>
+          <Route
+            exact
+            path="/vendor/newFabrication"
+            component={NewFabrication}
+          ></Route>
+          <Route
+            exact
+            path="/vendor/outsource"
+            component={OutSource}
           ></Route>
 
 
