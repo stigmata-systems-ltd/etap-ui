@@ -145,4 +145,52 @@ export const metaDataNavbar = [
       },
     ],
   },
+  {
+    id: '6',
+    navText: 'Life Cycle Management',
+    iconName: 'faUser',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/lifeCycle',
+    subNavs: [
+      {
+        id: 'lifeCycleSub' + 7,
+        navText: 'EHS',
+        route: '/lifeCycle/healthSafty',
+      },
+      {
+        id: 'lifeCycleSub' + 8,
+        navText: 'QA/QC',
+        route: '/lifeCycle/qualityCheck',
+      },
+    ],
+  },
+  {
+    id: '7',
+    navText: 'Scrap',
+    iconName: 'faUser',
+    isSubNavOpen: false,
+    route: '/scrap/scrap',
+    
+  },
+  {
+    id: '8',
+    navText: 'Modification Management',
+    iconName: 'faUser',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/modification',
+    subNavs: [
+      {
+        id: 'modificationSub' + 9,
+        navText: 'Structure Modification',
+        route: '/modification/structureModification',
+      },
+      {
+        id: 'modificationSub' + 10,
+        navText: 'CMPC Modification',
+        route: '/modification/cmpcModification',
+      },
+    ],
+  },
 ];

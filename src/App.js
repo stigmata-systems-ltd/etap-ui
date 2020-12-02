@@ -20,10 +20,15 @@ import ViewComponent from './pages/component/ViewComponent';
 import ViewRequirements from './pages/requirements/ViewRequirements';
 import ViewSurplus from './pages/surplus/ViewSurplus';
 import TechnicalEvaluation from './pages/technicalEvaluation/TechnicalEvaluation';
+import HealthSafty from './pages/lifeCycleManagement/HealthSafty';
+import QualityCheck from './pages/qualityCheck/QualityCheck';
+import CmpcModification from './pages/modificationManagement/CmpcModification';
 
 import DispatchManagement from './container/dispatchManagement/dispatchManagement';
 import NewFabrication from './container/newFabrication/newFabrication';
 import OutSource from './container/outSource/outSource';
+import Scrap from './container/scrap/scrap';
+import StructureModification from './container/modificationManagement/structureModification';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
@@ -128,6 +133,31 @@ class App extends Component {
             exact
             path="/vendor/outsource"
             component={OutSource}
+          ></Route>
+          <Route
+            exact
+            path="/lifeCycle/healthSafty"
+            component={HealthSafty}
+          ></Route>
+          <Route
+            exact
+            path="/lifeCycle/qualityCheck"
+            component={QualityCheck}
+          ></Route>
+          <Route
+            exact
+            path="/scrap/scrap"
+            component={Scrap}
+          ></Route>
+          <Route
+            exact
+            path="/modification/structureModification"
+            component={StructureModification}
+          ></Route>
+          <Route
+            exact
+            path="/modification/cmpcModification"
+            component={CmpcModification}
           ></Route>
 
 

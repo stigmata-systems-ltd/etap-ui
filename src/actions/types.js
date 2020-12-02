@@ -86,6 +86,25 @@ export const WORK_ORDER = 'WORK_ORDER';
 //Out Source
 export const MONTHLY_HIRE_CHARGES = 'MONTHLY_HIRE_CHARGES';
 
+//Scrap
+
+export const AUCTION_ID = 'AUCTION_ID';
+export const SCRAP_RATE = 'SCRAP_RATE';
+
+//Modification Management
+
+export const DISPATCHED_FROM = 'DISPATCHED_FROM';
+export const RECEIVED_AT = 'RECEIVED_AT';
+export const LENGTH = 'LENGTH';
+export const WIDTH = 'WIDTH';
+export const HEIGHT = 'HEIGHT';
+export const BREADTH = 'BREADTH';
+export const WEIGHT = 'WEIGHT';
+export const COMPONENT_NAME = 'COMPONENT_NAME';
+export const COMPONENT_ID = 'COMPONENT_ID';
+export const ADDITIONAL_PLATES = 'ADDITIONAL_PLATES';
+
+
 
 
 
