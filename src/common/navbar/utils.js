@@ -203,4 +203,24 @@ export const metaDataNavbar = [
       },
     ],
   },
+  {
+    id: '9',
+    navText: 'Outsourcing',
+    iconName: 'faAddressCard',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/outsourcing',
+    subNavs: [
+      {
+        id: 'outsourcingSub' + 10,
+        navText: 'Outsourcing',
+        route: '/outsourcing/outSourcing',
+      },
+      {
+        id: 'outsourcingSub' + 11,
+        navText: 'Site Approval',
+        route: '/outsourcing/siteApproval',
+      },
+    ],
+  },
 ];

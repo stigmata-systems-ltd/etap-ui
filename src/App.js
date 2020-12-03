@@ -31,6 +31,7 @@ import Scrap from './container/scrap/scrap';
 import StructureModification from './container/modificationManagement/structureModification';
 
 import Procurement from './container/procurement/procurement';
+import OutSourcing from './container/dispatchManagement/outSourcing';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
@@ -171,6 +172,11 @@ class App extends Component {
             exact
             path="/modification/cmpcModification"
             component={CmpcModification}
+          ></Route>
+          <Route
+            exact
+            path="/outsourcing/outSourcing"
+            component={OutSourcing}
           ></Route>
 
 

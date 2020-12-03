@@ -111,6 +111,11 @@ export const ADDITIONAL_PLATES = 'ADDITIONAL_PLATES';
 
 export const FABRICATION_COST = 'FABRICATION_COST';
 
+//OutSourcing
+
+export const MONTHLY_RENT = 'MONTHLY_RENT';
+export const CONTRACT_YEARS = 'CONTRACT_YEARS';
+
 
 
 
