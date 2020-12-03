@@ -35,7 +35,7 @@ class AddSubContractor extends Component {
                         </FormRow><br/>
                         <FormRow>
                             <TextInput
-                                label="Vender Name"
+                                label="Vendor Name"
                                 name="vendorName"
                                 id="vendorName"
                                 onChange={e =>
@@ -79,14 +79,14 @@ class AddSubContractor extends Component {
                             <Radio label="Outsourcing" />
                             <Radio label="Scrap" />
                         </FormRow><br />
-                        {/* <FormRow>
+                        <FormRow>
                             <DataTable
 
                                 metaData={_subContractorData}
                                 bodyData={_subContractorBodyData}
 
                             />
-                        </FormRow><br /> */}
+                        </FormRow><br />
 
 
                         <Button

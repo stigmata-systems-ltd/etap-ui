@@ -44,51 +44,57 @@ const mapDispatchToProps = dispatch => {
                 payload: value,
             });
         },
-        handleChangeComponentCapacity(value) {
-            dispatch({
-                type: CAPACITY,
-                payload: value,
-            });
-        },
+        // handleChangeComponentCapacity(value) {
+        //     dispatch({
+        //         type: CAPACITY,
+        //         payload: value,
+        //     });
+        // },
         handleChangeComponentDrawingNumber(value) {
             dispatch({
                 type: DRAWING_NO,
                 payload: value,
             });
         },
-        handleChangeComponentOverAllLength(value) {
-            dispatch({
-                type: OVER_ALL_LENGTH,
-                payload: value,
-            });
-        },
-        handleChangeUnderSlungOverSlung(value) {
-            dispatch({
-                type: UNDER_SLING_OVER_SLUNG,
-                payload: value,
-            });
-        },
-        handleChangeComponentEstimatedWeight(value) {
+        // handleChangeComponentOverAllLength(value) {
+        //     dispatch({
+        //         type: OVER_ALL_LENGTH,
+        //         payload: value,
+        //     });
+        // },
+        // handleChangeUnderSlungOverSlung(value) {
+        //     dispatch({
+        //         type: UNDER_SLING_OVER_SLUNG,
+        //         payload: value,
+        //     });
+        // },
+        // handleChangeComponentEstimatedWeight(value) {
+        //     dispatch({
+        //         type: ESTIMATED_WEIGHT,
+        //         payload: value,
+        //     });
+        // },
+        // handleChangeDiamensionLength(value) {
+        //     dispatch({
+        //         type: DIAMENSION_LENGTH,
+        //         payload: value,
+        //     });
+        // },
+        // handleChangeDiamensionHeight(value) {
+        //     dispatch({
+        //         type: DIAMENSION_HEIGHT,
+        //         payload: value,
+        //     });
+        // },
+        // handleChangeDiamensionWidth(value) {
+        //     dispatch({
+        //         type: DIAMENSION_WIDTH,
+        //         payload: value,
+        //     });
+        // },
+        handleChangeEstimatedWeight(value) {
             dispatch({
                 type: ESTIMATED_WEIGHT,
-                payload: value,
-            });
-        },
-        handleChangeDiamensionLength(value) {
-            dispatch({
-                type: DIAMENSION_LENGTH,
-                payload: value,
-            });
-        },
-        handleChangeDiamensionHeight(value) {
-            dispatch({
-                type: DIAMENSION_HEIGHT,
-                payload: value,
-            });
-        },
-        handleChangeDiamensionWidth(value) {
-            dispatch({
-                type: DIAMENSION_WIDTH,
                 payload: value,
             });
         },

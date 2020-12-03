@@ -31,7 +31,7 @@ class AddUsers extends Component {
 
               />
             </FormRow>
-            
+
             <FormRow>
               <TextInput
                 label="First Name"
@@ -81,6 +81,43 @@ class AddUsers extends Component {
               // value={subprop.project}
               />
             </FormRow>
+            <FormRow>
+              <TextInput
+                size="col-md-4"
+                label="BU"
+                name="businessUnit"
+                id="businessUnit"
+                onChange={e =>
+                  this.props.handleChangeBusinessUnit(e.target.value)
+                }
+                // value={subprop.businessUnit}
+                placeholder="Auto Fetch"
+
+              />
+              <TextInput
+                size="col-md-4"
+                label="Segment"
+                name="segment"
+                id="segment"
+                onChange={e =>
+                  this.props.handleChangeSegment(e.target.value)
+                }
+                // value={subprop.segment}
+                placeholder="Auto Fetch"
+              />
+              <TextInput
+                size="col-md-4"
+                label="IC"
+                name="independentCompany"
+                id="independentCompany"
+                onChange={e =>
+                  this.props.handleIndependentCompany(e.target.value)
+                }
+                // value={subprop.independentCompany}
+                placeholder="Auto Fetch"
+              />
+            </FormRow>
+
             <FormRow>
               <SimpleDropDown
                 label="Role"

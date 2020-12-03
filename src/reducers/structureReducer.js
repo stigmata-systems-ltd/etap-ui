@@ -1,53 +1,44 @@
 import {
-  ADD_STRUCTURE,
-  STRUCTURE_TYPE,
-  STRUCTURE_WEIGHT,
   STRUCTURE_NAME,
-  DRAWING_NO,
+
   RESET_STRUCTURE_FORM,
-  STRUCTURE_ID,
+
+  STRUCTURE_FAMILY,
+  NUMBER_OF_ATTRIBUTES
 } from '../actions/types';
 
 const initialState = {
-  structureAdd: {},
   structureName: '',
-  projectName: '',
-  drawingNo: '',
+  structureFamily: '',
+  noOfAttributes: '',
+
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case STRUCTURE_NAME:
       return {
         ...state,
         structureName: action.payload,
       };
-    case STRUCTURE_ID:
+    case STRUCTURE_FAMILY:
       return {
         ...state,
-        structureID: action.payload,
+        structureFamily: action.payload,
       };
-    case STRUCTURE_TYPE:
+    case NUMBER_OF_ATTRIBUTES:
       return {
         ...state,
-        structureType: action.payload,
+        noOfAttributes: action.payload,
       };
-    case STRUCTURE_WEIGHT:
-      return {
-        ...state,
-        structureWeight: action.payload,
-      };
-    case DRAWING_NO:
-      return {
-        ...state,
-        drawingNo: action.payload,
-      };
+
     case RESET_STRUCTURE_FORM:
       return {
         ...state,
         structureName: '',
-        projectName: '',
-        drawingNo: '',
+        structureFamily: '',
+        noOfAttributes: '',
+       
       };
     default:
       return state;

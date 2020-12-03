@@ -1,57 +1,52 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
+import { Col, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ContentLoader from '../../common/ContentLoader';
 import FormContainer from '../../common/forms/FormContainer';
 import FormRow from '../../common/forms/FormRow';
 import TextInput from '../../common/forms/TextInput';
+import FileInput from '../../common/forms/FileInput';
 import IconTextButton from '../../common/forms/IconTextButton';
 import Button from '../../common/forms/Button';
 import SimpleDropDown from '../../common/forms/SimpleDropDown';
 import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
+import Radio from '../../common/forms/Radio';
 import Loader from '../../common/Loader';
 import DataTable from '../../common/DataTable';
-import { _componentBodyData, _componentData } from './utils';
 
-class AddComponent extends Component {
+import { _siteApprovalInputData, _siteApprovalBodyData } from './utils';
+
+import DateInput from '../../common/forms/DateInput';
+import SearchBox from '../../common/forms/SearchBox';
+
+class SiteApproval extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const subprop = this.props.component;
+        const subprop = this.props.siteApproval;
         return (
             <>
                 <ContentLoader>
-                    <FormContainer formTitle={'Add Component'}>
-                        <FormRow>
-                            <Button
-                                btnText="Edit Status"
-                                onClick={this.props.saveSubContractorData}
-                                btnType="primary"
-                            />
-                        </FormRow>
-                        <FormRow>
-                            <TextInput
-                                label="Component Type"
-                                name="componentType"
-                                id="componentType"
-                                onChange={e =>
-                                    this.props.handleChangeComponentType(e.target.value)
-                                }
-                            // value={subprop.componentType}
-                            />
+                    <FormContainer formTitle={'Site Approval'}>
 
-                        </FormRow>
                         <FormRow>
+                            <SearchBox />
+                        </FormRow><br />
+                        <FormRow>
+
                             <DataTable
 
-                                metaData={_componentData}
-                                bodyData={_componentBodyData}
+                                metaData={_siteApprovalInputData}
+                                bodyData={_siteApprovalBodyData}
+                                showEdit={true}
+
 
                             />
-                        </FormRow><br />
+                        </FormRow>
+
+                        <br />
 
 
 
@@ -74,4 +69,4 @@ class AddComponent extends Component {
     }
 }
 
-export default AddComponent;
+export default SiteApproval;

@@ -30,7 +30,7 @@ class DispatchManagement extends Component {
                 <ContentLoader>
                     <FormContainer formTitle={'Dispatch Management'}>
                         <FormRow>
-                            <TextInput
+                            <SimpleDropDown
                                 label="MR Number"
                                 name="mrNumber"
                                 id="mrNumber"
@@ -38,6 +38,7 @@ class DispatchManagement extends Component {
                                     this.props.handleChangeDispatchManagementMrNumber(e.target.value)
                                 }
                             // value={subprop.mrNumber}
+                            placeholder="Auto Fetch"
                             />
                             <SimpleDropDown
                                 label="Site Name"
@@ -72,7 +73,7 @@ class DispatchManagement extends Component {
 
                         </FormRow>
                         <FormRow>
-                            <DateInput
+                            <SimpleDropDown
                                 label="Structure Family"
                                 name="structureFamily"
                                 id="structureFamily"
@@ -89,6 +90,7 @@ class DispatchManagement extends Component {
                                     this.props.handleChangeDispatchManagementStructureId(e.target.value)
                                 }
                             // value={subprop.structureId}
+                            placeholder="Auto Fetch"
                             />
 
                         </FormRow>
@@ -128,7 +130,9 @@ class DispatchManagement extends Component {
                                     this.props.handleChangeDispatchManagementDispatchAdviceNumber(e.target.value)
                                 }
                             // value={subprop.dispatchAdviceNumber}
+                            placeholder="Auto Fetch"
                             />
+
 
 
                         </FormRow>

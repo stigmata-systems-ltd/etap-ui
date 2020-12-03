@@ -10,6 +10,9 @@ import {
   USER_ROLE,
   RESET_STRUCTURE_FORM,
   PROJECT,
+  BUSINESS_UNIT,
+  SEGMENT,
+  INDEPENDENT_COMPANY
   
 } from '../../actions/types';
 import AddUsers from '../../pages/users/AddUsers';
@@ -47,6 +50,24 @@ const mapDispatchToProps = dispatch => {
     handleChangeProject(value) {
       dispatch({
         type: PROJECT,
+        payload: value,
+      });
+    },
+    handleChangeBusinessUnit(value) {
+      dispatch({
+        type: BUSINESS_UNIT,
+        payload: value,
+      });
+    },
+    handleChangeSegment(value) {
+      dispatch({
+        type: SEGMENT,
+        payload: value,
+      });
+    },
+    handleIndependentCompany(value) {
+      dispatch({
+        type: INDEPENDENT_COMPANY,
         payload: value,
       });
     },

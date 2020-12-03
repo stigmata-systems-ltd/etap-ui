@@ -6,6 +6,9 @@ import {
     USER_ROLE,
     RESET_STRUCTURE_FORM,
     PROJECT,
+    BUSINESS_UNIT,
+    SEGMENT,
+    INDEPENDENT_COMPANY
     
   } from '../actions/types';
   
@@ -15,7 +18,11 @@ import {
     email: '',
     psNo: '',
     project : '',
-    role : ''
+    role : '',
+    businessUnit:'',
+    segment:'',
+    independentCompany:''
+    
   };
   
   export default function(state = initialState, action) {
@@ -44,6 +51,21 @@ import {
         return {
           ...state,
           project: action.payload,
+        };
+      case BUSINESS_UNIT:
+        return {
+          ...state,
+          businessUnit: action.payload,
+        };
+      case SEGMENT:
+        return {
+          ...state,
+          segment: action.payload,
+        };
+      case INDEPENDENT_COMPANY:
+        return {
+          ...state,
+          independentCompany: action.payload,
         };
       case USER_ROLE:
         return {

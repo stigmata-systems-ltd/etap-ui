@@ -123,6 +123,16 @@ export const metaDataNavbar = [
         navText: 'Technical Evaluation',
         route: '/dispatchManagement/technicalEvaluation',
       },
+      {
+        id: 'dispatchManagementSub' + 7,
+        navText: 'Procurement',
+        route: '/dispatchManagement/procurement',
+      },
+      {
+        id: 'dispatchManagementSub' + 8,
+        navText: 'Site Approval',
+        route: '/dispatchManagement/siteApproval',
+      },
     ],
   },
   {
@@ -148,7 +158,7 @@ export const metaDataNavbar = [
   {
     id: '6',
     navText: 'Life Cycle Management',
-    iconName: 'faUser',
+    iconName: 'faLifeRing',
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/lifeCycle',
@@ -168,7 +178,7 @@ export const metaDataNavbar = [
   {
     id: '7',
     navText: 'Scrap',
-    iconName: 'faUser',
+    iconName: 'faRecycle',
     isSubNavOpen: false,
     route: '/scrap/scrap',
     
@@ -176,7 +186,7 @@ export const metaDataNavbar = [
   {
     id: '8',
     navText: 'Modification Management',
-    iconName: 'faUser',
+    iconName: 'faEdit',
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/modification',

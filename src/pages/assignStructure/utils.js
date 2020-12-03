@@ -24,3 +24,22 @@ export const _componentInputBodyData = [
 
 
 ];
+export const _assignStructureInputData = ["S.no", "Description", "Type of Input", "UoM"];
+export const _assignStructureBodyData = [
+    {
+        sno: "",
+        description: "",
+        typeOfInput: "",
+        uom: "",
+        
+    },
+    {
+        sno: "",
+        description: "",
+        typeOfInput: "",
+        uom: "",
+        
+    },
+
+
+];

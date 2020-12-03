@@ -14,7 +14,7 @@ import CustomAlert from '../../common/forms/customAlert';
 import Loader from '../../common/Loader';
 import DataTable from '../../common/DataTable';
 
-import { _componentInputData, _componentInputBodyData } from './utils';
+import { _componentInputData, _componentInputBodyData,_assignStructureInputData,_assignStructureBodyData } from './utils';
 import Col6 from '../../common/forms/Col6';
 
 class AssignStructure extends Component {
@@ -60,15 +60,16 @@ class AssignStructure extends Component {
                                 onChange={e =>
                                     this.props.handleChangeComponentStructureFamily(e.target.value)
                                 }
-                            // value={subprop.structureFamily}
+                                // value={subprop.structureFamily}
+                                placeholder="Auto Fetch"
                             />
 
                         </FormRow>
-                        <p><b>Structure Attributes :</b></p>
+                        
                         <FormRow>
 
 
-                            <TextInput
+                            {/* <TextInput
                                 size="col-sm-4"
                                 label="Capacity"
                                 name="capacity"
@@ -77,7 +78,7 @@ class AssignStructure extends Component {
                                     this.props.handleChangeComponentCapacity(e.target.value)
                                 }
                             // value={subprop.capacity}
-                            />
+                            /> */}
 
 
                             <TextInput
@@ -96,7 +97,17 @@ class AssignStructure extends Component {
 
 
                         </FormRow>
+                        <p><b>Structure Attributes :</b></p>
                         <FormRow>
+                            {/* table */}
+                            <DataTable
+
+                                metaData={_assignStructureInputData}
+                                bodyData={_assignStructureBodyData}
+
+                            />
+                        </FormRow><br/>
+                        {/* <FormRow>
 
 
                             <TextInput
@@ -184,6 +195,17 @@ class AssignStructure extends Component {
                             />
 
 
+                        </FormRow> */}
+                        <FormRow>
+                            <TextInput
+                                label="Estimated Weight"
+                                name="estimatedWeight"
+                                id="estimatedWeight"
+                                onChange={e =>
+                                    this.props.handleChangeEstimatedWeight(e.target.value)
+                                }
+                            // value={subprop.estimatedWeight}
+                            />
                         </FormRow>
                         <FormRow>
                             <TextInput

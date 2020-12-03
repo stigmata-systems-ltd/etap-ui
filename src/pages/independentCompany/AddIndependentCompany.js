@@ -22,7 +22,7 @@ class AddIndependentCompany extends Component {
         return (
             <>
                 <ContentLoader>
-                    <FormContainer formTitle={'Add Users'}>
+                    <FormContainer formTitle={'Add Independent Company'}>
                         <FormRow>
                             <TextInput
                                 label="Independent Company"

@@ -30,11 +30,14 @@ import OutSource from './container/outSource/outSource';
 import Scrap from './container/scrap/scrap';
 import StructureModification from './container/modificationManagement/structureModification';
 
+import Procurement from './container/procurement/procurement';
+
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
 // import ViewComponent from './container/component/viewComponent';
 
 import unauthorized from './common/Unauthorized';
+import SiteApproval from './pages/siteApproval/SiteApproval';
 
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
@@ -118,6 +121,16 @@ class App extends Component {
             exact
             path="/dispatchManagement/dispatchManagement"
             component={DispatchManagement}
+          ></Route>
+          <Route
+            exact
+            path="/dispatchManagement/procurement"
+            component={Procurement}
+          ></Route>
+          <Route
+            exact
+            path="/dispatchManagement/siteApproval"
+            component={SiteApproval}
           ></Route>
           <Route
             exact

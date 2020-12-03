@@ -6,6 +6,7 @@ export const STRUCTURE_ID = 'STRUCTURE_ID';
 export const STRUCTURE_WEIGHT = 'STRUCTURE_WEIGHT';
 export const DRAWING_NO = 'DRAWING_NO';
 export const RESET_STRUCTURE_FORM = 'RESET_STRUCTURE_FORM';
+export const NUMBER_OF_ATTRIBUTES = 'NUMBER_OF_ATTRIBUTES';
 
 //Add Users
 
@@ -15,6 +16,8 @@ export const EMAIL = 'EMAIL';
 export const PS_NO = 'PS_NO';
 export const PROJECT = 'PROJECT';
 export const USER_ROLE = 'USER_ROLE';
+
+
 
 //Component
 export const COMPONENT_TYPE="COMPONENT_TYPE";
@@ -104,6 +107,9 @@ export const COMPONENT_NAME = 'COMPONENT_NAME';
 export const COMPONENT_ID = 'COMPONENT_ID';
 export const ADDITIONAL_PLATES = 'ADDITIONAL_PLATES';
 
+//Procurement
+
+export const FABRICATION_COST = 'FABRICATION_COST';
 
 
 

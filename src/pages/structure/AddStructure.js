@@ -5,12 +5,14 @@ import ContentLoader from '../../common/ContentLoader';
 import FormContainer from '../../common/forms/FormContainer';
 import FormRow from '../../common/forms/FormRow';
 import TextInput from '../../common/forms/TextInput';
+import DataTable from '../../common/DataTable';
 import IconTextButton from '../../common/forms/IconTextButton';
 import Button from '../../common/forms/Button';
 import SimpleDropDown from '../../common/forms/SimpleDropDown';
 import CheckBox from '../../common/forms/CheckBox';
 import CustomAlert from '../../common/forms/customAlert';
 import Loader from '../../common/Loader';
+import { _addStructureInputData, _addStructureInputBodyData } from './utils';
 
 class Structure extends Component {
   constructor(props) {
@@ -35,43 +37,32 @@ class Structure extends Component {
               />
               <TextInput
                 label="Structure Family"
-                name="structureID"
-                id="structureID"
+                name="structureFamily"
+                id="structureFamily"
                 onChange={e =>
-                  this.props.handleChangeStructureId(e.target.value)
+                  this.props.handleChangeStructureFamily(e.target.value)
                 }
-                value={subprop.structureID}
+                value={subprop.structureFamily}
+              />
+            </FormRow>
+
+            <FormRow>
+              <TextInput
+                label="No of Attributes"
+                name="noOfAttributes"
+                id="noOfAttributes"
+                onChange={e => this.props.handleChangeNumberOfAttributes(e.target.value)}
+                value={subprop.noOfAttributes}
               />
             </FormRow>
             <FormRow>
-              <TextInput
-                label="Attribute Description"
-                name="structureWeight"
-                id="structureWeight"
-                onChange={e =>
-                  this.props.handleChangeStructureWeight(e.target.value)
-                }
-                value={subprop.structureWeight}
+              <DataTable
+
+                metaData={_addStructureInputData}
+                bodyData={_addStructureInputBodyData}
+
               />
-              <TextInput
-                label="Type of Input"
-                name="structureType"
-                id="structureType"
-                onChange={e =>
-                  this.props.handleChangeStructureType(e.target.value)
-                }
-                value={subprop.structureType}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="UoM"
-                name="drawingNo"
-                id="drawingNo"
-                onChange={e => this.props.handleChangeDrawingNo(e.target.value)}
-                value={subprop.drawingNo}
-              />
-            </FormRow>
+            </FormRow><br/>
 
             <Button
               btnText="SAVE"
