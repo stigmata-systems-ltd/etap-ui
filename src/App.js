@@ -35,6 +35,7 @@ import OutSourcing from './container/dispatchManagement/outSourcing';
 import TransferPrice from './container/reuse/transferPrice';
 import Reuse from './container/reuse/reuse';
 import InitiatingReuse from './container/initiatingReuse/initiatingReuse';
+import InitiatePhyscialVerification from './container/lifeCycleManagement/initialPhysicalVerification';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
@@ -42,6 +43,9 @@ import InitiatingReuse from './container/initiatingReuse/initiatingReuse';
 
 import unauthorized from './common/Unauthorized';
 import SiteApproval from './pages/dispatchManagement/SiteApproval';
+import SiteViewPhysicalVerification from './pages/lifeCycleManagement/SiteViewPhysicalVerification';
+import PhysicalVerification from './pages/lifeCycleManagement/PhysicalVerification';
+import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhysicalVerification';
 
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
@@ -161,6 +165,28 @@ class App extends Component {
             path="/lifeCycle/qualityCheck"
             component={QualityCheck}
           ></Route>
+          <Route
+            exact
+            path="/lifeCycle/initiatePhyscialVerification"
+            component={InitiatePhyscialVerification}
+          ></Route>
+          <Route
+            exact
+            path="/lifeCycle/siteViewPhysicalVerification"
+            component={SiteViewPhysicalVerification}
+          ></Route>
+          <Route
+            exact
+            path="/lifeCycle/twccPhysicalVerification"
+            component={PhysicalVerification}
+          ></Route>
+          <Route
+            exact
+            path="/lifeCycle/auditorPhysicalVerification"
+            component={AuditorPhysicalVerification}
+          ></Route>
+
+
           <Route
             exact
             path="/scrap/scrap"

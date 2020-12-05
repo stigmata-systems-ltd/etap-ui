@@ -136,6 +136,10 @@ export const BOOK_VALUE = 'BOOK_VALUE';
 
 export const DISPATCH = 'DISPATCH';
 
+//InitiatePhysicalVerification
+
+export const INSPECTION_ID = 'INSPECTION_ID';
+
 
 
 

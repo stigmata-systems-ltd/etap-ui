@@ -174,6 +174,26 @@ export const metaDataNavbar = [
         navText: 'QA/QC',
         route: '/lifeCycle/qualityCheck',
       },
+      {
+        id: 'lifeCycleSub' + 9,
+        navText: 'Initiate Physical Verification',
+        route: '/lifeCycle/initiatePhyscialVerification',
+      },
+      {
+        id: 'lifeCycleSub' + 10,
+        navText: 'Site View Physical Verification',
+        route: '/lifeCycle/siteViewPhysicalVerification',
+      },
+      {
+        id: 'lifeCycleSub' + 11,
+        navText: 'Physical Verification',
+        route: '/lifeCycle/twccPhysicalVerification',
+      },
+      {
+        id: 'lifeCycleSub' + 12,
+        navText: 'Auditor Physical Verification',
+        route: '/lifeCycle/auditorPhysicalVerification',
+      },
     ],
   },
   {

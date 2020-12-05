@@ -14,10 +14,9 @@ import Radio from '../../common/forms/Radio';
 import Loader from '../../common/Loader';
 import DataTable from '../../common/DataTable';
 
-import { _reuseRequirmentInputData, _reuseRequirmentInputBodyData, _reuseSurplusInputData, _reuseSurplusInputBodyData } from './utils';
 
-import DateInput from '../../common/forms/DateInput';
 import Col6 from '../../common/forms/Col6';
+import { _reuseRequirmentInputData, _reuseRequirmentInputBodyData, _reuseSurplusInputData, _reuseSurplusInputBodyData } from './utils';
 
 class InitiatingReuse extends Component {
     constructor(props) {
