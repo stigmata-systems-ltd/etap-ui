@@ -36,7 +36,7 @@ class AddWorkBreak extends Component {
                         <FormRow>
                             <Col className="col-3">
                                 <Button
-                                    btnText="Excel Template Download"
+                                    btnText="Excel Template Upload"
                                     onClick={this.props.saveUsersData}
                                     btnType="primary"
 

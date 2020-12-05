@@ -116,6 +116,24 @@ export const FABRICATION_COST = 'FABRICATION_COST';
 export const MONTHLY_RENT = 'MONTHLY_RENT';
 export const CONTRACT_YEARS = 'CONTRACT_YEARS';
 
+//TransferPrice
+
+export const FROM_SITE = 'FROM_SITE';
+export const DISPATCHED_ON = 'DISPATCHED_ON';
+export const TRANSFER_PRICE = 'TRANSFER_PRICE';
+
+// Reuse
+export const THICKNESS = 'THICKNESS';
+export const REUSE_WEIGHT = 'REUSE_WEIGHT';
+export const PROPOSED_REUSABILITY = 'PROPOSED_REUSABILITY';
+export const YEAR_OF_FABRICATION = 'YEAR_OF_FABRICATION';
+export const VENDOR_DETAILS = 'VENDOR_DETAILS';
+export const QR_CODE_DETAILS = 'QR_CODE_DETAILS';
+export const DEPRECIATION_RATE = 'DEPRECIATION_RATE';
+export const BOOK_VALUE = 'BOOK_VALUE';
+
+
+
 
 
 

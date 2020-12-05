@@ -14,3 +14,24 @@ export const _dispatchManagementBodyData = [
 
 ];
 
+export const _siteApprovalInputData = ["S.No","Project" ,"Structure Family", "Structure ID",  "No of Components", "Weight", "Vendor", "Monthly Rent", "Contract Years", "Planned Release Date", "Expected Release Date","Action"];
+export const _siteApprovalBodyData = [
+    {
+
+        sno: "",
+        project: "",
+        structureFamily: "",
+        structureId: "",
+        noOfComponents: "",
+        weight: "",
+        vendor: "",
+        monthlyRent: "",
+        contractYears: "",
+        plannedReleaseDate: "",
+        expectedReleaseDate: "",
+       
+       
+    },
+
+
+];

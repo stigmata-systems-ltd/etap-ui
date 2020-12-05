@@ -123,21 +123,12 @@ export const metaDataNavbar = [
         navText: 'Technical Evaluation',
         route: '/dispatchManagement/technicalEvaluation',
       },
-      {
-        id: 'dispatchManagementSub' + 7,
-        navText: 'Procurement',
-        route: '/dispatchManagement/procurement',
-      },
-      {
-        id: 'dispatchManagementSub' + 8,
-        navText: 'Site Approval',
-        route: '/dispatchManagement/siteApproval',
-      },
+      
     ],
   },
   {
     id: '5',
-    navText: 'Vendor',
+    navText: 'New Fabrication',
     iconName: 'faUser',
     hasSubNav: true,
     isSubNavOpen: false,
@@ -145,8 +136,18 @@ export const metaDataNavbar = [
     subNavs: [
       {
         id: 'vendorSub' + 6,
-        navText: 'New Fabrication',
+        navText: 'Vendor',
         route: '/vendor/newFabrication',
+      },
+      {
+        id: 'dispatchManagementSub' + 7,
+        navText: 'Procurement',
+        route: '/vendor/procurement',
+      },
+      {
+        id: 'dispatchManagementSub' + 8,
+        navText: 'Site Approval',
+        route: '/vendor/siteApproval',
       },
       {
         id: 'vendorSub' + 7,
@@ -221,6 +222,33 @@ export const metaDataNavbar = [
         navText: 'Site Approval',
         route: '/outsourcing/siteApproval',
       },
+      {
+        id: 'outsourcingSub' + 11,
+        navText: 'Vendor',
+        route: '/outsourcing/Vendor',
+      },
     ],
   },
+  {
+    id: '10',
+    navText: 'Reuse',
+    iconName: 'faAddressCard',
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: '/reuse',
+    subNavs: [
+      {
+        id: 'reuseSub' + 11,
+        navText: 'Transfer Price',
+        route: '/reuse/transferPrice',
+      },
+      {
+        id: 'reuseSub' + 12,
+        navText: 'Reuse',
+        route: '/reuse/reuse',
+      },
+      
+    ],
+  },
+  
 ];

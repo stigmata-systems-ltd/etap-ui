@@ -32,13 +32,15 @@ import StructureModification from './container/modificationManagement/structureM
 
 import Procurement from './container/procurement/procurement';
 import OutSourcing from './container/dispatchManagement/outSourcing';
+import TransferPrice from './container/reuse/transferPrice';
+import Reuse from './container/reuse/reuse';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
 // import ViewComponent from './container/component/viewComponent';
 
 import unauthorized from './common/Unauthorized';
-import SiteApproval from './pages/siteApproval/SiteApproval';
+import SiteApproval from './pages/dispatchManagement/SiteApproval';
 
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
@@ -125,12 +127,12 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/dispatchManagement/procurement"
+            path="/vendor/procurement"
             component={Procurement}
           ></Route>
           <Route
             exact
-            path="/dispatchManagement/siteApproval"
+            path="/vendor/siteApproval"
             component={SiteApproval}
           ></Route>
           <Route
@@ -177,6 +179,21 @@ class App extends Component {
             exact
             path="/outsourcing/outSourcing"
             component={OutSourcing}
+          ></Route>
+          <Route
+            exact
+            path="/outsourcing/siteApproval"
+            component={SiteApproval}
+          ></Route>
+          <Route
+            exact
+            path="/reuse/transferPrice"
+            component={TransferPrice}
+          ></Route>
+          <Route
+            exact
+            path="/reuse/reuse"
+            component={Reuse}
           ></Route>
 
 

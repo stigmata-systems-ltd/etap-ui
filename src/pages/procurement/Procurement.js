@@ -51,7 +51,7 @@ class Procurement extends Component {
 
                         </FormRow>
                         <FormRow>
-                            <SimpleDropDown
+                            <TextInput
                                 label="Structure ID"
                                 name="structureId"
                                 id="structureId"
@@ -59,6 +59,7 @@ class Procurement extends Component {
                                     this.props.handleChangeProcurementStructureId(e.target.value)
                                 }
                             // value={subprop.structureId}
+                            placeholder="Auto Fetch"
                             />
                             <TextInput
                                 label="Project"
