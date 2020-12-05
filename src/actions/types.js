@@ -132,6 +132,10 @@ export const QR_CODE_DETAILS = 'QR_CODE_DETAILS';
 export const DEPRECIATION_RATE = 'DEPRECIATION_RATE';
 export const BOOK_VALUE = 'BOOK_VALUE';
 
+//Inititing Reuse
+
+export const DISPATCH = 'DISPATCH';
+
 
 
 

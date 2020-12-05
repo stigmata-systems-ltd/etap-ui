@@ -34,6 +34,7 @@ import Procurement from './container/procurement/procurement';
 import OutSourcing from './container/dispatchManagement/outSourcing';
 import TransferPrice from './container/reuse/transferPrice';
 import Reuse from './container/reuse/reuse';
+import InitiatingReuse from './container/initiatingReuse/initiatingReuse';
 
 // import CreateComponent from './container/component/createComponent';
 // import ViewStructure from './container/structure/viewStructure';
@@ -189,6 +190,11 @@ class App extends Component {
             exact
             path="/reuse/transferPrice"
             component={TransferPrice}
+          ></Route>
+          <Route
+            exact
+            path="/reuse/initiatingReuse"
+            component={InitiatingReuse}
           ></Route>
           <Route
             exact

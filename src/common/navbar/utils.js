@@ -123,7 +123,7 @@ export const metaDataNavbar = [
         navText: 'Technical Evaluation',
         route: '/dispatchManagement/technicalEvaluation',
       },
-      
+
     ],
   },
   {
@@ -182,7 +182,7 @@ export const metaDataNavbar = [
     iconName: 'faRecycle',
     isSubNavOpen: false,
     route: '/scrap/scrap',
-    
+
   },
   {
     id: '8',
@@ -231,24 +231,32 @@ export const metaDataNavbar = [
   },
   {
     id: '10',
-    navText: 'Reuse',
+    navText: 'Initiating Reuse',
     iconName: 'faAddressCard',
+    route: '/reuse/initiatingReuse',
+
+  },
+  {
+    id: '11',
+    navText: 'Reuse',
+    iconName: 'faLowVision',
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/reuse',
     subNavs: [
       {
-        id: 'reuseSub' + 11,
+        id: 'reuseSub' + 12,
         navText: 'Transfer Price',
         route: '/reuse/transferPrice',
       },
       {
-        id: 'reuseSub' + 12,
+        id: 'reuseSub' + 13,
         navText: 'Reuse',
         route: '/reuse/reuse',
       },
-      
+
     ],
   },
-  
+
+
 ];
