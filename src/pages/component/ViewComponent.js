@@ -1,79 +1,116 @@
-import React, { Component } from 'react';
-import { Col, Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import ContentLoader from '../../common/ContentLoader';
-import FormContainer from '../../common/forms/FormContainer';
-import FormRow from '../../common/forms/FormRow';
-import TextInput from '../../common/forms/TextInput';
-import FileInput from '../../common/forms/FileInput';
-import IconTextButton from '../../common/forms/IconTextButton';
-import Button from '../../common/forms/Button';
-import SearchBox from '../../common/forms/SearchBox';
-import SimpleDropDown from '../../common/forms/SimpleDropDown';
-import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
-import Loader from '../../common/Loader';
-import DataTable from '../../common/DataTable';
-
-import { _viewComponentData, _viewComponentBodyData,_viewComponentModificationHistoryData,_viewComponentModificationHistoryBodyData } from './utils';
-import Col6 from '../../common/forms/Col6';
+import React, { Component } from "react";
+import ContentLoader from "../../common/ContentLoader";
+import FormContainer from "../../common/forms/FormContainer";
+import DataTable from "../../common/DataTable";
+import ConfirmModal from "../../common/ConfirmModal";
+import CustomAlert from "../../common/forms/customAlert";
+import { listComponentTypeMetaData, transformComponentList } from "./utils";
+import Button from "../../common/forms/Button";
+import CreateComponent from "../../container/component/addComponent";
+import CustomDataTable from "../../common/CustomDataTable";
+import TableFilter from "../../common/TableFilter";
+import Col6 from "../../common/forms/Col6";
 
 class ViewComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeId: null,
+      showDeleteModal: false,
+      filterText: "",
+      resetPaginationToggle: false,
+    };
+  }
+  componentDidMount() {
+    this.props.componentList();
+  }
 
-    render() {
-        const subprop = this.props.assignStructure;
-        return (
-            <>
-                <ContentLoader>
-                    <FormContainer formTitle={'View Component'}>
+//   filteredItems = (data) => {
+//     return (
+//       data &&
+//       data.filter(
+//         (item) =>
+//           item.email &&
+//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
+//       )
+//     );
+//   };
 
-
-
-                        <FormRow>
-                            <SearchBox />
-                        </FormRow><br/>
-                        <FormRow>
-
-                            <DataTable
-
-                                metaData={_viewComponentData}
-                                bodyData={_viewComponentBodyData}
-
-                            />
-                        </FormRow><br />
-                        <p><b>Modification History :</b></p>
-                        <FormRow>
-
-                            <DataTable
-
-                                metaData={_viewComponentModificationHistoryData}
-                                bodyData={_viewComponentModificationHistoryBodyData}
-
-                            />
-                        </FormRow><br />
-
-
-
-                        <Button
-                            btnText="SAVE"
-                            onClick={this.props.saveViewStructureData}
-                            btnType="primary"
-                        />
-                        <Button
-                            btnText="DISCARD"
-                            btnType="cancel"
-                            onClick={this.props.resetViewStructureData}
-                        />
-
-
-                    </FormContainer>
-                </ContentLoader>
-            </>
-        );
-    }
+  render() {
+    return (
+      <ContentLoader>
+        {this.props.component.isAddComponentMsg && (
+          <CustomAlert
+            variant="success"
+            message={this.props.component.message}
+          />
+        )}
+        <CreateComponent showAddComponentModal={this.props.component.showAddComponentModal} />
+        <FormContainer formTitle={"Component Type List"}>
+          {this.props.component.componentTypeList && (
+            <CustomDataTable
+              metaData={listComponentTypeMetaData(
+                (id) => this.setState({ activeId: id, showDeleteModal: true }),
+                (id) => this.props.handleEditUser(id),
+              )}
+              bodyData={transformComponentList(
+                this.props.component.componentTypeList
+              )}
+              progressPending={this.props.component.isLoading}
+              pagination={true}
+              paginationTotalRows={
+                this.props.component.componentList &&
+                this.props.component.componentList.length
+              }
+              paginationPerPage={5}
+              noHeader={true}
+              subHeader
+              subHeaderComponent={
+                <>
+                  <TableFilter
+                    placeholder="Search By ID"
+                    fieldSize="float-left col-sm-10"
+                    onFilter={(e) => {
+                      e.target.value === "" &&
+                        this.setState({
+                          resetPaginationToggle: !this.state
+                            .resetPaginationToggle,
+                        });
+                      this.setState({ filterText: e.target.value });
+                    }}
+                    filterText={this.state.filterText}
+                  />
+                  <Col6>
+                  
+                  <Button
+                    btnText="Create New User"
+                    btnType="btn-primary float-right"
+                    onClick={this.props.showAddComponentModal}
+                  />
+                  </Col6>
+                </>
+              }
+            />
+          )}
+          <ConfirmModal
+            showModal={this.state.showDeleteModal}
+            handleClose={() =>
+              this.setState({ showDeleteModal: false, activeId: null })
+            }
+            title="Delete User"
+            handleConfirm={() => {
+              this.props.handleConfirmDelete(this.state.activeId);
+              this.setState({ showDeleteModal: false, activeId: null });
+            }}
+          >
+            <h6 className="text-danger">
+              Are you sure you want to delete this User?
+            </h6>
+          </ConfirmModal>
+        </FormContainer>
+      </ContentLoader>
+    );
+  }
 }
 
 export default ViewComponent;

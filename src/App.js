@@ -16,7 +16,7 @@ import AssignStructure from './container/assignStructure/assignStructure';
 import AddRequirement from './container/requirement/addRequirement';
 
 import ViewStructure from './pages/structure/ViewStructure';
-import ViewComponent from './pages/component/ViewComponent';
+import ViewComponent from './container/component/viewComponent';
 import ViewRequirements from './pages/requirements/ViewRequirements';
 import ViewSurplus from './pages/surplus/ViewSurplus';
 import TechnicalEvaluation from './pages/technicalEvaluation/TechnicalEvaluation';
