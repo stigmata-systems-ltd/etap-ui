@@ -27,7 +27,7 @@ class CreateUser extends Component {
         }
         handleClose={
           this.props.component.isEditMode
-            ? this.props.closeUpdateComponentModal
+            ? this.props.closeAddComponentModal
             : this.props.closeAddComponentModal
         }
         size="lg"
@@ -42,6 +42,12 @@ class CreateUser extends Component {
             id="componentType"
             onChange={(e) => this.props.handleChangeComponentType(e.target.value)}
             value={this.props.component.componentType}
+          />
+          <SimpleDropDown
+            label="Status"
+            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
+            onChange={(e) => this.props.handleComponentTypeStatus(e.target.value)}
+            value={this.props.component.componentTypeStatus}
           />
         </FormRow>
         

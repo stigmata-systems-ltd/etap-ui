@@ -5,12 +5,20 @@ import {
     LIST_COMPONENT,
     CHANGE_ADD_COMPONENT_MODAL_STATUS,
     SHOW_ADD_COMPONENT_MSG,
-    ADD_COMPONENT_TYPE
+    ADD_COMPONENT_TYPE,
+    SET_COMPONENT_EDIT_MODE,
+    GET_COMPONENT_TYPE,
+    COMPONENT_TYPE_STATUS,
+    UPDATE_COMPONENT_TYPE,
+    RESET_CREATE_COMPONENT_TYPE_FORM,
+    
 } from '../actions/types';
 
 const initialState = {
     componentType: '',
     isAddComponentMsg: false,
+    componentTypeID:'',
+    componentTypeStatus:''
 
 };
 
@@ -21,13 +29,20 @@ export default function (state = initialState, action) {
                 ...state,
                 componentType: action.payload,
             };
-
-        case RESET_STRUCTURE_FORM:
+        case COMPONENT_TYPE_STATUS:
+            return {
+                ...state,
+                componentTypeStatus: action.payload
+            }
+        case RESET_CREATE_COMPONENT_TYPE_FORM:
             return {
                 ...state,
                 componentType: '',
-
+                componentTypeStatus: '',
+                componentTypeID: '',
+                isLoading: false
             };
+            
         case SHOW_ADD_COMPONENT_MSG:
             return {
                 ...state,
@@ -44,21 +59,21 @@ export default function (state = initialState, action) {
                     ...state,
                     showAddComponentMessage: true
                 }
-            case `${LIST_COMPONENT}_PENDING`:
+        case `${LIST_COMPONENT}_PENDING`:
                 return {
                   ...state,
                   isLoading: true,
                   isError: false,
                   isSuccess: false,
                 };
-              case `${LIST_COMPONENT}_REJECTED`:
+        case `${LIST_COMPONENT}_REJECTED`:
                 return {
                   ...state,
                   isLoading: false,
                   isError: true,
                   isSuccess: false,
                 };
-              case `${LIST_COMPONENT}_FULFILLED`:
+        case `${LIST_COMPONENT}_FULFILLED`:
                 return {
                   ...state,
                   isLoading: false,
@@ -66,14 +81,14 @@ export default function (state = initialState, action) {
                   isSuccess: false,
                   componentTypeList: action.payload.data,
                 };
-                case `${ADD_COMPONENT_TYPE}_PENDING`:
+        case `${ADD_COMPONENT_TYPE}_PENDING`:
                     return {
                       ...state,
                       isLoading: true,
                       isError: false,
                       isSuccess: false,
                     };
-                  case `${ADD_COMPONENT_TYPE}_REJECTED`:
+        case `${ADD_COMPONENT_TYPE}_REJECTED`:
                     return {
                       ...state,
                       isLoading: false,
@@ -84,7 +99,7 @@ export default function (state = initialState, action) {
             ? action.payload.response.data.message
             : "Please check your form data and retry",
                     };
-                  case `${ADD_COMPONENT_TYPE}_FULFILLED`:
+        case `${ADD_COMPONENT_TYPE}_FULFILLED`:
                     return {
                       ...state,
                       isLoading: false,
@@ -92,6 +107,62 @@ export default function (state = initialState, action) {
                       isSuccess: false,
                       message: action.payload.data.message,
                     };
+        case `${UPDATE_COMPONENT_TYPE}_PENDING`:
+                return {
+                          ...state,
+                          isLoading: true,
+                          isError: false,
+                          isSuccess: false,
+                        };
+        case `${UPDATE_COMPONENT_TYPE}_REJECTED`:
+                return {
+                          ...state,
+                          isLoading: false,
+                          isError: true,
+                          isSuccess: false,
+                          message:
+              action.payload.response && action.payload.response.data
+                ? action.payload.response.data.message
+                : "Please check your form data and retry",
+                        };
+        case `${UPDATE_COMPONENT_TYPE}_FULFILLED`:
+                return {
+                          ...state,
+                          isLoading: false,
+                          isError: false,
+                          isSuccess: false,
+                          message: action.payload.data.message,
+                        };
+        case SET_COMPONENT_EDIT_MODE:
+                return {
+                    ...state,
+                    isEditMode: action.payload,
+                };
+        case `${GET_COMPONENT_TYPE}_FULFILLED`:
+            return {
+                ...state,
+                componentTypeID:action.payload.data.id,
+                componentType: action.payload.data.name,
+                componentTypeStatus: action.payload.data.isActive
+            }
+        case `${GET_COMPONENT_TYPE}_PENDING`:
+            return {
+                  ...state,
+                  isLoading: true,
+                  isError: false,
+                  isSuccess: false,
+                };
+        case `${GET_COMPONENT_TYPE}_REJECTED`:
+            return {
+                  ...state,
+                  isLoading: false,
+                  isError: true,
+                  isSuccess: false,
+                  message:
+      action.payload.response && action.payload.response.data
+        ? action.payload.response.data.message
+        : "Please check your form data and retry",
+                };
         default:
             return state;
     }

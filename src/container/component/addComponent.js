@@ -4,9 +4,13 @@ import store from '../../store';
 import {
   COMPONENT_TYPE,
   RESET_STRUCTURE_FORM,
-  CHANGE_ADD_COMPONENT_MODAL_STATUS
+  CHANGE_ADD_COMPONENT_MODAL_STATUS,
+  COMPONENT_TYPE_STATUS,
+  SET_COMPONENT_EDIT_MODE,
+  RESET_CREATE_COMPONENT_TYPE_FORM,
+  COMPONENT_TYPE_LOADING
 } from '../../actions/types';
-import {addComponent} from '../../actions/componentAction'
+import {addComponent,updateComponentType,componentList} from '../../actions/componentAction'
 import AddComponent from '../../pages/component/AddComponent';
 
 const mapDispatchToProps = dispatch => {
@@ -15,13 +19,41 @@ const mapDispatchToProps = dispatch => {
       dispatch({ type: RESET_STRUCTURE_FORM });
     },
     addComponentType(){
-      dispatch(addComponent());
+      dispatch(addComponent()).then(() => {
+        dispatch(componentList());
+        dispatch({
+          type: SET_COMPONENT_EDIT_MODE,
+          payload: false,
+        })
+        dispatch({ type: RESET_CREATE_COMPONENT_TYPE_FORM });
+        dispatch({
+          type: CHANGE_ADD_COMPONENT_MODAL_STATUS,
+          payload: false,
+        })
+        
+      });;
+    },
+    updateComponentType(){
+      dispatch(updateComponentType()).then(() => {
+        dispatch(componentList());
+        dispatch({
+          type: SET_COMPONENT_EDIT_MODE,
+          payload: false,
+        })
+        dispatch({ type: RESET_CREATE_COMPONENT_TYPE_FORM });
+        dispatch({
+          type: CHANGE_ADD_COMPONENT_MODAL_STATUS,
+          payload: false,
+        })
+        
+      });
     },
     closeAddComponentModal(){
       dispatch({
         type: CHANGE_ADD_COMPONENT_MODAL_STATUS,
         payload: false,
       })
+      dispatch({ type: RESET_CREATE_COMPONENT_TYPE_FORM })
     },
     handleChangeComponentType(value) {
       dispatch({
@@ -29,7 +61,12 @@ const mapDispatchToProps = dispatch => {
         payload: value,
       });
     },
-  
+    handleComponentTypeStatus(value) {
+      dispatch({
+        type: COMPONENT_TYPE_STATUS,
+        payload: value,
+      });
+    },
   };
 };
 

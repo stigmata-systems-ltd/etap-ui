@@ -51,7 +51,7 @@ class ViewComponent extends Component {
             <CustomDataTable
               metaData={listComponentTypeMetaData(
                 (id) => this.setState({ activeId: id, showDeleteModal: true }),
-                (id) => this.props.handleEditUser(id),
+                (id) => this.props.handleEdit(id),
               )}
               bodyData={transformComponentList(
                 this.props.component.componentTypeList

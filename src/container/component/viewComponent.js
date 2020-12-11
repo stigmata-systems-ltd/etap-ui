@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import store from '../../store';
-import {componentList} from '../../actions/componentAction';
+import {componentList, getSingleComponentType} from '../../actions/componentAction';
 
 import {
   COMPONENT_TYPE,
   RESET_STRUCTURE_FORM,
   CHANGE_ADD_COMPONENT_MODAL_STATUS,
-  SHOW_ADD_COMPONENT_MSG
+  SHOW_ADD_COMPONENT_MSG,
+  SET_COMPONENT_EDIT_MODE,
+  COMPONENT_TYPE_STATUS
 } from '../../actions/types';
 import ViewComponent from '../../pages/component/ViewComponent';
 
@@ -22,6 +24,12 @@ const mapDispatchToProps = dispatch => {
         payload: value,
       });
     },
+    handleComponentTypeStatus(value) {
+        dispatch({
+          type: COMPONENT_TYPE_STATUS,
+          payload: value,
+        });
+      },
     showAddComponentModal() {
         dispatch({
           type: CHANGE_ADD_COMPONENT_MODAL_STATUS,
@@ -32,6 +40,17 @@ const mapDispatchToProps = dispatch => {
           payload: false,
         })
       },
+      handleEdit(id) {
+        dispatch({
+          type: CHANGE_ADD_COMPONENT_MODAL_STATUS,
+          payload: true,
+        })
+        dispatch({
+          type: SET_COMPONENT_EDIT_MODE,
+          payload: true,
+        })
+        dispatch(getSingleComponentType(id));
+     },
   };
 };
 

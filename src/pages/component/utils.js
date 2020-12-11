@@ -62,6 +62,7 @@ export const listComponentTypeMetaData = (handleDelete, handleEdit) => {
             statusValue = "InActive"
         }
         let tmpObj = {
+            id: component.id,
             componentType: component.name,
             status: statusValue,
         };
