@@ -11,11 +11,13 @@ import { combineReducers } from 'redux';
 import componentReducer from './componentReducer';
 import structureReducer from './structureReducer';
 import transferPriceReducer from './transferPriceReducer';
+import wbsReducer from './wbsReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
   transferPrice:transferPriceReducer,
-  component : componentReducer
+  component : componentReducer,
+  wbs : wbsReducer
  
 });
 

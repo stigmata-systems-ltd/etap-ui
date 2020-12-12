@@ -54,6 +54,9 @@ export const VENDOR_CONTACT_NUMBER="VENDOR_CONTACT_NUMBER";
 
 //Add Work Break
 export const WORK_BREAK_PROJECT_NAME="PROJECT_NAME";
+export const WBS_UPLOADED_DATA="WBS_UPLOADED_DATA";
+export const RESET_WBS_FORM="RESET_WBS_FORM";
+export const LIST_PROJECT_CODES="LIST_PROJECT_CODES";
 
 // Assign Structure
 export const CAPACITY="CAPACITY";

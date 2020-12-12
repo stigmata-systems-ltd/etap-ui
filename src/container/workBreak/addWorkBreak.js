@@ -1,22 +1,47 @@
 import { connect } from 'react-redux';
 import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
-
+import csv from 'csvtojson';
+import {projectCodesList} from '../../actions/wbsActions'
 import {
 
-    RESET_STRUCTURE_FORM,
+    RESET_WBS_FORM,
     WORK_BREAK_PROJECT_NAME,
-
+    WBS_UPLOADED_DATA
 } from '../../actions/types';
 
 import AddWorkBreak from '../../pages/workBreak/AddWorkBreak';
 
 const mapDispatchToProps = dispatch => {
     return {
-        resetStructureData() {
-            dispatch({ type: RESET_STRUCTURE_FORM });
+        resetWBSData() {
+            dispatch({ type: RESET_WBS_FORM });
         },
 
+            handleOnDrop(data){
+                console.log('---------------------------');
+                let wbsDataArr=[];
+                data.forEach((a,i) => {
+                    if (i>0){
+                        let wbsSampleObject={
+                            wbs:a.data[0],
+                            segment:a.data[1],
+                            subSegment:a.data[2],
+                            element:a.data[3]
+                        }
+                        wbsDataArr.push(wbsSampleObject);
+                    }
+                    
+                })
+                dispatch({
+                    type: WBS_UPLOADED_DATA,
+                    payload: wbsDataArr,
+                });
+                console.log('---------------------------');
+              },
+        getProjectList(){
+            dispatch(projectCodesList());
+              },
         handleChangeProjectName(value) {
             dispatch({
                 type: WORK_BREAK_PROJECT_NAME,
@@ -29,9 +54,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-    const addWorkBreak = store.getState().addWorkBreak;
+    const wbs = store.getState().wbs;
     return {
-        addWorkBreak,
+        wbs,
     };
 };
 

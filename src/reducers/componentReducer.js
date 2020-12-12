@@ -11,7 +11,7 @@ import {
     COMPONENT_TYPE_STATUS,
     UPDATE_COMPONENT_TYPE,
     RESET_CREATE_COMPONENT_TYPE_FORM,
-    
+    WBS_UPLOADED_DATA
 } from '../actions/types';
 
 const initialState = {
@@ -34,6 +34,7 @@ export default function (state = initialState, action) {
                 ...state,
                 componentTypeStatus: action.payload
             }
+        
         case RESET_CREATE_COMPONENT_TYPE_FORM:
             return {
                 ...state,
