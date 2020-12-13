@@ -12,12 +12,14 @@ import componentReducer from './componentReducer';
 import structureReducer from './structureReducer';
 import transferPriceReducer from './transferPriceReducer';
 import wbsReducer from './wbsReducer';
+import independentCompanyReducer from './independentCompanyReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
   transferPrice:transferPriceReducer,
   component : componentReducer,
-  wbs : wbsReducer
+  wbs : wbsReducer,
+  icbu : independentCompanyReducer
  
 });
 

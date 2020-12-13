@@ -16,7 +16,9 @@ class AddIndependentCompany extends Component {
     constructor(props) {
         super(props);
     }
-
+    componentDidMount() {
+        this.props.independentCompany();
+      }
     render() {
         const subprop = this.props.icbu;
         return (
@@ -31,7 +33,7 @@ class AddIndependentCompany extends Component {
                                 onChange={e =>
                                     this.props.handleChangeIndependentCompany(e.target.value)
                                 }
-                            // value={subprop.independentCompany}
+                                value={subprop.independentCompany}
                             />
                             <TextInput
                                 label="Business Unit"
@@ -40,7 +42,7 @@ class AddIndependentCompany extends Component {
                                 onChange={e =>
                                     this.props.handleChangeBusinessUnit(e.target.value)
                                 }
-                            // value={subprop.businessUnit}
+                                value={subprop.businessUnit}
                             />
                         </FormRow>
 
