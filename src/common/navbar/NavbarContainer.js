@@ -10,7 +10,7 @@ class Navbar extends Component {
         <nav
           class="sidebar sidebar-offcanvas"
           id="sidebar"
-          style={{ position: "fixed" }}
+          style={{ position: "fixed"}}
         >
           <ul class="nav">
             <NavItem navData={metaDataNavbar} />

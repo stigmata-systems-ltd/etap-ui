@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import Structure from '../../pages/structure/createStructure';
+import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
 
 import {
-  ADD_STRUCTURE,
-  STRUCTURE_TYPE,
+
   STRUCTURE_NAME,
-  DRAWING_NO,
+
   RESET_STRUCTURE_FORM,
-  STRUCTURE_ID,
-  STRUCTURE_WEIGHT,
+  
+  STRUCTURE_FAMILY,
+  NUMBER_OF_ATTRIBUTES
 } from '../../actions/types';
 
 const mapDispatchToProps = dispatch => {
@@ -24,30 +24,19 @@ const mapDispatchToProps = dispatch => {
         payload: value,
       });
     },
-    handleChangeStructureId(value) {
+    handleChangeStructureFamily(value) {
       dispatch({
-        type: STRUCTURE_ID,
+        type: STRUCTURE_FAMILY,
         payload: value,
       });
     },
-    handleChangeStructureType(value) {
+    handleChangeNumberOfAttributes(value) {
       dispatch({
-        type: STRUCTURE_TYPE,
+        type: NUMBER_OF_ATTRIBUTES,
         payload: value,
       });
     },
-    handleChangeStructureWeight(value) {
-      dispatch({
-        type: STRUCTURE_WEIGHT,
-        payload: value,
-      });
-    },
-    handleChangeDrawingNo(value) {
-      dispatch({
-        type: DRAWING_NO,
-        payload: value,
-      });
-    },
+   
   };
 };
 
