@@ -6,12 +6,13 @@ import './assets/css/styles.css';
 
 //Pages Import
 import AddStructure from './container/structure/addStructure';
-import AddUsers from './container/users/addUsers';
+import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 import AddIndependentCompany from './container/independentCompany/independentCompany';
 import AddProject from './container/project/addProject';
 import AddSubContractor from './container/subContractor/addSubContractor';
 import AddWorkBreak from './container/workBreak/addWorkBreak';
+import ViewWorkBreak from './container/workBreak/viewWBS';
 import AssignStructure from './container/assignStructure/assignStructure';
 import AddRequirement from './container/requirement/addRequirement';
 
@@ -77,13 +78,18 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addUsers"
-            component={AddUsers}
+            path="/masters/viewUsers"
+            component={ViewUsers}
           ></Route>
           <Route
             exact
             path="/masters/addWBS"
             component={AddWorkBreak}
+          ></Route>
+          <Route
+            exact
+            path="/masters/viewWBS"
+            component={ViewWorkBreak}
           ></Route>
           <Route
             exact

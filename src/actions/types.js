@@ -16,9 +16,11 @@ export const EMAIL = 'EMAIL';
 export const PS_NO = 'PS_NO';
 export const PROJECT = 'PROJECT';
 export const USER_ROLE = 'USER_ROLE';
-
-
-
+export const LIST_USERS= "LIST_USERS";
+export const SHOW_ADD_USERS_MSG = "SHOW_ADD_USERS_MSG";
+export const CHANGE_ADD_USERS_MODAL_STATUS = "CHANGE_ADD_USERS_MODAL_STATUS";
+export const GET_PROJECT_DETAILS="GET_PROJECT_DETAILS";
+export const GET_ROLES_LIST= "GET_ROLES_LIST";
 //Component
 export const COMPONENT_TYPE="COMPONENT_TYPE";
 export const ADD_COMPONENT = "ADD_COMPONENT";
@@ -59,7 +61,8 @@ export const WORK_BREAK_PROJECT_NAME="PROJECT_NAME";
 export const WBS_UPLOADED_DATA="WBS_UPLOADED_DATA";
 export const RESET_WBS_FORM="RESET_WBS_FORM";
 export const LIST_PROJECT_CODES="LIST_PROJECT_CODES";
-
+export const SAVE_WBS_DATA="SAVE_WBS_DATA";
+export const LIST_WBS_DATA="LIST_WBS_DATA";
 // Assign Structure
 export const CAPACITY="CAPACITY";
 export const OVER_ALL_LENGTH="OVER_ALL_LENGTH";

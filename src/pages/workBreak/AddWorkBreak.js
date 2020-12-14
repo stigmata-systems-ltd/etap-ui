@@ -52,9 +52,9 @@ class AddWorkBreak extends Component {
                                 label="Project Name"
                                 name="projectName"
                                 onChange={e => this.props.handleChangeProjectName(e.target.value)}
-                                value={this.props.wbs.projectCodesList}
+                                value={this.props.wbs.wbsProjectName}
+                                selectOptions={this.props.wbs.projectCodesList}
                             />
-
                         </FormRow>
                         <FormRow>
                             <Col className="col-3">
@@ -117,7 +117,7 @@ class AddWorkBreak extends Component {
                         </FormRow>
                         <Button
                             btnText="SAVE"
-                            onClick={this.props.saveUsersData}
+                            onClick={this.props.saveWBSData}
                             btnType="primary"
                         />
                         <Button
