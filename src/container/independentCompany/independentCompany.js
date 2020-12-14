@@ -8,6 +8,7 @@ import {
 
 } from '../../actions/types';
 import AddIndependentCompany from '../../pages/independentCompany/AddIndependentCompany';
+import { addIndependentCompany } from '../../actions/icbuAction';
 
 
 const mapDispatchToProps = dispatch => {
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => {
                 type: BUSINESS_UNIT,
                 payload: value,
             });
+        },
+        independentCompany() {
+            dispatch(addIndependentCompany());
         },
 
     };

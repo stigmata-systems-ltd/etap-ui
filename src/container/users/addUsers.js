@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
-import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
-
 import {
   FIRST_NAME,
   LAST_NAME,
@@ -15,14 +13,20 @@ import {
   INDEPENDENT_COMPANY
   
 } from '../../actions/types';
-import AddUsers from '../../pages/users/AddUsers';
+import AddUser from '../../pages/users/AddUser';
+import {projectCodesList,getProjectDetails,getRolesList} from '../../actions/usersAction'
 
 const mapDispatchToProps = dispatch => {
   return {
     resetStructureData() {
       dispatch({ type: RESET_STRUCTURE_FORM });
     },
-
+    getProjectList(){
+      dispatch(projectCodesList());
+        },
+        getRolesList(){
+          dispatch(getRolesList());
+        },
     handleChangeFirstName(value) {
       dispatch({
         type: FIRST_NAME,
@@ -52,6 +56,7 @@ const mapDispatchToProps = dispatch => {
         type: PROJECT,
         payload: value,
       });
+      dispatch(getProjectDetails());
     },
     handleChangeBusinessUnit(value) {
       dispatch({
@@ -81,10 +86,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  const addusers = store.getState().addusers;
+  const users = store.getState().users;
   return {
-    addusers,
+    users,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(AddUser);

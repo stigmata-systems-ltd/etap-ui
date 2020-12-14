@@ -13,6 +13,8 @@ import structureReducer from './structureReducer';
 import transferPriceReducer from './transferPriceReducer';
 import wbsReducer from './wbsReducer';
 import projReducer from './projectReducer';
+import independentCompanyReducer from './independentCompanyReducer';
+import usersReducer from './userReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -20,7 +22,8 @@ const rootReducer = combineReducers({
   component : componentReducer,
   wbs : wbsReducer,
   proj: projReducer,
- 
+  icbu : independentCompanyReducer,
+  users: usersReducer
 });
 
 export default rootReducer;
