@@ -2,41 +2,31 @@ import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 
 
-export const listProjectMetaData = (handleDelete, handleEdit) => {
+export const listUsersMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        name: 'Name',
-        selector: 'name',
+        name: 'First Name',
+        selector: 'firstName',
         sortable: false,
       },
       {
-        name: 'Project Code',
-        selector: 'projCode',
+        name: 'Last Name',
+        selector: 'lastName',
         sortable: false,
       },
       {
-        name: 'Area',
-        selector: 'area',
+        name: 'User Name',
+        selector: 'userName',
         sortable: false,
       },
       {
-        name: 'IC Id',
-        selector: 'icId',
+        name: 'Email',
+        selector: 'email',
         sortable: false,
       },
       {
-        name: 'BU Id',
-        selector: 'buId',
-        sortable: false,
-      },
-      {
-        name: 'Segment Id',
-        selector: 'segmentId',
-        sortable: false,
-      },
-      {
-        name: 'Project Sites',
-        selector: 'projectSites',
+        name: 'Mobile No',
+        selector: 'mobileNo',
         sortable: false,
       },
       {
@@ -58,20 +48,17 @@ export const listProjectMetaData = (handleDelete, handleEdit) => {
     ];
   };
 
-  export const transformProjectList = projectList => {
+  export const transformUsersList = usersList => {
     let tmpArr = [];
-    projectList &&
-    projectList.map(project => {
-      
+    usersList &&
+    usersList.map(user => {
+        
         let tmpObj = {
-            id: project.id,
-            name: project.name,
-            projCode: project.projCode,
-            area: project.area,
-            icId: project.icId,
-            buId: project.buId,
-            segmentId: project.segmentId,
-            projectSites: project.projectSiteLocationDetails.map(dt => dt.name).join().replaceAll(",",", "),
+          firstName: user.firstName,
+          lastName: user.lastName,
+          userName: user.userName,
+          email: user.email,
+          mobileNo: user.mobileNo,
         };
         tmpArr.push(tmpObj);
       });

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
 import csv from 'csvtojson';
-import {projectCodesList} from '../../actions/wbsActions'
+import {projectCodesList,saveWBSData} from '../../actions/wbsActions'
 import {
 
     RESET_WBS_FORM,
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
                 data.forEach((a,i) => {
                     if (i>0){
                         let wbsSampleObject={
-                            wbs:a.data[0],
+                            workBreakDownCode:a.data[0],
                             segment:a.data[1],
                             subSegment:a.data[2],
                             element:a.data[3]
@@ -41,6 +41,12 @@ const mapDispatchToProps = dispatch => {
               },
         getProjectList(){
             dispatch(projectCodesList());
+              },
+        saveWBSData(){
+            dispatch(saveWBSData());
+            dispatch({
+                type: RESET_WBS_FORM
+            });
               },
         handleChangeProjectName(value) {
             dispatch({

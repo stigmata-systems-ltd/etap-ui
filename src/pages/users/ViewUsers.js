@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
+import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
-import { listProjectMetaData, transformProjectList } from "./utils";
+import { listUsersMetaData, transformUsersList } from "./utils";
 import Button from "../../common/forms/Button";
-import AddProjModal from "./AddProject";
+import AddUser from "../../container/users/addUsers";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 
-class ViewProject extends Component {
+class ViewUsers extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,45 +22,34 @@ class ViewProject extends Component {
     };
   }
   componentDidMount() {
-    this.props.projectList();
+    this.props.usersList();
   }
-
-//   filteredItems = (data) => {
-//     return (
-//       data &&
-//       data.filter(
-//         (item) =>
-//           item.email &&
-//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
-//       )
-//     );
-//   };
 
   render() {
     return (
       <ContentLoader>
-        {this.props.proj.isProjMsg && (
+        {this.props.users.isAddComponentMsg && (
           <CustomAlert
             variant="success"
-            message={this.props.proj.message}
+            message={this.props.component.message}
           />
         )}
-        <AddProjModal {...this.props} />
-        <FormContainer formTitle={"Project List"}>
-          {this.props.proj.projectList && (
+        <AddUser showAddComponentModal={this.props.users.showAddUsersModal} />
+        <FormContainer formTitle={"Users List"}>
+          {this.props.users.usersList && (
             <CustomDataTable
-              metaData={listProjectMetaData(
+              metaData={listUsersMetaData(
                 (id) => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleEdit(id),
               )}
-              bodyData={transformProjectList(
-                this.props.proj.projectList
+              bodyData={transformUsersList(
+                this.props.users.usersList
               )}
-              progressPending={this.props.proj.isLoading}
+              progressPending={this.props.users.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.proj.componentList &&
-                this.props.proj.componentList.length
+                this.props.users.usersList &&
+                this.props.users.usersList.length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -82,34 +72,19 @@ class ViewProject extends Component {
                   <Col6>
                   
                   <Button
-                    btnText="Create New Project"
+                    btnText="Create New User"
                     btnType="btn-primary float-right"
-                    onClick={this.props.showAddProjModal}
+                    onClick={this.props.showAddUsersModal}
                   />
                   </Col6>
                 </>
               }
             />
           )}
-          <ConfirmModal
-            showModal={this.state.showDeleteModal}
-            handleClose={() =>
-              this.setState({ showDeleteModal: false, activeId: null })
-            }
-            title="Delete Project"
-            handleConfirm={() => {
-              this.props.handleConfirmDelete(this.state.activeId);
-              this.setState({ showDeleteModal: false, activeId: null });
-            }}
-          >
-            <h6 className="text-danger">
-              Are you sure you want to delete this Project?
-            </h6>
-          </ConfirmModal>
         </FormContainer>
       </ContentLoader>
     );
   }
 }
 
-export default ViewProject;
+export default ViewUsers;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -6,12 +6,13 @@ import './assets/css/styles.css';
 
 //Pages Import
 import AddStructure from './container/structure/addStructure';
-import AddUsers from './container/users/addUsers';
+import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 import AddIndependentCompany from './container/independentCompany/independentCompany';
-import AddProject from './container/project/addProject';
+
 import AddSubContractor from './container/subContractor/addSubContractor';
 import AddWorkBreak from './container/workBreak/addWorkBreak';
+import ViewWorkBreak from './container/workBreak/viewWBS';
 import AssignStructure from './container/assignStructure/assignStructure';
 import AddRequirement from './container/requirement/addRequirement';
 
@@ -48,6 +49,8 @@ import PhysicalVerification from './pages/lifeCycleManagement/PhysicalVerificati
 import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhysicalVerification';
 import ViewStructureFamily from './container/structureFamily/viewStructureFamily';
 
+const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
+
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
 // setRespInterceptor();
@@ -61,6 +64,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
+        <Suspense fallback={<div>Loading...</div>}>
           <Route
             exact
             path="/masters/addComponent"
@@ -78,18 +82,23 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addProject"
-            component={AddProject}
+            path="/masters/viewProject"
+            component={ViewProject}
           ></Route>
           <Route
             exact
-            path="/masters/addUsers"
-            component={AddUsers}
+            path="/masters/viewUsers"
+            component={ViewUsers}
           ></Route>
           <Route
             exact
             path="/masters/addWBS"
             component={AddWorkBreak}
+          ></Route>
+          <Route
+            exact
+            path="/masters/viewWBS"
+            component={ViewWorkBreak}
           ></Route>
           <Route
             exact
@@ -235,7 +244,7 @@ class App extends Component {
           ></Route>
 
 
-
+        </Suspense>
           <Route exact path="/unauthorized" component={unauthorized} />
         </Switch>
       </Router>

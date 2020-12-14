@@ -32,7 +32,7 @@ export const metaDataNavbar = [
       {
         id: 'mastersSub' + 5,
         navText: 'Add Project',
-        route: '/masters/addProject',
+        route: '/masters/viewProject',
       },
       {
         id: 'mastersSub' + 6,
