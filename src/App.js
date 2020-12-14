@@ -46,6 +46,7 @@ import SiteApproval from './pages/dispatchManagement/SiteApproval';
 import SiteViewPhysicalVerification from './pages/lifeCycleManagement/SiteViewPhysicalVerification';
 import PhysicalVerification from './pages/lifeCycleManagement/PhysicalVerification';
 import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhysicalVerification';
+import ViewStructureFamily from './container/structureFamily/viewStructureFamily';
 
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
@@ -64,6 +65,11 @@ class App extends Component {
             exact
             path="/masters/addComponent"
             component={AddComponent}
+          ></Route>
+          <Route
+            exact
+            path="/masters/viewStructureFamily"
+            component={ViewStructureFamily}
           ></Route>
           <Route
             exact

@@ -18,7 +18,7 @@ class AddIndependentCompany extends Component {
     }
     componentDidMount() {
         this.props.independentCompany();
-      }
+    }
     render() {
         const subprop = this.props.icbu;
         return (
@@ -27,6 +27,7 @@ class AddIndependentCompany extends Component {
                     <FormContainer formTitle={'Add Independent Company'}>
                         <FormRow>
                             <TextInput
+                                
                                 label="Independent Company"
                                 name="independentCompany"
                                 id="independentCompany"
@@ -36,6 +37,7 @@ class AddIndependentCompany extends Component {
                                 value={subprop.independentCompany}
                             />
                             <TextInput
+
                                 label="Business Unit"
                                 name="businessUnit"
                                 id="businessUnit"
@@ -44,6 +46,7 @@ class AddIndependentCompany extends Component {
                                 }
                                 value={subprop.businessUnit}
                             />
+
                         </FormRow>
 
 

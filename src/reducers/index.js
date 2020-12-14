@@ -13,13 +13,15 @@ import structureReducer from './structureReducer';
 import transferPriceReducer from './transferPriceReducer';
 import wbsReducer from './wbsReducer';
 import independentCompanyReducer from './independentCompanyReducer';
+import structureFamilyReducer from './structureFamilyReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
   transferPrice:transferPriceReducer,
   component : componentReducer,
   wbs : wbsReducer,
-  icbu : independentCompanyReducer
+  icbu : independentCompanyReducer,
+  structureFamily : structureFamilyReducer
  
 });
 

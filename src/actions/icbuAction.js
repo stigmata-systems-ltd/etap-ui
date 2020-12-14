@@ -8,7 +8,7 @@ import { ADD_INDEPENDENT_COMPANY } from "./types";
 export const addIndependentCompany = () => {
     return {
         type: ADD_INDEPENDENT_COMPANY,
-        payload: axios.post(config.BASE_URL + '/api/Project/projCodeList')
+        payload: axios.post(config.BASE_URL + '/api/BU/createBU')
     }
 }
 

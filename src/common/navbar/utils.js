@@ -21,32 +21,37 @@ export const metaDataNavbar = [
       },
       {
         id: 'mastersSub' + 3,
+        navText: 'Add Structure Family',
+        route: '/masters/viewStructureFamily',
+      },
+      {
+        id: 'mastersSub' + 4,
         navText: 'Add Structure',
         route: '/masters/addStructure',
       },
       {
-        id: 'mastersSub' + 4,
+        id: 'mastersSub' + 5,
         navText: 'Add Project',
         route: '/masters/addProject',
       },
       {
-        id: 'mastersSub' + 5,
+        id: 'mastersSub' + 6,
         navText: 'Add WBS',
         route: '/masters/addWBS',
       },
 
       {
-        id: 'mastersSub' + 6,
+        id: 'mastersSub' + 7,
         navText: 'Add Users',
         route: '/masters/addUsers',
       },
       {
-        id: 'mastersSub' + 7,
+        id: 'mastersSub' + 8,
         navText: 'Add IC/BU',
         route: '/masters/addIndependentCompany',
       },
       {
-        id: 'mastersSub' + 8,
+        id: 'mastersSub' + 9,
         navText: 'Add SubContractor',
         route: '/masters/addSubcontractor',
       },
