@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -9,7 +9,7 @@ import AddStructure from './container/structure/addStructure';
 import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 import AddIndependentCompany from './container/independentCompany/independentCompany';
-import AddProject from './container/project/addProject';
+
 import AddSubContractor from './container/subContractor/addSubContractor';
 import AddWorkBreak from './container/workBreak/addWorkBreak';
 import ViewWorkBreak from './container/workBreak/viewWBS';
@@ -48,6 +48,8 @@ import SiteViewPhysicalVerification from './pages/lifeCycleManagement/SiteViewPh
 import PhysicalVerification from './pages/lifeCycleManagement/PhysicalVerification';
 import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhysicalVerification';
 
+const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
+
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
 // setRespInterceptor();
@@ -61,6 +63,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
+        <Suspense fallback={<div>Loading...</div>}>
           <Route
             exact
             path="/masters/addComponent"
@@ -73,8 +76,8 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addProject"
-            component={AddProject}
+            path="/masters/viewProject"
+            component={ViewProject}
           ></Route>
           <Route
             exact
@@ -235,7 +238,7 @@ class App extends Component {
           ></Route>
 
 
-
+        </Suspense>
           <Route exact path="/unauthorized" component={unauthorized} />
         </Switch>
       </Router>
