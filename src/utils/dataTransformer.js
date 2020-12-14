@@ -8,3 +8,27 @@ export const transformGridList = (gridList) => {
     });
     return tmpArr;
   };
+
+  export const transformDropDownData = (data, valueKey, labelKey, ) => {
+    let tmpArr = [];
+    data && data.map(dt => {
+      tmpArr.push({
+        label: dt[labelKey],
+        value: dt[valueKey]
+      })
+    })
+    return tmpArr;
+  }
+
+  export const getSelectedValue = (data, value) => {
+    let tmpObj = {};
+    data && data.map(dt => {
+      if(dt.id === value) {
+        tmpObj = {
+          value: dt.id,
+          label: dt.name
+        }
+      }
+    })
+    return tmpObj;
+  }

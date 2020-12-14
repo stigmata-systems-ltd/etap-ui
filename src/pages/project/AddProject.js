@@ -1,108 +1,110 @@
-import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import ContentLoader from '../../common/ContentLoader';
-import FormContainer from '../../common/forms/FormContainer';
-import FormRow from '../../common/forms/FormRow';
-import TextInput from '../../common/forms/TextInput';
-import IconTextButton from '../../common/forms/IconTextButton';
+import React, { Component } from "react";
+import FormRow from "../../common/forms/FormRow";
+import TextInput from "../../common/forms/TextInput";
+import SimpleDropDown from "../../common/forms/SimpleDropDown";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import Modal from "../../common/Modal";
+import Loader from "../../common/Loader";
 import Button from '../../common/forms/Button';
-import SimpleDropDown from '../../common/forms/SimpleDropDown';
-import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
-import Loader from '../../common/Loader';
-import FaIcon from '../../common/FaIcon';
+import { transformUserRoles } from "./utils";
+import { transformDropDownData } from "../../utils/dataTransformer";
 
-class AddProject extends Component {
-    constructor(props) {
-        super(props);
-    }
+class AddProjModal extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        const subprop = this.props.addproject;
-        return (
-            <>
-                <ContentLoader>
-                    <FormContainer formTitle={'Add Project'}>
-                       
-                        <FormRow>
-                            <TextInput
-                                label="Project Name"
-                                name="projectName"
-                                id="projectName"
-                                onChange={e =>
-                                    this.props.handleChangeProjectName(e.target.value)
-                                }
-                            //  value={subprop.projectName}
-                            />
-                            <SimpleDropDown
-                                label="Segment"
-                                name="segment"
-                                onChange={e => this.props.handleChangeSegment(e.target.value)}
-                            // value={subprop.segment}
-                            />
-                        </FormRow>
-                        <FormRow>
-                            <TextInput
-                                label="Area"
-                                name="area"
-                                id="area"
-                                onChange={e =>
-                                    this.props.handleChangeArea(e.target.value)
-                                }
-                            // value={subprop.area}
-                            />
-                            <SimpleDropDown
-                                label="Business Unit"
-                                name="businessUnit"
-                                onChange={e => this.props.handleChangeBusinessUnit(e.target.value)}
-                            // value={subprop.businessUnit}
-                            />
-                        </FormRow>
-                        <FormRow>
-                            <TextInput
-                                label="Site Location"
-                                name="siteLocation"
-                                id="siteLocation"
-                                onChange={e =>
-                                    this.props.handleChangeSiteLocation(e.target.value)
-                                }
-                            // value={subprop.siteLocation}
-                            />
-                            <SimpleDropDown
-                                label="Independent Company"
-                                name="independentCompany"
-                                id="independentCompany"
-                                onChange={e =>
-                                    this.props.handleChangeIndependentCompany(e.target.value)
-                                }
-                            // value={subprop.independentCompany}
-                            />
+  //   componentDidMount() {
+  //     this.props.proj.getUserRoles();
+  //   }
 
-                            <Button
-                                btnText="Add Location"
-                                onClick={this.props.saveUsersData}
-                                btnType="primary"
-                            />
-                        </FormRow>
+  render() {
+      console.log("Edit",this.props.proj.isEditMode);
+    return (
+      <Modal
+        title={`${
+          this.props.proj.isEditMode ? "Update" : "Create New"
+        } Project`}
+        showModal={this.props.proj.showAddProjModal}
+        handleSave={
+          this.props.proj.isEditMode
+            ? this.props.updateProject
+            : this.props.createProject
+        }
+        handleClose={this.props.closeAddProjModal}
+        size="lg"
+        isShowFooter={true}
+      >
+        {this.props.proj.isLoading && <Loader />}
 
+        <FormRow>
+          <TextInput
+            label="Project Name"
+            name="projectName"
+            id="projectName"
+            onChange={(e) => this.props.handleChangeProjectName(e.target.value)}
+            value={this.props.proj.projectName}
+          />
+          <SearchableDropDown
+            label="Segment"
+            name="segment"
+            selectOptions={transformDropDownData(this.props.proj.segmentList, "id", "name")}
+            onChange={(obj) => this.props.handleChangeSegment(obj)}
+            value={this.props.proj.selectedSegment}
+          />
+        </FormRow>
+        <FormRow>
+          <TextInput
+            label="Area"
+            name="area"
+            id="area"
+            onChange={(e) => this.props.handleChangeArea(e.target.value)}
+            value={this.props.proj.area}
+          />
+          <SearchableDropDown
+            label="Business Unit"
+            name="businessUnit"
+            selectOptions={transformDropDownData(this.props.proj.buList, "id", "name")}
+            onChange={(obj) =>
+              this.props.handleChangeBusinessUnit(obj)
+            }
+            value={this.props.proj.businessUnit}
+          />
+        </FormRow>
+        <FormRow>
+          <TextInput
+            label="Site Location"
+            name="siteLocation"
+            id="siteLocation"
+            onChange={(e) =>
+              this.props.handleChangeSiteLocation(e.target.value)
+            }
+            value={this.props.proj.siteLocation}
+          />
+          <SearchableDropDown
+            label="Independent Company"
+            name="independentCompany"
+            id="independentCompany"
+            selectOptions={transformDropDownData(this.props.proj.icList, "id", "name")}
+            onChange={(obj) =>
+              this.props.handleChangeIndependentCompany(obj)
+            }
+            value={this.props.proj.independentCompany}
+          />
 
-                        <Button
-                            btnText="SAVE"
-                            onClick={this.props.saveUsersData}
-                            btnType="primary"
+          <Button
+            btnText="Add Location"
+            onClick={this.props.saveUsersData}
+            btnType="primary"
+          />
+        </FormRow>
 
-                        />
-                        <Button
-                            btnText="DISCARD"
-                            btnType="cancel"
-                            onClick={this.props.resetUsersData}
-                        />
-                    </FormContainer>
-                </ContentLoader>
-            </>
-        );
-    }
+        {this.props.proj.isModalMsg && (
+          <p className="text-danger">{this.props.proj.component.message}</p>
+        )}
+      </Modal>
+    );
+  }
 }
 
-export default AddProject;
+export default AddProjModal;

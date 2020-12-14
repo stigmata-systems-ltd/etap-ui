@@ -5,33 +5,38 @@ import IconButton from '../../common/forms/IconButton';
 export const listProjectMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        name: 'Component Type',
-        selector: 'componentType',
+        name: 'Name',
+        selector: 'name',
         sortable: false,
       },
       {
-        name: 'Status',
-        selector: 'status',
+        name: 'Project Code',
+        selector: 'projCode',
         sortable: false,
       },
       {
-        name: 'Component Type',
-        selector: 'componentType',
+        name: 'Area',
+        selector: 'area',
         sortable: false,
       },
       {
-        name: 'Status',
-        selector: 'status',
+        name: 'IC Id',
+        selector: 'icId',
         sortable: false,
       },
       {
-        name: 'Component Type',
-        selector: 'componentType',
+        name: 'BU Id',
+        selector: 'buId',
         sortable: false,
       },
       {
-        name: 'Status',
-        selector: 'status',
+        name: 'Segment Id',
+        selector: 'segmentId',
+        sortable: false,
+      },
+      {
+        name: 'Project Sites',
+        selector: 'projectSites',
         sortable: false,
       },
       {
@@ -53,21 +58,20 @@ export const listProjectMetaData = (handleDelete, handleEdit) => {
     ];
   };
 
-  export const transformProjectList = componentList => {
+  export const transformProjectList = projectList => {
     let tmpArr = [];
-    let statusValue;
-    componentList &&
-    componentList.map(component => {
-        if (component.isActive){
-            statusValue = "Active"
-        }
-        else {
-            statusValue = "InActive"
-        }
+    projectList &&
+    projectList.map(project => {
+      
         let tmpObj = {
-            id: component.id,
-            componentType: component.name,
-            status: statusValue,
+            id: project.id,
+            name: project.name,
+            projCode: project.projCode,
+            area: project.area,
+            icId: project.icId,
+            buId: project.buId,
+            segmentId: project.segmentId,
+            projectSites: project.projectSiteLocationDetails.map(dt => dt.name).join().replaceAll(",",", "),
         };
         tmpArr.push(tmpObj);
       });

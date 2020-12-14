@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
+import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
-import { listProjectMetaData, transformProjectList } from "./utils";
+import { listComponentTypeMetaData, transformComponentList } from "./utils";
 import Button from "../../common/forms/Button";
-import AddProjModal from "./AddProject";
+import CreateComponent from "../../container/component/addComponent";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
@@ -24,42 +25,31 @@ class ViewProject extends Component {
     this.props.projectList();
   }
 
-//   filteredItems = (data) => {
-//     return (
-//       data &&
-//       data.filter(
-//         (item) =>
-//           item.email &&
-//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
-//       )
-//     );
-//   };
-
   render() {
     return (
       <ContentLoader>
-        {this.props.proj.isProjMsg && (
+        {this.props.project.isAddProjectMsg && (
           <CustomAlert
             variant="success"
-            message={this.props.proj.message}
+            message={this.props.project.message}
           />
         )}
-        <AddProjModal {...this.props} />
+        <CreateProject showAddComponentModal={this.props.project.showAddProjectModal} />
         <FormContainer formTitle={"Project List"}>
-          {this.props.proj.projectList && (
+          {this.props.project.projectList && (
             <CustomDataTable
               metaData={listProjectMetaData(
                 (id) => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={transformProjectList(
-                this.props.proj.projectList
+                this.props.project.projectList
               )}
-              progressPending={this.props.proj.isLoading}
+              progressPending={this.props.project.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.proj.componentList &&
-                this.props.proj.componentList.length
+                this.props.project.projectList &&
+                this.props.project.projectList.length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -84,28 +74,13 @@ class ViewProject extends Component {
                   <Button
                     btnText="Create New Project"
                     btnType="btn-primary float-right"
-                    onClick={this.props.showAddProjModal}
+                    onClick={this.props.showAddProjectModal}
                   />
                   </Col6>
                 </>
               }
             />
           )}
-          <ConfirmModal
-            showModal={this.state.showDeleteModal}
-            handleClose={() =>
-              this.setState({ showDeleteModal: false, activeId: null })
-            }
-            title="Delete Project"
-            handleConfirm={() => {
-              this.props.handleConfirmDelete(this.state.activeId);
-              this.setState({ showDeleteModal: false, activeId: null });
-            }}
-          >
-            <h6 className="text-danger">
-              Are you sure you want to delete this Project?
-            </h6>
-          </ConfirmModal>
         </FormContainer>
       </ContentLoader>
     );
