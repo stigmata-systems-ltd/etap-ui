@@ -1,25 +1,15 @@
 import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
-import SimpleDropDown from "../../common/forms/SimpleDropDown";
+import CustomAlert from "../../common/forms/customAlert";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
-import Loader from "../../common/Loader";
 import Button from '../../common/forms/Button';
-import { transformUserRoles } from "./utils";
 import { transformDropDownData } from "../../utils/dataTransformer";
 
 class AddProjModal extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  //   componentDidMount() {
-  //     this.props.proj.getUserRoles();
-  //   }
 
   render() {
-      console.log("Edit",this.props.proj.isEditMode);
     return (
       <Modal
         title={`${
@@ -35,8 +25,6 @@ class AddProjModal extends Component {
         size="lg"
         isShowFooter={true}
       >
-        {this.props.proj.isLoading && <Loader />}
-
         <FormRow>
           <TextInput
             label="Project Name"

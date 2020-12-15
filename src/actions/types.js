@@ -61,6 +61,7 @@ export const GET_BU_LIST = "GET_BU_LIST";
 export const ON_CHANGE_SEGMENT = "ON_CHANGE_SEGMENT";
 export const CREATE_PROJECT = "CREATE_PROJECT";
 export const UPDATE_PROJECT = "UPDATE_PROJECT";
+export const SHOW_ERR_MSG = "SHOW_ERR_MSG";
 
 //Sub Contractor
 export const VENDOR_NAME="VENDOR_NAME";

@@ -56,8 +56,8 @@ export const createProj = () => {
     name: proj.projectName,
     projCode: "test-code",
     area: proj.area,
-    icId: proj.businessUnit.value,
-    buId: proj.independentCompany.value,
+    icId: proj.independentCompany.value,
+    buId: proj.businessUnit.value,
     segmentId: proj.selectedSegment.value,
     projectSiteLocationDetails: [
       {
@@ -71,23 +71,20 @@ export const createProj = () => {
   };
 };
 
-export const updateProj = (id) => {
+export const updateProj = () => {
   const proj = store.getState().proj;
   const data = {
-    name: proj.name,
+    id: proj.selectedProjId,
+    name: proj.projectName,
     projCode: "test-code",
     area: proj.area,
-    icId: proj.businessUnit.value,
-    buId: proj.independentCompany.value,
+    icId: proj.independentCompany.value,
+    buId: proj.businessUnit.value,
     segmentId: proj.selectedSegment.value,
-    projectSiteLocationDetails: [
-      {
-        name: "test - 01",
-      },
-    ],
+    projectSiteLocationDetails: proj.projectLocations,
   };
   return {
     type: UPDATE_PROJECT,
-    payload: axios.put(config.BASE_URL + "/api/Project/updateProj/" + id, data),
+    payload: axios.put(config.BASE_URL + "/api/Project/updateProj/" + proj.selectedProjId, data),
   };
 };
