@@ -10,7 +10,6 @@ import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 import AddIndependentCompany from './container/independentCompany/independentCompany';
 
-import AddSubContractor from './container/subContractor/addSubContractor';
 import AddWorkBreak from './container/workBreak/addWorkBreak';
 import ViewWorkBreak from './container/workBreak/viewWBS';
 import AssignStructure from './container/assignStructure/assignStructure';
@@ -50,7 +49,8 @@ import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhys
 import ViewStructureFamily from './container/structureFamily/viewStructureFamily';
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
-
+// import ViewSubContractor from './container/subContractor/viewSubContractor';
+const ViewSubContractor= React.lazy(()=> import('./container/subContractor/viewSubContractor'));
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
 // setRespInterceptor();
@@ -107,8 +107,8 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addSubcontractor"
-            component={AddSubContractor}
+            path="/masters/viewSubContractor"
+            component={ViewSubContractor}
           ></Route>
           <Route
             exact

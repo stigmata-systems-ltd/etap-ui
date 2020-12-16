@@ -16,6 +16,7 @@ import projReducer from './projectReducer';
 import independentCompanyReducer from './independentCompanyReducer';
 import usersReducer from './userReducer';
 import structureFamilyReducer from './structureFamilyReducer';
+import vendorReducer from './vendorReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
   proj: projReducer,
   icbu : independentCompanyReducer,
   users: usersReducer,
-  structureFamily:structureFamilyReducer
+  structureFamily:structureFamilyReducer,
+  vendor:vendorReducer
 });
 
 export default rootReducer;
