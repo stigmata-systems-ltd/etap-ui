@@ -23,6 +23,7 @@ import {
   PROJECT_INDEPENDENT_COMPANY,
   SET_EDIT_MODE,
   ON_CHANGE_SEGMENT,
+  SHOW_ERR_MSG,
 } from "../../actions/types";
 import ViewProject from "../../pages/project/ViewProject";
 
@@ -45,7 +46,6 @@ const mapDispatchToProps = (dispatch) => {
       });
     },
     showAddProjModal() {
-      dispatch({type: RESET_PROJECT_FORM});
       dispatch({
         type: SHOW_ADD_PROJ_MODAL,
         payload: true,
@@ -63,6 +63,7 @@ const mapDispatchToProps = (dispatch) => {
         type: SHOW_ADD_PROJ_MODAL,
         payload: false,
       });
+      dispatch({type: RESET_PROJECT_FORM});
     },
     //Add Project
     handleChangeProjectName(value) {
@@ -102,11 +103,27 @@ const mapDispatchToProps = (dispatch) => {
       });
     },
     createProject() {
-      dispatch(createProj())
+      dispatch(createProj()).then(() => {
+        dispatch({
+          type: SHOW_ADD_PROJ_MODAL,
+          payload: false,
+        });
+        dispatch({type: RESET_PROJECT_FORM});
+        dispatch(projectList());
+      })
     },
     //Edit Proj
     updateProject() {
-      dispatch(updateProj())
+      dispatch(updateProj()).then(() => {
+        dispatch({
+          type: SHOW_ADD_PROJ_MODAL,
+          payload: false,
+        });
+        dispatch({type: RESET_PROJECT_FORM});
+        dispatch(projectList());
+      }).catch(() => {
+        dispatch({type: SHOW_ERR_MSG, payload: true});
+      })
     },
     handleEdit(id) {
       dispatch(getSingleProj(id));

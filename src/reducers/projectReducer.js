@@ -14,6 +14,7 @@ import {
   GET_SEGMENT_LIST,
   GET_BU_LIST,
   RESET_PROJECT_FORM,
+  SHOW_ERR_MSG,
 } from "../actions/types";
 
 import { getSelectedValue } from "../utils/dataTransformer";
@@ -33,6 +34,7 @@ const initialState = {
   segmentList: [],
   buList: [],
   icList: [],
+  selectedProjId: "",
 };
 
 export default function (state = initialState, action) {
@@ -124,6 +126,8 @@ export default function (state = initialState, action) {
         independentCompany: getSelectedValue(state.segmentList, proj.icId),
         area: proj.area,
         siteLocation: "",
+        selectedProjId: proj.id,
+        projectLocations: proj.projectSiteLocationDetails
       };
     case `${GET_IC_LIST}_PENDING`:
       return {
@@ -183,8 +187,14 @@ export default function (state = initialState, action) {
         independentCompany: {},
         area: "",
         siteLocation: "",
-        isEditMode: false
+        isEditMode: false,
+        selectedProjId: "",
       };
+      case SHOW_ERR_MSG:
+        return {
+          ...state,
+          isProjMsg: action.payload,
+        };
 
     default:
       return state;

@@ -9,6 +9,7 @@ import AddProjModal from "./AddProject";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
+import Loader from "../../common/Loader";
 
 class ViewProject extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class ViewProject extends Component {
   render() {
     return (
       <ContentLoader>
+        {this.props.proj.isLoading && <Loader />}
         {this.props.proj.isProjMsg && (
           <CustomAlert
             variant="success"
