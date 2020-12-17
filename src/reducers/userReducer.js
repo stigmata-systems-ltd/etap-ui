@@ -15,6 +15,11 @@ import {
     LIST_PROJECT_CODES,
     GET_PROJECT_DETAILS,
     GET_ROLES_LIST,
+    ADD_USER,
+    RESET_CREATE_USER_FORM,
+    GET_USER_SINGLE,
+    USER_EDIT_PAGE,
+    UPDATE_USER
   } from '../actions/types';
   
   const initialState = {
@@ -29,11 +34,17 @@ import {
     independentCompany:'',
     usersList:[],
     showAddUsersModal: false,
-    listProjectCodes: []
+    listProjectCodes: [],
+    userId:""
   };
   
   export default function(state = initialState, action) {
     switch (action.type) {
+      case USER_EDIT_PAGE:
+        return {
+          ...state,
+          isEdit: action.payload,
+        };
       case FIRST_NAME:
         return {
           ...state,
@@ -151,8 +162,11 @@ import {
                 isError: false,
                 isSuccess: false,
                 bu: action.payload.data.buName,
+                buId: action.payload.data.buId,
                 segment: action.payload.data.segmentName,
+                segmentId: action.payload.data.segmentId,
                 ic: action.payload.data.icName,
+                icId:  action.payload.data.icId
               };
       case `${GET_ROLES_LIST}_PENDING`:
                 return {
@@ -181,7 +195,104 @@ import {
               ...state,
               showAddUsersModal: action.payload,
             };
-             
+  case `${ADD_USER}_PENDING`:
+              return {
+                ...state,
+                isLoading: true,
+                isError: false,
+                isSuccess: false,
+              };
+  case `${ADD_USER}_REJECTED`:
+              return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                isSuccess: false,
+                message:
+    action.payload.response && action.payload.response.data
+      ? action.payload.response.data.message
+      : "Please check your form data and retry",
+              };
+  case `${ADD_USER}_FULFILLED`:
+              return {
+                ...state,
+                isLoading: false,
+                isError: false,
+                isSuccess: false,
+                message: action.payload.data.message,
+              };
+      case `${GET_USER_SINGLE}_PENDING`:
+                return {
+                  ...state,
+                  isLoading: true,
+                  isError: false,
+                  isSuccess: false,
+                };
+      case `${GET_USER_SINGLE}_REJECTED`:
+                return {
+                  ...state,
+                  isLoading: false,
+                  isError: true,
+                  isSuccess: false,
+                };
+      case `${GET_USER_SINGLE}_FULFILLED`:
+                return {
+                  ...state,
+                  isLoading: false,
+                  isError: false,
+                  isSuccess: false,
+                  firstName: action.payload.data.firstName,
+                  lastName: action.payload.data.lastName,
+                  psNo: action.payload.data.userName,
+                  email: action.payload.data.email,
+                  project:{value: action.payload.data.projectId},
+                  userId: action.payload.data.userId
+                };     
+      case `${UPDATE_USER}_PENDING`:
+                  return {
+                    ...state,
+                    isLoading: true,
+                    isError: false,
+                    isSuccess: false,
+                  };
+      case `${UPDATE_USER}_REJECTED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: true,
+                    isSuccess: false,
+                    message:
+        action.payload.response && action.payload.response.data
+          ? action.payload.response.data.message
+          : "Please check your form data and retry",
+                  };
+      case `${UPDATE_USER}_FULFILLED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: false,
+                    isSuccess: false,
+                    message: action.payload.data.message,
+                  };            
+  case RESET_CREATE_USER_FORM:
+            return {
+                ...state,
+                firstName:'',
+                lastName:'',
+                psNo:"",
+                email:"",
+                project:'',
+                icId:'',
+                buId:"",
+                segmentId:"",
+                ic:"",
+                bu:"",
+                segment:"",
+                role:"",
+                isLoading: false,
+                isEdit:"false"
+            };
+            
       default:
         return state;
     }

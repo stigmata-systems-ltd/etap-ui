@@ -1,33 +1,28 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { LIST_USERS,LIST_PROJECT_CODES,GET_PROJECT_DETAILS,GET_ROLES_LIST } from "./types";
+import { LIST_USERS,LIST_PROJECT_CODES,GET_PROJECT_DETAILS,GET_ROLES_LIST,ADD_USER,GET_USER_SINGLE,UPDATE_USER } from "./types";
 
-// export const addComponent = () => {
-//     const {componentType} = store.getState().component;
-//       const body={
-//           id : 0,
-//           name: componentType,
-//           isActive: true
-//       };
-//     return {
-//         type: ADD_COMPONENT,
-//         payload: axios.post(config.BASE_URL + '/api/ComponentType/addcomponenttype', body)
-//     }
-// }
-// export const updateComponentType = (id) => {
-//     const {componentTypeID,componentType,componentTypeStatus} = store.getState().component;
-//     const status=(componentTypeStatus==="InActive")?false:true
-//       const body={
-//           id:componentTypeID,
-//           name: componentType,
-//           isActive: status
-//       };
-//     return {
-//         type: UPDATE_COMPONENT_TYPE,
-//         payload: axios.put(config.BASE_URL + '/api/ComponentType/updatecomponenttype/'+componentTypeID, body)
-//     }
-// }
+export const addUser = () => {
+    const users = store.getState().users;
+      const body={
+        "firstName": users.firstName,
+        "lastName": users.lastName,
+        "userName": users.psNo,
+        "email": users.email,
+        "mobileNo": "00000",
+        "projectId": users.project.value,
+        "icId": users.icId,
+        "buId": users.buId,
+        "segmentId": users.segmentId,
+        "userId": 0,
+        "roleId": users.role.value,
+      }
+    return {
+        type: ADD_USER,
+        payload: axios.post(config.BASE_URL + '/api/User/adduser', body)
+    }
+}
 
 
 export const usersList = () => {
@@ -48,7 +43,7 @@ export const getProjectDetails = () => {
     const {project} = store.getState().users;
     return {
         type: GET_PROJECT_DETAILS,
-        payload: axios.get(config.BASE_URL + '/api/Project/getProjDetailsById/'+project)
+        payload: axios.get(config.BASE_URL + '/api/Project/getProjDetailsById/'+project.value)
     }
 }
 
@@ -59,4 +54,37 @@ export const getRolesList = () => {
         payload: axios.get(config.BASE_URL + '/api/PageAccess/getroles')
     }
 }
+
+export const userFetch = (id) => {
+    
+    return {
+        type: GET_USER_SINGLE,
+        payload: axios.get(config.BASE_URL + '/api/User/getuser/'+id)
+    }
+}
+
+    export const updateUser = () => {
+        const users = store.getState().users;
+          const body={
+            "firstName": users.firstName,
+            "lastName": users.lastName,
+            "userName": users.psNo,
+            "email": users.email,
+            "mobileNo": "00000",
+            "projectId": users.project.value,
+            "icId": users.icId,
+            "buId": users.buId,
+            "segmentId": users.segmentId,
+            "userId": users.userId,
+            "roleId": users.role.value,
+          }
+        return {
+            type: UPDATE_USER,
+            payload: axios.put(config.BASE_URL + '/api/User/updateuser/'+users.userId, body)
+        }
+    }
+
+
+
+
 
