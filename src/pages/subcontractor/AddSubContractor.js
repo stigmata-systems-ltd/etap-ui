@@ -1,107 +1,77 @@
-import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import ContentLoader from '../../common/ContentLoader';
-import FormContainer from '../../common/forms/FormContainer';
-import FormRow from '../../common/forms/FormRow';
-import TextInput from '../../common/forms/TextInput';
-import IconTextButton from '../../common/forms/IconTextButton';
-import Button from '../../common/forms/Button';
-import SimpleDropDown from '../../common/forms/SimpleDropDown';
-import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
-import Loader from '../../common/Loader';
-import DataTable from '../../common/DataTable';
-import Radio from '../../common/forms/Radio';
-import { _subContractorBodyData, _subContractorData } from './utils';
+import React, { Component } from "react";
+import FormRow from "../../common/forms/FormRow";
+import TextInput from "../../common/forms/TextInput";
+import CustomAlert from "../../common/forms/customAlert";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import Modal from "../../common/Modal";
+import SimpleDropDown from "../../common/forms/SearchableDropDown";
 
 class AddSubContractor extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
-        const subprop = this.props.addSubContractor;
         return (
-            <>
-                <ContentLoader>
-                    <FormContainer formTitle={'Add SubContractor/Vendor'}>
-                        <FormRow>
-                            <Button
-                                btnText="Edit Vendor Status"
-                                onClick={this.props.editVendorStatus}
-                                btnType="primary"
-                            />
-                        </FormRow><br/>
-                        <FormRow>
-                            <TextInput
-                                label="Vendor Name"
-                                name="vendorName"
-                                id="vendorName"
-                                onChange={e =>
-                                    this.props.handleChangeVendorName(e.target.value)
-                                }
-                            // value={subprop.vendorName}
-                            />
-                            <TextInput
-                                label="Vendor Code"
-                                name="vendorCode"
-                                id="vendorCode"
-                                onChange={e =>
-                                    this.props.handleChangeVendorCode(e.target.value)
-                                }
-                            // value={subprop.vendorCode}
-                            />
-                        </FormRow>
-                        <FormRow>
-                            <TextInput
-                                label="E-mail"
-                                name="vendorEmail"
-                                id="vendorEmail"
-                                onChange={e =>
-                                    this.props.handleChangeVendorEmail(e.target.value)
-                                }
-                            // value={subprop.vendorEmail}
-                            />
-                            <TextInput
-                                label="Contact Number"
-                                name="contactNumber"
-                                id="contactNumber"
-                                onChange={e =>
-                                    this.props.handleChangeContactNumber(e.target.value)
-                                }
-                            // value={subprop.contactNumber}
-
-                            />
-                        </FormRow>
-                        <FormRow>
-                            <Radio label="Fabrication" />
-                            <Radio label="Outsourcing" />
-                            <Radio label="Scrap" />
-                        </FormRow><br />
-                        <FormRow>
-                            <DataTable
-
-                                metaData={_subContractorData}
-                                bodyData={_subContractorBodyData}
-
-                            />
-                        </FormRow><br />
+            <Modal
+                title={`${this.props.vendor.isEditMode ? "Update" : "Add SubContractor/"
+                    } Vendor`}
+                showModal={this.props.vendor.showAddVendorModal}
+                handleSave={
+                    this.props.vendor.isEditMode
+                        ? this.props.updateProject
+                        : this.props.createProject
+                }
+                handleClose={this.props.closeAddVendorModal}
+                size="lg"
+                isShowFooter={true}
+            >
+                <FormRow>
+                    <TextInput
+                        label="Vendor Name"
+                        name="vendorName"
+                        id="vendorName"
+                        onChange={(e) => this.props.handleChangeVendorName(e.target.value)}
+                        value={this.props.vendor.vendorName}
+                    />
+                    <TextInput
+                        label="Vendor Code"
+                        name="vendorCode"
+                        id="vendorCode"
+                        onChange={(e) => this.props.handleChangeVendorCode(e.target.value)}
+                        value={this.props.vendor.vendorCode}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextInput
+                        label="Email"
+                        name="email"
+                        id="email"
+                        onChange={(e) => this.props.handleChangeVendorEmail(e.target.value)}
+                        value={this.props.vendor.email}
+                    />
+                    <TextInput
+                        label="Contact Number"
+                        name="contactNumber"
+                        id="contactNumber"
+                        onChange={(e) => this.props.handleChangeVendorContactNumber(e.target.value)}
+                        value={this.props.vendor.contactNumber}
+                    />
+                </FormRow>
+                <FormRow>
 
 
-                        <Button
-                            btnText="SAVE"
-                            onClick={this.props.saveUsersData}
-                            btnType="primary"
-                        />
-                        <Button
-                            btnText="DISCARD"
-                            btnType="cancel"
-                            onClick={this.props.resetUsersData}
-                        />
-                    </FormContainer>
-                </ContentLoader>
-            </>
+                    <SimpleDropDown
+                        label="Status"
+                        selectOptions={[{ id: 'Active', label: 'Active' }, { id: 'InActive', label: 'InActive' }]}
+                        onChange={(e) => this.props.handleChangeVendorStatus(e.target.value)}
+                        value={this.props.vendor.vendorStatus}
+                    />
+
+                </FormRow>
+
+
+                {this.props.vendor.isModalMsg && (
+                    <p className="text-danger">{this.props.vendor.component.message}</p>
+                )}
+            </Modal>
         );
     }
 }

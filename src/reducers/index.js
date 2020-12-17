@@ -15,6 +15,8 @@ import wbsReducer from './wbsReducer';
 import projReducer from './projectReducer';
 import independentCompanyReducer from './independentCompanyReducer';
 import usersReducer from './userReducer';
+import structureFamilyReducer from './structureFamilyReducer';
+import vendorReducer from './vendorReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -23,7 +25,9 @@ const rootReducer = combineReducers({
   wbs : wbsReducer,
   proj: projReducer,
   icbu : independentCompanyReducer,
-  users: usersReducer
+  users: usersReducer,
+  structureFamily:structureFamilyReducer,
+  vendor:vendorReducer
 });
 
 export default rootReducer;

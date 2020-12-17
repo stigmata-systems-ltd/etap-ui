@@ -10,7 +10,6 @@ import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 import AddIndependentCompany from './container/independentCompany/independentCompany';
 
-import AddSubContractor from './container/subContractor/addSubContractor';
 import AddWorkBreak from './container/workBreak/addWorkBreak';
 import ViewWorkBreak from './container/workBreak/viewWBS';
 import AssignStructure from './container/assignStructure/assignStructure';
@@ -47,9 +46,11 @@ import SiteApproval from './pages/dispatchManagement/SiteApproval';
 import SiteViewPhysicalVerification from './pages/lifeCycleManagement/SiteViewPhysicalVerification';
 import PhysicalVerification from './pages/lifeCycleManagement/PhysicalVerification';
 import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhysicalVerification';
+import ViewStructureFamily from './container/structureFamily/viewStructureFamily';
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
-
+// import ViewSubContractor from './container/subContractor/viewSubContractor';
+const ViewSubContractor= React.lazy(()=> import('./container/subContractor/viewSubContractor'));
 // import { setRespInterceptor, setAuthHeader } from './utils/auth';
 // setAuthHeader();
 // setRespInterceptor();
@@ -68,6 +69,11 @@ class App extends Component {
             exact
             path="/masters/addComponent"
             component={AddComponent}
+          ></Route>
+          <Route
+            exact
+            path="/masters/viewStructureFamily"
+            component={ViewStructureFamily}
           ></Route>
           <Route
             exact
@@ -101,8 +107,8 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addSubcontractor"
-            component={AddSubContractor}
+            path="/masters/viewSubContractor"
+            component={ViewSubContractor}
           ></Route>
           <Route
             exact
