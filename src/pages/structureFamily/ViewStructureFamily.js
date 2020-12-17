@@ -9,7 +9,7 @@ import Button from "../../common/forms/Button";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
-import AddStructureFamily from "./AddStructureFamily";
+import AddStructureFamily from "../../container/structureFamily/addStructureFamily";
 
 class ViewStructureFamily extends Component {
   constructor(props) {
@@ -24,17 +24,6 @@ class ViewStructureFamily extends Component {
   componentDidMount() {
     this.props.structureFamilyList();
   }
-
-//   filteredItems = (data) => {
-//     return (
-//       data &&
-//       data.filter(
-//         (item) =>
-//           item.email &&
-//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
-//       )
-//     );
-//   };
 
   render() {
     return (
