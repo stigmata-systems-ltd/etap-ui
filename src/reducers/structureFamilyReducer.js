@@ -69,7 +69,7 @@ export default function (state = initialState, action) {
                   isLoading: false,
                   isError: false,
                   isSuccess: false,
-                  componentTypeList: action.payload.data,
+                  structureFamilyTypeList: action.payload.data,
                 };
         case `${ADD_STRUCTURE_FAMILY_TYPE}_PENDING`:
                     return {

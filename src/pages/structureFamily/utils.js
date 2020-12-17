@@ -54,17 +54,17 @@ export const structureFamilyMetaData = (handleDelete, handleEdit) => {
     let tmpArr = [];
     let statusValue;
     structureFamilyList &&
-    structureFamilyList.map(structure => {
-        if (structure.isActive){
+    structureFamilyList.map(structureFamily => {
+        if (structureFamily.isActive){
             statusValue = "Active"
         }
         else {
             statusValue = "InActive"
         }
         let tmpObj = {
-            id: structure.id,
-            structureFamilyType: structure.name,
-            status: statusValue,
+            id: structureFamily.id,
+            name: structureFamily.name,
+            isActive: structureFamily.isActive,
         };
         tmpArr.push(tmpObj);
       });

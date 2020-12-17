@@ -10,6 +10,7 @@ import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 import AddStructureFamily from "../../container/structureFamily/addStructureFamily";
+import SimpleDropDown from "../../common/forms/SimpleDropDown";
 
 class ViewStructureFamily extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class ViewStructureFamily extends Component {
               subHeader
               subHeaderComponent={
                 <>
+
                   <TableFilter
                     placeholder="Search By ID"
                     fieldSize="float-left col-sm-10"
@@ -70,12 +72,12 @@ class ViewStructureFamily extends Component {
                     filterText={this.state.filterText}
                   />
                   <Col6>
-                  
-                  <Button
-                    btnText="Edit"
-                    btnType="btn-primary float-right"
-                    onClick={this.props.showAddStructureFamilyModal}
-                  />
+
+                    <Button
+                      btnText="Add Structure Family"
+                      btnType="btn-primary float-right"
+                      onClick={this.props.showAddStructureFamilyModal}
+                    />
                   </Col6>
                 </>
               }
