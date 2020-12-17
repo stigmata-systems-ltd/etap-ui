@@ -69,6 +69,7 @@ class ViewSubContractor extends Component {
                                 subHeaderComponent={
                                     <>
                                         <SimpleDropDown
+                                           
                                             label="Vendor Type"
                                             name="vendorType"
                                             id="vendorType"

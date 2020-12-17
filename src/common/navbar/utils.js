@@ -6,6 +6,7 @@ export const getNavbar = () => {
   auth.pageAccess && auth.pageAccess.map(item => { });
 };
 export const metaDataNavbar = [
+  
   {
     id: '1',
     navText: 'Masters',
