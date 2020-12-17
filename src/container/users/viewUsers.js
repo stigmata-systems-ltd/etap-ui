@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import store from '../../store';
-import {usersList} from '../../actions/usersAction';
+import {usersList,userFetch,getProjectDetails} from '../../actions/usersAction';
 
 import {
   COMPONENT_TYPE,
@@ -8,7 +8,8 @@ import {
   CHANGE_ADD_USERS_MODAL_STATUS,
   SHOW_ADD_USERS_MSG,
   SET_COMPONENT_EDIT_MODE,
-  COMPONENT_TYPE_STATUS
+  COMPONENT_TYPE_STATUS,
+  USER_EDIT_PAGE
 } from '../../actions/types';
 import ViewUsers from '../../pages/users/ViewUsers';
 
@@ -26,6 +27,19 @@ const mapDispatchToProps = dispatch => {
         type: SHOW_ADD_USERS_MSG,
         payload: false,
       })
+    },
+    handleEdit(id){
+      dispatch(userFetch(id)).then(() => {
+        dispatch(getProjectDetails());
+        dispatch({
+          type: USER_EDIT_PAGE,
+          payload: true,
+        });
+        dispatch({
+          type: CHANGE_ADD_USERS_MODAL_STATUS,
+          payload: true,
+        })
+      });
     },
   };
 };

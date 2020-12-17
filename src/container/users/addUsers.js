@@ -10,16 +10,50 @@ import {
   PROJECT,
   BUSINESS_UNIT,
   SEGMENT,
-  INDEPENDENT_COMPANY
+  INDEPENDENT_COMPANY,
+  CHANGE_ADD_USERS_MODAL_STATUS
   
 } from '../../actions/types';
 import AddUser from '../../pages/users/AddUser';
-import {projectCodesList,getProjectDetails,getRolesList} from '../../actions/usersAction'
+import {projectCodesList,getProjectDetails,getRolesList,addUser,usersList,updateUser} from '../../actions/usersAction'
 
 const mapDispatchToProps = dispatch => {
   return {
     resetStructureData() {
       dispatch({ type: RESET_STRUCTURE_FORM });
+    },
+    closeAddUserModal(){
+      dispatch({
+        type:"RESET_CREATE_USER_FORM"
+      });
+      dispatch({
+        type: CHANGE_ADD_USERS_MODAL_STATUS,
+        payload: false,
+      });
+    },
+    addUser(){
+      dispatch(addUser()).then(() => {
+        dispatch({
+          type:"RESET_CREATE_USER_FORM"
+        });
+        dispatch({
+          type: CHANGE_ADD_USERS_MODAL_STATUS,
+          payload: false,
+        });
+        dispatch(usersList());
+      })  
+    },
+    updateUser(){
+      dispatch(updateUser()).then(() => {
+        dispatch({
+          type:"RESET_CREATE_USER_FORM"
+        });
+        dispatch({
+          type: CHANGE_ADD_USERS_MODAL_STATUS,
+          payload: false,
+        });
+        dispatch(usersList());
+      })  
     },
     getProjectList(){
       dispatch(projectCodesList());
