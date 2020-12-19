@@ -1,63 +1,74 @@
 import React, { Component } from "react";
 import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
-import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
-import { structureFamilyBodyData, structureFamilyMetaData } from "./utils";
+import { icbuMetaData, icbuList } from "./utils";
 import Button from "../../common/forms/Button";
+// import AddIndependentCompany from "./AddIndependentCompany";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
-import AddStructureFamily from "../../container/structureFamily/addStructureFamily";
-import SimpleDropDown from "../../common/forms/SimpleDropDown";
+import Loader from "../../common/Loader";
+import AddIndependentCompany from "../../container/independentCompany/independentCompany"
 
-class ViewStructureFamily extends Component {
+class ViewIndependentCompany extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeId: null,
-      showStructureFamilyDeleteModal: false,
+      showDeleteModal: false,
       filterText: "",
       resetPaginationToggle: false,
     };
   }
   componentDidMount() {
-    this.props.structureFamilyList();
+    this.props.icbuList();
   }
+
+//   filteredItems = (data) => {
+//     return (
+//       data &&
+//       data.filter(
+//         (item) =>
+//           item.email &&
+//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
+//       )
+//     );
+//   };
 
   render() {
     return (
       <ContentLoader>
-        {this.props.structureFamily.isStructureFamilyMsg && (
+        {this.props.icbu.isLoading && <Loader />}
+        {this.props.icbu.isIcbuMsg && (
           <CustomAlert
             variant="success"
-            message={this.props.structureFamily.message}
+            message={this.props.icbu.message}
           />
         )}
-        <AddStructureFamily showAddStructureFamilyModal={this.props.structureFamily.showAddStructureFamilyModal} />
-        <FormContainer formTitle={"Structure Family List"}>
-          {this.props.structureFamily.structureFamilyTypeList && (
+        <AddIndependentCompany {...this.props} />
+        <FormContainer formTitle={"View IC/BU"}>
+          {this.props.icbu.icbuList && (
             <CustomDataTable
-              metaData={structureFamilyMetaData(
-                (id) => this.setState({ activeId: id, showStructureFamilyDeleteModal: true }),
+              metaData={icbuMetaData(
+                (id) => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleEdit(id),
               )}
-              bodyData={structureFamilyBodyData(
-                this.props.structureFamily.structureFamilyTypeList
+              bodyData={icbuList(
+                this.props.icbu.icbuList
               )}
-              progressPending={this.props.structureFamily.isLoading}
+              progressPending={this.props.icbu.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.structureFamily.structureFamilyList &&
-                this.props.structureFamily.structureFamilyList.length
+                this.props.icbu.icbuList &&
+                this.props.icbu.icbuList.length
               }
               paginationPerPage={5}
               noHeader={true}
               subHeader
               subHeaderComponent={
                 <>
-
                   <TableFilter
                     placeholder="Search By ID"
                     fieldSize="float-left col-sm-10"
@@ -72,30 +83,30 @@ class ViewStructureFamily extends Component {
                     filterText={this.state.filterText}
                   />
                   <Col6>
-
-                    <Button
-                      btnText="Add Structure Family"
-                      btnType="btn-primary float-right"
-                      onClick={this.props.showAddStructureFamilyModal}
-                    />
+                  
+                  <Button
+                    btnText="Create New IC/BU"
+                    btnType="btn-primary float-right"
+                    onClick={this.props.showAddIcbuModal}
+                  />
                   </Col6>
                 </>
               }
             />
           )}
           <ConfirmModal
-            showModal={this.state.showStructureFamilyDeleteModal}
+            showModal={this.state.showDeleteModal}
             handleClose={() =>
-              this.setState({ showStructureFamilyDeleteModal: false, activeId: null })
+              this.setState({ showDeleteModal: false, activeId: null })
             }
-            title="Delete Structure Family"
+            title="Delete Project"
             handleConfirm={() => {
               this.props.handleConfirmDelete(this.state.activeId);
-              this.setState({ showStructureFamilyDeleteModal: false, activeId: null });
+              this.setState({ showDeleteModal: false, activeId: null });
             }}
           >
             <h6 className="text-danger">
-              Are you sure you want to delete this User?
+              Are you sure you want to delete this Project?
             </h6>
           </ConfirmModal>
         </FormContainer>
@@ -104,4 +115,4 @@ class ViewStructureFamily extends Component {
   }
 }
 
-export default ViewStructureFamily;
+export default ViewIndependentCompany;

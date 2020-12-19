@@ -16,7 +16,7 @@ export const addStructureFamily = () => {
     }
 }
 export const updateStructureFamilyType = (id) => {
-    const {structureFamilyTypeID,structureFamilyType,structureFamilyTypeStatus} = store.getState().structure;
+    const {structureFamilyTypeID,structureFamilyType,structureFamilyTypeStatus} = store.getState().structureFamily;
     const status=(structureFamilyTypeStatus==="InActive")?false:true
       const body={
           id:structureFamilyTypeID,
@@ -33,13 +33,13 @@ export const updateStructureFamilyType = (id) => {
 export const structureFamilyList = () => {
     return {
         type: LIST_STRUCTURE_FAMILY,
-        payload: axios.get(config.BASE_URL + '/api/ComponentType/getcomponenttype')
+        payload: axios.get(config.BASE_URL + '/api/StructureFamily/getStructureFamDetails')
     }
 }
 
 export const getSingleStructureFamilyType = (id) => {
     return {
         type: GET_STRUCTURE_FAMILY_TYPE,
-        payload: axios.get(config.BASE_URL + '/api/ComponentType/getcomponenttype/'+id)
+        payload: axios.get(config.BASE_URL + '/api/StructureFamily/getStructureFamDetailsById/'+id)
     }
 }
