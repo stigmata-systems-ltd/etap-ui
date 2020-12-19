@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AddStructure from '../../pages/structure/AddStructure';
 import store from '../../store';
-import {addAttribute,addStructure,structureList} from '../../actions/structureAction';
+import {addAttribute,addStructure,structureList,updateStructure} from '../../actions/structureAction';
 import {
   STRUCTURE_NAME,
   RESET_STRUCTURE_FORM,
@@ -82,6 +82,18 @@ const mapDispatchToProps = dispatch => {
     },
     addStructure(){
       dispatch(addStructure()).then(() => {
+        dispatch({
+          type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
+          payload: false,
+        });
+        dispatch({
+          type: RESET_STRUCTURE_FORM
+        });
+        dispatch(structureList());
+      });
+    },
+    updateStructure(){
+      dispatch(updateStructure()).then(() => {
         dispatch({
           type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
           payload: false,
