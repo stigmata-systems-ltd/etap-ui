@@ -1,45 +1,62 @@
+import React from 'react';
+import IconButton from '../../common/forms/IconButton';
 
 
-export const _viewStructureInputData = ["IC", "BU", "Project", "Structure Family", "Structure", "Structure ID", "No of Components", "Total Weight", "Vendor/Site Name", "Fabrication Cost", "Structure Status", "Current Status"];
-export const _viewStructureInputBodyData = [
-    {
-        ic: "",
-        bu: "",
-        project: "",
-        structureFamily: "",
-        structure: "",
-        structureId: "",
-        numberOfComponents: "",
-        totalWeight: "",
-        vendorName: "",
-        fabricationCost: "",
-        structureStatus: "",
-        currentStatus: "",
-        
-    },
+export const listStructureMetaData = (handleDelete, handleEdit) => {
+    return [
+      {
+        name: 'Structure Name',
+        selector: 'structureName',
+        sortable: false,
+      },
+      {
+        name: 'Structure Type',
+        selector: 'structureType',
+        sortable: false,
+      },
+      {
+        name: 'IsActive',
+        selector: 'isActive',
+        sortable: false,
+      },
+      {
+        name: 'Actions',
+        sortable: false,
+        cell: row => {
+          return (
+            <>
+              {(
+                <IconButton
+                  iconName="faEdit"
+                  onClick={() => handleEdit(row.id)}
+                />
+              )}
+            </>
+          );
+        },
+      },
+    ];
+  };
 
+  export const transformStructureList = structureList => {
+    let tmpArr = [];
+    let isActiveValue;
+    structureList &&
+    structureList.map(structure => {
+        if(structure.isActive){
+          isActiveValue="True"
+        }
+        else{
+          isActiveValue="False"
+        }
 
-];
-export const _addStructureInputData = ["S.No", "Description", "Type of Input", "UoM"];
-export const _addStructureInputBodyData = [
-    {
-        sno: "1",
-        Description: "Capacity",
-        typeOfInput: "Numeric",
-        uom: "Metric Ton",
-       
-        
-        
-    },
-    {
-        sno: "2",
-        Description: "Underslung",
-        typeOfInput: "Text",
-        uom: "No Unit",
-        
-        
-        
-    },
-
-
-];
+        let tmpObj = {
+          id: structure.id,
+          structureName: structure.name,
+          structureType: structure.structureTypeId,
+          isActive: isActiveValue
+        };
+        tmpArr.push(tmpObj);
+      });
+    return tmpArr;
+  };

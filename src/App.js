@@ -5,7 +5,7 @@ import './App.css';
 import './assets/css/styles.css';
 
 //Pages Import
-import AddStructure from './container/structure/addStructure';
+// import AddStructure from './container/structure/addStructure';
 import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 import AddIndependentCompany from './container/independentCompany/independentCompany';
@@ -15,7 +15,7 @@ import ViewWorkBreak from './container/workBreak/viewWBS';
 import AssignStructure from './container/assignStructure/assignStructure';
 import AddRequirement from './container/requirement/addRequirement';
 
-import ViewStructure from './pages/structure/ViewStructure';
+import ViewStructure from './container/structure/viewStructure';
 import ViewComponent from './container/component/viewComponent';
 import ViewRequirements from './pages/requirements/ViewRequirements';
 import ViewSurplus from './pages/surplus/ViewSurplus';
@@ -77,8 +77,8 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addStructure"
-            component={AddStructure}
+            path="/masters/viewStructure"
+            component={ViewStructure}
           ></Route>
           <Route
             exact

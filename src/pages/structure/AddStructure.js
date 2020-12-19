@@ -1,30 +1,43 @@
-import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import FormRow from "../../common/forms/FormRow";
+import TextInput from "../../common/forms/TextInput";
 import ContentLoader from '../../common/ContentLoader';
 import FormContainer from '../../common/forms/FormContainer';
-import FormRow from '../../common/forms/FormRow';
-import TextInput from '../../common/forms/TextInput';
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import Modal from "../../common/Modal";
+import Loader from "../../common/Loader";
+import { transformUserRoles } from "./utils";
+import { transformDropDownData } from "../../utils/dataTransformer";
 import DataTable from '../../common/DataTable';
 import IconTextButton from '../../common/forms/IconTextButton';
 import Button from '../../common/forms/Button';
-import SimpleDropDown from '../../common/forms/SimpleDropDown';
-import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
-import Loader from '../../common/Loader';
-import { _addStructureInputData, _addStructureInputBodyData } from './utils';
-
-class Structure extends Component {
+import AddAttributes from './AddAttributes';
+class AddStructure extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const subprop = this.props.structure;
     return (
-      <>
-        <ContentLoader>
-          <FormContainer formTitle={'Add Structure'}>
+      <Modal
+        title={`${this.props.structure.isEdit ? "Update" : "Create New"} Structure`}
+        showModal={this.props.showAddComponentModal}
+        handleSave={
+          this.props.structure.isEdit
+            ? this.props.updateStructure
+            : this.props.addStructure
+        }
+        handleClose={
+          this.props.structure.isEditMode
+            ? this.props.closeAddStructureModal
+            : this.props.closeAddStructureModal
+        }
+        size="lg"
+        isShowFooter={true}
+      >
+        {console.log("isLoading",this.props.isLoading)}
+        {this.props.isLoading && <Loader />}
+        
             <FormRow>
               <TextInput
                 label="Structure Name"
@@ -33,7 +46,7 @@ class Structure extends Component {
                 onChange={e =>
                   this.props.handleChangeStructureName(e.target.value)
                 }
-                value={subprop.structureName}
+                value={this.props.structure.structureName}
               />
               <TextInput
                 label="Structure Family"
@@ -42,43 +55,43 @@ class Structure extends Component {
                 onChange={e =>
                   this.props.handleChangeStructureFamily(e.target.value)
                 }
-                value={subprop.structureFamily}
+                value={this.props.structure.structureFamily}
               />
             </FormRow>
-
-            <FormRow>
-              <TextInput
-                label="No of Attributes"
-                name="noOfAttributes"
-                id="noOfAttributes"
-                onChange={e => this.props.handleChangeNumberOfAttributes(e.target.value)}
-                value={subprop.noOfAttributes}
-              />
-            </FormRow>
-            <FormRow>
-              <DataTable
-
-                metaData={_addStructureInputData}
-                bodyData={_addStructureInputBodyData}
-
-              />
-            </FormRow><br/>
-
-            <Button
-              btnText="SAVE"
-              onClick={this.props.saveSubContractorData}
-              btnType="primary"
-            />
-            <Button
-              btnText="DISCARD"
-              btnType="cancel"
-              onClick={this.props.resetSubContractorData}
-            />
-          </FormContainer>
-        </ContentLoader>
-      </>
+            <div class="form-group row">
+                  <div class="col-sm-8">
+                    <IconTextButton
+                      btnText="Add Attributes"
+                      onClick={this.props.addAttribute}
+                    />
+                  </div>
+                </div>
+            <div class="form-group row location-row">
+                  {this.props.structure.attributeList.map((e, i) => {
+                    return (
+                      <AddAttributes
+                      onNameChange={e =>
+                          this.props.onNameChange(e.target.value, i)
+                        }
+                        onTypeOfInputChange={e =>
+                          this.props.onTypeOfInputChange(e.target.value, i)
+                        }
+                        onUoMChange={e =>
+                          this.props.onUoMChange(e.target.value, i)
+                        }
+                        onAttributeRemove={i => this.props.onAttributeRemove(i)}
+                        index={i}
+                        nameValue={this.props.structure.attributeList[i].name}
+                        typeOfInputValue={this.props.structure.attributeList[i].typeOfInput}
+                        uomValue={this.props.structure.attributeList[i].uom}
+                        
+                      />
+                    );
+                  })}
+                </div>
+      </Modal>
     );
   }
 }
 
-export default Structure;
+export default AddStructure;

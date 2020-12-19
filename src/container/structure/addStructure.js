@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
-import Structure from '../../pages/structure/AddStructure';
+import AddStructure from '../../pages/structure/AddStructure';
 import store from '../../store';
-
+import {addAttribute,addStructure,structureList} from '../../actions/structureAction';
 import {
-
   STRUCTURE_NAME,
-
   RESET_STRUCTURE_FORM,
-  
   STRUCTURE_FAMILY,
-  NUMBER_OF_ATTRIBUTES
+  NUMBER_OF_ATTRIBUTES,
+  CHANGE_ADD_STRUCTURE_MODAL_STATUS,
+  STRUCTURE_ATTRIBUTE_LIST
 } from '../../actions/types';
 
 const mapDispatchToProps = dispatch => {
@@ -36,7 +35,63 @@ const mapDispatchToProps = dispatch => {
         payload: value,
       });
     },
-   
+    closeAddStructureModal(){
+      dispatch({
+        type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
+        payload: false,
+      })
+    },
+    onNameChange(value,i){
+      const structure = store.getState().structure;
+      const length = structure.attributeList.length;
+      structure.attributeList[i].name = value;
+      dispatch({
+        type: STRUCTURE_ATTRIBUTE_LIST,
+        payload: structure.attributeList,
+      });
+    },
+    onTypeOfInputChange(value,i){
+      const structure = store.getState().structure;
+      const length = structure.attributeList.length;
+      structure.attributeList[i].typeOfInput = value;
+      dispatch({
+        type: STRUCTURE_ATTRIBUTE_LIST,
+        payload: structure.attributeList,
+      });
+    },
+    onUoMChange(value,i){
+      const structure = store.getState().structure;
+      const length = structure.attributeList.length;
+      structure.attributeList[i].uom = value;
+      dispatch({
+        type: STRUCTURE_ATTRIBUTE_LIST,
+        payload: structure.attributeList,
+      });
+    },
+    onAttributeRemove(i){
+      const structure = store.getState().structure;
+      const attributeList = [...structure.attributeList];
+      attributeList.splice(i, 1);
+      dispatch({
+        type: STRUCTURE_ATTRIBUTE_LIST,
+        payload: attributeList,
+      });
+    },
+    addAttribute(){
+      dispatch(addAttribute());
+    },
+    addStructure(){
+      dispatch(addStructure()).then(() => {
+        dispatch({
+          type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
+          payload: false,
+        });
+        dispatch({
+          type: RESET_STRUCTURE_FORM
+        });
+        dispatch(structureList());
+      });
+    }
   };
 };
 
@@ -47,4 +102,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Structure);
+export default connect(mapStateToProps, mapDispatchToProps)(AddStructure);

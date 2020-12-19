@@ -1,69 +1,90 @@
-import React, { Component } from 'react';
-import { Col, Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import ContentLoader from '../../common/ContentLoader';
-import FormContainer from '../../common/forms/FormContainer';
-import FormRow from '../../common/forms/FormRow';
-import TextInput from '../../common/forms/TextInput';
-import FileInput from '../../common/forms/FileInput';
-import IconTextButton from '../../common/forms/IconTextButton';
-import Button from '../../common/forms/Button';
-import SearchBox from '../../common/forms/SearchBox';
-import SimpleDropDown from '../../common/forms/SimpleDropDown';
-import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
-import Loader from '../../common/Loader';
-import DataTable from '../../common/DataTable';
-
-import { _viewStructureInputData, _viewStructureInputBodyData } from './utils';
-import Col6 from '../../common/forms/Col6';
+import React, { Component } from "react";
+import ContentLoader from "../../common/ContentLoader";
+import FormContainer from "../../common/forms/FormContainer";
+import DataTable from "../../common/DataTable";
+import ConfirmModal from "../../common/ConfirmModal";
+import CustomAlert from "../../common/forms/customAlert";
+import { listStructureMetaData, transformStructureList } from "./utils";
+import Button from "../../common/forms/Button";
+import CustomDataTable from "../../common/CustomDataTable";
+import TableFilter from "../../common/TableFilter";
+import Col6 from "../../common/forms/Col6";
+import AddStructure from "../../container/structure/addStructure";
 
 class ViewStructure extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeId: null,
+      showDeleteModal: false,
+      filterText: "",
+      resetPaginationToggle: false,
+    };
+  }
+  componentDidMount() {
+    this.props.structureList();
+  }
 
-    render() {
-        const subprop = this.props.assignStructure;
-        return (
-            <>
-                <ContentLoader>
-                    <FormContainer formTitle={'View Structure'}>
-
-
-
-                        <FormRow>
-                            <SearchBox />
-                        </FormRow><br/>
-                        <FormRow>
-
-                            <DataTable
-
-                                metaData={_viewStructureInputData}
-                                bodyData={_viewStructureInputBodyData}
-
-                            />
-                        </FormRow><br />
-
-
-
-                        <Button
-                            btnText="SAVE"
-                            onClick={this.props.saveViewStructureData}
-                            btnType="primary"
-                        />
-                        <Button
-                            btnText="DISCARD"
-                            btnType="cancel"
-                            onClick={this.props.resetViewStructureData}
-                        />
-
-
-                    </FormContainer>
-                </ContentLoader>
-            </>
-        );
-    }
+  render() {
+    return (
+      <ContentLoader>
+        {this.props.structure.isAddComponentMsg && (
+          <CustomAlert
+            variant="success"
+            message={this.props.structure.message}
+          />
+        )}
+        <AddStructure showAddComponentModal={this.props.structure.showAddStructureModal} />
+        <FormContainer formTitle={"Structure List"}>
+          {this.props.structure.structureList && (
+            <CustomDataTable
+              metaData={listStructureMetaData(
+                (id) => this.setState({ activeId: id, showDeleteModal: true }),
+                (id) => this.props.handleEdit(id),
+              )}
+              bodyData={transformStructureList(
+                this.props.structure.structureList
+              )}
+              progressPending={this.props.structure.isLoading}
+              pagination={true}
+              paginationTotalRows={
+                this.props.structure.structureList &&
+                this.props.structure.structureList.length
+              }
+              paginationPerPage={5}
+              noHeader={true}
+              subHeader
+              subHeaderComponent={
+                <>
+                  <TableFilter
+                    placeholder="Search By ID"
+                    fieldSize="float-left col-sm-10"
+                    onFilter={(e) => {
+                      e.target.value === "" &&
+                        this.setState({
+                          resetPaginationToggle: !this.state
+                            .resetPaginationToggle,
+                        });
+                      this.setState({ filterText: e.target.value });
+                    }}
+                    filterText={this.state.filterText}
+                  />
+                  <Col6>
+                  
+                  <Button
+                    btnText="Create New Structure"
+                    btnType="btn-primary float-right"
+                    onClick={this.props.showAddStructureModal}
+                  />
+                  </Col6>
+                </>
+              }
+            />
+          )}
+        </FormContainer>
+      </ContentLoader>
+    );
+  }
 }
 
 export default ViewStructure;
