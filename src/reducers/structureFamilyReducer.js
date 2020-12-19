@@ -1,12 +1,14 @@
 import { act } from 'react-dom/test-utils';
-import { ADD_STRUCTURE_FAMILY_TYPE, CHANGE_ADD_STRUCTURE_FAMILY_MODAL_STATUS, GET_STRUCTURE_FAMILY_TYPE, LIST_STRUCTURE_FAMILY, RESET_CREATE_STRUCTURE_FAMILY_TYPE_FORM, SET_STRUCTURE_FAMILY_EDIT_MODE, SHOW_ADD_STRUCTURE_FAMILY_MSG, STRUCTURE_FAMILY_STATUS, STRUCTURE_FAMILY_TYPE, UPDATE_STRUCTURE_FAMILY_TYPE } from '../actions/types';
+import { ADD_STRUCTURE_FAMILY_TYPE, CHANGE_ADD_STRUCTURE_FAMILY_MODAL_STATUS, GET_STRUCTURE_FAMILY_TYPE, LIST_STRUCTURE_FAMILY, RESET_CREATE_STRUCTURE_FAMILY_FORM, RESET_CREATE_STRUCTURE_FAMILY_TYPE_FORM, SET_STRUCTURE_FAMILY_EDIT_MODE, SHOW_ADD_STRUCTURE_FAMILY_MSG, STRUCTURE_FAMILY_STATUS, STRUCTURE_FAMILY_TYPE, UPDATE_STRUCTURE_FAMILY_TYPE } from '../actions/types';
 
 const initialState = {
     structureFamilyType: '',
+    structureFamilyTypeList:"",
     isAddStructureFamilyMsg: false,
     structureFamilyTypeID:'',
     structureFamilyTypeStatus:'',
     isEditMode:false,
+    isLoading:false
 
 };
 
@@ -23,7 +25,7 @@ export default function (state = initialState, action) {
                 structureFamilyTypeStatus: action.payload
             }
         
-        case RESET_CREATE_STRUCTURE_FAMILY_TYPE_FORM:
+        case RESET_CREATE_STRUCTURE_FAMILY_FORM:
             return {
                 ...state,
                 structureFamilyType: '',

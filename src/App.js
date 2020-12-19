@@ -8,7 +8,8 @@ import './assets/css/styles.css';
 import AddStructure from './container/structure/addStructure';
 import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
-import AddIndependentCompany from './container/independentCompany/independentCompany';
+// import AddIndependentCompany from './container/independentCompany/independentCompany';
+import ViewIndependentCompany from './container/independentCompany/viewIndependentCompany';
 
 import AddWorkBreak from './container/workBreak/addWorkBreak';
 import ViewWorkBreak from './container/workBreak/viewWBS';
@@ -102,8 +103,8 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/addIndependentCompany"
-            component={AddIndependentCompany}
+            path="/masters/viewIndependentCompany"
+            component={ViewIndependentCompany}
           ></Route>
           <Route
             exact

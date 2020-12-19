@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import store from '../../store';
 import {structureFamilyList, getSingleStructureFamilyType} from '../../actions/structureFamilyAction';
 
-import { CHANGE_ADD_STRUCTURE_FAMILY_MODAL_STATUS, SET_STRUCTURE_FAMILY_EDIT_MODE, SHOW_ADD_STRUCTURE_FAMILY_MSG, STRUCTURE_FAMILY_TYPE, STRUCTURE_FAMILY_TYPE_STATUS } from '../../actions/types';
+import { CHANGE_ADD_STRUCTURE_FAMILY_MODAL_STATUS, RESET_CREATE_STRUCTURE_FAMILY_FORM, SHOW_ADD_STRUCTURE_FAMILY_MODAL,SET_STRUCTURE_FAMILY_EDIT_MODE, SHOW_ADD_STRUCTURE_FAMILY_MSG, STRUCTURE_FAMILY_TYPE, STRUCTURE_FAMILY_TYPE_STATUS } from '../../actions/types';
 
 import ViewStructureFamily from '../../pages/structureFamily/ViewStructureFamily';
 
@@ -33,6 +33,13 @@ const mapDispatchToProps = dispatch => {
           type: SHOW_ADD_STRUCTURE_FAMILY_MSG,
           payload: false,
         })
+      },
+      closeAddStructureFamilyModal() {
+        dispatch({
+          type: SHOW_ADD_STRUCTURE_FAMILY_MODAL,
+          payload: false,
+        });
+        dispatch({type: RESET_CREATE_STRUCTURE_FAMILY_FORM});
       },
       handleEdit(id) {
         dispatch({

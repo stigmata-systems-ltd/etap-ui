@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import store from '../../store';
 
 import {
-    INDEPENDENT_COMPANY,
+
     BUSINESS_UNIT,
+    INDEPENDENT_COMPANY,
     RESET_STRUCTURE_FORM,
 
 } from '../../actions/types';
-import AddIndependentCompany from '../../pages/independentCompany/AddIndependentCompany';
-import { addIndependentCompany } from '../../actions/icbuAction';
 
+import AddIndependentCompany from '../../pages/independentCompany/AddIndependentCompany';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -17,20 +17,17 @@ const mapDispatchToProps = dispatch => {
             dispatch({ type: RESET_STRUCTURE_FORM });
         },
 
-        handleChangeIndependentCompany(value) {
+        handleChangeIc(value) {
             dispatch({
                 type: INDEPENDENT_COMPANY,
                 payload: value,
             });
         },
-        handleChangeBusinessUnit(value) {
+        handleChangeBu(value) {
             dispatch({
                 type: BUSINESS_UNIT,
                 payload: value,
             });
-        },
-        independentCompany() {
-            dispatch(addIndependentCompany());
         },
 
     };

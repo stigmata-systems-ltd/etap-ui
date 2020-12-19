@@ -2,35 +2,19 @@ import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 
 
-export const structureFamilyMetaData = (handleDelete, handleEdit) => {
+export const icbuMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        sortable: false,
-        cell: row => {
-          return (
-            <>
-              { (
-                <IconButton
-                  iconName="faTimes"
-                  className={'table-delete-icon'}
-                  onClick={() => handleDelete(row.id)}
-                />
-              )}
-            </>
-          );
-        },
-        width: '2%',
-      },  
-      {
-        name: 'Structure Family Type',
-        selector: 'structureFamilyType',
+        name: 'Independent Company',
+        selector: 'independentCompany',
         sortable: false,
       },
       {
-        name: 'Status',
-        selector: 'status',
+        name: 'Business Unit',
+        selector: 'businessUnit',
         sortable: false,
       },
+      
       {
         name: 'Actions',
         sortable: false,
@@ -50,21 +34,15 @@ export const structureFamilyMetaData = (handleDelete, handleEdit) => {
     ];
   };
 
-  export const structureFamilyBodyData = structureFamilyList => {
+  export const icbuList = icbuList => {
     let tmpArr = [];
-    let statusValue;
-    structureFamilyList &&
-    structureFamilyList.map(structureFamily => {
-        if (structureFamily.isActive){
-            statusValue = "Active"
-        }
-        else {
-            statusValue = "InActive"
-        }
+    icbuList &&
+    icbuList.map(icbu => {
+      
         let tmpObj = {
-            id: structureFamily.id,
-            name: structureFamily.name,
-            isActive: structureFamily.isActive,
+            
+            icId: icbu.icId,
+            lstBussUnit: icbu.lstBussUnit,
         };
         tmpArr.push(tmpObj);
       });

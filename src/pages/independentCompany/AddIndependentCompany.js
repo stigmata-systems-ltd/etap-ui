@@ -1,68 +1,51 @@
-import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import ContentLoader from '../../common/ContentLoader';
-import FormContainer from '../../common/forms/FormContainer';
-import FormRow from '../../common/forms/FormRow';
-import TextInput from '../../common/forms/TextInput';
-import IconTextButton from '../../common/forms/IconTextButton';
+import React, { Component } from "react";
+import FormRow from "../../common/forms/FormRow";
+import TextInput from "../../common/forms/TextInput";
+import CustomAlert from "../../common/forms/customAlert";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import Modal from "../../common/Modal";
 import Button from '../../common/forms/Button';
-import SimpleDropDown from '../../common/forms/SimpleDropDown';
-import CheckBox from '../../common/forms/CheckBox';
-import CustomAlert from '../../common/forms/customAlert';
-import Loader from '../../common/Loader';
+import { transformDropDownData } from "../../utils/dataTransformer";
 
 class AddIndependentCompany extends Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount() {
-        this.props.independentCompany();
-    }
+
     render() {
-        const subprop = this.props.icbu;
         return (
-            <>
-                <ContentLoader>
-                    <FormContainer formTitle={'Add Independent Company'}>
-                        <FormRow>
-                            <TextInput
-                                
-                                label="Independent Company"
-                                name="independentCompany"
-                                id="independentCompany"
-                                onChange={e =>
-                                    this.props.handleChangeIndependentCompany(e.target.value)
-                                }
-                                value={subprop.independentCompany}
-                            />
-                            <TextInput
+            <Modal
+                title={`${this.props.icbu.isEditMode ? "Update" : "Create New"
+                    } IC/BU`}
+                showModal={this.props.icbu.showAddIcbuModal}
+                handleSave={
+                    this.props.icbu.isEditMode
+                        ? this.props.updateIcbu
+                        : this.props.createIcbu
+                }
+                handleClose={this.props.closeAddIcbuModal}
+                size="lg"
+                isShowFooter={true}
+            >
 
-                                label="Business Unit"
-                                name="businessUnit"
-                                id="businessUnit"
-                                onChange={e =>
-                                    this.props.handleChangeBusinessUnit(e.target.value)
-                                }
-                                value={subprop.businessUnit}
-                            />
+                <FormRow>
+                    <TextInput
+                        label="Independent Company"
+                        name="ic"
+                        id="ic"
+                        onChange={(e) => this.props.handleChangeIc(e.target.value)}
+                        value={this.props.icbu.ic}
+                    />
+                    <TextInput
+                        label="Business Unit"
+                        name="bu"
+                        id="bu"
+                        onChange={(e) => this.props.handleChangeBu(e.target.value)}
+                        value={this.props.icbu.bu}
+                    />
+                </FormRow>
 
-                        </FormRow>
-
-
-                        <Button
-                            btnText="SAVE"
-                            onClick={this.props.saveUsersData}
-                            btnType="primary"
-                        />
-                        <Button
-                            btnText="DISCARD"
-                            btnType="cancel"
-                            onClick={this.props.resetUsersData}
-                        />
-                    </FormContainer>
-                </ContentLoader>
-            </>
+                {this.props.icbu.isModalMsg && (
+                    <p className="text-danger">{this.props.icbu.component.message}</p>
+                )}
+            </Modal>
         );
     }
 }
