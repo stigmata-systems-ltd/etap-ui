@@ -10,6 +10,7 @@ import ViewUsers from './container/users/viewUsers';
 import AddComponent from './container/component/addComponent';
 // import AddIndependentCompany from './container/independentCompany/independentCompany';
 import ViewIndependentCompany from './container/independentCompany/viewIndependentCompany';
+import ViewBusinessUnit from './container/businessUnit/viewBusinessUnit';
 
 import AddWorkBreak from './container/workBreak/addWorkBreak';
 import ViewWorkBreak from './container/workBreak/viewWBS';
@@ -105,6 +106,11 @@ class App extends Component {
             exact
             path="/masters/viewIndependentCompany"
             component={ViewIndependentCompany}
+          ></Route>
+          <Route
+            exact
+            path="/masters/viewBusinessUnit"
+            component={ViewBusinessUnit}
           ></Route>
           <Route
             exact

@@ -48,11 +48,16 @@ export const metaDataNavbar = [
       },
       {
         id: 'mastersSub' + 8,
-        navText: 'Add IC/BU',
+        navText: 'Add IC',
         route: '/masters/viewIndependentCompany',
       },
       {
         id: 'mastersSub' + 9,
+        navText: 'Add BU',
+        route: '/masters/viewBusinessUnit',
+      },
+      {
+        id: 'mastersSub' + 10,
         navText: 'Add SubContractor',
         route: '/masters/viewSubContractor',
       },
