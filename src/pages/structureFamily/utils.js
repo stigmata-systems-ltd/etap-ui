@@ -3,24 +3,7 @@ import IconButton from '../../common/forms/IconButton';
 
 
 export const structureFamilyMetaData = (handleDelete, handleEdit) => {
-    return [
-      {
-        sortable: false,
-        cell: row => {
-          return (
-            <>
-              { (
-                <IconButton
-                  iconName="faTimes"
-                  className={'table-delete-icon'}
-                  onClick={() => handleDelete(row.id)}
-                />
-              )}
-            </>
-          );
-        },
-        width: '2%',
-      },  
+    return [ 
       {
         name: 'Structure Family Type',
         selector: 'structureFamilyType',
@@ -63,8 +46,8 @@ export const structureFamilyMetaData = (handleDelete, handleEdit) => {
         }
         let tmpObj = {
             id: structureFamily.id,
-            name: structureFamily.name,
-            isActive: structureFamily.isActive,
+            structureFamilyType: structureFamily.name,
+            status: statusValue,
         };
         tmpArr.push(tmpObj);
       });

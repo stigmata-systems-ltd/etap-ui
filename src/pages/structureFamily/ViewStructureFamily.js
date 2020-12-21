@@ -10,7 +10,6 @@ import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 import AddStructureFamily from "../../container/structureFamily/addStructureFamily";
-import SimpleDropDown from "../../common/forms/SimpleDropDown";
 
 class ViewStructureFamily extends Component {
   constructor(props) {

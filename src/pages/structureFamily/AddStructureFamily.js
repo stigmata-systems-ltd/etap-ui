@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
-import SimpleDropDown from "../../common/forms/SimpleDropDown";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
 import { structureFamilyRoles } from "./utils";
@@ -11,9 +11,9 @@ class AddStructureFamily extends Component {
     super(props);
   }
 
-//   componentDidMount() {
-//     this.props.getUserRoles();
-//   }
+  // componentDidMount() {
+  //   this.props.addStructureFamily();
+  // }
 
   render() {
     return (
@@ -43,8 +43,10 @@ class AddStructureFamily extends Component {
             onChange={(e) => this.props.handleChangeStructureFamilyType(e.target.value)}
             value={this.props.structureFamily.structureFamilyType}
           />
-          <SimpleDropDown
+          <SearchableDropDown
             label="Status"
+            name="structureFamilyTypeStatus"
+            id="structureFamilyTypeStatus"
             selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
             onChange={(e) => this.props.handleStructureFamilyTypeStatus(e.target.value)}
             value={this.props.structureFamily.structureFamilyTypeStatus}
