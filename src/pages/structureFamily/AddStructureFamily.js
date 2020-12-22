@@ -51,6 +51,7 @@ class AddStructureFamily extends Component {
           />
         </FormRow>
         
+        
         {this.props.structureFamily.isModalMsg && (
           <p className="text-danger">{this.props.structureFamily.message}</p>
         )}

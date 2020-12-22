@@ -8,7 +8,7 @@ import {
   SET_STRUCTURE_FAMILY_EDIT_MODE,
   CHANGE_STRUCTURE_FAMILY_MODAL_STATUS,
   STRUCTURE_FAMILY_TYPE,
-  STRUCTURE_FAMILY_TYPE_STATUS
+  STRUCTURE_FAMILY_STATUS
 
 }
   from '../../actions/types';
@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch => {
     },
     closeAddStructureFamilyModal() {
       dispatch({
-        type: CHANGE_STRUCTURE_FAMILY_MODAL_STATUS,
+        type: CHANGE_ADD_STRUCTURE_FAMILY_MODAL_STATUS,
         payload: false,
       })
       dispatch({ type: RESET_CREATE_STRUCTURE_FAMILY_FORM })
@@ -65,7 +65,7 @@ const mapDispatchToProps = dispatch => {
     },
     handleStructureFamilyTypeStatus(value) {
       dispatch({
-        type: STRUCTURE_FAMILY_TYPE_STATUS,
+        type: STRUCTURE_FAMILY_STATUS,
         payload: value,
       });
     },
