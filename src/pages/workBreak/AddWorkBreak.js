@@ -17,6 +17,9 @@ import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 import {transformWBSData,listWBSMetaData} from './utils';
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import { transformDropDownData } from "../../utils/dataTransformer";
+
 class AddWorkBreak extends Component {
     constructor(props) {
         super(props);
@@ -48,12 +51,19 @@ class AddWorkBreak extends Component {
                 <ContentLoader>
                     <FormContainer formTitle={'Add WBS'}>
                         <FormRow>
-                            <SimpleDropDown
+                            {/* <SimpleDropDown
                                 label="Project Name"
                                 name="projectName"
                                 onChange={e => this.props.handleChangeProjectName(e.target.value)}
                                 value={this.props.wbs.wbsProjectName}
                                 selectOptions={this.props.wbs.projectCodesList}
+                            /> */}
+                            <SearchableDropDown
+                              label="Project Name"
+                              name="projectName"
+                              selectOptions={transformDropDownData(this.props.wbs.projectCodesList, "id", "name")}
+                              onChange={(obj) => this.props.handleChangeProjectName(obj)}
+                              value={this.props.wbs.wbsProjectName}
                             />
                         </FormRow>
                         <FormRow>

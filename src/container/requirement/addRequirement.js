@@ -18,15 +18,18 @@ import {
     EXPECTED_RELEASE_DATE,
     MR_NUMBER,
     REMARKS,
-    RESET_STRUCTURE_FORM
-
+    RESET_REQUIREMENT_FORM,
+    SITE_REQUIRMENT_LIST
 } from '../../actions/types';
 import AddRequirement from '../../pages/requirements/AddRequirements';
-
+import {getProjectList,getWBSList, addSiteRequirement,addRequirement} from '../../actions/requirementAction'
 const mapDispatchToProps = dispatch => {
     return {
-        resetStructureData() {
-            dispatch({ type: RESET_STRUCTURE_FORM });
+        saveRequirement(){
+            dispatch(addRequirement());
+        },
+        resetRequirement() {
+            dispatch({ type: RESET_REQUIREMENT_FORM });
         },
 
         handleChangeRequirementProjectName(value) {
@@ -119,13 +122,58 @@ const mapDispatchToProps = dispatch => {
                 payload: value,
             });
         },
+        getProjectList(){
+            dispatch(getProjectList());
+        },
+        getWBSList(){
+            dispatch(getWBSList());
+        },
+        addSiteRequirement(){
+            dispatch(addSiteRequirement());
+        },
+        onStructureIDChange(value, i){
+            const requirement = store.getState().requirement;
+            const length = requirement.siteRequirementList.length;
+            requirement.siteRequirementList[i].structureId = value;
+            dispatch({
+                type: SITE_REQUIRMENT_LIST,
+                payload: requirement.siteRequirementList,
+            });
+        },
+        ondrawingNumberChange(value, i){
+            const requirement = store.getState().requirement;
+            const length = requirement.siteRequirementList.length;
+            requirement.siteRequirementList[i].drawingNumber = value;
+            dispatch({
+                type: SITE_REQUIRMENT_LIST,
+                payload: requirement.siteRequirementList,
+            });
+        },
+        onQuantityChange(value, i){
+            const requirement = store.getState().requirement;
+            const length = requirement.siteRequirementList.length;
+            requirement.siteRequirementList[i].quantity = value;
+            dispatch({
+                type: SITE_REQUIRMENT_LIST,
+                payload: requirement.siteRequirementList,
+            });
+        },
+        onSiteRequirementRemove(i){
+            const requirement = store.getState().requirement;
+            const siteRequirementList = [...requirement.siteRequirementList];
+            siteRequirementList.splice(i, 1);
+            dispatch({
+                type: SITE_REQUIRMENT_LIST,
+                payload: siteRequirementList,
+            });
+        }
     };
 };
 
 const mapStateToProps = state => {
-    const addRequirement = store.getState().addRequirement;
+    const requirement = store.getState().requirement;
     return {
-        addRequirement,
+        requirement,
     };
 };
 

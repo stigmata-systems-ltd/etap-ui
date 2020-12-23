@@ -4,11 +4,18 @@ import config from '../config';
 import { ADD_STRUCTURE_FAMILY,UPDATE_STRUCTURE_FAMILY_TYPE,LIST_STRUCTURE_FAMILY,GET_STRUCTURE_FAMILY_TYPE } from "./types";
 
 export const addStructureFamily = () => {
-    const {structureFamilyType} = store.getState().structureFamily;
+    const {structureFamilyType,structureFamilyTypeStatus} = store.getState().structureFamily;
+        let status;
+      if(structureFamilyTypeStatus === "Active"){
+          status=true;
+      } else{
+          status=false;
+      }
       const body={
           id : 0,
           name: structureFamilyType,
-          isActive: true,
+          isActive: status,
+          description: structureFamilyType
       };
     return {
         type: ADD_STRUCTURE_FAMILY,

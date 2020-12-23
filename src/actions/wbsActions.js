@@ -21,7 +21,7 @@ export const wbsList = () => {
 
 export const saveWBSData = () => {
     const wbs = store.getState().wbs;
-    const wbsProjectName = wbs.wbsProjectName;
+    const wbsProjectName = wbs.wbsProjectName.value;
     let wbsUploadedData=wbs.wbsUploadedData;
     let result = wbsUploadedData.map(function(el) {
         var o = Object.assign({}, el);

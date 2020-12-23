@@ -13,16 +13,21 @@ import CheckBox from '../../common/forms/CheckBox';
 import CustomAlert from '../../common/forms/customAlert';
 import Loader from '../../common/Loader';
 import DataTable from '../../common/DataTable';
-
+import { transformDropDownData } from "../../utils/dataTransformer";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Col6 from '../../common/forms/Col6';
 import DateInput from '../../common/forms/DateInput';
 import TextArea from '../../common/forms/TextArea';
+import SiteRequirementStructure from './SiteRequirementStructure';
 
 class AddRequirement extends Component {
     constructor(props) {
         super(props);
     }
-
+    componentDidMount() {
+        this.props.getProjectList();
+        this.props.getWBSList();
+      }
     render() {
         const subprop = this.props.addRequirement;
         return (
@@ -30,115 +35,43 @@ class AddRequirement extends Component {
                 <ContentLoader>
                     <FormContainer formTitle={'Add Requirement'}>
                         <FormRow>
-                            <SimpleDropDown
-                                label="Select Project"
-                                name="projectName"
-                                id="projectName"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementProjectName(e.target.value)
-                                }
-                            // value={subprop.projectName}
-                            />
-
-                        </FormRow>
-                        <FormRow>
-                            <SimpleDropDown
-                                label="Structure Family"
-                                name="structureName"
-                                id="structureName"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementStructureName(e.target.value)
-                                }
-                            // value={subprop.structureName}
-                            />
-                            <TextInput
-                                label="Structure ID"
-                                name="structureId"
-                                id="structureId"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementStructureId(e.target.value)
-                                }
-                            // value={subprop.structureId}
-                            />
-
-                        </FormRow>
-                        <FormRow>
-                            <TextInput
-                                label="No of Components"
-                                name="noOfComponents"
-                                id="noOfComponents"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementNumberOfComponents(e.target.value)
-                                }
-                            // value={subprop.noOfComponents}
-                            />
-
-                            <TextInput
-                                label="Drawing Number"
-                                name="drawingNumber"
-                                id="drawingNumber"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementDrawingNumber(e.target.value)
-                                }
-                            // value={subprop.drawingNumber}
-                            />
+                        <SearchableDropDown
+                                    label="Project Name"
+                                    name="projectName"
+                                    selectOptions={transformDropDownData(this.props.requirement.projectCodesList, "id", "name")}
+                                    onChange={(obj) => this.props.handleChangeRequirementProjectName(obj)}
+                                    value={this.props.requirement.projectName}
+                        />
+                         <SearchableDropDown
+                                    label="Required for WBS"
+                                    name="requiredWorkBreak"
+                                    selectOptions={transformDropDownData(this.props.requirement.wbsCodesList, "id", "name")}
+                                    onChange={(obj) => this.props.handleChangeRequirementRequiredWorkBreak(obj)}
+                                    value={this.props.requirement.requiredWorkBreak}
+                        />
 
                         </FormRow>
 
-
                         <FormRow>
-                            <TextInput
-                                label="Quantity"
-                                name="quantity"
-                                id="quantity"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementQuantity(e.target.value)
-                                }
-                            // value={subprop.quantity}
-                            />
-                            <SimpleDropDown
-                                label="Required for WBS"
-                                name="requiredWorkBreak"
-                                id="requiredWorkBreak"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementRequiredWorkBreak(e.target.value)
-                                }
-                            // value={subprop.requiredWorkBreak}
-                            />
-
-                        </FormRow>
-                        <FormRow>
-                            <SimpleDropDown
-                                label="Required By"
-                                name="requiredBy"
-                                id="requiredBy"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementRequiredBy(e.target.value)
-                                }
-                            // value={subprop.requiredBy}
-                            />
-                            <SimpleDropDown
-                                label="Actual WBS"
-                                name="actualWorkBreak"
-                                id="actualWorkBreak"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementActualWorkBreak(e.target.value)
-                                }
-                            // value={subprop.actualWorkBreak}
-                            />
-
-
-                        </FormRow>
-                        <FormRow>
-                            <DateInput
+                                <SearchableDropDown
+                                    label="Actual WBS"
+                                    name="actualWorkBreak"
+                                    selectOptions={transformDropDownData(this.props.requirement.wbsCodesList, "id", "name")}
+                                    onChange={(obj) => this.props.handleChangeRequirementActualWorkBreak(obj)}
+                                    value={this.props.requirement.actualWorkBreak}
+                                />
+                                <DateInput
                                 label="Planned Start Date"
                                 name="plannedStartDate"
                                 id="plannedStartDate"
                                 onChange={e =>
                                     this.props.handleChangeRequirementPlannedStartDate(e.target.value)
                                 }
-                            // value={subprop.plannedStartDate}
+                                value={this.props.requirement.planedStartDate}
                             />
+                        </FormRow>
+                        <FormRow>
+                            
                             <DateInput
                                 label="Actual Start Date of Usage"
                                 name="actualStartDateOfUsage"
@@ -146,12 +79,8 @@ class AddRequirement extends Component {
                                 onChange={e =>
                                     this.props.handleChangeRequirementActualStartDateOfUsage(e.target.value)
                                 }
-                            // value={subprop.actualStartDateOfUsage}
+                                value={this.props.requirement.actualStartDateOfUsage}
                             />
-
-
-                        </FormRow>
-                        <FormRow>
                             <DateInput
                                 label="Planned Release Date"
                                 name="plannedReleaseDate"
@@ -159,8 +88,12 @@ class AddRequirement extends Component {
                                 onChange={e =>
                                     this.props.handleChangeRequirementPlannedReleaseDate(e.target.value)
                                 }
-                            // value={subprop.plannedReleaseDate}
+                                value={this.props.requirement.expectedReleaseDate}
                             />
+
+                        </FormRow>
+                        <FormRow>
+                            
                             <DateInput
                                 label="Expected Release Date"
                                 name="expectedReleaseDate"
@@ -168,24 +101,43 @@ class AddRequirement extends Component {
                                 onChange={e =>
                                     this.props.handleChangeRequirementExpectedReleaseDate(e.target.value)
                                 }
-                            // value={subprop.expectedReleaseDate}
+                                value={this.props.requirement.expectedReleaseDate}
                             />
 
-
                         </FormRow>
-
-                        <FormRow>
-                            <TextInput
-                                label="MR No"
-                                name="mrNo"
-                                id="mrNo"
-                                onChange={e =>
-                                    this.props.handleChangeRequirementMrNo(e.target.value)
-                                }
-                            // value={subprop.mrNo}
-                            />
-                        </FormRow>
-                        <FormRow>
+                        
+                        <div class="form-group row">
+                  <div class="col-sm-8">
+                    <IconTextButton
+                      btnText="Add Site Requirement"
+                      onClick={this.props.addSiteRequirement}
+                    />
+                  </div>
+                </div>
+                        <div class="form-group row location-row">
+                  {this.props.requirement.siteRequirementList.map((e, i) => {
+                    return (
+                      <SiteRequirementStructure
+                      onStructureIDChange={e =>
+                          this.props.onStructureIDChange(e.target.value, i)
+                        }
+                        ondrawingNumberChange={e =>
+                          this.props.ondrawingNumberChange(e.target.value, i)
+                        }
+                        onQuantityChange={e =>
+                          this.props.onQuantityChange(e.target.value, i)
+                        }
+                        onSiteRequirementRemove={i => this.props.onSiteRequirementRemove(i)}
+                        index={i}
+                        structureId={this.props.requirement.siteRequirementList[i].structureId}
+                        drawingNumber={this.props.requirement.siteRequirementList[i].drawingNumber}
+                        quantity={this.props.requirement.siteRequirementList[i].quantity}
+                        
+                      />
+                    );
+                  })}
+                </div>
+                <FormRow>
                             <TextArea
                                 
                                 label="Remarks"
@@ -194,27 +146,19 @@ class AddRequirement extends Component {
                                 onChange={e =>
                                     this.props.handleChangeRequirementRemarks(e.target.value)
                                 }
-                                // value={subprop.remarks}
+                                value={this.props.requirement.remarks}
                                 placeholder="Remarks"
                             />
                         </FormRow>
-
-
-
-
-                        <br />
-
-
-
                         <Button
                             btnText="SAVE"
-                            onClick={this.props.saveSubContractorData}
+                            onClick={this.props.saveRequirement}
                             btnType="primary"
                         />
                         <Button
                             btnText="DISCARD"
                             btnType="cancel"
-                            onClick={this.props.resetSubContractorData}
+                            onClick={this.props.resetRequirement}
                         />
 
 
