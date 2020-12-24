@@ -28,11 +28,14 @@ export const updateStructureFamilyType = (id) => {
       const body={
           id:structureFamilyTypeID,
           name: structureFamilyType,
-          isActive: status
+          isActive: status,
+          description: structureFamilyType
       };
+    console.log(`${config.BASE_URL}​/api/StructureFamily/updateStructureFam/${structureFamilyTypeID}`);
+    console.log(body)
     return {
         type: UPDATE_STRUCTURE_FAMILY_TYPE,
-        payload: axios.put(config.BASE_URL + '​/api​/StructureFamily​/updateStructureFam/'+structureFamilyTypeID, body)
+        payload: axios.put(config.BASE_URL + '/api/StructureFamily/updateStructureFam/'+structureFamilyTypeID, body)
     }
 }
 

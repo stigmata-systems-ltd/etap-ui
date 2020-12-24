@@ -35,8 +35,8 @@ const mapDispatchToProps = dispatch => {
 
       });;
     },
-    updateStructureFamilyType() {
-      dispatch(updateStructureFamilyType()).then(() => {
+    updateStructureFamilyType(id) {
+      dispatch(updateStructureFamilyType(id)).then(() => {
         dispatch(structureFamilyList());
         dispatch({
           type: SET_STRUCTURE_FAMILY_EDIT_MODE,
