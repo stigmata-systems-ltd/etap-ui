@@ -18,6 +18,7 @@ import usersReducer from './userReducer';
 import structureFamilyReducer from './structureFamilyReducer';
 import vendorReducer from './vendorReducer';
 import requirementReducer from './requirementReducer';
+import assignStructureReducer from './assignStructureReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
   users: usersReducer,
   structureFamily:structureFamilyReducer,
   vendor:vendorReducer,
-  requirement: requirementReducer
+  requirement: requirementReducer,
+  assignStructure: assignStructureReducer
 });
 
 export default rootReducer;

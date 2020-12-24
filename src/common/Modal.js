@@ -5,6 +5,10 @@ import Button from "./forms/Button";
 class CustomModal extends Component {
 
     render() {
+        let handleSaveButton;
+        if(this.props.handleSave){
+             handleSaveButton='<Button btnType="primary" onClick={this.props.handleSave} btnText="Save" />'
+        }
         return (
             <Modal 
                 show={this.props.showModal} 
@@ -17,8 +21,8 @@ class CustomModal extends Component {
                 </Modal.Header>
                 <Modal.Body>{this.props.children}</Modal.Body>
                 {this.props.isShowFooter && 
-                <Modal.Footer>
-                    <Button btnType="primary" onClick={this.props.handleSave} btnText="Save" />
+                <Modal.Footer>      
+                    {handleSaveButton}
                     <Button btnType="btn-secondary" onClick={this.props.handleClose} btnText="Cancel" />
                 </Modal.Footer>}
             </Modal>
