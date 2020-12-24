@@ -31,8 +31,8 @@ export default function (state = initialState, action) {
                 structureFamilyType: '',
                 structureFamilyTypeStatus: '',
                 structureFamilyTypeID: '',
-                isLoading: false
-                
+                isLoading: false,
+                isEditMode:false
             };
             
         case SHOW_ADD_STRUCTURE_FAMILY_MSG:

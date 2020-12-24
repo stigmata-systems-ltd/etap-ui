@@ -22,8 +22,8 @@ export const addSiteRequirement= () => {
     const requirement = store.getState().requirement;
     let siteRequirementList = requirement.siteRequirementList;
     const asiteRequirementObj = {
-        structureId: "",
-        drawingNumber: "",
+        structId: "",
+        drawingNo: "",
         quantity: ""
     };
     siteRequirementList.push(asiteRequirementObj);
@@ -37,14 +37,15 @@ export const addRequirement = () => {
     const requirement = store.getState().requirement;
       const body={
         "projectId": requirement.projectName.value,
-        "planStartdate":requirement.planedStartDate,
-        "planReleasedate":requirement.plannedReleaseDate,
-        "actualStartdate":requirement.actualStartDateOfUsage,
-        "actualReleasedate":requirement.plannedReleaseDate,
+        "planStartdate":requirement.planedStartDate+"T00:00:00.000Z",
+        "planReleasedate":requirement.plannedReleaseDate+"T00:00:00.000Z",
+        "actualStartdate":requirement.actualStartDateOfUsage+"T00:00:00.000Z",
+        "actualReleasedate":requirement.expectedReleaseDate+"T00:00:00.000Z",
         "requireWbsId":requirement.requiredWorkBreak.value,
         "actualWbsId":requirement.actualWorkBreak.value,
         "remarks":requirement.remarks,
-        "status": "true",
+        "status": "NEW",
+        "statusInternal": "NEW",
         "siteRequirementStructures":requirement.siteRequirementList,
       }
     return {

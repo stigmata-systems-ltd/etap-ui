@@ -26,7 +26,9 @@ import {getProjectList,getWBSList, addSiteRequirement,addRequirement} from '../.
 const mapDispatchToProps = dispatch => {
     return {
         saveRequirement(){
-            dispatch(addRequirement());
+            dispatch(addRequirement()).then(() => {
+                dispatch({ type: RESET_REQUIREMENT_FORM })
+            });
         },
         resetRequirement() {
             dispatch({ type: RESET_REQUIREMENT_FORM });
@@ -134,7 +136,7 @@ const mapDispatchToProps = dispatch => {
         onStructureIDChange(value, i){
             const requirement = store.getState().requirement;
             const length = requirement.siteRequirementList.length;
-            requirement.siteRequirementList[i].structureId = value;
+            requirement.siteRequirementList[i].structId = parseInt(value);
             dispatch({
                 type: SITE_REQUIRMENT_LIST,
                 payload: requirement.siteRequirementList,
@@ -143,7 +145,7 @@ const mapDispatchToProps = dispatch => {
         ondrawingNumberChange(value, i){
             const requirement = store.getState().requirement;
             const length = requirement.siteRequirementList.length;
-            requirement.siteRequirementList[i].drawingNumber = value;
+            requirement.siteRequirementList[i].drawingNo = value;
             dispatch({
                 type: SITE_REQUIRMENT_LIST,
                 payload: requirement.siteRequirementList,
@@ -152,7 +154,7 @@ const mapDispatchToProps = dispatch => {
         onQuantityChange(value, i){
             const requirement = store.getState().requirement;
             const length = requirement.siteRequirementList.length;
-            requirement.siteRequirementList[i].quantity = value;
+            requirement.siteRequirementList[i].quantity = parseInt(value);
             dispatch({
                 type: SITE_REQUIRMENT_LIST,
                 payload: requirement.siteRequirementList,
