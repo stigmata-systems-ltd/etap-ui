@@ -15,6 +15,7 @@ import {
   GET_BU_LIST,
   RESET_PROJECT_FORM,
   SHOW_ERR_MSG,
+  ADD_LOCATION_FIELD,
 } from "../actions/types";
 
 import { getSelectedValue } from "../utils/dataTransformer";
@@ -35,6 +36,7 @@ const initialState = {
   buList: [],
   icList: [],
   selectedProjId: "",
+  locations: [],
 };
 
 export default function (state = initialState, action) {
@@ -62,7 +64,7 @@ export default function (state = initialState, action) {
     case SITE_LOCATION:
       return {
         ...state,
-        siteLocation: action.payload,
+        locations: action.payload,
       };
     case PROJECT_INDEPENDENT_COMPANY:
       return {
@@ -121,13 +123,14 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         projectName: proj.name,
+        projCode: proj.projCode,
         selectedSegment: getSelectedValue(state.segmentList, proj.segmentId),
         businessUnit: getSelectedValue(state.buList, proj.buId),
-        independentCompany: getSelectedValue(state.segmentList, proj.icId),
+        independentCompany: getSelectedValue(state.icList, proj.icId),
         area: proj.area,
         siteLocation: "",
         selectedProjId: proj.id,
-        projectLocations: proj.projectSiteLocationDetails
+        locations: proj.projectSiteLocationDetails,
       };
     case `${GET_IC_LIST}_PENDING`:
       return {
@@ -177,7 +180,7 @@ export default function (state = initialState, action) {
         isLoading: false,
         buList: action.payload.data,
       };
-      case RESET_PROJECT_FORM:
+    case RESET_PROJECT_FORM:
       return {
         ...state,
         isLoading: false,
@@ -189,13 +192,18 @@ export default function (state = initialState, action) {
         siteLocation: "",
         isEditMode: false,
         selectedProjId: "",
+        locations: [],
       };
-      case SHOW_ERR_MSG:
-        return {
-          ...state,
-          isProjMsg: action.payload,
-        };
-
+    case SHOW_ERR_MSG:
+      return {
+        ...state,
+        isProjMsg: action.payload,
+      };
+    case ADD_LOCATION_FIELD:
+      return {
+        ...state,
+        locations: action.payload,
+      };
     default:
       return state;
   }
