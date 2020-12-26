@@ -2,6 +2,34 @@ import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 import { Link } from 'react-router';
 
+
+export const structAtrributesMetaData = (handleDelete, handleEdit, pageAccess) => {
+  return [
+    {
+      name: 'Name',
+      selector: 'name',
+      sortable: false,
+    },
+    {
+      name: 'Email',
+      selector: 'email',
+      sortable: false,
+    },
+    {
+      name: 'Mobile Number',
+      selector: 'mobileNo',
+      sortable: false,
+    },
+    {
+      name: 'Role',
+      selector: 'roleName',
+      sortable: false,
+    },
+  ];
+};
+
+
+
 export const _componentInputData = ["IC", "BU", "Project", "Structure Family", "Structure", "Structure ID", , "Component Type", "Component", "Component ID", "Group", "Component No", "Drawing No", "Length", "Breadth", "Height", "Thickness", "Weight", "Type", "Tag"];
 export const _componentInputBodyData = [
     {

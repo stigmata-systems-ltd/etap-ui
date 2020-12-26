@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NONAME } from 'dns';
 
 class Button extends Component {
   render() {
