@@ -4,14 +4,14 @@ import FormContainer from "../../common/forms/FormContainer";
 import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
-import { listAssignedStructureMetaData, transformAssignedStructureList } from "./utils";
+import { listAssignedComponentMetaData, transformAssignedComponentList } from "./utils";
 import Button from "../../common/forms/Button";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
-import AssignStructureViewMore from "../../container/assignStructure/assignStructureViewMore";
+import AssignComponentViewMore from "../../container/assignStructure/assignComponentViewMore";
 
-class ViewAssignStructure extends Component {
+class ViewAssignComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class ViewAssignStructure extends Component {
     };
   }
   componentDidMount() {
-    this.props.assignStructureList();
+    this.props.assignComponentList();
   }
 
   render() {
@@ -34,22 +34,22 @@ class ViewAssignStructure extends Component {
             message={this.props.assignStructure.message}
           />
         )}
-        <AssignStructureViewMore showAddComponentModal={this.props.assignStructure.showAssignStructureMoreModal} />
-        <FormContainer formTitle={"View Assigned Structure"}>
-          {this.props.assignStructure.assignStructureList && (
+        <AssignComponentViewMore showAddComponentModal={this.props.assignStructure.showAssignComponentMoreModal} />
+        <FormContainer formTitle={"View Assigned Component"}>
+          {this.props.assignStructure.assignComponentList.components && (
             <CustomDataTable
-              metaData={listAssignedStructureMetaData(
-                (structureID,projectID) => { this.props.handleComponentCheck(structureID,projectID)},
+              metaData={listAssignedComponentMetaData(
+                (id) => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleMore(id),
               )}
-              bodyData={transformAssignedStructureList(
-                this.props.assignStructure.assignStructureList
+              bodyData={transformAssignedComponentList(
+                this.props.assignStructure.assignComponentList.components
               )}
               progressPending={this.props.assignStructure.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.assignStructure.assignStructureList &&
-                this.props.assignStructure.assignStructureList.length
+                this.props.assignStructure.assignComponentList.components &&
+                this.props.assignStructure.assignComponentList.components.length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -79,4 +79,4 @@ class ViewAssignStructure extends Component {
   }
 }
 
-export default ViewAssignStructure;
+export default ViewAssignComponent;

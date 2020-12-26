@@ -24,7 +24,7 @@ class AddStructure extends Component {
         showModal={this.props.showAddComponentModal}
         handleClose={this.props.closeAssignStructureViewMoreModal}
         size="lg"
-        isShowFooter={true}
+        isShowFooter={false}
       >
         {console.log("isLoading",this.props.isLoading)}
         {this.props.isLoading && <Loader />}

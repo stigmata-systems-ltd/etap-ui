@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import store from '../../store';
 import {assignStructureList,assignStructureFetch} from '../../actions/assignStructureAction';
+import { withRouter } from "react-router-dom";
 
 import {
   CHANGE_ADD_STRUCTURE_MODAL_STATUS,
   SHOW_ADD_STRUCTURE_MSG,
-  STRUCTURE_EDIT_PAGE,
+  SET_PROJECT_STRUCTURE_ID,
   ASSIGN_STRUCTURE_MORE_PAGE,
   CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS
 } from '../../actions/types';
 import ViewAssignStructure from '../../pages/assignStructure/ViewAssignStructure';
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch,props) => {
   return {
     assignStructureList() {
       dispatch(assignStructureList());
@@ -38,6 +39,15 @@ const mapDispatchToProps = dispatch => {
         })
       
     },
+    handleComponentCheck(structID,projectID){
+      
+      dispatch({
+        type: SET_PROJECT_STRUCTURE_ID,
+        payload: { structureID: structID, projectID },
+      })
+      props.history.push('/assignStructure/viewComponent');
+
+    },
     handleGetComponent(structID,projectID){
       dispatch(assignStructureFetch(structID,projectID)).then(() => {
         dispatch({
@@ -60,4 +70,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewAssignStructure);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ViewAssignStructure));

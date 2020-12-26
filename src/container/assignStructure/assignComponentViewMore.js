@@ -7,15 +7,16 @@ import {
   SHOW_ADD_STRUCTURE_MSG,
   STRUCTURE_EDIT_PAGE,
   ASSIGN_STRUCTURE_MORE_PAGE,
-  CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS
+  CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS,
+  CHANGE_ASSIGN_COMPONENT_MORE_MODAL_STATUS
 } from '../../actions/types';
-import AssignStructureViewMore from '../../pages/assignStructure/AssignStructureViewMore';
+import AssignComponentViewMore from '../../pages/assignStructure/AssignComponentViewMore';
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeAssignStructureViewMoreModal(){
+    closeAssignComponentViewMoreModal(){
       dispatch({
-              type: CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS,
+              type: CHANGE_ASSIGN_COMPONENT_MORE_MODAL_STATUS,
               payload: false,
             })
           }
@@ -29,4 +30,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AssignStructureViewMore);
+export default connect(mapStateToProps, mapDispatchToProps)(AssignComponentViewMore);
