@@ -21,6 +21,7 @@ export const transformGridList = (gridList) => {
   }
 
   export const getSelectedValue = (data, value) => {
+    console.log("test",data,value);
     let tmpObj = {};
     data && data.map(dt => {
       if(dt.id === value) {

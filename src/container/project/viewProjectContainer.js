@@ -24,6 +24,7 @@ import {
   SET_EDIT_MODE,
   ON_CHANGE_SEGMENT,
   SHOW_ERR_MSG,
+  ADD_LOCATION_FIELD,
 } from "../../actions/types";
 import ViewProject from "../../pages/project/ViewProject";
 
@@ -90,11 +91,31 @@ const mapDispatchToProps = (dispatch) => {
         payload: obj,
       });
     },
-    handleChangeSiteLocation(value) {
+    handleChangeSiteLocation(value, index) {
+      console.log("value",value);
+      const proj = store.getState().proj;
+      let tmpArr = [...proj.locations];
+      tmpArr[index].name = value;
+      console.log("tmparr",tmpArr);
       dispatch({
         type: SITE_LOCATION,
-        payload: value,
+        payload: tmpArr,
       });
+    },
+    addLocation() {
+      const proj = store.getState().proj;
+      let tmpArr = [...proj.locations];
+      tmpArr.push({
+        id: 0,
+        name: ""
+      });
+      dispatch({type: ADD_LOCATION_FIELD, payload: tmpArr});
+    },
+    removeLocation(index) {
+      const proj = store.getState().proj;
+      let tmpArr = [...proj.locations];
+      tmpArr.splice(index, 1);
+      dispatch({type: ADD_LOCATION_FIELD, payload: tmpArr});
     },
     handleChangeIndependentCompany(value) {
       dispatch({
@@ -126,7 +147,9 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
     handleEdit(id) {
-      dispatch(getSingleProj(id));
+      dispatch(getSegmentList());
+      dispatch(getICList());
+      dispatch(getBUList());
       dispatch({
         type: SHOW_ADD_PROJ_MODAL,
         payload: true,
@@ -135,9 +158,7 @@ const mapDispatchToProps = (dispatch) => {
         type: SET_EDIT_MODE,
         payload: true,
       });
-      dispatch(getSegmentList());
-      dispatch(getICList());
-      dispatch(getBUList());
+      dispatch(getSingleProj(id));
     },
   };
 };

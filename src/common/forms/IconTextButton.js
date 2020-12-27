@@ -6,10 +6,13 @@ class IconTextButton extends Component {
         return (
             <button 
                 type="button" 
-                class="btn btn-primary btn-icon-text"
+                class={`btn btn-primary btn-icon-text ${this.props.className}`}
                 onClick={this.props.onClick}
             >
-                <FaIcon iconName="faPlusCircle" />
+                <FaIcon 
+                    iconName={this.props.iconName ? this.props.iconName: "faPlusCircle"} 
+                    size={this.props.size ? this.props.size: "lg"}
+                />
                     {` ${this.props.btnText}`}
             </button>
         )
