@@ -19,6 +19,8 @@ import structureFamilyReducer from './structureFamilyReducer';
 import vendorReducer from './vendorReducer';
 import businessUnitReducer from './businessUnitReducer';
 import requirementReducer from './requirementReducer';
+import assignStructureReducer from './assignStructureReducer';
+import structCompReducer from "./structCompReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -31,7 +33,9 @@ const rootReducer = combineReducers({
   structureFamily:structureFamilyReducer,
   vendor:vendorReducer,
   businessUnit : businessUnitReducer,
-  requirement: requirementReducer
+  requirement: requirementReducer,
+  assignStructure: assignStructureReducer,
+  scr: structCompReducer,
 });
 
 export default rootReducer;

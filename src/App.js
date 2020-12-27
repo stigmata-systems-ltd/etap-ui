@@ -49,6 +49,8 @@ import SiteViewPhysicalVerification from './pages/lifeCycleManagement/SiteViewPh
 import PhysicalVerification from './pages/lifeCycleManagement/PhysicalVerification';
 import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhysicalVerification';
 import ViewStructureFamily from './container/structureFamily/viewStructureFamily';
+import ViewAssignStructure from './container/assignStructure/viewAssignStructure';
+import ViewAssignComponent from './container/assignStructure/viewAssignComponent';
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
 // import ViewSubContractor from './container/subContractor/viewSubContractor';
@@ -137,6 +139,16 @@ class App extends Component {
             path="/structure/viewComponent"
             component={ViewComponent}
           ></Route>
+          <Route
+          exact
+          path="/assignStructure/viewStructure" 
+          component={ViewAssignStructure}>
+          </Route>
+          <Route
+          exact
+          path="/assignStructure/viewComponent" 
+          component={ViewAssignComponent}>
+          </Route>
           <Route
             exact
             path="/requirementRequest/viewRequirements"

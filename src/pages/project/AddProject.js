@@ -4,11 +4,13 @@ import TextInput from "../../common/forms/TextInput";
 import CustomAlert from "../../common/forms/customAlert";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
-import Button from '../../common/forms/Button';
+import Button from "../../common/forms/Button";
 import { transformDropDownData } from "../../utils/dataTransformer";
+import FaIcon from "../../common/FaIcon";
+import IconTextButton from '../../common/forms/IconTextButton';
+import IconButton from '../../common/forms/IconButton';
 
 class AddProjModal extends Component {
-
   render() {
     return (
       <Modal
@@ -36,7 +38,11 @@ class AddProjModal extends Component {
           <SearchableDropDown
             label="Segment"
             name="segment"
-            selectOptions={transformDropDownData(this.props.proj.segmentList, "id", "name")}
+            selectOptions={transformDropDownData(
+              this.props.proj.segmentList,
+              "id",
+              "name"
+            )}
             onChange={(obj) => this.props.handleChangeSegment(obj)}
             value={this.props.proj.selectedSegment}
           />
@@ -52,15 +58,17 @@ class AddProjModal extends Component {
           <SearchableDropDown
             label="Business Unit"
             name="businessUnit"
-            selectOptions={transformDropDownData(this.props.proj.buList, "id", "name")}
-            onChange={(obj) =>
-              this.props.handleChangeBusinessUnit(obj)
-            }
+            selectOptions={transformDropDownData(
+              this.props.proj.buList,
+              "id",
+              "name"
+            )}
+            onChange={(obj) => this.props.handleChangeBusinessUnit(obj)}
             value={this.props.proj.businessUnit}
           />
         </FormRow>
         <FormRow>
-          <TextInput
+          {/* <TextInput
             label="Site Location"
             name="siteLocation"
             id="siteLocation"
@@ -68,25 +76,51 @@ class AddProjModal extends Component {
               this.props.handleChangeSiteLocation(e.target.value)
             }
             value={this.props.proj.siteLocation}
-          />
+          /> */}
           <SearchableDropDown
             label="Independent Company"
             name="independentCompany"
             id="independentCompany"
-            selectOptions={transformDropDownData(this.props.proj.icList, "id", "name")}
-            onChange={(obj) =>
-              this.props.handleChangeIndependentCompany(obj)
-            }
+            selectOptions={transformDropDownData(
+              this.props.proj.icList,
+              "id",
+              "name"
+            )}
+            onChange={(obj) => this.props.handleChangeIndependentCompany(obj)}
             value={this.props.proj.independentCompany}
           />
-
-          <Button
+          <IconTextButton
             btnText="Add Location"
-            onClick={this.props.saveUsersData}
-            btnType="primary"
+            onClick={this.props.addLocation}
+            className="h-fit-content"
           />
         </FormRow>
-
+        <FormRow>
+          {this.props.proj.locations.map((item, index) => {
+            return (
+              <>
+                <TextInput
+                  labelSize="col-sm-0"
+                  fieldSize="col-sm-10"
+                  size="col-md-5"
+                  placeholder="Site Location"
+                  name="siteLocation"
+                  id="siteLocation"
+                  onChange={(e) =>
+                    this.props.handleChangeSiteLocation(e.target.value, index)
+                  }
+                  value={item.name}
+                />
+                <div class="col-md-1">
+                  <IconButton
+                    iconName="faTimesCircle"
+                    onClick={() => this.props.removeLocation(index)}
+                  />
+                </div>
+              </>
+            );
+          })}
+        </FormRow>
         {this.props.proj.isModalMsg && (
           <p className="text-danger">{this.props.proj.component.message}</p>
         )}
