@@ -50,6 +50,7 @@ export const structAttriMetaData = (onChangeValue) => {
       selector: 'value',
       sortable: false,
       cell: row => {
+        console.log("in meta",row.id, row.value)
         return (
           <input type="text" value={row.value} onChange={(e) => onChangeValue(e, row.id)} />
         )
