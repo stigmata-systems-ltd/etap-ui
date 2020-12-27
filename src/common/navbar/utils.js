@@ -28,7 +28,7 @@ export const metaDataNavbar = [
       {
         id: 'mastersSub' + 4,
         navText: 'Add Structure',
-        route: '/masters/addStructure',
+        route: '/masters/viewStructure',
       },
       {
         id: 'mastersSub' + 5,

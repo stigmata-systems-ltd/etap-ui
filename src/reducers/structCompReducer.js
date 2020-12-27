@@ -9,7 +9,14 @@ import {
   ESTIMATED_WEIGHT,
   NUMBER_OF_COMPONENTS,
   ASSIGN_FILE_UPLOAD,
+  GET_ASSIGN_STRUCT_DETAILS_ID,
+  ASSIGN_FILE_REMOVE,
 } from "../actions/types";
+
+import {
+  transformDocs,
+  transformAttri,
+} from "../pages/assignStructure/utils";
 
 const initialState = {
   projList: [],
@@ -22,6 +29,8 @@ const initialState = {
   estimatedWeight: "",
   noOfComponents: "",
   files: [],
+  removeFiles: [],
+  structAttri: [],
 };
 
 export default function (state = initialState, action) {
@@ -97,6 +106,40 @@ export default function (state = initialState, action) {
       return {
         ...state,
         files: action.payload,
+      };
+      case `${GET_ASSIGN_STRUCT_DETAILS_ID}_PENDING`:
+      return {
+        ...state,
+        isLoading: true,
+      };
+      case `${GET_ASSIGN_STRUCT_DETAILS_ID}_REJECTED`:
+      return {
+        ...state,
+        isLoading: false,
+      };
+    case `${GET_ASSIGN_STRUCT_DETAILS_ID}_FULFILLED`:
+      const scr = action.payload.data;
+      if(scr !== "") {
+        return {
+          ...state,
+          isLoading: false,
+          drawingNum: scr.drawingNo,
+          structAttri: transformAttri(JSON.parse(scr.structureAttributes)),
+          files: transformDocs(scr.structureDocs),
+        }
+      } else {
+        return {
+          ...state,
+          isLoading: false,
+          drawingNum: "",
+          structAttri: [],
+          files: [],
+        };
+      }
+      case ASSIGN_FILE_REMOVE:
+      return {
+        ...state,
+        removeFiles: action.payload,
       };
     default:
       return state;

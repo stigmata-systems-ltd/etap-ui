@@ -2,33 +2,61 @@ import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 import { Link } from 'react-router';
 
+export const transformAttri = (data) => {
+  let tmpArr = [];
+  data && data.map((dt, index) => {
+    tmpArr.push({
+      id: index + 1,
+      name: dt.name,
+      typeOfInput: dt.typeOfInput,
+      uom: dt.uom,
+      value: dt.value,
+    })
+  })
+  return tmpArr;
+}
 
-export const structAtrributesMetaData = (handleDelete, handleEdit, pageAccess) => {
+export const transformDocs = (data) => {
+  let tmpArr = [];
+  data && data.map(dt => {
+    tmpArr.push({
+      id: dt.id,
+      name: dt.fileName,
+      filepath: dt.filepath,
+    })
+  })
+  return tmpArr;
+}
+
+export const structAttriMetaData = (onChangeValue) => {
   return [
     {
-      name: 'Name',
+      name: "Description",
       selector: 'name',
       sortable: false,
     },
     {
-      name: 'Email',
-      selector: 'email',
+      name: "Type of Input",
+      selector: 'typeOfInput',
       sortable: false,
     },
     {
-      name: 'Mobile Number',
-      selector: 'mobileNo',
+      name:  "UoM",
+      selector: 'uom',
       sortable: false,
     },
     {
-      name: 'Role',
-      selector: 'roleName',
+      name: 'Value',
+      selector: 'value',
       sortable: false,
+      cell: row => {
+        return (
+          <input type="text" value={row.value} onChange={(e) => onChangeValue(e, row.id)} />
+        )
+      },
     },
   ];
 };
-
-
 
 export const _componentInputData = ["IC", "BU", "Project", "Structure Family", "Structure", "Structure ID", , "Component Type", "Component", "Component ID", "Group", "Component No", "Drawing No", "Length", "Breadth", "Height", "Thickness", "Weight", "Type", "Tag"];
 export const _componentInputBodyData = [
