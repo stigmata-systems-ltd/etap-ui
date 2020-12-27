@@ -24,18 +24,16 @@ class ViewComponent extends Component {
   componentDidMount() {
     this.props.componentList();
   }
-
-//   filteredItems = (data) => {
-//     return (
-//       data &&
-//       data.filter(
-//         (item) =>
-//           item.email &&
-//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
-//       )
-//     );
-//   };
-
+  filteredItems = (data) => {
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.name &&
+          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
   render() {
     return (
       <ContentLoader>
@@ -54,13 +52,13 @@ class ViewComponent extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={transformComponentList(
-                this.props.component.componentTypeList
+                this.filteredItems(this.props.component.componentTypeList)
               )}
               progressPending={this.props.component.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.component.componentList &&
-                this.props.component.componentList.length
+                this.props.component.componentTypeList &&
+                this.filteredItems(this.props.component.componentTypeList).length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -83,7 +81,7 @@ class ViewComponent extends Component {
                   <Col6>
                   
                   <Button
-                    btnText="Create New User"
+                    btnText="Add Component Type"
                     btnType="btn-primary float-right"
                     onClick={this.props.showAddComponentModal}
                   />
