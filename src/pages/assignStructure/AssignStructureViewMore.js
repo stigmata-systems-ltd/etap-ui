@@ -91,7 +91,6 @@ class AddStructure extends Component {
             </FormRow>
             <label>Structure Attributes</label>
             <div class="form-group row location-row">
-               
                   {this.props.assignStructure.assignStructureViewMoreAttributes.map((e, i) => {
                     return (
                       <AddAttributes
