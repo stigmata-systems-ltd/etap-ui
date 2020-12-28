@@ -54,9 +54,9 @@ class ViewSubContractor extends Component {
                                     (id) => this.setState({ activeId: id, showDeleteModal: true }),
                                     (id) => this.props.handleEdit(id),
                                 )}
-                                bodyData={transformVendorList(
+                                bodyData={[transformVendorList(
                                     this.props.vendor.vendorList
-                                )}
+                                )]}
                                 progressPending={this.props.vendor.isLoading}
                                 pagination={true}
                                 paginationTotalRows={

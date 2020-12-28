@@ -1,7 +1,12 @@
 import store from "../store";
 import axios from "axios";
 import config from "../config";
-import { GET_PROJECT_LIST, GET_STRUCT_LIST, SAVE_ASSIGN_STRUCT } from "./types";
+import {
+  GET_PROJECT_LIST,
+  GET_STRUCT_LIST,
+  SAVE_ASSIGN_STRUCT,
+  GET_ASSIGN_STRUCT_DETAILS_ID,
+} from "./types";
 
 export const getProjList = () => {
   return {
@@ -23,7 +28,7 @@ export const getAssignStructDetails = () => {
   const projId = scr.projName.value;
   const structId = scr.structName.value;
   return {
-    type: GET_STRUCT_LIST,
+    type: GET_ASSIGN_STRUCT_DETAILS_ID,
     payload: axios.get(
       config.BASE_URL +
         "/api/StructureComponent/GetAssignedStructureDetailsById?structId=" +
@@ -39,11 +44,17 @@ export const saveAssignStruct = () => {
   const postData = new FormData();
   postData.append("structureId", scr.structName.value);
   postData.append("projectId", scr.projName.value);
-  postData.append("drawingNo", "123");
-  postData.append("structureAttributes", "123");
-  postData.append("uploadDocs", scr.files);
-  postData.append("remove_docs_filename", scr.structName.value);
-
+  postData.append("drawingNo", scr.drawingNum);
+  scr.structAttri.map((attr) => {
+    delete attr.id;
+  });
+  postData.append("structureAttributes", JSON.stringify(scr.structAttri));
+  for (let i = 0; i < scr.files.length; i++) {
+    if (scr.files[i].isNew === true) {
+      postData.append("uploadDocs", scr.files[i]);
+    }
+  }
+  scr.removeFiles.length > 0 && postData.append("remove_docs_filename", scr.removeFiles.join());
 
   const configHeader = {
     headers: { "content-type": "multipart/form-data" },
