@@ -6,13 +6,14 @@ import { ADD_STRUCTURE_FAMILY,UPDATE_STRUCTURE_FAMILY_TYPE,LIST_STRUCTURE_FAMILY
 export const addStructureFamily = () => {
     const {structureFamilyType,structureFamilyTypeStatus} = store.getState().structureFamily;
         let status;
-      if(structureFamilyTypeStatus === "Active"){
+        console.log("test",structureFamilyTypeStatus);
+      if(structureFamilyTypeStatus.value === "Active"){
           status=true;
       } else{
           status=false;
       }
       const body={
-          id : 0,
+          
           name: structureFamilyType,
           isActive: status,
           description: structureFamilyType
@@ -24,7 +25,9 @@ export const addStructureFamily = () => {
 }
 export const updateStructureFamilyType = (id) => {
     const {structureFamilyTypeID,structureFamilyType,structureFamilyTypeStatus} = store.getState().structureFamily;
-    const status=(structureFamilyTypeStatus==="InActive")?false:true
+    console.log("test",structureFamilyTypeStatus);
+
+    const status=(structureFamilyTypeStatus.value==="InActive")?false:true
       const body={
           id:structureFamilyTypeID,
           name: structureFamilyType,

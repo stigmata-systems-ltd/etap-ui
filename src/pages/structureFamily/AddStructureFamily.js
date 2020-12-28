@@ -5,6 +5,7 @@ import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
 import { structureFamilyRoles } from "./utils";
+import SimpleDropDown from "../../common/forms/SearchableDropDown";
 
 class AddStructureFamily extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class AddStructureFamily extends Component {
         size="lg"
         isShowFooter={true}
       >
-        {console.log("isLoading",this.props.isLoading)}
+        {console.log("isLoading", this.props.isLoading)}
         {this.props.isLoading && <Loader />}
         <FormRow>
           <TextInput
@@ -43,17 +44,18 @@ class AddStructureFamily extends Component {
             onChange={(e) => this.props.handleChangeStructureFamilyType(e.target.value)}
             value={this.props.structureFamily.structureFamilyType}
           />
-          <SearchableDropDown
+
+          <SimpleDropDown
             label="Status"
-            name="structureFamilyTypeStatus"
-            id="structureFamilyTypeStatus"
-            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
-            onChange={(e) => this.props.handleStructureFamilyTypeStatus(e.target.value)}
+            selectOptions={[{ value: 'Active', label: 'Active' }, { value: 'InActive', label: 'InActive' }]}
+            onChange={(obj) => this.props.handleStructureFamilyTypeStatus(obj)}
             value={this.props.structureFamily.structureFamilyTypeStatus}
           />
+
+
         </FormRow>
-        
-        
+
+
         {this.props.structureFamily.isModalMsg && (
           <p className="text-danger">{this.props.structureFamily.message}</p>
         )}
