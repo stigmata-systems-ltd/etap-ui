@@ -66,7 +66,7 @@ class ViewComponent extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By Component Type"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&

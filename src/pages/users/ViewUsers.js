@@ -25,6 +25,17 @@ class ViewUsers extends Component {
     this.props.usersList();
   }
 
+  filteredItems = (data) => {
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.userName &&
+          item.userName.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
+
   render() {
     return (
       <ContentLoader>
@@ -43,13 +54,13 @@ class ViewUsers extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={transformUsersList(
-                this.props.users.usersList
+                this.filteredItems(this.props.users.usersList)
               )}
               progressPending={this.props.users.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.users.usersList &&
-                this.props.users.usersList.length
+                this.filteredItems(this.props.users.usersList).length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -57,7 +68,7 @@ class ViewUsers extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By Username"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&
@@ -72,7 +83,7 @@ class ViewUsers extends Component {
                   <Col6>
                   
                   <Button
-                    btnText="Create New User"
+                    btnText="Add User"
                     btnType="btn-primary float-right"
                     onClick={this.props.showAddUsersModal}
                   />

@@ -30,6 +30,7 @@ const mapDispatchToProps = dispatch => {
         type: CHANGE_ADD_USERS_MODAL_STATUS,
         payload: false,
       });
+      
     },
     addUser(){
       dispatch(addUser()).then(() => {

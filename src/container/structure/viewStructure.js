@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import store from '../../store';
-import {structureList, structureFetch} from '../../actions/structureAction';
+import {structureList, structureFetch,structureFamilyList} from '../../actions/structureAction';
 
 import {
   CHANGE_ADD_STRUCTURE_MODAL_STATUS,
@@ -14,7 +14,11 @@ const mapDispatchToProps = dispatch => {
     structureList() {
       dispatch(structureList());
     },
+    structureFamilyList() {
+      dispatch(structureFamilyList());
+    },
     showAddStructureModal() {
+      dispatch(structureFamilyList());
       dispatch({
         type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
         payload: true,
@@ -25,6 +29,7 @@ const mapDispatchToProps = dispatch => {
       })
     },
     handleEdit(id){
+      dispatch(structureFamilyList());
       dispatch(structureFetch(id)).then(() => {
         dispatch({
           type: STRUCTURE_EDIT_PAGE,
