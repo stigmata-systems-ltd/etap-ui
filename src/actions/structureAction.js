@@ -1,14 +1,14 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { LIST_STRUCTURE,STRUCTURE_ATTRIBUTE_LIST,ADD_STRUCTURE,GET_STRUCTURE_DATA,UPDATE_STRUCTURE} from "./types";
+import { LIST_STRUCTURE,STRUCTURE_ATTRIBUTE_LIST,ADD_STRUCTURE,GET_STRUCTURE_DATA,UPDATE_STRUCTURE,LIST_STRUCTURE_FAMILY} from "./types";
 
 export const addStructure = () => {
     const structure = store.getState().structure;
     const stringifiedStructure = JSON.stringify(structure.attributeList);
       const body={
         "name": structure.structureName,
-        "structureTypeId": structure.structureFamily,
+        "structureTypeId": structure.structureFamily.value,
         "isActive": true,
         "structureAttributes": stringifiedStructure,
       }
@@ -24,6 +24,12 @@ export const structureList = () => {
         type: LIST_STRUCTURE,
         payload: axios.get(config.BASE_URL + '/api/Structure/getstructure')
     }
+}
+export const structureFamilyList = () => {
+  return {
+      type: LIST_STRUCTURE_FAMILY,
+      payload: axios.get(config.BASE_URL + '/api/StructureFamily/StructureFamCodeList')
+  }
 }
 export const addAttribute = () => {
     const structure = store.getState().structure;
@@ -53,7 +59,7 @@ export const updateStructure = () => {
   
     const body={
       "name": structure.structureName,
-      "structureTypeId": structure.structureFamily,
+      "structureTypeId": structure.structureFamily.value,
       "isActive": true,
       "structureAttributes": stringifiedStructure,
     }

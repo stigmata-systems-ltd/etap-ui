@@ -28,7 +28,7 @@ export const metaDataNavbar = [
       {
         id: 'mastersSub' + 4,
         navText: 'Add Structure',
-        route: '/masters/addStructure',
+        route: '/masters/viewStructure',
       },
       {
         id: 'mastersSub' + 5,
@@ -44,7 +44,7 @@ export const metaDataNavbar = [
       {
         id: 'mastersSub' + 7,
         navText: 'Add Users',
-        route: '/masters/addUsers',
+        route: '/masters/viewUsers',
       },
       {
         id: 'mastersSub' + 8,

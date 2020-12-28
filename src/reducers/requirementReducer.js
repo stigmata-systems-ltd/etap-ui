@@ -159,6 +159,14 @@ export default function (state = initialState, action) {
         "remarks": '',
         "status": '',
         "siteRequirementStructures": [],
+        actualStartDateOfUsage: "",
+        actualWorkBreak:{},
+        expectedReleaseDate:"",
+        planedStartDate:"",
+        plannedReleaseDate:"",
+        projectName:{},
+        requiredWorkBreak:{},
+        siteRequirementList:[]
             }
         default:
             return state;

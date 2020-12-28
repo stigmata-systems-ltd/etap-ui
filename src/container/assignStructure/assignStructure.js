@@ -7,10 +7,12 @@ import {
   STRUCTURE_TYPE,
   ESTIMATED_WEIGHT,
   NUMBER_OF_COMPONENTS,
-  RESET_STRUCTURE_FORM,
+  RESET_ASSIGN_STRUCT_FORM,
   DRAWING_NO,
   ASSIGN_STRUCT_UPLOADED_DATA,
   ASSIGN_FILE_UPLOAD,
+  ON_CHANGE_ASSIGN_STRUCT,
+  ASSIGN_FILE_REMOVE,
 } from "../../actions/types";
 
 import AssignStructure from "../../pages/assignStructure/AssignStructure";
@@ -29,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getStructList());
     },
     resetStructureData() {
-      dispatch({ type: RESET_STRUCTURE_FORM });
+      dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
     },
     handleChangeComponentProjectName(obj) {
       dispatch({
@@ -87,13 +89,51 @@ const mapDispatchToProps = (dispatch) => {
       });
     },
     saveAssignStruct() {
-      dispatch(saveAssignStruct());
+      dispatch(saveAssignStruct()).then(() => {
+        dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
+      })
     },
     handleFileUpload(value) {
+      const scr = store.getState().scr;
+      const newDocs = [...value];
+      newDocs.map(doc => {
+        doc.isNew = true;
+      })
+      const tmpArr = [...scr.files, ...newDocs];
       dispatch({
         type: ASSIGN_FILE_UPLOAD,
-        payload: value,
+        payload: tmpArr,
       });
+    },
+    removeFiles(file, index) {
+      const scr = store.getState().scr;
+      const tmpArr = [...scr.files];
+      tmpArr.splice(index, 1);
+      dispatch({
+        type: ASSIGN_FILE_UPLOAD,
+        payload: tmpArr,
+      });
+      let removeFiles = [...scr.removeFiles];
+      removeFiles.push(file.id);
+      dispatch({
+        type: ASSIGN_FILE_REMOVE,
+        payload: removeFiles,
+      });
+    },
+    handleChangeAssignStruct(e, id) {
+        const as = store.getState().scr;
+        let tmpArr = JSON.parse(JSON.stringify(as.structAttri));
+        tmpArr.map(arr => {
+            if(arr.id === id) {
+              arr.value = e.target.value
+              console.log("test in if arr, eval",arr, e.target.value);
+            }
+            console.log("test",arr)
+        })
+        dispatch({
+            type: ON_CHANGE_ASSIGN_STRUCT,
+            payload: tmpArr
+        })
     },
   };
 };

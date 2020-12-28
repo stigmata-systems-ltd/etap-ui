@@ -9,16 +9,21 @@ import {
   ADD_STRUCTURE,
   GET_STRUCTURE_DATA,
   STRUCTURE_EDIT_PAGE,
-  UPDATE_STRUCTURE
+  UPDATE_STRUCTURE,
+  LIST_STRUCTURE_FAMILY
 } from '../actions/types';
 
+import { getSelectedValue } from "../utils/dataTransformer";
 const initialState = {
   structureName: '',
   structureFamily: '',
   noOfAttributes: '',
   isEdit: false,
-  attributeList: []
+  attributeList: [],
+  structureFamilyList: []
 };
+
+
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -83,6 +88,28 @@ export default function (state = initialState, action) {
           isSuccess: false,
           structureList: action.payload.data,
         };
+      case `${LIST_STRUCTURE_FAMILY}_PENDING`:
+          return {
+            ...state,
+            isLoading: true,
+            isError: false,
+            isSuccess: false,
+          };
+      case `${LIST_STRUCTURE_FAMILY}_REJECTED`:
+          return {
+            ...state,
+            isLoading: false,
+            isError: true,
+            isSuccess: false,
+          };
+      case `${LIST_STRUCTURE_FAMILY}_FULFILLED`:
+          return {
+            ...state,
+            isLoading: false,
+            isError: false,
+            isSuccess: false,
+            structureFamilyList: action.payload.data,
+          };
         case `${ADD_STRUCTURE}_PENDING`:
           return {
             ...state,
@@ -137,7 +164,7 @@ case `${ADD_STRUCTURE}_FULFILLED`:
           id:action.payload.data.id,
           structureName: action.payload.data.name,
           isActive: action.payload.data.isActive,
-          structureFamily: action.payload.data.structureTypeId,
+          structureFamily: getSelectedValue(state.structureFamilyList,action.payload.data.structureTypeId),
           attributeList: parsedAttribute
         };
         case `${UPDATE_STRUCTURE}_PENDING`:

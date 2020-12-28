@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import store from '../../store';
-import {usersList,userFetch,getProjectDetails} from '../../actions/usersAction';
+import {usersList,userFetch,getProjectDetails,getRolesList,projectCodesList} from '../../actions/usersAction';
 
 import {
   COMPONENT_TYPE,
@@ -27,8 +27,12 @@ const mapDispatchToProps = dispatch => {
         type: SHOW_ADD_USERS_MSG,
         payload: false,
       })
+      dispatch(projectCodesList());
+      dispatch(getRolesList());
     },
     handleEdit(id){
+      dispatch(projectCodesList());
+      dispatch(getRolesList());
       dispatch(userFetch(id)).then(() => {
         dispatch(getProjectDetails());
         dispatch({

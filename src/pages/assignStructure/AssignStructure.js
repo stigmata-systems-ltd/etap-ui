@@ -18,6 +18,7 @@ import {
   _componentInputBodyData,
   _assignStructureInputData,
   _assignStructureBodyData,
+  structAttriMetaData,
 } from "./utils";
 
 import FaIcon from "../../common/FaIcon";
@@ -93,30 +94,38 @@ class AssignStructure extends Component {
                 disabled={true}
               />
               <TextInput
+                label="Estimated Weight"
+                name="estimatedWeight"
+                id="estimatedWeight"
+                onChange={(e) =>
+                  this.props.handleChangeEstimatedWeight(e.target.value)
+                }
+                value={this.props.scr.estimatedWeight}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
                 label="Drawing No"
                 name="drawingNumber"
                 id="drawingNumber"
                 onChange={(e) =>
                   this.props.handleChangeComponentDrawingNumber(e.target.value)
                 }
-                value={this.props.drawingNum}
+                value={this.props.scr.drawingNum}
               />
-            </FormRow>
-            <FormRow>
               <MultiFileInput
-                size="col-md-8"
-                label="Select Documents"
+                labelSize="col-sm-0"
                 onChange={(e) => this.props.handleFileUpload(e.target.files)}
               />
             </FormRow>
             <FormRow>
-              {this.getFiles(this.props.scr.files).map((file) => (
+              {this.getFiles(this.props.scr.files).map((file, index) => (
                 <Col6 size="col-md-4">
                   <div class="row mb-10">
                     <div class="col-md-2">
                       <IconButton
                         iconName="faTimesCircle"
-                        onClick={this.props.removeFiles}
+                        onClick={() => this.props.removeFiles(file, index)}
                       />
                     </div>
                     <div class="col-md-10">
@@ -130,38 +139,17 @@ class AssignStructure extends Component {
                 </Col6>
               ))}
             </FormRow>
-            <p>
-              <b>Structure Attributes :</b>
-            </p>
             <FormRow>
               {/* table */}
-              <DataTable
-                metaData={_assignStructureInputData}
-                bodyData={_assignStructureBodyData}
+              <CustomDataTable
+                metaData={structAttriMetaData((e, id) =>
+                  this.props.handleChangeAssignStruct(e, id)
+                )}
+                bodyData={this.props.scr.structAttri}
+                title="Structure Attributes"
               />
             </FormRow>
             <br />
-            <FormRow>
-              <TextInput
-                label="Estimated Weight"
-                name="estimatedWeight"
-                id="estimatedWeight"
-                onChange={(e) =>
-                  this.props.handleChangeEstimatedWeight(e.target.value)
-                }
-                value={this.props.scr.estimatedWeight}
-              />
-              <TextInput
-                label="No.of Components"
-                name="noOfComponents"
-                id="noOfComponents"
-                onChange={(e) =>
-                  this.props.handleChangeNoOfComponents(e.target.value)
-                }
-                value={this.props.scr.noOfComponents}
-                disabled={true}
-              />
-            </FormRow>
             <FormRow>
               <Button
                 btnText="SAVE"

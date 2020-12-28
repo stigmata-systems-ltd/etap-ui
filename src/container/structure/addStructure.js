@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AddStructure from '../../pages/structure/AddStructure';
 import store from '../../store';
-import {addAttribute,addStructure,structureList,updateStructure} from '../../actions/structureAction';
+import {addAttribute,addStructure,structureList,updateStructure,structureFamilyList} from '../../actions/structureAction';
 import {
   STRUCTURE_NAME,
   RESET_STRUCTURE_FORM,
@@ -16,7 +16,9 @@ const mapDispatchToProps = dispatch => {
     resetStructureData() {
       dispatch({ type: RESET_STRUCTURE_FORM });
     },
-
+    structureFamilyList(){
+      dispatch(structureFamilyList());
+    },
     handleChangeStructureName(value) {
       dispatch({
         type: STRUCTURE_NAME,

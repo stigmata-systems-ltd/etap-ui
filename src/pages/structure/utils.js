@@ -1,6 +1,6 @@
 import React from 'react';
 import IconButton from '../../common/forms/IconButton';
-
+import { getSelectedValue } from "../../utils/dataTransformer";
 
 export const listStructureMetaData = (handleDelete, handleEdit) => {
     return [
@@ -10,13 +10,13 @@ export const listStructureMetaData = (handleDelete, handleEdit) => {
         sortable: false,
       },
       {
-        name: 'Structure Type',
+        name: 'Structure Family',
         selector: 'structureType',
         sortable: false,
       },
       {
-        name: 'IsActive',
-        selector: 'isActive',
+        name: 'Status',
+        selector: 'status',
         sortable: false,
       },
       {
@@ -38,7 +38,7 @@ export const listStructureMetaData = (handleDelete, handleEdit) => {
     ];
   };
 
-  export const transformStructureList = structureList => {
+  export const transformStructureList = (structureList,structureFamilyList) => {
     let tmpArr = [];
     let isActiveValue;
     structureList &&
@@ -50,11 +50,12 @@ export const listStructureMetaData = (handleDelete, handleEdit) => {
           isActiveValue="False"
         }
 
+        const structureFamilyValue=getSelectedValue(structureFamilyList,structure.structureTypeId)
         let tmpObj = {
           id: structure.id,
           structureName: structure.name,
-          structureType: structure.structureTypeId,
-          isActive: isActiveValue
+          structureType: structureFamilyValue.label,
+          status: isActiveValue
         };
         tmpArr.push(tmpObj);
       });

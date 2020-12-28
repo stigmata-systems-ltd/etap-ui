@@ -48,7 +48,7 @@ class AddStructure extends Component {
                 }
                 value={this.props.structure.structureName}
               />
-              <TextInput
+              {/* <TextInput
                 label="Structure Family"
                 name="structureFamily"
                 id="structureFamily"
@@ -56,7 +56,14 @@ class AddStructure extends Component {
                   this.props.handleChangeStructureFamily(e.target.value)
                 }
                 value={this.props.structure.structureFamily}
-              />
+              /> */}
+              <SearchableDropDown
+            label="Structure Family"
+            name="structureFamily"
+            selectOptions={transformDropDownData(this.props.structure.structureFamilyList, "id", "name")}
+            onChange={(obj) => this.props.handleChangeStructureFamily(obj)}
+            value={this.props.structure.structureFamily}
+          />
             </FormRow>
             <div class="form-group row">
                   <div class="col-sm-8">

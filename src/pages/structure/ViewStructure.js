@@ -23,7 +23,20 @@ class ViewStructure extends Component {
   }
   componentDidMount() {
     this.props.structureList();
+    this.props.structureFamilyList();
   }
+
+  filteredItems = (data) => {
+    console.log(data)
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.name &&
+          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
 
   render() {
     return (
@@ -43,13 +56,13 @@ class ViewStructure extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={transformStructureList(
-                this.props.structure.structureList
+                this.filteredItems(this.props.structure.structureList), this.props.structure.structureFamilyList
               )}
               progressPending={this.props.structure.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.structure.structureList &&
-                this.props.structure.structureList.length
+                this.filteredItems(this.props.structure.structureList).length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -57,7 +70,7 @@ class ViewStructure extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By Structure"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&
