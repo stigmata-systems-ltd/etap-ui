@@ -4,52 +4,53 @@ import FormContainer from "../../common/forms/FormContainer";
 import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
-import { structureFamilyBodyData, structureFamilyMetaData } from "./utils";
+import { businessUnitBodyData, businessUnitMetaData } from "./utils";
 import Button from "../../common/forms/Button";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
-import AddStructureFamily from "../../container/structureFamily/addStructureFamily";
 
-class ViewStructureFamily extends Component {
+import AddBusinessUnit from "../../container/businessUnit/addBusinessUnit";
+
+class ViewBusinessUnit extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeId: null,
-      showStructureFamilyDeleteModal: false,
+      showBusinessUnitDeleteModal: false,
       filterText: "",
       resetPaginationToggle: false,
     };
   }
   componentDidMount() {
-    this.props.structureFamilyList();
+    this.props.businessUnitList();
   }
 
   render() {
     return (
       <ContentLoader>
-        {this.props.structureFamily.isStructureFamilyMsg && (
+        {this.props.businessUnit.isBusinessUnitMsg && (
           <CustomAlert
             variant="success"
-            message={this.props.structureFamily.message}
+            message={this.props.businessUnit.message}
           />
         )}
-        <AddStructureFamily showAddStructureFamilyModal={this.props.structureFamily.showAddStructureFamilyModal} />
-        <FormContainer formTitle={"Structure Family List"}>
-          {this.props.structureFamily.structureFamilyTypeList && (
+        <AddBusinessUnit showAddBusinessUnitModal={this.props.businessUnit.showAddBusinessUnitModal} />
+        <FormContainer formTitle={"View Business Unit"}>
+          {this.props.businessUnit.businessUnitTypeList && (
             <CustomDataTable
-              metaData={structureFamilyMetaData(
-                (id) => this.setState({ activeId: id, showStructureFamilyDeleteModal: true }),
+              metaData={businessUnitMetaData(
+                (id) => this.setState({ activeId: id, showBusinessUnitDeleteModal: true }),
                 (id) => this.props.handleEdit(id),
               )}
-              bodyData={structureFamilyBodyData(
-                this.props.structureFamily.structureFamilyTypeList
+              bodyData={businessUnitBodyData(
+                this.props.businessUnit.businessUnitTypeList
               )}
-              progressPending={this.props.structureFamily.isLoading}
+              progressPending={this.props.businessUnit.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.structureFamily.structureFamilyList &&
-                this.props.structureFamily.structureFamilyList.length
+                this.props.businessUnit.businessUnitList &&
+                this.props.businessUnit.businessUnitList.length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -73,9 +74,9 @@ class ViewStructureFamily extends Component {
                   <Col6>
 
                     <Button
-                      btnText="Add Structure Family"
+                      btnText="Add Business Unit"
                       btnType="btn-primary float-right"
-                      onClick={this.props.showAddStructureFamilyModal}
+                      onClick={this.props.showAddBusinessUnitModal}
                     />
                   </Col6>
                 </>
@@ -83,14 +84,14 @@ class ViewStructureFamily extends Component {
             />
           )}
           <ConfirmModal
-            showModal={this.state.showStructureFamilyDeleteModal}
+            showModal={this.state.showBusinessUnitDeleteModal}
             handleClose={() =>
-              this.setState({ showStructureFamilyDeleteModal: false, activeId: null })
+              this.setState({ showBusinessUnitDeleteModal: false, activeId: null })
             }
-            title="Delete Structure Family"
+            title="Delete Business Unit"
             handleConfirm={() => {
               this.props.handleConfirmDelete(this.state.activeId);
-              this.setState({ showStructureFamilyDeleteModal: false, activeId: null });
+              this.setState({ showBusinessUnitDeleteModal: false, activeId: null });
             }}
           >
             <h6 className="text-danger">
@@ -103,4 +104,4 @@ class ViewStructureFamily extends Component {
   }
 }
 
-export default ViewStructureFamily;
+export default ViewBusinessUnit;
