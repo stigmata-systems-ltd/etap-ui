@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
 import FaIcon from '../../common/FaIcon';
 import IconButton from '../../common/forms/IconButton';
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import { transformDropDownData } from "../../utils/dataTransformer";
 
 class SiteRequirementStructure extends Component {
   render() {
+    console.log("++++++++++++++")
+    console.log(this.props.structFamily)
+    console.log("++++++++++++++")
     return (
       <>
-        <div class="col-sm-4">
+      <div class="col-sm-5">
+      <SearchableDropDown
+          size="col-sm-9"
+          name="structureName"
+          selectOptions={transformDropDownData(this.props.structureList, "id", "name")}
+          onChange={(obj) => this.props.handleStructureNameChange(obj,this.props.index)}
+          value={this.props.structureName}
+          />
+        </div>
+        <div class="col-sm-2">
           <input
             type="text"
             class="form-control"
-            placeholder="Structure ID"
+            placeholder="Structure Family"
             name={this.props.index}
             id={this.props.index}
             onChange={e => this.props.onStructureIDChange(e, this.props.index)}
-            value={this.props.structureId}
+            value={this.props.structureFamily}
+            readonly
           />
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <input
             type="text"
             class="form-control"
@@ -28,7 +43,7 @@ class SiteRequirementStructure extends Component {
             value={this.props.drawingNumber}
           />
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <input
             type="text"
             class="form-control"
@@ -39,7 +54,7 @@ class SiteRequirementStructure extends Component {
             value={this.props.quantity}
           />
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
           <IconButton
             iconName="faTimesCircle"
             index={this.props.index}

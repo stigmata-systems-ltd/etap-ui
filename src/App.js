@@ -51,6 +51,7 @@ import AuditorPhysicalVerification from './pages/lifeCycleManagement/AuditorPhys
 import ViewStructureFamily from './container/structureFamily/viewStructureFamily';
 import ViewAssignStructure from './container/assignStructure/viewAssignStructure';
 import ViewAssignComponent from './container/assignStructure/viewAssignComponent';
+import AddSurplus from './container/surplus/addSurplus';
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
 // import ViewSubContractor from './container/subContractor/viewSubContractor';
@@ -108,6 +109,11 @@ class App extends Component {
             exact
             path="/masters/viewIndependentCompany"
             component={ViewIndependentCompany}
+          ></Route>
+          <Route
+            exact
+            path="/surplus/add"
+            component={AddSurplus}
           ></Route>
           <Route
             exact

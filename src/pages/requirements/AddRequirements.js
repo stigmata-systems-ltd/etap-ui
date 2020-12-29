@@ -127,11 +127,16 @@ class AddRequirement extends Component {
                         onQuantityChange={e =>
                           this.props.onQuantityChange(e.target.value, i)
                         }
+                        handleStructureNameChange={obj => 
+                            this.props.handleStructureNameChange(obj,i)
+                        }
                         onSiteRequirementRemove={i => this.props.onSiteRequirementRemove(i)}
                         index={i}
-                        structureId={this.props.requirement.siteRequirementList[i].structureId}
+                        structureFamily={this.props.requirement.siteRequirementList[i].structFamily}
                         drawingNumber={this.props.requirement.siteRequirementList[i].drawingNumber}
                         quantity={this.props.requirement.siteRequirementList[i].quantity}
+                        structureList={this.props.requirement.structureList}
+                        structureName={this.props.requirement.siteRequirementList[i].structureName}
                         
                       />
                     );
