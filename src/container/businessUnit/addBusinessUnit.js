@@ -2,13 +2,12 @@ import { connect } from 'react-redux';
 import store from '../../store';
 
 import {
-  
-    CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
-    RESET_CREATE_BUSINESS_UNIT_FORM,
+
+  CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
+  RESET_CREATE_BUSINESS_UNIT_FORM,
   RESET_STRUCTURE_FORM, SET_BUSINESS_UNIT_EDIT_MODE,
   BUSINESS_UNIT_NAME,
   BUSINESS_UNIT_STATUS
-  
 
 }
   from '../../actions/types';

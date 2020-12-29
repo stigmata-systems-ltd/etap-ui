@@ -3,72 +3,72 @@ import IconButton from '../../common/forms/IconButton';
 
 
 export const businessUnitMetaData = (handleDelete, handleEdit) => {
-    return [
-      {
-        sortable: false,
-        cell: row => {
-          return (
-            <>
-              { (
-                <IconButton
-                  iconName="faTimes"
-                  className={'table-delete-icon'}
-                  onClick={() => handleDelete(row.id)}
-                />
-              )}
-            </>
-          );
-        },
-        width: '2%',
-      },  
-      {
-        name: 'Business Unit',
-        selector: 'businessUnit',
-        sortable: false,
+  return [
+    {
+      sortable: false,
+      cell: row => {
+        return (
+          <>
+            { (
+              <IconButton
+                iconName="faTimes"
+                className={'table-delete-icon'}
+                onClick={() => handleDelete(row.id)}
+              />
+            )}
+          </>
+        );
       },
-      {
-        name: 'Status',
-        selector: 'status',
-        sortable: false,
+      width: '2%',
+    },
+    {
+      name: 'Business Unit',
+      selector: 'businessUnit',
+      sortable: false,
+    },
+    {
+      name: 'Status',
+      selector: 'status',
+      sortable: false,
+    },
+    {
+      name: 'Actions',
+      sortable: false,
+      cell: row => {
+        return (
+          <>
+            {(
+              <IconButton
+                iconName="faEdit"
+                onClick={() => handleEdit(row.id)}
+              />
+            )}
+          </>
+        );
       },
-      {
-        name: 'Actions',
-        sortable: false,
-        cell: row => {
-          return (
-            <>
-              {(
-                <IconButton
-                  iconName="faEdit"
-                  onClick={() => handleEdit(row.id)}
-                />
-              )}
-            </>
-          );
-        },
-      },
-    ];
-  };
+    },
+  ];
+};
 
-  export const businessUnitBodyData = businessUnitList => {
-    let tmpArr = [];
-    let statusValue;
-    businessUnitList &&
+export const businessUnitBodyData = businessUnitList => {
+  let tmpArr = [];
+  let statusValue;
+  businessUnitList &&
     businessUnitList.map(businessUnit => {
-        if (businessUnit.isActive){
-            statusValue = "Active"
-        }
-        else {
-            statusValue = "InActive"
-        }
-        let tmpObj = {
-            icId: businessUnit.icId,
-            lstBussUnit: businessUnit.lstBussUnit,
-        };
-        tmpArr.push(tmpObj);
-      });
-    return tmpArr;
-  };
+      if (businessUnit.isActive) {
+        statusValue = "Active"
+      }
+      else {
+        statusValue = "InActive"
+      }
+      let tmpObj = {
+        businessUnit: businessUnit.name,
+        status: statusValue,
+      };
+      tmpArr.push(tmpObj);
+    });
+  return tmpArr;
+};
 
 
 
@@ -104,13 +104,13 @@ export const businessUnitMetaData = (handleDelete, handleEdit) => {
 //         componentStatus: "",
 //         currentStatus: "",
 //     },
-    
+
 // ];
 
 // export const _viewComponentModificationHistoryData = [ "Structure ID", "Component Type", "Component", "Component ID", "Group", "Component No", "Drawing No", "Length", "Breadth", "Height", "Thickness", "Weight", "Original/Modified", "Modification No", "Manufactured/Fabricated", "Tag No", "QR Code"];
 // export const _viewComponentModificationHistoryBodyData = [
 //     {
-        
+
 //         structureId: "",
 //         componentType: "",
 //         component: "",
@@ -128,9 +128,9 @@ export const businessUnitMetaData = (handleDelete, handleEdit) => {
 //         fabrication: "",
 //         tag: "",
 //         qrCode: "",
-        
-        
+
+
 //     },
-    
+
 // ];
 

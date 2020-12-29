@@ -14,6 +14,7 @@ import { BUSINESS_UNIT_STATUS,
 const initialState = {
     businessUnitType: '',
     businessUnitList:"",
+    businessUnitTypeList:"",
     isAddBusinessUnitMsg: false,
     businessUnitName:'',
     businessUnitStatus:'',
