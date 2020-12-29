@@ -6,6 +6,7 @@ const initialState = {
     vendorCode: "",
     email: "",
     contactNumber: "",
+    vendorStatus: false,
     vendorList: [],
     isVendorMsg: "",
     isEditMode: false,

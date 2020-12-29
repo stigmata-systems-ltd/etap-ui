@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import store from "../../store";
-import { 
-  vendorList, 
+import {
+  vendorList,
   getSingleVendor,
   createVendor,
   updateVendor,
-  
- } from "../../actions/vendorAction";
+
+} from "../../actions/vendorAction";
 
 import {
   RESET_PROJECT_FORM,
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(vendorList());
     },
 
-   
+
     showAddVendorModal() {
       dispatch({
         type: SHOW_ADD_VENDOR_MODAL,
@@ -34,24 +34,24 @@ const mapDispatchToProps = (dispatch) => {
         type: SHOW_ADD_VENDOR_MSG,
         payload: false,
       });
-      
+
     },
     closeAddVendorModal() {
       dispatch({
         type: SHOW_ADD_VENDOR_MODAL,
         payload: false,
       });
-      dispatch({type: RESET_VENDOR_FORM});
+      dispatch({ type: RESET_VENDOR_FORM });
     },
     //Add Project
-  
+
     createVendor() {
       dispatch(createVendor()).then(() => {
         dispatch({
           type: SHOW_ADD_VENDOR_MODAL,
           payload: false,
         });
-        dispatch({type: RESET_PROJECT_FORM});
+        dispatch({ type: RESET_PROJECT_FORM });
         dispatch(vendorList());
       })
     },
@@ -62,10 +62,10 @@ const mapDispatchToProps = (dispatch) => {
           type: SHOW_ADD_VENDOR_MODAL,
           payload: false,
         });
-        dispatch({type: RESET_PROJECT_FORM});
+        dispatch({ type: RESET_PROJECT_FORM });
         dispatch(vendorList());
       }).catch(() => {
-        dispatch({type: SHOW_ERR_MSG, payload: true});
+        dispatch({ type: SHOW_ERR_MSG, payload: true });
       })
     },
     handleEdit(id) {
@@ -78,14 +78,15 @@ const mapDispatchToProps = (dispatch) => {
         type: SET_EDIT_MODE,
         payload: true,
       });
-     
+
     },
   };
 };
 
 const mapStateToProps = (state) => {
+  const vendor = store.getState().vendor;
   return {
-    vendor: state.vendor,
+    vendor,
   };
 };
 

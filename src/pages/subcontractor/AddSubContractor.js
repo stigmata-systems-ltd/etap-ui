@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
 import CustomAlert from "../../common/forms/customAlert";
-import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
 import SimpleDropDown from "../../common/forms/SearchableDropDown";
 
@@ -60,8 +59,8 @@ class AddSubContractor extends Component {
 
                     <SimpleDropDown
                         label="Status"
-                        selectOptions={[{ id: 'Active', label: 'Active' }, { id: 'InActive', label: 'InActive' }]}
-                        onChange={(e) => this.props.handleChangeVendorStatus(e.target.value)}
+                        selectOptions={[{ value: 'Active', label: 'Active' }, { value: 'InActive', label: 'InActive' }]}
+                        onChange={(obj) => this.props.handleChangeVendorStatus(obj)}
                         value={this.props.vendor.vendorStatus}
                     />
 

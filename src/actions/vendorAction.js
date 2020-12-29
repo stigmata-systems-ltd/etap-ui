@@ -10,24 +10,6 @@ import {
 
 //Add Vendor
 
-export const vendorList = () => {
-  return {
-    type: LIST_VENDOR,
-    payload: axios.get(config.BASE_URL + "/api/Vendor/getVendorDetails"),
-  };
-};
-
-export const getSingleVendor = (id) => {
-  return {
-    type: GET_SINGLE_VENDOR,
-    payload: axios.get(
-      config.BASE_URL + "/api/Vendor/getVendorDetailsById/" + id
-    ),
-  };
-};
-
-
-
 
 export const createVendor = () => {
   const vendor = store.getState().vendor;
@@ -38,12 +20,11 @@ export const createVendor = () => {
     email: vendor.email,
     phoneNunmber: vendor.phoneNunmber,
     vendorStatus: vendor.isStatus,
-   
     vendorServiceTypeDetails: [
       {
-        id: 0,
-        vendorId: 0,
-        serviceTypeId: 0,
+        
+        vendorId: 1,
+        serviceTypeId: 1,
       },
     ],
   };
@@ -62,10 +43,26 @@ export const updateVendor = () => {
     email: vendor.email,
     phoneNunmber: vendor.phoneNunmber,
     vendorStatus: vendor.isStatus,
-   
+
   };
   return {
     type: UPDATE_VENDOR,
     payload: axios.put(config.BASE_URL + "/api/Vendor/updateVendor/" + vendor.id, data),
+  };
+};
+
+export const vendorList = () => {
+  return {
+    type: LIST_VENDOR,
+    payload: axios.get(config.BASE_URL + "/api/Vendor/getVendorDetails"),
+  };
+};
+
+export const getSingleVendor = (id) => {
+  return {
+    type: GET_SINGLE_VENDOR,
+    payload: axios.get(
+      config.BASE_URL + "/api/Vendor/getVendorDetailsById/" + id
+    ),
   };
 };

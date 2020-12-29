@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
-import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
 import { businessUnitBodyData, businessUnitMetaData } from "./utils";
@@ -98,6 +97,7 @@ class ViewBusinessUnit extends Component {
               Are you sure you want to delete this User?
             </h6>
           </ConfirmModal>
+          
         </FormContainer>
       </ContentLoader>
     );
