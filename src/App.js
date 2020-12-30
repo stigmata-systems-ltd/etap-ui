@@ -39,9 +39,6 @@ import Reuse from './container/reuse/reuse';
 import InitiatingReuse from './container/initiatingReuse/initiatingReuse';
 import InitiatePhyscialVerification from './container/lifeCycleManagement/initialPhysicalVerification';
 
-// import CreateComponent from './container/component/createComponent';
-// import ViewStructure from './container/structure/viewStructure';
-// import ViewComponent from './container/component/viewComponent';
 
 import unauthorized from './common/Unauthorized';
 import SiteApproval from './pages/dispatchManagement/SiteApproval';
@@ -54,16 +51,11 @@ import ViewAssignComponent from './container/assignStructure/viewAssignComponent
 import AddSurplus from './container/surplus/addSurplus';
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
-// import ViewSubContractor from './container/subContractor/viewSubContractor';
+
 const ViewSubContractor= React.lazy(()=> import('./container/subContractor/viewSubContractor'));
-// import { setRespInterceptor, setAuthHeader } from './utils/auth';
-// setAuthHeader();
-// setRespInterceptor();
+
 class App extends Component {
-  // constructor() {
-  //   super()
-  //   setInterceptor();
-  // }
+
 
   render() {
     return (

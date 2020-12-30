@@ -82,7 +82,7 @@ export default function (state = initialState, action) {
                   isLoading: false,
                   isError: false,
                   isSuccess: false,
-                  structureFamilyTypeList: action.payload.data,
+                  businessUnitTypeList: action.payload.data,
                 };
         case `${ADD_BUSINESS_UNIT}_PENDING`:
                     return {
