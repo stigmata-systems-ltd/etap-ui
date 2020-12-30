@@ -6,7 +6,8 @@ import {
   LIST_PROJECT_CODES,
   SURPLUS_PROJECT_ID,
   ADD_SURPLUS,
-  RESET_SURPLUS_FORM
+  RESET_SURPLUS_FORM,
+  SURPLUS_FILE
 } from '../actions/types';
 
 const initialState = {
@@ -26,6 +27,12 @@ export default function (state = initialState, action) {
           ...state,
           structureID: action.payload,
         };
+        case SURPLUS_FILE:
+        return {
+          ...state,
+          surplusFile: action.payload,
+        };
+        
         case SURPLUS_PROJECT_ID:
         return {
           ...state,

@@ -67,6 +67,13 @@ class AddSurplus extends Component {
                                 value={this.props.surplus.dateFrom}
                             />
                         </FormRow>
+                        <FormRow>
+                            <FileInput
+                            size="col-md-12"
+                            label="Select Documents"
+                            onChange={e => this.props.handleFileUpload(e.target.files[0])}
+                            />
+                        </FormRow>
                         <Button
                             btnText="SAVE"
                             onClick={this.props.saveSurplus}

@@ -23,7 +23,8 @@ import {
     SURPLUS_PROJECT_ID,
     SURPLUS_STRUCTURE_ID,
     SURPLUS_DATE,
-    RESET_SURPLUS_FORM
+    RESET_SURPLUS_FORM,
+    SURPLUS_FILE
 } from '../../actions/types';
 import AddSurplus from '../../pages/surplus/AddSurplus';
 import {getProjectList,getWBSList,addSurplus,getProjectStructureData} from '../../actions/surplusAction';
@@ -37,7 +38,14 @@ const mapDispatchToProps = dispatch => {
         resetSurplus() {
             dispatch({ type: RESET_SURPLUS_FORM });
         },
-
+        handleFileUpload(data) {
+            console.log(data.name);
+            console.log(data);
+            dispatch({
+              type: SURPLUS_FILE,
+              payload: data,
+            });
+          },
         handleChangeRequirementProjectName(value) {
             dispatch({
                 type: SURPLUS_PROJECT_ID,

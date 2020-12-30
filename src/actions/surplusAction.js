@@ -23,6 +23,7 @@ export const addSurplus= () => {
     const postData = new FormData();
     postData.append("dispStructId", parseInt(surplus.structureID.value));
     postData.append("surplusDate", surplus.dateFrom+"T00:00:00.000Z");
+    postData.append("uploadDocs",surplus.surplusFile)
     const configHeader = {
         headers: { "content-type": "multipart/form-data" },
       };
