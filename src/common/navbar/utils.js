@@ -107,11 +107,11 @@ export const metaDataNavbar = [
       //   route: '/requirementRequest/viewRequirements',
       // },
 
-      // {
-      //   id: 'requirementRequestSub' + 6,
-      //   navText: 'View Surplus',
-      //   route: '/requirementRequest/viewSurplus',
-      // },
+      {
+        id: 'requirementRequestSub' + 6,
+        navText: 'Add Surplus',
+        route: '/surplus/add',
+      },
 
 
     ],
