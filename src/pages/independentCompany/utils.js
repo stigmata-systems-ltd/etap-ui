@@ -5,16 +5,15 @@ import IconButton from '../../common/forms/IconButton';
 export const icbuMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        name: 'Independent Company',
-        selector: 'independentCompany',
+        name: 'Independent Company ID',
+        selector: 'independentCompanyID',
         sortable: false,
       },
       {
-        name: 'Business Unit',
-        selector: 'businessUnit',
+        name: 'Independent Company Name',
+        selector: 'independentCompanyName',
         sortable: false,
       },
-      
       {
         name: 'Actions',
         sortable: false,
@@ -40,9 +39,9 @@ export const icbuMetaData = (handleDelete, handleEdit) => {
     icbuList.map(icbu => {
       
         let tmpObj = {
-            
-            icId: icbu.icId,
-            lstBussUnit: icbu.lstBussUnit,
+          id: icbu.id,
+          independentCompanyID: icbu.id,
+          independentCompanyName: icbu.name,
         };
         tmpArr.push(tmpObj);
       });

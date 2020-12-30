@@ -14,14 +14,16 @@ import {
     SET_EDIT_MODE,
     SHOW_ADD_ICBU_MODAL,
     SHOW_ERR_MSG,
+    IC_DESCRIPTION,
+    RESET_IC_FORM
 } from "../actions/types";
 
 
 const initialState = {
 
     
-    icId: "",
-    lstBussUnit: {},
+    icName: "",
+    icDescription: "",
     icbuList: [],
     isIcbuMsg: "",
     isEditMode: false,
@@ -29,7 +31,7 @@ const initialState = {
     singleIcbu: {},
     buList: [],
     icList: [],
-    
+    icID:""
 
 };
 
@@ -38,12 +40,12 @@ export default function (state = initialState, action) {
         case IC_NAME:
             return {
                 ...state,
-                icId: action.payload,
+                icName: action.payload,
             };
-        case BU_NAME:
+        case IC_DESCRIPTION:
             return {
                 ...state,
-                lstBussUnit: action.payload,
+                icDescription: action.payload,
             };
 
         case BUSINESS_UNIT:
@@ -99,13 +101,13 @@ export default function (state = initialState, action) {
                 isLoading: false,
             };
         case `${GET_SINGLE_ICBU}_FULFILLED`:
-            const icbu = action.payload.data;
+            const data = action.payload.data;
             return {
                 ...state,
                 isLoading: false,
-                icId: icbu.icId,
-                lstBussUnit: icbu.lstBussUnit,
-
+                icName: data.name,
+                icDescription: data.description,
+                icID: data.id
             };
         case `${GET_IC_LIST}_PENDING`:
             return {
@@ -140,12 +142,12 @@ export default function (state = initialState, action) {
                 isLoading: false,
                 buList: action.payload.data,
             };
-        case RESET_ICBU_FORM:
+        case RESET_IC_FORM:
             return {
                 ...state,
                 isLoading: false,
-                icId: "",
-                lstBussUnit: {},
+                icName: "",
+                icDescription: {},
 
             };
         case SHOW_ERR_MSG:

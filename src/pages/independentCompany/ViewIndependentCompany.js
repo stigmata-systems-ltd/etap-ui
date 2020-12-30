@@ -26,16 +26,16 @@ class ViewIndependentCompany extends Component {
     this.props.icbuList();
   }
 
-//   filteredItems = (data) => {
-//     return (
-//       data &&
-//       data.filter(
-//         (item) =>
-//           item.email &&
-//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
-//       )
-//     );
-//   };
+  filteredItems = (data) => {
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.name &&
+          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
 
   render() {
     return (
@@ -48,7 +48,7 @@ class ViewIndependentCompany extends Component {
           />
         )}
         <AddIndependentCompany {...this.props} />
-        <FormContainer formTitle={"View IC/BU"}>
+        <FormContainer formTitle={"View IC"}>
           {this.props.icbu.icbuList && (
             <CustomDataTable
               metaData={icbuMetaData(
@@ -56,13 +56,13 @@ class ViewIndependentCompany extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={icbuList(
-                this.props.icbu.icbuList
+                this.filteredItems(this.props.icbu.icbuList)
               )}
               progressPending={this.props.icbu.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.icbu.icbuList &&
-                this.props.icbu.icbuList.length
+                this.filteredItems(this.props.icbu.icbuList).length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -70,7 +70,7 @@ class ViewIndependentCompany extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By Name"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&
@@ -85,7 +85,7 @@ class ViewIndependentCompany extends Component {
                   <Col6>
                   
                   <Button
-                    btnText="Create New IC/BU"
+                    btnText="Create New IC"
                     btnType="btn-primary float-right"
                     onClick={this.props.showAddIcbuModal}
                   />
