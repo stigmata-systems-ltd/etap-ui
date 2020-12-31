@@ -20,7 +20,7 @@ class AssignComponentViewMore extends Component {
   render() {
     return (
       <Modal
-        title={`View Assign Component - Details`}
+        title={`View Component - Details`}
         showModal={this.props.showAddComponentModal}
         handleClose={this.props.closeAssignComponentViewMoreModal}
         size="lg"
