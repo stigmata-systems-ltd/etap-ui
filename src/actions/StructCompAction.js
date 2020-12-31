@@ -7,6 +7,7 @@ import {
   SAVE_ASSIGN_STRUCT,
   GET_ASSIGN_STRUCT_DETAILS_ID,
 } from "./types";
+import { getComponentsData } from "../pages/assignStructure/utils"
 
 export const getProjList = () => {
   return {
@@ -69,3 +70,18 @@ export const saveAssignStruct = () => {
     ),
   };
 };
+
+export const saveAssignComp = () => {
+  const scr = store.getState().scr;
+  const data = {
+    structureId: scr.structName.value,
+    projectId: scr.projName.value,
+    components: scr.uploadData
+  }
+  return {
+    type: SAVE_ASSIGN_STRUCT,
+    payload: axios.post(
+      config.BASE_URL + "/api/StructureComponent/AddComponents",data
+    ),
+  };
+}

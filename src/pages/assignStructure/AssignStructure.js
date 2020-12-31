@@ -180,7 +180,7 @@ class AssignStructure extends Component {
               <ExportExcel
                 data={getExcelData(this.props.scr.uploadData)}
                 // header={this.props.headers}
-                filename={this.props.fileName}
+                filename={"test"}
               />
               <CustomDataTable
                 metaData={componentsMetaData()}

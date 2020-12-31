@@ -136,6 +136,7 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         drawingNum: "",
+        estimatedWeight: "",
         structAttri: [],
         files: [],
         projName: {},

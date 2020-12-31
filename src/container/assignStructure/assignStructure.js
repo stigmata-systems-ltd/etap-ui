@@ -23,6 +23,7 @@ import {
   getStructList,
   getAssignStructDetails,
   saveAssignStruct,
+  saveAssignComp,
 } from "../../actions/StructCompAction";
 
 const mapDispatchToProps = (dispatch) => {
@@ -151,6 +152,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     clearStrcutAttri() {
       dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
+    },
+    saveAssignComp() {
+      dispatch(saveAssignComp());
     },
   };
 };

@@ -50,13 +50,14 @@ import ViewAssignStructure from './container/assignStructure/viewAssignStructure
 import ViewAssignComponent from './container/assignStructure/viewAssignComponent';
 import AddSurplus from './container/surplus/addSurplus';
 import { setRespInterceptor, setAuthHeader } from "./utils/auth";
-setAuthHeader();setRespInterceptor();
+import Login from "./container/login/login";
+
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
 
 const ViewSubContractor= React.lazy(()=> import('./container/subContractor/viewSubContractor'));
 
-
+setAuthHeader();setRespInterceptor();
 class App extends Component {
 
 
@@ -65,6 +66,16 @@ class App extends Component {
       <Router>
         <Switch>
         <Suspense fallback={<div>Loading...</div>}>
+        <Route
+            exact
+            path="/"
+            component={Login}
+          ></Route>
+          <Route
+            exact
+            path="/login"
+            component={Login}
+          ></Route>
           <Route
             exact
             path="/masters/addComponent"
