@@ -56,6 +56,11 @@ export const metaDataNavbar = [
         navText: 'Add SubContractor',
         route: '/masters/viewSubContractor',
       },
+      {
+        id: 'mastersSub' + 5,
+        navText: 'Test Project',
+        route: '/masters/testProject',
+      },
     ],
   },
   {

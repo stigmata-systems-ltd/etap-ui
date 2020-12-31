@@ -13,6 +13,7 @@ import {
   ASSIGN_FILE_UPLOAD,
   ON_CHANGE_ASSIGN_STRUCT,
   ASSIGN_FILE_REMOVE,
+  ASSIGN_STRUCT_EXCEL_UPLOAD,
 } from "../../actions/types";
 
 import AssignStructure from "../../pages/assignStructure/AssignStructure";
@@ -75,10 +76,23 @@ const mapDispatchToProps = (dispatch) => {
       data.forEach((a, i) => {
         if (i > 0) {
           let wbsSampleObject = {
-            workBreakDownCode: a.data[0],
-            segment: a.data[1],
-            subSegment: a.data[2],
-            element: a.data[3],
+            ic: a.data[0] ? a.data[0] : "",
+            bu: a.data[1] ? a.data[1] : "",
+            project: a.data[2] ? a.data[2] : "",
+            structFamily: a.data[3] ? a.data[3] : "",
+            structure: a.data[4] ? a.data[4] : "",
+            compType: a.data[5] ? a.data[5] : "",
+            component: a.data[6] ? a.data[6] : "",
+            group: a.data[7] ? a.data[7] : "",
+            compNum: a.data[8] ? a.data[8] : "",
+            drawingNum: a.data[9] ? a.data[9] : "",
+            length: a.data[10] ? a.data[10] : "",
+            breadth: a.data[11] ? a.data[11] : "",
+            height: a.data[12] ? a.data[12] : "",
+            thickness: a.data[13] ? a.data[13] : "",
+            weight: a.data[14] ? a.data[14] : "",
+            type: a.data[15] ? a.data[15] : "",
+            tag: a.data[16] ? a.data[16] : "",
           };
           wbsDataArr.push(wbsSampleObject);
         }
@@ -134,6 +148,9 @@ const mapDispatchToProps = (dispatch) => {
             type: ON_CHANGE_ASSIGN_STRUCT,
             payload: tmpArr
         })
+    },
+    clearStrcutAttri() {
+      dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
     },
   };
 };

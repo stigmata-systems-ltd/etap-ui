@@ -2,6 +2,11 @@ import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 import { Link } from 'react-router';
 
+export const getExcelData = (data) => {
+  const headers = "ic, bu, project, structFamily, structure, compType, component, group, compNum"
+  return [];
+}
+
 export const transformAttri = (data) => {
   let tmpArr = [];
   data && data.map((dt, index) => {
@@ -59,7 +64,98 @@ export const structAttriMetaData = (onChangeValue) => {
   ];
 };
 
-export const _componentInputData = ["IC", "BU", "Project", "Structure Family", "Structure", "Structure ID", , "Component Type", "Component", "Component ID", "Group", "Component No", "Drawing No", "Length", "Breadth", "Height", "Thickness", "Weight", "Type", "Tag"];
+export const componentsMetaData = (onChangeValue) => {
+  return [
+    {
+      name: "IC",
+      selector: 'ic',
+      sortable: false,
+    },
+    {
+      name: "BU",
+      selector: 'bu',
+      sortable: false,
+    },
+    {
+      name:  "Project",
+      selector: 'project',
+      sortable: false,
+    },
+    {
+      name:  "Structure Family",
+      selector: 'structFamily',
+      sortable: false,
+    },
+    {
+      name:  "Structure",
+      selector: 'structure',
+      sortable: false,
+    },
+    {
+      name:  "Component Type",
+      selector: 'compType',
+      sortable: false,
+    },
+    {
+      name:  "Component",
+      selector: 'component',
+      sortable: false,
+    },
+    {
+      name:  "Group",
+      selector: 'group',
+      sortable: false,
+    },
+    {
+      name:  "Component No",
+      selector: 'compNum',
+      sortable: false,
+    },
+    {
+      name:  "Drawing No",
+      selector: 'drawingNum',
+      sortable: false,
+    },
+    {
+      name:  "Length",
+      selector: 'length',
+      sortable: false,
+    },
+    {
+      name:  "Breadth",
+      selector: 'breadth',
+      sortable: false,
+    },
+    {
+      name:  "Height",
+      selector: 'height',
+      sortable: false,
+    },
+    {
+      name:  "Thickness",
+      selector: 'thickness',
+      sortable: false,
+    },
+    {
+      name:  "Weight",
+      selector: 'weight',
+      sortable: false,
+    },
+    {
+      name:  "Type",
+      selector: 'type',
+      sortable: false,
+    },
+    {
+      name:  "Tag",
+      selector: 'tag',
+      sortable: false,
+    },
+  ];
+};
+
+export const _componentInputData = 
+["IC", "BU", "Project", "Structure Family", "Structure", "Structure ID", , "Component Type", "Component", "Component ID", "Group", "Component No", "Drawing No", "Length", "Breadth", "Height", "Thickness", "Weight", "Type", "Tag"];
 export const _componentInputBodyData = [
     {
         ic: "Auto",

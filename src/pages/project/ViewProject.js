@@ -47,7 +47,7 @@ class ViewProject extends Component {
           />
         )}
         <AddProjModal {...this.props} />
-        <FormContainer formTitle={"Project List"}>
+        <FormContainer formTitle={"Project Test"}>
           {this.props.proj.projectList && (
             <CustomDataTable
               metaData={listProjectMetaData(

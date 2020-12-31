@@ -20,6 +20,7 @@ import vendorReducer from './vendorReducer';
 import requirementReducer from './requirementReducer';
 import assignStructureReducer from './assignStructureReducer';
 import structCompReducer from "./structCompReducer";
+import authReducer from "./authReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   requirement: requirementReducer,
   assignStructure: assignStructureReducer,
   scr: structCompReducer,
+  auth: authReducer,
 });
 
 export default rootReducer;
