@@ -31,7 +31,7 @@ class AddSurplus extends Component {
         return (
             <>
                 <ContentLoader>
-                    <FormContainer formTitle={'Add Requirement'}>
+                    <FormContainer formTitle={'Surplus Declaration'}>
                         <FormRow>
                         <SearchableDropDown
                                     label="Project Name"
@@ -50,13 +50,12 @@ class AddSurplus extends Component {
                         </FormRow>
 
                         <FormRow>
-                        {/* <TextInput
+                        <TextInput
                             label="Structure Family"
                             name="structureFamily"
                             id="structureFamily"
-                            onChange={(e) => this.props.handleChangeComponentType(e.target.value)}
-                            value={this.props.surplus.componentType}
-                        /> */}
+                            value={this.props.surplus.structureFamily.label}
+                        />
                         <DateInput
                                 label="Surplus From"
                                 name="surplusFrom"
@@ -70,7 +69,7 @@ class AddSurplus extends Component {
                         <FormRow>
                             <FileInput
                             size="col-md-12"
-                            label="Select Documents"
+                            label="Select Photo"
                             onChange={e => this.props.handleFileUpload(e.target.files[0])}
                             />
                         </FormRow>

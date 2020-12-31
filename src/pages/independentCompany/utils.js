@@ -5,11 +5,6 @@ import IconButton from '../../common/forms/IconButton';
 export const icbuMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        name: 'Independent Company ID',
-        selector: 'independentCompanyID',
-        sortable: false,
-      },
-      {
         name: 'Independent Company Name',
         selector: 'independentCompanyName',
         sortable: false,

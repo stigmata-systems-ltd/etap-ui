@@ -22,7 +22,12 @@ const mapDispatchToProps = dispatch => {
         },
         createIcbu(){ 
             (dispatch(createIcbu())).then(()=>{
+                dispatch({
+                    type: SHOW_ADD_ICBU_MODAL,
+                    payload: false,
+                });
                 dispatch({ type: RESET_IC_FORM });
+                dispatch(icbuList());
             })
         },
         updateIcbu() {

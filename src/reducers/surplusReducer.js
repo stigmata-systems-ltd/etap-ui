@@ -7,7 +7,8 @@ import {
   SURPLUS_PROJECT_ID,
   ADD_SURPLUS,
   RESET_SURPLUS_FORM,
-  SURPLUS_FILE
+  SURPLUS_FILE,
+  SURPLUS_STRUCTURE_FAMILY
 } from '../actions/types';
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
     structureProjectList:[],
     projectCodesList:[],
     structureList:[],
-    projectID:{}
+    projectID:{},
+    structureFamily:""
 };
 
 export default function (state = initialState, action) {
@@ -26,6 +28,11 @@ export default function (state = initialState, action) {
         return {
           ...state,
           structureID: action.payload,
+        };
+        case SURPLUS_STRUCTURE_FAMILY:
+        return {
+          ...state,
+          structureFamily: action.payload,
         };
         case SURPLUS_FILE:
         return {
@@ -130,8 +137,8 @@ export default function (state = initialState, action) {
               ...state,
               structureID:{},
               projectName:{},
-              dateFrom:""
-
+              dateFrom:"",
+              structureFamily:""
           }
         default:
             return state;

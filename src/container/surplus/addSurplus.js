@@ -24,7 +24,8 @@ import {
     SURPLUS_STRUCTURE_ID,
     SURPLUS_DATE,
     RESET_SURPLUS_FORM,
-    SURPLUS_FILE
+    SURPLUS_FILE,
+    SURPLUS_STRUCTURE_FAMILY
 } from '../../actions/types';
 import AddSurplus from '../../pages/surplus/AddSurplus';
 import {getProjectList,getWBSList,addSurplus,getProjectStructureData} from '../../actions/surplusAction';
@@ -61,10 +62,19 @@ const mapDispatchToProps = dispatch => {
         //     });
         // },
         handleChangeStructureList(value) {
+            const surplus = store.getState().surplus;
+            let structFamilyName = surplus.structureProjectList.filter((ele) => {
+                return (ele.projectId === surplus.projectName.value && ele.structureId === value.value) 
+              }).map((ele) => {return ele.strcutureTypeName});
             dispatch({
                 type: SURPLUS_STRUCTURE_ID,
                 payload: value,
             });
+            dispatch({
+                type: SURPLUS_STRUCTURE_FAMILY,
+                payload: value,
+            });
+            
         },
         handleChangeRequirementNumberOfComponents(value) {
             dispatch({

@@ -85,7 +85,7 @@ class ViewIndependentCompany extends Component {
                   <Col6>
                   
                   <Button
-                    btnText="Create New IC"
+                    btnText="Add IC"
                     btnType="btn-primary float-right"
                     onClick={this.props.showAddIcbuModal}
                   />
