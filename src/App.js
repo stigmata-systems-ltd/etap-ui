@@ -106,11 +106,6 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/masters/testProject"
-              component={ViewProject}
-            ></Route>
-            <Route
-              exact
               path="/masters/viewUsers"
               component={ViewUsers}
             ></Route>
