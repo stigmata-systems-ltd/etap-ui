@@ -18,7 +18,8 @@ import {
     LIST_PROJECT_CODES, 
     LIST_WBS_CODES,
     SITE_REQUIRMENT_LIST,
-    ADD_REQUIREMENT
+    ADD_REQUIREMENT,
+    LIST_STRUCTURE_PROJECT_DATA
 } from '../actions/types';
 
 const initialState = {
@@ -26,7 +27,9 @@ const initialState = {
     vendorCode: '',
     vendorEmail: '',
     contactNumber: '',
-    siteRequirementList:[]
+    siteRequirementList:[], 
+    structureProjectList:[],
+    structureList:[]
 };
 
 export default function (state = initialState, action) {
@@ -115,6 +118,35 @@ export default function (state = initialState, action) {
                   isSuccess: false,
                   wbsCodesList: action.payload.data,
                 };  
+                case `${LIST_STRUCTURE_PROJECT_DATA}_PENDING`:
+                  return {
+                    ...state,
+                    isLoading: true,
+                    isError: false,
+                    isSuccess: false,
+                  };
+          case `${LIST_STRUCTURE_PROJECT_DATA}_REJECTED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: true,
+                    isSuccess: false,
+                  };
+          case `${LIST_STRUCTURE_PROJECT_DATA}_FULFILLED`:
+                  console.log(`Project Name: ${state.projectName}`)
+                  let structureListData= action.payload.data.filter((ele) => {
+                    if(ele.projectId === state.projectName.value) {
+                      return {id:ele.structureId, name: ele.strcutureName}
+                    }
+                  }).map((ele) => {return {id:ele.structureId, name: ele.strcutureName}});
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: false,
+                    isSuccess: false,
+                    structureProjectList: action.payload.data,
+                    structureList:structureListData
+                  };  
         case SITE_REQUIRMENT_LIST:
             return {
                 ...state,
@@ -159,6 +191,14 @@ export default function (state = initialState, action) {
         "remarks": '',
         "status": '',
         "siteRequirementStructures": [],
+        actualStartDateOfUsage: "",
+        actualWorkBreak:{},
+        expectedReleaseDate:"",
+        planedStartDate:"",
+        plannedReleaseDate:"",
+        projectName:{},
+        requiredWorkBreak:{},
+        siteRequirementList:[]
             }
         default:
             return state;

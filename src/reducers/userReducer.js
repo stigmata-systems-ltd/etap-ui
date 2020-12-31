@@ -21,7 +21,8 @@ import {
     USER_EDIT_PAGE,
     UPDATE_USER
   } from '../actions/types';
-  
+  import { getSelectedValue } from "../utils/dataTransformer";
+
   const initialState = {
     firstName: '',
     lastName: '',
@@ -245,7 +246,8 @@ import {
                   lastName: action.payload.data.lastName,
                   psNo: action.payload.data.userName,
                   email: action.payload.data.email,
-                  project:{value: action.payload.data.projectId},
+                  project: getSelectedValue(state.projectCodesList,action.payload.data.projectId),
+                  role: getSelectedValue(state.rolesList,action.payload.data.roleId),
                   userId: action.payload.data.userId
                 };     
       case `${UPDATE_USER}_PENDING`:
@@ -290,7 +292,7 @@ import {
                 segment:"",
                 role:"",
                 isLoading: false,
-                isEdit:"false"
+                isEdit: false
             };
             
       default:

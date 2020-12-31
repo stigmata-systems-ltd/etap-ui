@@ -19,7 +19,7 @@ class AddUser extends Component {
   render() {
     return (
       <Modal
-        title={`${this.props.users.isEdit ? "Update" : "Create New"} User`}
+        title={`${this.props.users.isEdit ? "Update" : "add"} User`}
         showModal={this.props.showAddComponentModal}
         handleSave={
           this.props.users.isEdit
@@ -126,8 +126,8 @@ class AddUser extends Component {
 
             <FormRow>
               <SearchableDropDown
-            label="Project"
-            name="project"
+            label="Role"
+            name="role"
             selectOptions={transformDropDownData(this.props.users.rolesList, "id", "name")}
             onChange={(obj) => this.props.handleChangeRole(obj)}
             value={this.props.users.role}

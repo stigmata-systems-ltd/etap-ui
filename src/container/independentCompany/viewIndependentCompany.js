@@ -107,8 +107,6 @@ const mapDispatchToProps = (dispatch) => {
                 type: SET_EDIT_MODE,
                 payload: true,
             });
-            dispatch(getICList());
-            dispatch(getBUList());
         },
     };
 };

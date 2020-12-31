@@ -17,10 +17,12 @@ import independentCompanyReducer from './independentCompanyReducer';
 import usersReducer from './userReducer';
 import structureFamilyReducer from './structureFamilyReducer';
 import vendorReducer from './vendorReducer';
+import businessUnitReducer from './businessUnitReducer';
 import requirementReducer from './requirementReducer';
 import assignStructureReducer from './assignStructureReducer';
 import structCompReducer from "./structCompReducer";
 import authReducer from "./authReducer";
+import surplusReducer from './surplusReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -32,10 +34,12 @@ const rootReducer = combineReducers({
   users: usersReducer,
   structureFamily:structureFamilyReducer,
   vendor:vendorReducer,
+  businessUnit : businessUnitReducer,
   requirement: requirementReducer,
   assignStructure: assignStructureReducer,
   scr: structCompReducer,
   auth: authReducer,
+  surplus: surplusReducer
 });
 
 export default rootReducer;

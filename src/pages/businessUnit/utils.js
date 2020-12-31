@@ -2,46 +2,73 @@ import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 
 
-export const icbuMetaData = (handleDelete, handleEdit) => {
-    return [
-      {
-        name: 'Independent Company Name',
-        selector: 'independentCompanyName',
-        sortable: false,
+export const businessUnitMetaData = (handleDelete, handleEdit) => {
+  return [
+    {
+      sortable: false,
+      cell: row => {
+        return (
+          <>
+            { (
+              <IconButton
+                iconName="faTimes"
+                className={'table-delete-icon'}
+                onClick={() => handleDelete(row.id)}
+              />
+            )}
+          </>
+        );
       },
-      {
-        name: 'Actions',
-        sortable: false,
-        cell: row => {
-          return (
-            <>
-              {(
-                <IconButton
-                  iconName="faEdit"
-                  onClick={() => handleEdit(row.id)}
-                />
-              )}
-            </>
-          );
-        },
+      width: '2%',
+    },
+    {
+      name: 'Business Unit',
+      selector: 'businessUnit',
+      sortable: false,
+    },
+    {
+      name: 'Status',
+      selector: 'status',
+      sortable: false,
+    },
+    {
+      name: 'Actions',
+      sortable: false,
+      cell: row => {
+        return (
+          <>
+            {(
+              <IconButton
+                iconName="faEdit"
+                onClick={() => handleEdit(row.id)}
+              />
+            )}
+          </>
+        );
       },
-    ];
-  };
+    },
+  ];
+};
 
-  export const icbuList = icbuList => {
-    let tmpArr = [];
-    icbuList &&
-    icbuList.map(icbu => {
-      
-        let tmpObj = {
-          id: icbu.id,
-          independentCompanyID: icbu.id,
-          independentCompanyName: icbu.name,
-        };
-        tmpArr.push(tmpObj);
-      });
-    return tmpArr;
-  };
+export const businessUnitBodyData = businessUnitList => {
+  let tmpArr = [];
+  let statusValue;
+  businessUnitList &&
+    businessUnitList.map(businessUnit => {
+      if (businessUnit.isActive) {
+        statusValue = "Active"
+      }
+      else {
+        statusValue = "InActive"
+      }
+      let tmpObj = {
+        businessUnit: businessUnit.name,
+        status: statusValue,
+      };
+      tmpArr.push(tmpObj);
+    });
+  return tmpArr;
+};
 
 
 
@@ -77,13 +104,13 @@ export const icbuMetaData = (handleDelete, handleEdit) => {
 //         componentStatus: "",
 //         currentStatus: "",
 //     },
-    
+
 // ];
 
 // export const _viewComponentModificationHistoryData = [ "Structure ID", "Component Type", "Component", "Component ID", "Group", "Component No", "Drawing No", "Length", "Breadth", "Height", "Thickness", "Weight", "Original/Modified", "Modification No", "Manufactured/Fabricated", "Tag No", "QR Code"];
 // export const _viewComponentModificationHistoryBodyData = [
 //     {
-        
+
 //         structureId: "",
 //         componentType: "",
 //         component: "",
@@ -101,9 +128,9 @@ export const icbuMetaData = (handleDelete, handleEdit) => {
 //         fabrication: "",
 //         tag: "",
 //         qrCode: "",
-        
-        
+
+
 //     },
-    
+
 // ];
 

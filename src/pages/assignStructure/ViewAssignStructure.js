@@ -35,7 +35,7 @@ class ViewAssignStructure extends Component {
           />
         )}
         <AssignStructureViewMore showAddComponentModal={this.props.assignStructure.showAssignStructureMoreModal} />
-        <FormContainer formTitle={"View Assigned Structure"}>
+        <FormContainer formTitle={"View Structure"}>
           {this.props.assignStructure.assignStructureList && (
             <CustomDataTable
               metaData={listAssignedStructureMetaData(

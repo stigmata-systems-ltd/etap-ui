@@ -16,7 +16,7 @@ import {
 export const icbuList = () => {
   return {
     type: LIST_ICBU,
-    payload: axios.get(config.BASE_URL + "/api​/BU​/getBUlist"),
+    payload: axios.get(config.BASE_URL + "/api/IC/getIClist"),
   };
 };
 
@@ -24,7 +24,7 @@ export const getSingleIcbu = (id) => {
   return {
     type: GET_SINGLE_ICBU,
     payload: axios.get(
-      config.BASE_URL + "/api/BU/getBUDetailsById/" + id
+      config.BASE_URL + "/api/IC/getICDetailsById/" + id
     ),
   };
 };
@@ -32,7 +32,7 @@ export const getSingleIcbu = (id) => {
 export const getICList = () => {
   return {
     type: GET_IC_LIST,
-    payload: axios.get(config.BASE_URL + "/api/IC/icCodeList"),
+    payload: axios.get(config.BASE_URL + "/api/IC/getIClist"),
   };
 };
 
@@ -46,31 +46,23 @@ export const getBUList = () => {
 export const createIcbu = () => {
   const icbu = store.getState().icbu;
   const data = {
-    icId: icbu.icId,
-    lstBussUnit: [
-      {
-        name: "test - 01",
-      },
-    ],
-  };
+      "name": icbu.icName,
+      "description": icbu.icDescription
+    };
   return {
     type: CREATE_ICBU,
-    payload: axios.post(config.BASE_URL + "/api/BU/createBU", data),
+    payload: axios.post(config.BASE_URL + "/api/IC/createIC", data),
   };
 };
 
 export const updateIcbu = () => {
   const icbu = store.getState().icbu;
   const data = {
-    icId: icbu.icId,
-    lstBussUnit: [
-      {
-        name: "test - 01",
-      },
-    ],
+    "name": icbu.icName,
+    "description": icbu.icDescription
   };
   return {
     type: UPDATE_ICBU,
-    payload: axios.put(config.BASE_URL + "/api/BU/updateBU/" + icbu.icId, data),
+    payload: axios.put(config.BASE_URL + "/api/IC/updateIC/" + icbu.icID, data),
   };
 };

@@ -12,8 +12,8 @@ class AddIndependentCompany extends Component {
     render() {
         return (
             <Modal
-                title={`${this.props.icbu.isEditMode ? "Update" : "Create New"
-                    } IC/BU`}
+                title={`${this.props.icbu.isEditMode ? "Update" : "Add"
+                    } IC`}
                 showModal={this.props.icbu.showAddIcbuModal}
                 handleSave={
                     this.props.icbu.isEditMode
@@ -27,19 +27,19 @@ class AddIndependentCompany extends Component {
 
                 <FormRow>
                     <TextInput
-                        label="Independent Company"
+                        label="Independent Company Name"
                         name="ic"
                         id="ic"
                         onChange={(e) => this.props.handleChangeIc(e.target.value)}
-                        value={this.props.icbu.ic}
+                        value={this.props.icbu.icName}
                     />
-                    <TextInput
-                        label="Business Unit"
-                        name="bu"
-                        id="bu"
-                        onChange={(e) => this.props.handleChangeBu(e.target.value)}
-                        value={this.props.icbu.bu}
-                    />
+                    {/* <TextInput
+                        label="Description"
+                        name="description"
+                        id="description"
+                        onChange={(e) => this.props.handleChangeDescription(e.target.value)}
+                        value={this.props.icbu.icDescription}
+                    /> */}
                 </FormRow>
 
                 {this.props.icbu.isModalMsg && (

@@ -19,6 +19,9 @@ import Col6 from "../../common/forms/Col6";
 import {transformWBSData,listWBSMetaData} from './utils';
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import { transformDropDownData } from "../../utils/dataTransformer";
+import {
+  Link
+} from "react-router-dom";
 
 class AddWorkBreak extends Component {
     constructor(props) {
@@ -51,13 +54,6 @@ class AddWorkBreak extends Component {
                 <ContentLoader>
                     <FormContainer formTitle={'Add WBS'}>
                         <FormRow>
-                            {/* <SimpleDropDown
-                                label="Project Name"
-                                name="projectName"
-                                onChange={e => this.props.handleChangeProjectName(e.target.value)}
-                                value={this.props.wbs.wbsProjectName}
-                                selectOptions={this.props.wbs.projectCodesList}
-                            /> */}
                             <SearchableDropDown
                               label="Project Name"
                               name="projectName"
@@ -65,16 +61,11 @@ class AddWorkBreak extends Component {
                               onChange={(obj) => this.props.handleChangeProjectName(obj)}
                               value={this.props.wbs.wbsProjectName}
                             />
+                            
                         </FormRow>
-                        <FormRow>
-                            <Col className="col-3">
-                                <Button
-                                    btnText="Excel Template Upload"
-                                    onClick={this.props.saveUsersData}
-                                    btnType="primary"
 
-                                />
-                            </Col>
+                        <FormRow>
+                            
                             <Col className="col-3">
                                 <CSVReader
                                     onDrop={this.props.handleOnDrop}
@@ -83,11 +74,11 @@ class AddWorkBreak extends Component {
                                     addRemoveButton
                                     onRemoveFile={this.handleOnRemoveFile}
                                     >
-                                    <span>Click to upload.</span>
+                                    <span>Click to upload WBS File</span>
                                 </CSVReader>
                             </Col>
                         </FormRow>
-
+                        <br/>
                         <FormRow>
                         {this.props.wbs.wbsUploadedData && (
             <CustomDataTable
@@ -135,7 +126,11 @@ class AddWorkBreak extends Component {
                             btnType="cancel"
                             onClick={this.props.resetUsersData}
                         />
-                    
+                        <br/>
+                        <br/>
+                    <Col className="col-6">
+                            <Link to="/wbs.csv" target="_blank" download>Download WBS Template</Link>
+                            </Col>
                     </FormContainer>
                 </ContentLoader>
             </>

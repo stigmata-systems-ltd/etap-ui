@@ -19,24 +19,37 @@ import {
     MR_NUMBER,
     REMARKS,
     RESET_REQUIREMENT_FORM,
-    SITE_REQUIRMENT_LIST
+    SITE_REQUIRMENT_LIST,
+    SURPLUS_PROJECT_ID,
+    SURPLUS_STRUCTURE_ID,
+    SURPLUS_DATE,
+    RESET_SURPLUS_FORM,
+    SURPLUS_FILE,
+    SURPLUS_STRUCTURE_FAMILY
 } from '../../actions/types';
-import AddRequirement from '../../pages/requirements/AddRequirements';
-import {getProjectList,getWBSList, addSiteRequirement,addRequirement,getProjectStructureData} from '../../actions/requirementAction'
+import AddSurplus from '../../pages/surplus/AddSurplus';
+import {getProjectList,getWBSList,addSurplus,getProjectStructureData} from '../../actions/surplusAction';
 const mapDispatchToProps = dispatch => {
     return {
-        saveRequirement(){
-            dispatch(addRequirement()).then(() => {
-                dispatch({ type: RESET_REQUIREMENT_FORM })
+        saveSurplus(){
+            dispatch(addSurplus()).then(() => {
+                dispatch({ type: RESET_SURPLUS_FORM })
             });
         },
-        resetRequirement() {
-            dispatch({ type: RESET_REQUIREMENT_FORM });
+        resetSurplus() {
+            dispatch({ type: RESET_SURPLUS_FORM });
         },
-
+        handleFileUpload(data) {
+            console.log(data.name);
+            console.log(data);
+            dispatch({
+              type: SURPLUS_FILE,
+              payload: data,
+            });
+          },
         handleChangeRequirementProjectName(value) {
             dispatch({
-                type: PROJECT_NAME,
+                type: SURPLUS_PROJECT_ID,
                 payload: value,
             });
             dispatch(getProjectStructureData());
@@ -48,11 +61,20 @@ const mapDispatchToProps = dispatch => {
         //         payload: value,
         //     });
         // },
-        handleChangeRequirementStructureId(value) {
+        handleChangeStructureList(value) {
+            const surplus = store.getState().surplus;
+            let structFamilyName = surplus.structureProjectList.filter((ele) => {
+                return (ele.projectId === surplus.projectName.value && ele.structureId === value.value) 
+              }).map((ele) => {return ele.strcutureTypeName});
             dispatch({
-                type: STRUCTURE_ID,
+                type: SURPLUS_STRUCTURE_ID,
                 payload: value,
             });
+            dispatch({
+                type: SURPLUS_STRUCTURE_FAMILY,
+                payload: value,
+            });
+            
         },
         handleChangeRequirementNumberOfComponents(value) {
             dispatch({
@@ -72,57 +94,9 @@ const mapDispatchToProps = dispatch => {
                 payload: value,
             });
         },
-        handleChangeRequirementRequiredWorkBreak(value) {
+        handleSurplusFromChange(value) {
             dispatch({
-                type: REQUIRED_FOR_WORK_BREAK,
-                payload: value,
-            });
-        },
-        handleChangeRequirementRequiredBy(value) {
-            dispatch({
-                type: REQUIRED_BY,
-                payload: value,
-            });
-        },
-        handleChangeRequirementActualWorkBreak(value) {
-            dispatch({
-                type: ACTUAL_WORK_BREAK,
-                payload: value,
-            });
-        },
-        handleChangeRequirementPlannedStartDate(value) {
-            dispatch({
-                type: PLANNED_START_DATE,
-                payload: value,
-            });
-        },
-        handleChangeRequirementActualStartDateOfUsage(value) {
-            dispatch({
-                type: ACTUAL_START_DATE_OF_USAGE,
-                payload: value,
-            });
-        },
-        handleChangeRequirementPlannedReleaseDate(value) {
-            dispatch({
-                type: PLANNED_RELEASE_DATE,
-                payload: value,
-            });
-        },
-        handleChangeRequirementExpectedReleaseDate(value) {
-            dispatch({
-                type: EXPECTED_RELEASE_DATE,
-                payload: value,
-            });
-        },
-        handleChangeRequirementMrNo(value) {
-            dispatch({
-                type: MR_NUMBER,
-                payload: value,
-            });
-        },
-        handleChangeRequirementRemarks(value) {
-            dispatch({
-                type: REMARKS,
+                type: SURPLUS_DATE,
                 payload: value,
             });
         },
@@ -131,9 +105,6 @@ const mapDispatchToProps = dispatch => {
         },
         getWBSList(){
             dispatch(getWBSList());
-        },
-        addSiteRequirement(){
-            dispatch(addSiteRequirement());
         },
         onStructureIDChange(value, i){
             const requirement = store.getState().requirement;
@@ -188,10 +159,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-    const requirement = store.getState().requirement;
+    const surplus = store.getState().surplus;
     return {
-        requirement,
+        surplus,
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddRequirement);
+export default connect(mapStateToProps, mapDispatchToProps)(AddSurplus);

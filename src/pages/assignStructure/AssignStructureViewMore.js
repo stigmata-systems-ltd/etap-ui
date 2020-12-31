@@ -20,7 +20,7 @@ class AddStructure extends Component {
   render() {
     return (
       <Modal
-        title={`View Assign Structure - Details`}
+        title={`View Structure - Details`}
         showModal={this.props.showAddComponentModal}
         handleClose={this.props.closeAssignStructureViewMoreModal}
         size="lg"
@@ -47,6 +47,46 @@ class AddStructure extends Component {
                 //   this.props.handleChangeStructureFamily(e.target.value)
                 // }
                 value={this.props.assignStructure.assignStructureViewMore.strcutureName}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Structure Family"
+                name="structureFamily"
+                id="structureFamily"
+                // onChange={e =>
+                //   this.props.handleChangeStructureName(e.target.value)
+                // }
+                value={this.props.assignStructure.assignStructureViewMore.strcutureTypeName}
+              />
+              <TextInput
+                label="Total Weight"
+                name="totalWeight"
+                id="totalWeight"
+                // onChange={e =>
+                //   this.props.handleChangeStructureFamily(e.target.value)
+                // }
+                value={this.props.assignStructure.assignStructureViewMore.totalWeight}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Structure Status"
+                name="structureStatus"
+                id="structureStatus"
+                // onChange={e =>
+                //   this.props.handleChangeStructureName(e.target.value)
+                // }
+                value={this.props.assignStructure.assignStructureViewMore.status}
+              />
+              <TextInput
+                label="Current Status"
+                name="currentStatus"
+                id="currentStatus"
+                // onChange={e =>
+                //   this.props.handleChangeStructureFamily(e.target.value)
+                // }
+                value={this.props.assignStructure.assignStructureViewMore.currentStatus}
               />
             </FormRow>
             <FormRow>

@@ -8,7 +8,8 @@ import {
   SET_STRUCTURE_FAMILY_EDIT_MODE,
   CHANGE_STRUCTURE_FAMILY_MODAL_STATUS,
   STRUCTURE_FAMILY_TYPE,
-  STRUCTURE_FAMILY_STATUS
+  STRUCTURE_FAMILY_STATUS,
+  STRUCTURE_FAMILY_TYPE_STATUS
 
 }
   from '../../actions/types';
@@ -35,8 +36,8 @@ const mapDispatchToProps = dispatch => {
 
       });;
     },
-    updateStructureFamilyType(id) {
-      dispatch(updateStructureFamilyType(id)).then(() => {
+    updateStructureFamilyType() {
+      dispatch(updateStructureFamilyType()).then(() => {
         dispatch(structureFamilyList());
         dispatch({
           type: SET_STRUCTURE_FAMILY_EDIT_MODE,
@@ -65,7 +66,7 @@ const mapDispatchToProps = dispatch => {
     },
     handleStructureFamilyTypeStatus(value) {
       dispatch({
-        type: STRUCTURE_FAMILY_STATUS,
+        type: STRUCTURE_FAMILY_TYPE_STATUS,
         payload: value,
       });
     },

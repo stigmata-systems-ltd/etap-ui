@@ -67,15 +67,6 @@ class AddProjModal extends Component {
           />
         </FormRow>
         <FormRow>
-          {/* <TextInput
-            label="Site Location"
-            name="siteLocation"
-            id="siteLocation"
-            onChange={(e) =>
-              this.props.handleChangeSiteLocation(e.target.value)
-            }
-            value={this.props.proj.siteLocation}
-          /> */}
           <SearchableDropDown
             label="Independent Company"
             name="independentCompany"
@@ -88,12 +79,15 @@ class AddProjModal extends Component {
             onChange={(obj) => this.props.handleChangeIndependentCompany(obj)}
             value={this.props.proj.independentCompany}
           />
-          <IconTextButton
+        </FormRow>
+        <FormRow>
+        <IconTextButton
             btnText="Add Location"
             onClick={this.props.addLocation}
             className="h-fit-content"
-          />
+          />  
         </FormRow>
+        <br/>
         <FormRow>
           {this.props.proj.locations.map((item, index) => {
             return (

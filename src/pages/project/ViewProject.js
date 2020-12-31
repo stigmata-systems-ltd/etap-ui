@@ -25,16 +25,16 @@ class ViewProject extends Component {
     this.props.projectList();
   }
 
-//   filteredItems = (data) => {
-//     return (
-//       data &&
-//       data.filter(
-//         (item) =>
-//           item.email &&
-//           item.email.toLowerCase().includes(this.state.filterText.toLowerCase())
-//       )
-//     );
-//   };
+  filteredItems = (data) => {
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.name &&
+          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
 
   render() {
     return (
@@ -55,13 +55,13 @@ class ViewProject extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={transformProjectList(
-                this.props.proj.projectList
+                this.filteredItems(this.props.proj.projectList)
               )}
               progressPending={this.props.proj.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.proj.componentList &&
-                this.props.proj.componentList.length
+                this.props.proj.projectList &&
+                this.filteredItems(this.props.proj.projectList).length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -69,7 +69,7 @@ class ViewProject extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By Project Name"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&

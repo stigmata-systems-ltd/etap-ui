@@ -1,7 +1,7 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT } from "./types";
+import { LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,LIST_STRUCTURE_PROJECT_DATA } from "./types";
 
 
 export const getProjectList = () => {
@@ -24,7 +24,9 @@ export const addSiteRequirement= () => {
     const asiteRequirementObj = {
         structId: "",
         drawingNo: "",
-        quantity: ""
+        quantity: "",
+        structName:"",
+        structFamily:""
     };
     siteRequirementList.push(asiteRequirementObj);
     return {
@@ -51,5 +53,12 @@ export const addRequirement = () => {
     return {
         type: ADD_REQUIREMENT,
         payload: axios.post(config.BASE_URL + '/api/SiteRequirement/createSiteReq', body)
+    }
+}
+
+export const getProjectStructureData = () => {
+    return {
+        type: LIST_STRUCTURE_PROJECT_DATA,
+        payload: axios.get(config.BASE_URL + '/api/StructureComponent/GetAssignedStructureDetails')
     }
 }

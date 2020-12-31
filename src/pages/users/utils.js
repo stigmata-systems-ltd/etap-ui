@@ -5,6 +5,11 @@ import IconButton from '../../common/forms/IconButton';
 export const listUsersMetaData = (handleDelete, handleEdit) => {
     return [
       {
+        name: 'User ID',
+        selector: 'userID',
+        sortable: false,
+      },
+      {
         name: 'First Name',
         selector: 'firstName',
         sortable: false,
@@ -55,6 +60,7 @@ export const listUsersMetaData = (handleDelete, handleEdit) => {
         
         let tmpObj = {
           id: user.userId,
+          userID: user.userId,
           firstName: user.firstName,
           lastName: user.lastName,
           userName: user.userName,

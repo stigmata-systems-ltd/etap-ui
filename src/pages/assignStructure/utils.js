@@ -223,18 +223,28 @@ export const listAssignedStructureMetaData = (handleComponentCheck, handleMore) 
         },
       },
       {
-        name: 'Project Name',
-        selector: 'projectName',
-        sortable: false,
-      },
-      {
-        name: 'Drawing Number',
-        selector: 'drawingNo',
+        name: 'Structure Family',
+        selector: 'structureFamily',
         sortable: false,
       },
       {
         name: 'Components Count',
         selector: 'componentsCount',
+        sortable: false,
+      },
+      {
+        name: 'Total Weight',
+        selector: 'totalWeight',
+        sortable: false,
+      },
+      {
+        name: 'Structure Status',
+        selector: 'structureStatus',
+        sortable: false,
+      },
+      {
+        name: 'Current Status',
+        selector: 'currentStatus',
         sortable: false,
       },
       {
@@ -265,10 +275,13 @@ export const listAssignedStructureMetaData = (handleComponentCheck, handleMore) 
           projectID:assignStructure.projectId,
           structureName: assignStructure.strcutureName,
           structureID: assignStructure.structureId,
-          projectName: assignStructure.projectName,
-          drawingNo: assignStructure.drawingNo,
+          structureFamily: assignStructure.strcutureTypeName,
+          totalWeight: assignStructure.totalWeight,
           componentsCount: assignStructure.componentsCount,
-          id:i
+          structureStatus: assignStructure.status,
+          currentStatus: assignStructure.currentStatus,
+          id:i,
+
         };
         tmpArr.push(tmpObj);
       });
