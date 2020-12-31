@@ -30,9 +30,8 @@ class AddProjModal extends Component {
         <FormRow>
           <TextInput
             label="Project Name"
-            name="projectName"
+            name="PROJECT_NAME"
             id="projectName"
-            onChange={(e) => this.props.handleChangeProjectName(e.target.value)}
             value={this.props.proj.projectName}
           />
           <SearchableDropDown

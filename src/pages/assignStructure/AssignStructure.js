@@ -12,6 +12,7 @@ import DataTable from "../../common/DataTable";
 import CustomDataTable from "../../common/CustomDataTable";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import { transformDropDownData } from "../../utils/dataTransformer";
+import ExportExcel from "../../common/ExportExcel";
 
 import {
   _componentInputData,
@@ -19,6 +20,8 @@ import {
   _assignStructureInputData,
   _assignStructureBodyData,
   structAttriMetaData,
+  componentsMetaData,
+  getExcelData,
 } from "./utils";
 
 import FaIcon from "../../common/FaIcon";
@@ -26,6 +29,8 @@ import Col6 from "../../common/forms/Col6";
 import { CSVReader } from "react-papaparse";
 import IconTextButton from "../../common/forms/IconTextButton";
 import IconButton from "../../common/forms/IconButton";
+import DownloadToExcelButton from "../../common/forms/DownloadToExcelButton";
+import { CSVDownloader } from "react-papaparse";
 
 class AssignStructure extends Component {
   componentDidMount = () => {
@@ -156,16 +161,31 @@ class AssignStructure extends Component {
                 onClick={this.props.saveAssignStruct}
                 btnType="primary"
               />
+              {/* <Button
+                btnText="Clear"
+                onClick={this.props.clearStrcutAttri}
+                btnType="btn-secondary"
+              /> */}
             </FormRow>
             <FormRow>
-              <Button
-                btnText="+ Excel Template Upload"
-                onClick={this.props.saveSubContractorData}
-                btnType="primary"
+              <CSVReader
+                onDrop={this.props.handleOnDrop}
+                onError={this.handleOnError}
+                noDrag
+                addRemoveButton
+                onRemoveFile={this.handleOnRemoveFile}
+              >
+                <span>Choose File...</span>
+              </CSVReader>
+              <ExportExcel
+                data={getExcelData(this.props.scr.uploadData)}
+                // header={this.props.headers}
+                filename={this.props.fileName}
               />
-              <DataTable
-                metaData={_componentInputData}
+              <CustomDataTable
+                metaData={componentsMetaData()}
                 bodyData={this.props.scr.uploadData}
+                noHeader={true}
               />
             </FormRow>
             <br />
