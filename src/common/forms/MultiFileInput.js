@@ -14,6 +14,7 @@ class MultiFileInput extends Component {
               name="img[]"
               // class="file-upload-default"
               onChange={e => this.props.onChange(e)}
+              value={this.props.value}
               class="form-control"
               style={{padding: 7}}
               multiple

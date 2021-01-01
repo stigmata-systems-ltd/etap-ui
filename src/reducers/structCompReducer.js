@@ -14,9 +14,15 @@ import {
   RESET_ASSIGN_STRUCT_FORM,
   SAVE_ASSIGN_STRUCT,
   ON_CHANGE_ASSIGN_STRUCT,
+  SAVE_ASSIGN_COMP,
+  RESET_ASSIGN_COMP_FORM,
 } from "../actions/types";
 
-import { transformDocs, transformAttri } from "../pages/assignStructure/utils";
+import {
+  transformDocs,
+  transformAttri,
+  getAssignExcelHeaders,
+} from "../pages/assignStructure/utils";
 
 const initialState = {
   projList: [],
@@ -31,6 +37,12 @@ const initialState = {
   files: [],
   removeFiles: [],
   structAttri: [],
+  strcutureType: "",
+  ic: "",
+  bu: "",
+  structureCode: "",
+  components: [],
+  fileInput: "",
 };
 
 export default function (state = initialState, action) {
@@ -122,9 +134,15 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: false,
+        ic: scr.icName,
+        bu: scr.buName,
         drawingNum: scr.drawingNo,
+        strcutureType: scr.strcutureTypeName,
+        estimatedWeight: scr.estimatedWeight ? scr.estimatedWeight : "",
+        structureCode: scr.structureCode,
         structAttri: transformAttri(JSON.parse(scr.structureAttributes)),
         files: transformDocs(scr.structureDocs),
+        uploadData: scr.components,
       };
     case ASSIGN_FILE_REMOVE:
       return {
@@ -139,8 +157,19 @@ export default function (state = initialState, action) {
         estimatedWeight: "",
         structAttri: [],
         files: [],
+        strcutureType: "",
+        structureCode: "",
+        removeFiles: [],
+        fileInput: null,
+      };
+    case RESET_ASSIGN_COMP_FORM:
+      return {
+        ...state,
+        ic: "",
+        bu: "",
         projName: {},
         structName: {},
+        uploadData: [],
       };
     case `${SAVE_ASSIGN_STRUCT}_PENDING`:
       return {
@@ -153,6 +182,21 @@ export default function (state = initialState, action) {
         isLoading: false,
       };
     case `${SAVE_ASSIGN_STRUCT}_FULFILLED`:
+      return {
+        ...state,
+        isLoading: false,
+      };
+    case `${SAVE_ASSIGN_COMP}_PENDING`:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case `${SAVE_ASSIGN_COMP}_REJECTED`:
+      return {
+        ...state,
+        isLoading: false,
+      };
+    case `${SAVE_ASSIGN_COMP}_FULFILLED`:
       return {
         ...state,
         isLoading: false,

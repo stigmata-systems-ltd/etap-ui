@@ -22,6 +22,7 @@ import {
   structAttriMetaData,
   componentsMetaData,
   getExcelData,
+  getComponentTableData,
 } from "./utils";
 
 import FaIcon from "../../common/FaIcon";
@@ -121,6 +122,7 @@ class AssignStructure extends Component {
               <MultiFileInput
                 labelSize="col-sm-0"
                 onChange={(e) => this.props.handleFileUpload(e.target.files)}
+                value={this.props.scr.fileInput}
               />
             </FormRow>
             <FormRow>
@@ -167,7 +169,7 @@ class AssignStructure extends Component {
                 btnType="btn-secondary"
               /> */}
             </FormRow>
-            <FormRow>
+            <FormRow className="excel-upload-btn">
               <CSVReader
                 onDrop={this.props.handleOnDrop}
                 onError={this.handleOnError}
@@ -175,16 +177,16 @@ class AssignStructure extends Component {
                 addRemoveButton
                 onRemoveFile={this.handleOnRemoveFile}
               >
-                <span>Choose File...</span>
+                <span>Upload Excel Template</span>
               </CSVReader>
               <ExportExcel
-                data={getExcelData(this.props.scr.uploadData)}
+                data={getExcelData(this.props.scr)}
                 // header={this.props.headers}
                 filename={"test"}
               />
               <CustomDataTable
                 metaData={componentsMetaData()}
-                bodyData={this.props.scr.uploadData}
+                bodyData={getComponentTableData(this.props.scr)}
                 noHeader={true}
               />
             </FormRow>

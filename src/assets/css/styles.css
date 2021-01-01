@@ -142,6 +142,15 @@ select.form-control {
 .nav-profile {
   cursor: pointer;
 }
+/*Assign Structure
+*****************/
+.excel-upload-btn div {
+  padding: 5px !important;
+  border: none !important;
+  height: auto !important;
+  width: auto !important;
+  background: transparent !important;
+}
 
 /*Login Form
 ***********/
