@@ -79,12 +79,12 @@ export const metaDataNavbar = [
       {
         id: 'structureSub' + 4,
         navText: 'View Structure',
-        route: '/assignStructure/viewStructure',
+        route: '/structure/viewStructure',
       },
       {
         id: 'structureSub' + 5,
         navText: 'View Component',
-        route: '/assignStructure/viewComponent',
+        route: '/structure/viewComponent',
       },
     ]
   },

@@ -4,7 +4,7 @@ class FormRow extends Component {
 
     render() {
         return (
-            <div class="row">
+            <div class={`row ${this.props.className}`}>
                 {this.props.children}
             </div>
         )

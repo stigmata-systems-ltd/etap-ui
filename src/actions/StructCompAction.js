@@ -6,8 +6,9 @@ import {
   GET_STRUCT_LIST,
   SAVE_ASSIGN_STRUCT,
   GET_ASSIGN_STRUCT_DETAILS_ID,
+  SAVE_ASSIGN_COMP,
 } from "./types";
-import { getComponentsData } from "../pages/assignStructure/utils"
+import { getComponentsData } from "../pages/assignStructure/utils";
 
 export const getProjList = () => {
   return {
@@ -56,7 +57,8 @@ export const saveAssignStruct = () => {
       postData.append("uploadDocs", scr.files[i]);
     }
   }
-  scr.removeFiles.length > 0 && postData.append("remove_docs_filename", scr.removeFiles.join());
+  scr.removeFiles.length > 0 &&
+    postData.append("remove_docs_filename", scr.removeFiles.join());
 
   const configHeader = {
     headers: { "content-type": "multipart/form-data" },
@@ -73,15 +75,34 @@ export const saveAssignStruct = () => {
 
 export const saveAssignComp = () => {
   const scr = store.getState().scr;
+  let tmpArr = [];
+  scr.uploadData.map((dt) => {
+    tmpArr.push({
+      compTypeName: dt.compTypeName,
+      componentName: dt.component,
+      drawingNo: dt.drawingNo,
+      componentNo: dt.componentNo,
+      isGroup: dt.isGroup,
+      leng: dt.leng,
+      breath: dt.breath,
+      height: dt.height,
+      thickness: dt.thickness,
+      weight: dt.weight,
+      makeType: dt.makeType,
+      isTag: dt.isTag,
+      qrCode: dt.qrCode,
+    });
+  });
   const data = {
     structureId: scr.structName.value,
     projectId: scr.projName.value,
-    components: scr.uploadData
-  }
+    components: scr.uploadData,
+  };
   return {
-    type: SAVE_ASSIGN_STRUCT,
+    type: SAVE_ASSIGN_COMP,
     payload: axios.post(
-      config.BASE_URL + "/api/StructureComponent/AddComponents",data
+      config.BASE_URL + "/api/StructureComponent/AddComponents",
+      data
     ),
   };
-}
+};

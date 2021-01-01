@@ -14,6 +14,7 @@ import {
   ON_CHANGE_ASSIGN_STRUCT,
   ASSIGN_FILE_REMOVE,
   ASSIGN_STRUCT_EXCEL_UPLOAD,
+  RESET_ASSIGN_COMP_FORM,
 } from "../../actions/types";
 
 import AssignStructure from "../../pages/assignStructure/AssignStructure";
@@ -75,25 +76,23 @@ const mapDispatchToProps = (dispatch) => {
     handleOnDrop(data) {
       let wbsDataArr = [];
       data.forEach((a, i) => {
-        if (i > 0) {
+        console.log("index",i,a);
+        if (i > 0 && a.data.length > 1) {
+          let start = 6;
           let wbsSampleObject = {
-            ic: a.data[0] ? a.data[0] : "",
-            bu: a.data[1] ? a.data[1] : "",
-            project: a.data[2] ? a.data[2] : "",
-            structFamily: a.data[3] ? a.data[3] : "",
-            structure: a.data[4] ? a.data[4] : "",
-            compType: a.data[5] ? a.data[5] : "",
-            component: a.data[6] ? a.data[6] : "",
-            group: a.data[7] ? a.data[7] : "",
-            compNum: a.data[8] ? a.data[8] : "",
-            drawingNum: a.data[9] ? a.data[9] : "",
-            length: a.data[10] ? a.data[10] : "",
-            breadth: a.data[11] ? a.data[11] : "",
-            height: a.data[12] ? a.data[12] : "",
-            thickness: a.data[13] ? a.data[13] : "",
-            weight: a.data[14] ? a.data[14] : "",
-            type: a.data[15] ? a.data[15] : "",
-            tag: a.data[16] ? a.data[16] : "",
+            compTypeName: a.data[start] ? a.data[start] : "",
+            componentName: a.data[start + 1] ? a.data[start + 1] : "",
+            compId: a.data[start + 2] ? a.data[start + 2] : "",
+            isGroup: a.data[start + 3] ? Boolean(a.data[start + 3]) : "",
+            componentNo: a.data[start + 4] ? parseInt(a.data[start + 4]) : "",
+            drawingNo: a.data[start + 5] ? a.data[start + 5] : "",
+            leng: a.data[start + 6] ? parseFloat(a.data[start + 6]) : "",
+            breath: a.data[start + 7] ? parseFloat(a.data[start + 7]) : "",
+            height: a.data[start + 8] ? parseFloat(a.data[start + 8]) : "",
+            thickness: a.data[start + 9] ? parseFloat(a.data[start + 9]) : "",
+            width: a.data[start + 10] ? parseFloat(a.data[start + 10]) : "",
+            makeType: a.data[start + 11] ? a.data[start + 11] : "",
+            isTag: a.data[start + 12] ? Boolean(a.data[start + 12]) : "",
           };
           wbsDataArr.push(wbsSampleObject);
         }
@@ -129,7 +128,7 @@ const mapDispatchToProps = (dispatch) => {
         payload: tmpArr,
       });
       let removeFiles = [...scr.removeFiles];
-      removeFiles.push(file.id);
+      !file.isNew && removeFiles.push(file.id);
       dispatch({
         type: ASSIGN_FILE_REMOVE,
         payload: removeFiles,
@@ -154,7 +153,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
     },
     saveAssignComp() {
-      dispatch(saveAssignComp());
+      dispatch(saveAssignComp()).then(() => {
+        dispatch({ type: RESET_ASSIGN_COMP_FORM });
+      });
     },
   };
 };

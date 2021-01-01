@@ -2,43 +2,98 @@ import React from "react";
 import IconButton from "../../common/forms/IconButton";
 import { Link } from "react-router";
 
-export const getComponentsData = (data) => {
-  console.log("empty", data);
+export const getComponentTableData = (scr) => {
+  let tmpArr = [];
+  let data = scr.uploadData;
+  data &&
+    data.map((data) => {
+      tmpArr.push({
+        ic: scr.ic,
+        bu: scr.bu,
+        project: scr.projName.label,
+        structFamily: scr.strcutureType,
+        structure: scr.structName.label,
+        structureId: scr.structName.value,
+        compType: data.compTypeName,
+        component: data.componentName,
+        group: data.isGroup.toString(),
+        compNum: data.compId,
+        drawingNum: data.drawingNo,
+        length: data.leng,
+        breadth: data.breath,
+        height: data.height,
+        thickness: data.thickness,
+        weight: data.width,
+        type: data.makeType,
+        tag: data.isTag,
+      });
+    });
+  return tmpArr;
 };
 
-export const getExcelData = (data) => {
-  console.log("empty", data);
+export const getAssignExcelHeaders = () => {
   const headers = [
-    "ic",
-    "bu",
-    "project",
-    "structFamily",
-    "structure",
-    "compType",
-    "component",
-    "group",
-    "compNum",
-    "drawingNum",
-    "length",
-    "breadth",
-    "height",
-    "thickness",
-    "weight",
-    "type",
-    "tag",
+    "IC",
+    "BU",
+    "Project",
+    "Structure Family",
+    "Structure Name",
+    "Structure ID",
+    "Component Type",
+    "Component Name",
+    "Component ID",
+    "Belong To A Group",
+    "Component Number",
+    "Drawing Number",
+    "Length",
+    "Breadth",
+    "Height",
+    "Thickness",
+    "Weight",
+    "Type",
+    "Tag",
   ];
+  return headers;
+}
+
+export const getExcelData = (scr) => {
+  let data = scr.uploadData;
   let dataArr = [];
-  dataArr.push(headers);
-  data &&
+  dataArr.push(getAssignExcelHeaders());
+  if (data && data.length > 0) {
     data.map((dt, i) => {
-      if (i > 0) {
         let tmpArr = [];
-        Object.keys(dt).map((key) => {
-          tmpArr.push(dt[key]);
-        });
+        tmpArr.push(scr.ic);
+        tmpArr.push(scr.bu);
+        tmpArr.push(scr.projName.label);
+        tmpArr.push(scr.strcutureType);
+        tmpArr.push(scr.structName.label);
+        tmpArr.push(scr.structName.value);
+        tmpArr.push(dt.compTypeName);
+        tmpArr.push(dt.componentName);
+        tmpArr.push(dt.compId);
+        tmpArr.push(dt.isGroup);
+        tmpArr.push(dt.componentNo);
+        tmpArr.push(dt.drawingNo);
+        tmpArr.push(dt.leng);
+        tmpArr.push(dt.breadth);
+        tmpArr.push(dt.height);
+        tmpArr.push(dt.thickness);
+        tmpArr.push(dt.weight);
+        tmpArr.push(dt.makeType);
+        tmpArr.push(dt.isTag);
         dataArr.push(tmpArr);
-      }
     });
+  } else {
+    let tmpArr = [];
+    tmpArr.push(scr.ic);
+    tmpArr.push(scr.bu);
+    tmpArr.push(scr.projName.label);
+    tmpArr.push(scr.strcutureType);
+    tmpArr.push(scr.structName.label);
+    tmpArr.push(scr.structName.value);
+    dataArr.push(tmpArr);
+  }
   return dataArr;
 };
 
@@ -130,6 +185,11 @@ export const componentsMetaData = (onChangeValue) => {
     {
       name: "Structure",
       selector: "structure",
+      sortable: false,
+    },
+    {
+      name: "Structure ID",
+      selector: "structureId",
       sortable: false,
     },
     {
