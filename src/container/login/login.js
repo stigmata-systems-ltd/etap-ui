@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     checkAuthStatus(){
       if(isUserLoggedIn()) {
-        ownProps.history.replace("/dashboard");
+        ownProps.history.replace("/structure/assignStructure");
       }
     }
   };
