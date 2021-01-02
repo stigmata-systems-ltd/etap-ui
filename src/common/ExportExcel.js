@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CSVLink } from "react-csv";
+import FaIcon from "./FaIcon";
 
 class ExportExcel extends Component {
   render() {
@@ -8,9 +9,12 @@ class ExportExcel extends Component {
       data={this.props.data} 
       // headers={this.props.headers}
       filename={this.props.filename+".csv"}
-      className="btn btn-primary"
+      className={`btn btn-primary ${this.props.className}`}
       >
-        Download As Excel
+        {this.props.iconName &&
+          <FaIcon iconName={this.props.iconName} />
+        }
+        {" "}Download As Excel
       </CSVLink>
     );
   }
