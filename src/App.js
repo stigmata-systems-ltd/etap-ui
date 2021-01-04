@@ -55,7 +55,7 @@ import Login from "./container/login/login";
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
 
-const ViewSubContractor= React.lazy(()=> import('./container/subContractor/viewSubContractor'));
+const ViewVendors = React.lazy(()=> import('./container/subContractor/viewSubContractor'));
 
 setAuthHeader();setRespInterceptor();
 class App extends Component {
@@ -128,8 +128,8 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/masters/viewSubContractor"
-            component={ViewSubContractor}
+            path="/masters/viewVendors"
+            component={ViewVendors}
           ></Route>
           <Route
             exact

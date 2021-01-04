@@ -3,20 +3,21 @@ import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
 import CustomAlert from "../../common/forms/customAlert";
 import Modal from "../../common/Modal";
-import SimpleDropDown from "../../common/forms/SearchableDropDown";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import CheckBox from "../../common/forms/CheckBox";
 
 class AddSubContractor extends Component {
 
     render() {
         return (
             <Modal
-                title={`${this.props.vendor.isEditMode ? "Update" : "Add SubContractor/"
+                title={`${this.props.vendor.isEditMode ? "Update" : "Add"
                     } Vendor`}
                 showModal={this.props.vendor.showAddVendorModal}
                 handleSave={
                     this.props.vendor.isEditMode
-                        ? this.props.updateProject
-                        : this.props.createProject
+                        ? this.props.updateVendor
+                        : this.props.createVendor
                 }
                 handleClose={this.props.closeAddVendorModal}
                 size="lg"
@@ -55,18 +56,25 @@ class AddSubContractor extends Component {
                     />
                 </FormRow>
                 <FormRow>
-
-
-                    <SimpleDropDown
+                    <SearchableDropDown
                         label="Status"
                         selectOptions={[{ value: 'Active', label: 'Active' }, { value: 'InActive', label: 'InActive' }]}
                         onChange={(obj) => this.props.handleChangeVendorStatus(obj)}
                         value={this.props.vendor.vendorStatus}
                     />
-
                 </FormRow>
-
-
+                <FormRow>
+                    {this.props.vendor.venServList.map((dt, i) => {
+                        return(
+                            <CheckBox 
+                                label={dt.name}
+                                size="col-md-4"
+                                onChange={() => this.props.onServTypeChange(i)}
+                                checked={dt.checked}
+                            />
+                        )
+                    })}
+                </FormRow>
                 {this.props.vendor.isModalMsg && (
                     <p className="text-danger">{this.props.vendor.component.message}</p>
                 )}

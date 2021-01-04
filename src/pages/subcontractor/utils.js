@@ -1,6 +1,15 @@
 import React from 'react';
 import IconButton from '../../common/forms/IconButton';
 
+export const tranformServTypeList = (data) => {
+  let tmpArr = [];
+  data && data.map(dt => {
+    dt.checked = false;
+    tmpArr.push(dt);
+  })
+  return tmpArr;
+}
+
 // export const _subContractorData = ["S.No", "Vendor", "Vendor Code", "Vendor Type", "Status"];
 // export const _subContractorBodyData = [
 //   {
@@ -33,18 +42,23 @@ import IconButton from '../../common/forms/IconButton';
 export const listVendorMetaData = (handleDelete, handleEdit) => {
   return [
     {
-      name: 'S.No',
-      selector: 'sno',
+      name: 'Vendor Name',
+      selector: 'name',
       sortable: false,
     },
     {
-      name: 'Vendor',
-      selector: 'vendor',
+      name: 'Vendor Email',
+      selector: 'email',
       sortable: false,
     },
     {
       name: 'Vendor Code',
       selector: 'vendorCode',
+      sortable: false,
+    },
+    {
+      name: 'Phone Number',
+      selector: 'phoneNunmber',
       sortable: false,
     },
     {
@@ -54,10 +68,16 @@ export const listVendorMetaData = (handleDelete, handleEdit) => {
     },
     {
       name: 'Status',
-      selector: 'status',
+      selector: 'isStatus',
       sortable: false,
+      cell: row => {
+        return (
+          <>
+            {row.isStatus ? "Active" : "InActive"}
+          </>
+        );
+      },
     },
-
     {
       name: 'Actions',
       sortable: false,
