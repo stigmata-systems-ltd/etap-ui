@@ -19,7 +19,9 @@ import {
     LIST_WBS_CODES,
     SITE_REQUIRMENT_LIST,
     ADD_REQUIREMENT,
-    LIST_STRUCTURE_PROJECT_DATA
+    LIST_STRUCTURE_PROJECT_DATA,
+    LIST_REQUIREMENTS,
+    ACTION_REQUIREMENT
 } from '../actions/types';
 
 const initialState = {
@@ -178,6 +180,32 @@ export default function (state = initialState, action) {
                   isSuccess: false,
                   message: action.payload.data.message,
                 };
+                case `${ACTION_REQUIREMENT}_PENDING`:
+                  return {
+                    ...state,
+                    isLoading: true,
+                    isError: false,
+                    isSuccess: false,
+                  };
+          case `${ACTION_REQUIREMENT}_REJECTED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: true,
+                    isSuccess: false,
+                    message:
+        action.payload.response && action.payload.response.data
+          ? action.payload.response.data.message
+          : "Please check your form data and retry",
+                  };
+          case `${ACTION_REQUIREMENT}_FULFILLED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: false,
+                    isSuccess: false,
+                    message: action.payload.data.message,
+                  };
         case RESET_REQUIREMENT_FORM:
             return {
                 ...state,
@@ -200,6 +228,28 @@ export default function (state = initialState, action) {
         requiredWorkBreak:{},
         siteRequirementList:[]
             }
+        case `${LIST_REQUIREMENTS}_PENDING`:
+                return {
+                  ...state,
+                  isLoading: true,
+                  isError: false,
+                  isSuccess: false,
+                };
+        case `${LIST_REQUIREMENTS}_REJECTED`:
+                return {
+                  ...state,
+                  isLoading: false,
+                  isError: true,
+                  isSuccess: false,
+                };
+        case `${LIST_REQUIREMENTS}_FULFILLED`:
+                return {
+                  ...state,
+                  isLoading: false,
+                  isError: false,
+                  isSuccess: false,
+                  requirementsList: action.payload.data,
+                };  
         default:
             return state;
     }

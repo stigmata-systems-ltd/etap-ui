@@ -5,8 +5,8 @@ import {
     ADD_BUSINESS_UNIT,
     GET_BUSINESS_UNIT_TYPE,
     LIST_BUSINESS_UNIT,
-    UPDATE_BUSINESS_UNIT_NAME
-
+    UPDATE_BUSINESS_UNIT_NAME,
+    LIST_IC_CODES
 } from "./types";
 
 export const addBusinessUnit = () => {
@@ -39,6 +39,14 @@ export const businessUnitList = () => {
     return {
         type: LIST_BUSINESS_UNIT,
         payload: axios.get(config.BASE_URL + '/api/BU/getBUlist')
+    }
+}
+
+
+export const getICCodes = () => {
+    return {
+        type: LIST_IC_CODES,
+        payload: axios.get(config.BASE_URL + '/api/IC/icCodeList')
     }
 }
 

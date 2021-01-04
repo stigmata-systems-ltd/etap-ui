@@ -19,7 +19,7 @@ import AddRequirement from "./container/requirement/addRequirement";
 
 import ViewStructure from "./container/structure/viewStructure";
 import ViewComponent from "./container/component/viewComponent";
-import ViewRequirements from "./pages/requirements/ViewRequirements";
+import ViewRequirements from "./container/requirement/viewRequirementAction";
 import ViewSurplus from "./pages/surplus/ViewSurplus";
 import TechnicalEvaluation from "./pages/technicalEvaluation/TechnicalEvaluation";
 import HealthSafty from "./pages/lifeCycleManagement/HealthSafty";

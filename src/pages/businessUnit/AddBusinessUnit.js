@@ -5,15 +5,19 @@ import SimpleDropDown from "../../common/forms/SimpleDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
 import { businessUnitRoles } from "./utils";
+import { transformDropDownData } from "../../utils/dataTransformer";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import BUList from "./buList";
+import IconTextButton from '../../common/forms/IconTextButton';
 
 class AddBusinessUnit extends Component {
   constructor(props) {
     super(props);
   }
 
-//   componentDidMount() {
-//     this.props.getUserRoles();
-//   }
+  componentDidMount() {
+    this.props.getICCodes();
+  }
 
   render() {
     return (
@@ -33,24 +37,38 @@ class AddBusinessUnit extends Component {
         size="lg"
         isShowFooter={true}
       >
+        
         {console.log("isLoading",this.props.isLoading)}
         {this.props.isLoading && <Loader />}
         <FormRow>
-          <TextInput
-            label="Business Unit"
-            name="businessUnit"
-            id="businessUnit"
-            onChange={(e) => this.props.handleChangeBusinessUnitName(e.target.value)}
-            value={this.props.businessUnit.businessUnitName}
-          />
-          <SimpleDropDown
-            label="Status"
-            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
-            onChange={(e) => this.props.handleBusinessUnitStatus(e.target.value)}
-            value={this.props.businessUnit.businessUnitStatus}
-          />
+          <SearchableDropDown
+            label="IC Codes"
+            name="icCodes"
+            selectOptions={transformDropDownData(this.props.businessUnit.icCodeList, "id", "name")}
+            onChange={(obj) => this.props.handleChangeICCode(obj)}
+            value={this.props.businessUnit.icCode}
+            />
         </FormRow>
-        
+        <div class="col-sm-8">
+                    <IconTextButton
+                      btnText="Add BU"
+                      onClick={this.props.addBU}
+                    />
+                  </div>
+        <div class="form-group row location-row">
+                  {this.props.businessUnit.businessUnitList.map((e, i) => {
+                    return (
+                      <BUList
+                      onBUNameChange={e =>
+                          this.props.onBUNameChange(e.target.value, i)
+                        }
+                        onBUNameRemove={i => this.props.onBUNameRemove(i)}
+                        index={i}
+                        buName={this.props.businessUnit.businessUnitList[i].buName}
+                      />
+                    );
+                  })}
+                </div>
         {this.props.businessUnit.isModalMsg && (
           <p className="text-danger">{this.props.businessUnit.message}</p>
         )}

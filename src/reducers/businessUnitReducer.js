@@ -8,7 +8,10 @@ import { BUSINESS_UNIT_STATUS,
       SHOW_ADD_BUSINESS_UNIT_MSG,
       LIST_BUSINESS_UNIT,
       ADD_BUSINESS_UNIT,
-      UPDATE_BUSINESS_UNIT
+      UPDATE_BUSINESS_UNIT,
+      LIST_IC_CODES,
+      IC_CODE,
+      BUSINESS_UNIT_LIST
      } from '../actions/types';
 
 const initialState = {
@@ -19,21 +22,28 @@ const initialState = {
     businessUnitName:'',
     businessUnitStatus:'',
     isEditMode:false,
-    isLoading:false
-
+    isLoading:false,
+    icCodeList:[],
+    icCode:{},
+    businessUnitList:[]
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
+      case IC_CODE:
+            return {
+                ...state,
+                icCode: action.payload,
+            };
         case BUSINESS_UNIT_TYPE:
             return {
                 ...state,
                 businessUnitType: action.payload,
             };
-        case BUSINESS_UNIT_STATUS:
+        case BUSINESS_UNIT_LIST:
             return {
                 ...state,
-                businessUnitStatus: action.payload
+                businessUnitList: action.payload
             }
         
         case RESET_CREATE_BUSINESS_UNIT_FORM:
@@ -62,6 +72,29 @@ export default function (state = initialState, action) {
                     ...state,
                     showAddBusinessUnitMessage: true
                 }
+                
+                case `${LIST_IC_CODES}_PENDING`:
+                  return {
+                    ...state,
+                    isLoading: true,
+                    isError: false,
+                    isSuccess: false,
+                  };
+          case `${LIST_IC_CODES}_REJECTED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: true,
+                    isSuccess: false,
+                  };
+          case `${LIST_IC_CODES}_FULFILLED`:
+                  return {
+                    ...state,
+                    isLoading: false,
+                    isError: false,
+                    isSuccess: false,
+                    icCodeList: action.payload.data,
+                  };
         case `${LIST_BUSINESS_UNIT}_PENDING`:
                 return {
                   ...state,

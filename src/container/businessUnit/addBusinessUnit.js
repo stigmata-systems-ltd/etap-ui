@@ -2,22 +2,27 @@ import { connect } from 'react-redux';
 import store from '../../store';
 
 import {
-
   CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
   RESET_CREATE_BUSINESS_UNIT_FORM,
-  RESET_STRUCTURE_FORM, SET_BUSINESS_UNIT_EDIT_MODE,
+  RESET_STRUCTURE_FORM,
+  SET_BUSINESS_UNIT_EDIT_MODE,
   BUSINESS_UNIT_NAME,
-  BUSINESS_UNIT_STATUS
-
+  BUSINESS_UNIT_STATUS,
+  LIST_IC_CODES,
+  IC_CODE,
+  BUSINESS_UNIT_LIST
 }
   from '../../actions/types';
-import { addBusinessUnit, updateBusinessUnitType, businessUnitList } from '../../actions/businessUnitAction'
+import { addBusinessUnit, updateBusinessUnitType, businessUnitList, getICCodes } from '../../actions/businessUnitAction'
 import AddBusinessUnit from '../../pages/businessUnit/AddBusinessUnit';
 
 const mapDispatchToProps = dispatch => {
   return {
     resetStructureData() {
       dispatch({ type: RESET_STRUCTURE_FORM });
+    },
+    getICCodes() {
+      dispatch(getICCodes());
     },
     addBusinessUnitType() {
       dispatch(addBusinessUnit()).then(() => {
@@ -56,9 +61,24 @@ const mapDispatchToProps = dispatch => {
       })
       dispatch({ type: RESET_CREATE_BUSINESS_UNIT_FORM })
     },
+    addBU(){
+      const businessUnit = store.getState().businessUnit;
+      let businessUnitList=businessUnit.businessUnitList;
+      businessUnitList.push("");
+      dispatch({
+        type: BUSINESS_UNIT_LIST,
+        payload: businessUnitList,
+      });
+    },
     handleChangeBusinessUnitName(value) {
       dispatch({
         type: BUSINESS_UNIT_NAME,
+        payload: value,
+      });
+    },
+    handleChangeICCode(value){
+      dispatch({
+        type: IC_CODE,
         payload: value,
       });
     },
