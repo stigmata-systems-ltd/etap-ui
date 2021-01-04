@@ -176,13 +176,19 @@ class AssignStructure extends Component {
                 noDrag
                 addRemoveButton
                 onRemoveFile={this.handleOnRemoveFile}
+                className="test"
               >
-                <span>Upload Excel Template</span>
+                <span class="btnText">
+                  <FaIcon iconName="faUpload" />
+                  {" "}Upload Excel Template
+                </span>
               </CSVReader>
               <ExportExcel
                 data={getExcelData(this.props.scr)}
                 // header={this.props.headers}
                 filename={"test"}
+                className="download-btn"
+                iconName="faDownload"
               />
               <CustomDataTable
                 metaData={componentsMetaData()}

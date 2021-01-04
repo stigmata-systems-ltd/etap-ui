@@ -144,13 +144,23 @@ select.form-control {
 }
 /*Assign Structure
 *****************/
-.excel-upload-btn div {
-  padding: 5px !important;
+.excel-upload-btn {
+  display: flex;
+}
+.excel-upload-btn > div:first-of-type {
+  padding: 5px 20px 5px 20px !important;
   border: none !important;
   height: auto !important;
-  width: auto !important;
-  background: transparent !important;
+  width: auto;
+  background: rgb(204, 204, 204) !important;
 }
+.excel-upload-btn .download-btn {
+  position: relative;
+  left: 50%;
+}
+/* .excel-upload-btn .btnText {
+  padding: 5%;
+} */
 
 /*Login Form
 ***********/
