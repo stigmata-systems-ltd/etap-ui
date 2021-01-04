@@ -58,8 +58,8 @@ export const metaDataNavbar = [
       },
       {
         id: 'mastersSub' + 10,
-        navText: 'Add SubContractor',
-        route: '/masters/viewSubContractor',
+        navText: 'View Vendors',
+        route: '/masters/viewVendors',
       },
     ],
   },

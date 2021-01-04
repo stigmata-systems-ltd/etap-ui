@@ -47,16 +47,14 @@ class ViewSubContractor extends Component {
                         />
                     )}
                     <AddSubContractor {...this.props} />
-                    <FormContainer formTitle={"View SubContractor"}>
+                    <FormContainer formTitle={"Vendors List"}>
                         {this.props.vendor.vendorList && (
                             <CustomDataTable
                                 metaData={listVendorMetaData(
                                     (id) => this.setState({ activeId: id, showDeleteModal: true }),
                                     (id) => this.props.handleEdit(id),
                                 )}
-                                bodyData={[transformVendorList(
-                                    this.props.vendor.vendorList
-                                )]}
+                                bodyData={this.props.vendor.vendorList}
                                 progressPending={this.props.vendor.isLoading}
                                 pagination={true}
                                 paginationTotalRows={
