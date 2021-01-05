@@ -1,7 +1,7 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { ACTION_REQUIREMENT,LIST_REQUIREMENTS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,LIST_STRUCTURE_PROJECT_DATA } from "./types";
+import { GET_REQUIREMENT_DATA_SINGLE,ACTION_REQUIREMENT,LIST_REQUIREMENTS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,LIST_STRUCTURE_PROJECT_DATA } from "./types";
 
 
 export const getProjectList = () => {
@@ -84,4 +84,14 @@ export const requirementAction = (id,action) => {
         type: ACTION_REQUIREMENT,
         payload: axios.post(config.BASE_URL + '/api/SiteRequirement/WorkflowManagement', body)
     }
+}
+
+export const singleRequirementFetch = (id) => {
+    const requirement = store.getState().requirement;
+    const data=requirement.requirementsList[id];
+      console.log(`Single Requirement Data: ${JSON.stringify(data)}`)
+      return {
+        type: GET_REQUIREMENT_DATA_SINGLE,
+        payload: data,
+      };
 }

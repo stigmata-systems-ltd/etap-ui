@@ -10,7 +10,7 @@ import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 
-// import requirementViewMore from "../../container/requirement/requirementViewMore";
+import RequirementsViewMore from "../../container/requirement/requirementsViewMore";
 
 class ViewRequirementAction extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class ViewRequirementAction extends Component {
             message={this.props.requirement.message}
           />
         )}
-        {/* <requirementViewMore showAddComponentModal={this.props.requirement.showrequirementMoreModal} /> */}
+        <RequirementsViewMore showAddComponentModal={this.props.requirement.showrequirementMoreModal} />
         <ConfirmModal
             showModal={this.state.showDeleteModal}
             handleClose={() =>{
