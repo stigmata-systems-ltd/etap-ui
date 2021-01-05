@@ -1,0 +1,23 @@
+name: Win32Sample GitHub Release
+on:
+  push:
+    branches: [ masters-api-integration ]
+jobs:
+  create_release:
+    name: Create GitHub Release
+    runs-on: stigmata
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Build Binary
+        shell: cmd
+        run: pm2 stop 0
+      - name: Install packages
+        shell: cmd
+        run: npm i -d
+      - name: Build the application
+        shell: cmd
+        run: npm run build
+      - name: start the application
+        shell: cmd
+        run: pm2 serve build 3000 --spa
