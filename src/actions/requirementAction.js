@@ -64,7 +64,8 @@ export const getProjectStructureData = () => {
 }
 
 export const getRequirementsList = () => {
-    const ROLE_NAME="SITE";
+    let auth = store.getState().auth;
+    const ROLE_NAME=auth.token.roleName;
     return {
         type: LIST_REQUIREMENTS,
         payload: axios.get(config.BASE_URL + `/api/SiteRequirement/getSiteReqDetails?role_name=${ROLE_NAME}`)
@@ -72,12 +73,14 @@ export const getRequirementsList = () => {
 }
 
 export const requirementAction = (id,action) => {
+    let auth = store.getState().auth;
+    const ROLE_NAME=auth.token.roleName;
     let requirementList = store.getState().requirement.requirementsList;
     let singleRequirement=requirementList[id];
       const body={
             "siteReqId": singleRequirement.id,
             "mode": action,
-            "role_name": "ADMIN",
+            "role_name": auth.token.roleName,
           }
       
     return {

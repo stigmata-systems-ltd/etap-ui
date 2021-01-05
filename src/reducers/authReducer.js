@@ -15,6 +15,7 @@ import {
     pageAccess: null,
     isRender:false,
     isAuthenticated: false,
+    token:{}
   };
   
   export default function (state = initialState, action) {
