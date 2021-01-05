@@ -70,7 +70,7 @@ class ViewRequirementAction extends Component {
               Are you sure you want to Reject this request?
             </h6>
           </ConfirmModal>
-        <FormContainer formTitle={"View Requirement"}>
+        <FormContainer formTitle={"View Requirements"}>
           {this.props.requirement.requirementsList && (
             <CustomDataTable
               metaData={listViewRequirementsMetaData(
