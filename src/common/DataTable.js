@@ -42,16 +42,18 @@ class DataTable extends Component {
                         />
                       )}
                     </td>
+
+
                   </tr>
                 );
               })
             ) : (
-              <tr>
-                <td colSpan={this.props.metaData.length}>
-                  <h6 className="text-info">No Records Found</h6>
-                </td>
-              </tr>
-            )}
+                <tr>
+                  <td colSpan={this.props.metaData.length}>
+                    <h6 className="text-info">No Records Found</h6>
+                  </td>
+                </tr>
+              )}
           </tbody>
         </table>
       </div>

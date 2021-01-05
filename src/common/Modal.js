@@ -17,7 +17,7 @@ class CustomModal extends Component {
                 </Modal.Header>
                 <Modal.Body>{this.props.children}</Modal.Body>
                 {this.props.isShowFooter && 
-                <Modal.Footer>
+                <Modal.Footer>      
                     <Button btnType="primary" onClick={this.props.handleSave} btnText="Save" />
                     <Button btnType="btn-secondary" onClick={this.props.handleClose} btnText="Cancel" />
                 </Modal.Footer>}

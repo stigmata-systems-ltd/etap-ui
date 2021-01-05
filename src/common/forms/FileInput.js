@@ -17,11 +17,11 @@ class FileInput extends Component {
               class="form-control"
               style={{padding: 7}}
             />
-            <span class="input-group-append">
+            {/* <span class="input-group-append">
               <button class="file-upload-browse btn btn-primary upload-btn-fix" type="button">
                 Upload
               </button>
-            </span>
+            </span> */}
           </div>
         </div>
       </Col6>

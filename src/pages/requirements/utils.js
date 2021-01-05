@@ -1,0 +1,119 @@
+import React from "react";
+import IconButton from "../../common/forms/IconButton";
+import { Link } from "react-router";
+
+export const _viewRequirementsInputData = ["Project", "Structure Family", "Structure ID", "Drawing No", "Quantity", "Required By", "Required for WBS", "Planned Start Date", "Planned Release Date", "Actual Start Date", "Actual WBS", "Expected Release Date", "Remarks", "MR No","BU","TWCC"];
+export const _viewRequirementsInputBodyData = [
+    {
+
+        project: "",
+        structureFamily: "",
+        structureId: "",
+        drawingNumber: "",
+        quantity: "",
+        requiredBy: "",
+        requiredFor: "",
+        plannedStartedDate: "",
+        plannedReleaseDate: "",
+        actualStartDate: "",
+        actualWorkBreak: "",
+        expectedReleaseDate: "",
+        remarks: "",
+        mrNumber: "",
+        bu: "Approved",
+        twcc: "Approved",
+        
+
+    },
+
+
+];
+export const _siteViewRequirementsInputData = ["Project", "Structure Family", "Structure ID", "Drawing No", "Quantity", "Required By", "Required for WBS", "Planned Start Date", "Planned Release Date", "Actual Start Date", "Actual WBS", "Expected Release Date", "Remarks", "MR No", "Status","Action"];
+export const _siteViewRequirementsInputBodyData = [
+    {
+
+        project: "",
+        structureFamily: "",
+        structureId: "",
+        drawingNumber: "",
+        quantity: "",
+        requiredBy: "",
+        requiredFor: "",
+        plannedStartedDate: "",
+        plannedReleaseDate: "",
+        actualStartDate: "",
+        actualWorkBreak: "",
+        expectedReleaseDate: "",
+        remarks: "",
+        mrNumber: "",
+        status: "",
+    },
+];
+
+export const listViewRequirementsMetaData = (
+    handleApprove,
+    handleReject,
+    handleMore
+  ) => {
+    return [
+      {
+        name: "MR Number",
+        selector: "mrNo",
+        sortable: false,
+      },
+      {
+        name: "Project Id",
+        selector: "projectId",
+        sortable: false,
+      },
+      {
+        name: "Status",
+        selector: "status",
+        sortable: false,
+      },
+      {
+        name: "Action",
+        sortable: false,
+        cell: (row) => {
+          return (
+            <>
+              {
+                <IconButton
+                  iconName="faThumbsUp"
+                  onClick={() => handleApprove(row.id)}
+                />
+                
+              }
+              {
+                  <IconButton
+                  iconName="faThumbsDown"
+                  onClick={() => handleReject(row.id)}
+                />
+              }
+              {
+                  <IconButton
+                  iconName="faEdit"
+                  onClick={() => handleMore(row.id)}
+                />
+              }
+            </>
+          );
+        },
+      },
+    ];
+  };
+  
+  export const transformViewRequirementList = (requirementsList) => {
+    let tmpArr = [];
+    requirementsList &&
+    requirementsList.map((requirement, i) => {
+        let tmpObj = {
+            mrNo: requirement.mrNo,
+            projectId: requirement.projectId,
+            status: requirement.status,
+            id: i,
+        };
+        tmpArr.push(tmpObj);
+      });
+    return tmpArr;
+  };

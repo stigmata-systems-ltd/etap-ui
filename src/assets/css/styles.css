@@ -8,6 +8,12 @@ body {
 .no-margin-bottom {
   margin-bottom: 0px;
 }
+.h-fit-content {
+  height: fit-content;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
 /* .action-btns button {
   margin-right: 2%;
 } */
@@ -136,6 +142,25 @@ select.form-control {
 .nav-profile {
   cursor: pointer;
 }
+/*Assign Structure
+*****************/
+.excel-upload-btn {
+  display: flex;
+}
+.excel-upload-btn > div:first-of-type {
+  padding: 5px 20px 5px 20px !important;
+  border: none !important;
+  height: auto !important;
+  width: auto;
+  background: rgb(204, 204, 204) !important;
+}
+.excel-upload-btn .download-btn {
+  position: relative;
+  left: 50%;
+}
+/* .excel-upload-btn .btnText {
+  padding: 5%;
+} */
 
 /*Login Form
 ***********/

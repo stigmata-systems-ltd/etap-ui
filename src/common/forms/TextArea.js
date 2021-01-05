@@ -6,7 +6,7 @@ class TextArea extends Component {
       <div class={this.props.size}>
         <div class="form-group">
           <label class={this.props.labelSize}>{this.props.label}</label>
-          <textarea
+          <textarea cols="90" rows="5"
             class={`${this.props.fieldSize} form-control`}
             placeholder={this.props.placeholder}
             onChange={e => this.props.onChange(e)}
