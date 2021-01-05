@@ -10,6 +10,7 @@ import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 
 import AddBusinessUnit from "../../container/businessUnit/addBusinessUnit";
+import EditBusinessUnit from "../../container/businessUnit/editBusinessUnit";
 
 class ViewBusinessUnit extends Component {
   constructor(props) {
@@ -35,6 +36,8 @@ class ViewBusinessUnit extends Component {
           />
         )}
         <AddBusinessUnit showAddBusinessUnitModal={this.props.businessUnit.showAddBusinessUnitModal} />
+        <EditBusinessUnit showEditBusinessUnitModal={this.props.businessUnit.showEditBusinessUnitModal} />
+        
         <FormContainer formTitle={"View Business Unit"}>
           {this.props.businessUnit.businessUnitTypeList && (
             <CustomDataTable

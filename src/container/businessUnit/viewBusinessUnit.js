@@ -9,8 +9,9 @@ import {
     SHOW_ADD_BUSINESS_UNIT_MSG,
     SHOW_ADD_BUSINESS_UNIT_MODAL,
     RESET_CREATE_BUSINESS_UNIT_FORM,
-    SET_BUSINESS_UNIT_EDIT_MODE
-
+    SET_BUSINESS_UNIT_EDIT_MODE,
+    EDIT_SINGLE_BU,
+    CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS
 } from '../../actions/types';
 
 import ViewBusinessUnit from '../../pages/businessUnit/ViewBusinessUnit';
@@ -52,14 +53,19 @@ const mapDispatchToProps = dispatch => {
       },
       handleEdit(id) {
         dispatch({
-          type: CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
+          type: CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS,
           payload: true,
         })
         dispatch({
           type: SET_BUSINESS_UNIT_EDIT_MODE,
           payload: true,
         })
-        dispatch(getSingleBusinessUnitType(id));
+        const businessUnit = store.getState().businessUnit;
+      let businessUnitTypeList=businessUnit.businessUnitTypeList;
+      dispatch({
+        type: EDIT_SINGLE_BU,
+        payload: businessUnitTypeList[id],
+      })
      },
   };
 };

@@ -5,15 +5,15 @@ import {
     ADD_BUSINESS_UNIT,
     GET_BUSINESS_UNIT_TYPE,
     LIST_BUSINESS_UNIT,
-    UPDATE_BUSINESS_UNIT_NAME,
+    UPDATE_BUSINESS_UNIT,
     LIST_IC_CODES
 } from "./types";
 
 export const addBusinessUnit = () => {
-    const {businessUnitType} = store.getState().businessUnit;
+    const businessUnit = store.getState().businessUnit;
       const body={
-        icId : 0,
-        lstBussUnit: businessUnitType,
+        icId : businessUnit.icCode.value,
+        lstBussUnit: businessUnit.businessUnitList,
           
       };
     return {
@@ -22,15 +22,14 @@ export const addBusinessUnit = () => {
     }
 }
 export const updateBusinessUnitType = (id) => {
-    const {businessUnitID,businessUnitName,businessUnitStatus} = store.getState().businessUnit;
-    const status=(businessUnitStatus==="InActive")?false:true
+    const businessUnit = store.getState().businessUnit;
       const body={
-        icId:businessUnitID,
-        lstBussUnit: businessUnitName,
+        icId:businessUnit.icCode.value,
+        name: businessUnit.buName,
       };
     return {
-        type: UPDATE_BUSINESS_UNIT_NAME,
-        payload: axios.put(config.BASE_URL + '​/api/BU/updateBU/'+businessUnitID, body)
+        type: UPDATE_BUSINESS_UNIT,
+        payload: axios.put(config.BASE_URL + '​/api/BU/updateBU/'+businessUnit.buId, body)
     }
 }
 
