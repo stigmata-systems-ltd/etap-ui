@@ -10,8 +10,6 @@ import {
     AUCTION_ID,
     STRUCTURE_ID,
     RESET_STRUCTURE_FORM
-
-
 } from '../../actions/types';
 import Scrap from '../../pages/scrap/Scrap';
 
