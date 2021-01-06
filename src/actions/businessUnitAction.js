@@ -22,14 +22,18 @@ export const addBusinessUnit = () => {
     }
 }
 export const updateBusinessUnitType = (id) => {
+    
     const businessUnit = store.getState().businessUnit;
       const body={
         icId:businessUnit.icCode.value,
         name: businessUnit.buName,
       };
+      console.log("++++++++++++")
+    console.log(businessUnit)
+    console.log("++++++++++++")
     return {
         type: UPDATE_BUSINESS_UNIT,
-        payload: axios.put(config.BASE_URL + '​/api/BU/updateBU/'+businessUnit.buId, body)
+        payload: axios.put(`${config.BASE_URL}​/api/BU/updateBU/${businessUnit.buID}`, body)
     }
 }
 
