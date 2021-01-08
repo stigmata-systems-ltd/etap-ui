@@ -8,7 +8,8 @@ import {
   ADD_SURPLUS,
   RESET_SURPLUS_FORM,
   SURPLUS_FILE,
-  SURPLUS_STRUCTURE_FAMILY
+  SURPLUS_STRUCTURE_FAMILY,
+  SURPLUS_APPROVAL_LIST
 } from '../actions/types';
 
 const initialState = {
@@ -105,7 +106,30 @@ export default function (state = initialState, action) {
               isError: false,
               isSuccess: false,
               projectCodesList: action.payload.data,
-            };  
+            };
+            case `${SURPLUS_APPROVAL_LIST}_PENDING`:
+              return {
+                ...state,
+                isLoading: true,
+                isError: false,
+                isSuccess: false,
+              };
+          case `${SURPLUS_APPROVAL_LIST}_REJECTED`:
+              return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                isSuccess: false,
+              };
+          case `${SURPLUS_APPROVAL_LIST}_FULFILLED`:
+              return {
+                ...state,
+                isLoading: false,
+                isError: false,
+                isSuccess: false,
+                surplusList: action.payload.data,
+              };  
+            
             case `${ADD_SURPLUS}_PENDING`:
               return {
                 ...state,

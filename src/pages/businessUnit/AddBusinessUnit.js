@@ -22,7 +22,7 @@ class AddBusinessUnit extends Component {
   render() {
     return (
       <Modal
-        title={`${this.props.businessUnit.isEditMode ? "Update" : "Create New"} Structure Family`}
+        title={"Create BU"}
         showModal={this.props.showAddBusinessUnitModal}
         handleSave={
           this.props.businessUnit.isEditMode

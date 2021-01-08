@@ -1,7 +1,7 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { ADD_SURPLUS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,SURPLUS_LIST_STRUCTURE_PROJECT_DATA } from "./types";
+import { ACTION_SURPLUS,SURPLUS_APPROVAL_LIST,ADD_SURPLUS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,SURPLUS_LIST_STRUCTURE_PROJECT_DATA } from "./types";
 
 
 export const getProjectList = () => {
@@ -39,5 +39,31 @@ export const getProjectStructureData = () => {
     return {
         type: SURPLUS_LIST_STRUCTURE_PROJECT_DATA,
         payload: axios.get(config.BASE_URL + '/api/StructureComponent/GetAssignedStructureDetails')
+    }
+}
+
+export const getSurplus = () => {
+    let auth = store.getState().auth;
+    const ROLE_NAME=auth.token.roleName;
+    return {
+        type: SURPLUS_APPROVAL_LIST,
+        payload: axios.get(config.BASE_URL + '/api/surplus/getsurplus?role_name=SITE')
+    }
+}
+
+export const surplusAction = (id,action) => {
+    let auth = store.getState().auth;
+    const ROLE_NAME=auth.token.roleName;
+    let surplusList = store.getState().surplus.surplusList;
+    let singleSurplus=surplusList[id];
+      const body={
+            "siteReqId": singleSurplus.id,
+            "mode": action,
+            "role_name": auth.token.roleName,
+          }
+      
+    return {
+        type: ACTION_SURPLUS,
+        payload: axios.post(config.BASE_URL + '/api/Surplus/WorkflowManagement', body)
     }
 }

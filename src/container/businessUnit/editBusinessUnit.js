@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => {
         dispatch({
           type: SET_BUSINESS_UNIT_EDIT_MODE,
           payload: false,
-        })
+        });
         dispatch({ type: RESET_EDIT_BUSINESS_UNIT_FORM });
         dispatch({
           type: CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS,

@@ -28,13 +28,16 @@ import {
     SURPLUS_STRUCTURE_FAMILY
 } from '../../actions/types';
 import AddSurplus from '../../pages/surplus/AddSurplus';
-import {getProjectList,getWBSList,addSurplus,getProjectStructureData} from '../../actions/surplusAction';
+import {getProjectList,getWBSList,addSurplus,getProjectStructureData,getSurplus} from '../../actions/surplusAction';
 const mapDispatchToProps = dispatch => {
     return {
         saveSurplus(){
             dispatch(addSurplus()).then(() => {
                 dispatch({ type: RESET_SURPLUS_FORM })
             });
+        },
+        getSurplus(){
+            dispatch(getSurplus());
         },
         resetSurplus() {
             dispatch({ type: RESET_SURPLUS_FORM });
