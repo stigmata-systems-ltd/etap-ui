@@ -25,6 +25,8 @@ import {
   ON_CHANGE_SEGMENT,
   SHOW_ERR_MSG,
   ADD_LOCATION_FIELD,
+  JOB_CODE,
+  EDRC_CODE
 } from "../../actions/types";
 import ViewProject from "../../pages/project/ViewProject";
 
@@ -70,6 +72,18 @@ const mapDispatchToProps = (dispatch) => {
     handleChangeProjectName(value) {
       dispatch({
         type: PROJECT_NAME,
+        payload: value,
+      });
+    },
+    handleChangeJobCode(value) {
+      dispatch({
+        type: JOB_CODE,
+        payload: value,
+      });
+    },
+    handleChangeEdrcCode(value) {
+      dispatch({
+        type: EDRC_CODE,
         payload: value,
       });
     },

@@ -6,74 +6,94 @@ export const getNavbar = () => {
   auth.pageAccess && auth.pageAccess.map(item => { });
 };
 export const metaDataNavbar = [
-  
+
+  {
+    id: '7',
+    navText: 'Dashboard',
+    iconName: 'faHome',
+    hasSubNav: false,
+    isSubNavOpen: false,
+    route: '/dashboard',
+    hasMargin: false,
+  },
+  {
+    id: '8',
+    navText: 'E-Tap',
+    iconName: 'faCubes',
+    hasSubNav: false,
+    isSubNavOpen: false,
+    route: '/etap',
+    hasMargin: false,
+  },
   {
     id: '1',
     navText: 'Masters',
-    iconName: 'faMagnet',
+    iconName: 'faEdit',
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/masters',
+    hasMargin: true,
     subNavs: [
       {
         id: 'mastersSub' + 2,
-        navText: 'Add Component',
+        navText: 'Component',
         route: '/structure/viewComponent',
       },
       {
         id: 'mastersSub' + 3,
-        navText: 'Add Structure Family',
+        navText: 'Structure Family',
         route: '/masters/viewStructureFamily',
       },
       {
         id: 'mastersSub' + 4,
-        navText: 'Add Structure',
+        navText: 'Structure',
         route: '/masters/viewStructure',
       },
       {
         id: 'mastersSub' + 5,
-        navText: 'Add Project',
+        navText: 'Project',
         route: '/masters/viewProject',
       },
       {
         id: 'mastersSub' + 6,
-        navText: 'Add WBS',
+        navText: 'WBS',
         route: '/masters/addWBS',
       },
 
       {
         id: 'mastersSub' + 7,
-        navText: 'Add Users',
+        navText: 'Users',
         route: '/masters/viewUsers',
       },
       {
         id: 'mastersSub' + 8,
-        navText: 'Add IC',
+        navText: 'IC',
         route: '/masters/viewIndependentCompany',
       },
       {
         id: 'mastersSub' + 9,
-        navText: 'Add BU',
+        navText: 'BU',
         route: '/masters/viewBusinessUnit',
       },
       {
         id: 'mastersSub' + 10,
-        navText: 'View Vendors',
+        navText: 'Vendors',
         route: '/masters/viewVendors',
       },
     ],
   },
   {
     id: '2',
-    navText: 'Structure & Component',
+    navText: 'Structure Management',
     iconName: 'faBuilding',
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/structure',
+    hasMargin: true,
     subNavs: [
       {
         id: 'structureSub' + 3,
-        navText: 'Assign Structure',
+        navText: 'Create Structure',
         route: '/structure/assignStructure',
       },
       {
@@ -81,11 +101,11 @@ export const metaDataNavbar = [
         navText: 'View Structure',
         route: '/structure/viewStructure',
       },
-      {
-        id: 'structureSub' + 5,
-        navText: 'View Component',
-        route: '/structure/viewComponent',
-      },
+      // {
+      //   id: 'structureSub' + 5,
+      //   navText: 'View Component',
+      //   route: '/structure/viewComponent',
+      // },
     ]
   },
   {
@@ -95,6 +115,7 @@ export const metaDataNavbar = [
     hasSubNav: true,
     isSubNavOpen: false,
     route: '/requirementRequest',
+    hasMargin: true,
     subNavs: [
       {
         id: 'requirementRequestSub' + 4,
@@ -119,5 +140,32 @@ export const metaDataNavbar = [
       
 
     ],
+  },
+  {
+    id: '4',
+    navText: 'Reports',
+    iconName: 'faChartPie',
+    hasSubNav: false,
+    isSubNavOpen: false,
+    route: '/etap',
+    hasMargin: true,
+  },
+  {
+    id: '5',
+    navText: 'Form Track',
+    iconName: 'faDatabase',
+    hasSubNav: false,
+    isSubNavOpen: false,
+    route: '/etap',
+    hasMargin: false,
+  },
+  {
+    id: '6',
+    navText: 'EP Tracking',
+    iconName: 'faMicrochip',
+    hasSubNav: false,
+    isSubNavOpen: false,
+    route: '/etap',
+    hasMargin: false,
   },
 ];

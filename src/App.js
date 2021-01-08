@@ -51,6 +51,7 @@ import ViewAssignComponent from './container/assignStructure/viewAssignComponent
 import AddSurplus from './container/surplus/addSurplus';
 import { setRespInterceptor, setAuthHeader } from "./utils/auth";
 import Login from "./container/login/login";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 
 const ViewProject = React.lazy(() => import('./container/project/viewProjectContainer'));
@@ -75,6 +76,11 @@ class App extends Component {
             exact
             path="/login"
             component={Login}
+          ></Route>
+          <Route
+            exact
+            path="/dashboard"
+            component={Dashboard}
           ></Route>
           <Route
             exact
@@ -144,12 +150,12 @@ class App extends Component {
           <Route
             exact
             path="/structure/viewStructure"
-            component={ViewStructure}
+            component={ViewAssignStructure}
           ></Route>
           <Route
             exact
             path="/structure/viewComponent"
-            component={ViewComponent}
+            component={ViewAssignComponent}
           ></Route>
           <Route
           exact

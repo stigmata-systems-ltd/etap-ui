@@ -71,7 +71,7 @@ class ViewSurplusAction extends Component {
               Are you sure you want to Reject this request?
             </h6>
           </ConfirmModal>
-        <FormContainer formTitle={"View Requirements"}>
+        <FormContainer formTitle={"View Surplus"}>
           {this.props.surplus.surplusList && (
             <CustomDataTable
               metaData={listViewSurplusMetaData(
