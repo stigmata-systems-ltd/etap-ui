@@ -47,7 +47,7 @@ export const getSurplus = () => {
     const ROLE_NAME=auth.token.roleName;
     return {
         type: SURPLUS_APPROVAL_LIST,
-        payload: axios.get(config.BASE_URL + '/api/surplus/getsurplus?role_name=SITE')
+        payload: axios.get(config.BASE_URL + '/api/surplus/getsurplus?role_name='+ROLE_NAME)
     }
 }
 
