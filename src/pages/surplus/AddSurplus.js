@@ -44,7 +44,7 @@ class AddSurplus extends Component {
                          <SearchableDropDown
                                     label="Structure Name"
                                     name="structureName"
-                                    selectOptions={transformDropDownData(this.props.surplus.structureList, "id", "name")}
+                                    selectOptions={transformDropDownData(this.props.surplus.structureProjectList, "structureId", "strcutureName")}
                                     onChange={(obj) => this.props.handleChangeStructureList(obj)}
                                     value={this.props.surplus.structureID}
                         />
@@ -57,6 +57,13 @@ class AddSurplus extends Component {
                             id="structureFamily"
                             value={this.props.surplus.structureFamily.label}
                         />
+                        <TextInput
+                            label="Structure Code"
+                            value={this.props.surplus.structureCode}
+                            disabled={true}
+                        />
+                        </FormRow>
+                        <FormRow>
                         <DateInput
                                 label="Surplus From"
                                 name="surplusFrom"
@@ -66,10 +73,8 @@ class AddSurplus extends Component {
                                 }
                                 value={this.props.surplus.dateFrom}
                             />
-                        </FormRow>
-                        <FormRow>
                             <FileInput
-                            size="col-md-12"
+                            size="col-md-6"
                             label="Select Photo"
                             onChange={e => this.props.handleFileUpload(e.target.files[0])}
                             />
