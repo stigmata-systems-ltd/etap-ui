@@ -42,7 +42,7 @@ class AddBusinessUnit extends Component {
         {this.props.isLoading && <Loader />}
         <FormRow>
           <SearchableDropDown
-            label="IC Codes"
+            label="IC Name"
             name="icCodes"
             selectOptions={transformDropDownData(this.props.businessUnit.icCodeList, "id", "name")}
             onChange={(obj) => this.props.handleChangeICCode(obj)}
@@ -55,6 +55,7 @@ class AddBusinessUnit extends Component {
                       onClick={this.props.addBU}
                     />
                   </div>
+                  <br/>
         <div class="form-group row location-row">
                   {this.props.businessUnit.businessUnitList.map((e, i) => {
                     return (

@@ -11,7 +11,7 @@ class BUList extends Component {
     console.log("++++++++++++++")
     return (
       <>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <input
             type="text"
             class="form-control"

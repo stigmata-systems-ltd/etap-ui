@@ -22,13 +22,13 @@ export const businessUnitMetaData = (handleDelete, handleEdit) => {
       width: '2%',
     },
     {
-      name: 'Business Unit',
+      name: 'BU Name',
       selector: 'businessUnit',
       sortable: false,
     },
     {
-      name: 'IC ID',
-      selector: 'icId',
+      name: 'IC Name',
+      selector: 'icName',
       sortable: false,
     },
     {
@@ -64,7 +64,7 @@ export const businessUnitBodyData = businessUnitList => {
       let tmpObj = {
         id: i,
         businessUnit: businessUnit.name,
-        icId: businessUnit.icId,
+        icName: businessUnit.icName,
       };
       tmpArr.push(tmpObj);
     });

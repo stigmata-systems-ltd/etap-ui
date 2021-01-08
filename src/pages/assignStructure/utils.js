@@ -104,7 +104,7 @@ export const transformAttri = (data) => {
       tmpArr.push({
         id: index + 1,
         name: dt.name,
-        typeOfInput: dt.typeOfInput,
+       
         uom: dt.uom,
         value: dt.value,
       });
@@ -130,11 +130,6 @@ export const structAttriMetaData = (onChangeValue) => {
     {
       name: "Description",
       selector: "name",
-      sortable: false,
-    },
-    {
-      name: "Type of Input",
-      selector: "typeOfInput",
       sortable: false,
     },
     {

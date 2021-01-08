@@ -20,6 +20,18 @@ class SiteRequirementStructure extends Component {
           value={this.props.structureName}
           />
         </div>
+        <div class="col-sm-1">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="No. of Comp"
+            name={this.props.index}
+            id={this.props.index}
+            onChange={e => this.props.ondrawingNumberChange(e, this.props.index)}
+            value={this.props.drawingNumber}
+            disabled
+          />
+        </div>
         <div class="col-sm-2">
           <input
             type="text"
@@ -29,10 +41,10 @@ class SiteRequirementStructure extends Component {
             id={this.props.index}
             onChange={e => this.props.onStructureIDChange(e, this.props.index)}
             value={this.props.structureFamily}
-            readonly
+            disabled
           />
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
           <input
             type="text"
             class="form-control"
@@ -41,6 +53,7 @@ class SiteRequirementStructure extends Component {
             id={this.props.index}
             onChange={e => this.props.ondrawingNumberChange(e, this.props.index)}
             value={this.props.drawingNumber}
+            disabled
           />
         </div>
         <div class="col-sm-2">
