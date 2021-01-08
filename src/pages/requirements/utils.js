@@ -75,29 +75,42 @@ export const listViewRequirementsMetaData = (
         name: "Action",
         sortable: false,
         cell: (row) => {
-          return (
-            <>
-              {
-                <IconButton
-                  iconName="faThumbsUp"
-                  onClick={() => handleApprove(row.id)}
-                />
-                
-              }
-              {
+          if(row.isAction == "1"){
+            return (
+              <>
+                {
                   <IconButton
-                  iconName="faThumbsDown"
-                  onClick={() => handleReject(row.id)}
-                />
-              }
-              {
-                  <IconButton
-                  iconName="faEdit"
-                  onClick={() => handleMore(row.id)}
-                />
-              }
-            </>
-          );
+                    iconName="faThumbsUp"
+                    onClick={() => handleApprove(row.id)}
+                  />
+                  
+                }
+                {
+                    <IconButton
+                    iconName="faThumbsDown"
+                    onClick={() => handleReject(row.id)}
+                  />
+                }
+                {
+                    <IconButton
+                    iconName="faEdit"
+                    onClick={() => handleMore(row.id)}
+                  />
+                }
+              </>
+            );
+          } else {
+            return (
+              <>
+                {
+                    <IconButton
+                    iconName="faEdit"
+                    onClick={() => handleMore(row.id)}
+                  />
+                }
+              </>
+            );
+          }
         },
       },
     ];
@@ -112,6 +125,7 @@ export const listViewRequirementsMetaData = (
             projectId: requirement.projectId,
             status: requirement.status,
             id: i,
+            isAction: requirement.isAction
         };
         tmpArr.push(tmpObj);
       });

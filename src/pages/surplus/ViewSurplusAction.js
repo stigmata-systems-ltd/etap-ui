@@ -10,7 +10,7 @@ import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 
-// import RequirementsViewMore from "../../container/requirement/requirementsViewMore";
+import SurplusViewMore from "../../container/surplus/surplusViewMore";
 
 class ViewSurplusAction extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class ViewSurplusAction extends Component {
             message={this.props.surplus.message}
           />
         )}
-        {/* <RequirementsViewMore showAddComponentModal={this.props.requirement.showrequirementMoreModal} /> */}
+        <SurplusViewMore showAddComponentModal={this.props.surplus.showSurplusMoreModal} />
         <ConfirmModal
             showModal={this.state.showApproveModal}
             handleClose={() =>{

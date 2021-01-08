@@ -9,7 +9,10 @@ import {
   RESET_SURPLUS_FORM,
   SURPLUS_FILE,
   SURPLUS_STRUCTURE_FAMILY,
-  SURPLUS_APPROVAL_LIST
+  SURPLUS_APPROVAL_LIST,
+  CHANGE_VIEW_SURPLUS_MORE_MODAL_STATUS,
+  GET_SURPLUS_DATA_SINGLE,
+  VIEW_SURPLUS_MORE_PAGE
 } from '../actions/types';
 
 const initialState = {
@@ -20,7 +23,8 @@ const initialState = {
     projectCodesList:[],
     structureList:[],
     projectID:{},
-    structureFamily:""
+    structureFamily:"",
+    surplusViewMore:[]
 };
 
 export default function (state = initialState, action) {
@@ -164,6 +168,22 @@ export default function (state = initialState, action) {
               dateFrom:"",
               structureFamily:""
           }
+          case GET_SURPLUS_DATA_SINGLE:
+
+            return {
+              ...state,
+              surplusViewMore: action.payload,
+            };
+      case VIEW_SURPLUS_MORE_PAGE:
+            return {
+              ...state,
+              showViewMore: action.payload
+            }
+      case CHANGE_VIEW_SURPLUS_MORE_MODAL_STATUS:
+            return {
+                ...state,
+                showSurplusMoreModal: action.payload
+            }
         default:
             return state;
     }

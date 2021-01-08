@@ -3,15 +3,15 @@ import store from '../../store';
 import {assignStructureList,assignStructureFetch} from '../../actions/assignStructureAction';
 
 import {
-  CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS
+  CHANGE_VIEW_SURPLUS_MORE_MODAL_STATUS
 } from '../../actions/types';
-import ViewRequirementViewMore from '../../pages/requirements/ViewRequirementViewMore';
+import ViewSurplusViewMore from '../../pages/surplus/ViewSurplusViewMore';
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeRequirementViewMoreModal(){
+    closeSurplusViewMoreModal(){
       dispatch({
-              type: CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS,
+              type: CHANGE_VIEW_SURPLUS_MORE_MODAL_STATUS,
               payload: false,
             })
           }
@@ -19,10 +19,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  const requirement = store.getState().requirement;
+  const surplus = store.getState().surplus;
   return {
-    requirement,
+    surplus,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewRequirementViewMore);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewSurplusViewMore);

@@ -1,7 +1,7 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { ACTION_SURPLUS,SURPLUS_APPROVAL_LIST,ADD_SURPLUS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,SURPLUS_LIST_STRUCTURE_PROJECT_DATA } from "./types";
+import { GET_SURPLUS_DATA_SINGLE,ACTION_SURPLUS,SURPLUS_APPROVAL_LIST,ADD_SURPLUS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,SURPLUS_LIST_STRUCTURE_PROJECT_DATA } from "./types";
 
 
 export const getProjectList = () => {
@@ -66,4 +66,15 @@ export const surplusAction = (id,action) => {
         type: ACTION_SURPLUS,
         payload: axios.post(config.BASE_URL + '/api/Surplus/WorkflowManagement', body)
     }
+}
+
+
+export const singleSurplusFetch = (id) => {
+    const surplus = store.getState().surplus;
+    const data=surplus.surplusList[id];
+      console.log(`Single Requirement Data: ${JSON.stringify(data)}`)
+      return {
+        type: GET_SURPLUS_DATA_SINGLE,
+        payload: data,
+      };
 }

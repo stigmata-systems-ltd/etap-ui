@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import store from '../../store';
-import {getSurplus,surplusAction} from '../../actions/surplusAction';
+import {getSurplus,surplusAction,singleSurplusFetch} from '../../actions/surplusAction';
 import { withRouter } from "react-router-dom";
 
 import {
@@ -10,7 +10,9 @@ import {
   ASSIGN_STRUCTURE_MORE_PAGE,
   CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS,
   VIEW_REQUIREMENTS_MORE_PAGE,
-  CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS
+  CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS,
+  VIEW_SURPLUS_MORE_PAGE,
+  CHANGE_VIEW_SURPLUS_MORE_MODAL_STATUS
 } from '../../actions/types';
 import ViewSurplusAction from '../../pages/surplus/ViewSurplusAction';
 
@@ -33,13 +35,13 @@ const mapDispatchToProps = (dispatch,props) => {
     },
     handleMore(id){
       console.log(`ID: ${id}`)
-      // dispatch(singleRequirementFetch(id));
+      dispatch(singleSurplusFetch(id));
       dispatch({
-        type: VIEW_REQUIREMENTS_MORE_PAGE,
+        type: VIEW_SURPLUS_MORE_PAGE,
         payload: true,
       });
       dispatch({
-        type: CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS,
+        type: CHANGE_VIEW_SURPLUS_MORE_MODAL_STATUS,
         payload: true,
       })
     },
