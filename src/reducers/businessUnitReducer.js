@@ -11,8 +11,14 @@ import { BUSINESS_UNIT_STATUS,
       UPDATE_BUSINESS_UNIT,
       LIST_IC_CODES,
       IC_CODE,
-      BUSINESS_UNIT_LIST
+      EDIT_SINGLE_BU,
+      BUSINESS_UNIT_LIST,
+      CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS,
+      BUSINESS_UNIT_NAME,
+      RESET_EDIT_BUSINESS_UNIT_FORM,
+      UPDATE_BUSINESS_UNIT_NAME
      } from '../actions/types';
+     import { getSelectedValue } from "../utils/dataTransformer";
 
 const initialState = {
     businessUnitType: '',
@@ -25,6 +31,8 @@ const initialState = {
     isLoading:false,
     icCodeList:[],
     icCode:{},
+    icName:"",
+    showEditBusinessUnitModal: false,
     businessUnitList:[]
 };
 
@@ -40,22 +48,47 @@ export default function (state = initialState, action) {
                 ...state,
                 businessUnitType: action.payload,
             };
+        case BUSINESS_UNIT_NAME:
+          return {
+                  ...state,
+                  buName: action.payload,
+         };
+            
         case BUSINESS_UNIT_LIST:
             return {
                 ...state,
                 businessUnitList: action.payload
             }
-        
+        case CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS:
+          return {
+            ...state,
+            showEditBusinessUnitModal:action.payload
+          }   
+          case EDIT_SINGLE_BU:
+              return {
+                  ...state,
+                  icCode: getSelectedValue(state.icCodeList,action.payload.icId),
+                  buName: action.payload.name,
+                  buID: action.payload.id,
+                  isLoading: false
+                  
+              };
         case RESET_CREATE_BUSINESS_UNIT_FORM:
             return {
                 ...state,
-                businessUnitType: '',
+                icCode: '',
                 businessUnitStatus: '',
                 businessUnitName: '',
                 isLoading: false
                 
             };
-            
+        case RESET_EDIT_BUSINESS_UNIT_FORM:
+          return {
+            ...state,
+            icCode:"",
+            buName:"",
+            buID:""
+          };
         case SHOW_ADD_BUSINESS_UNIT_MSG:
             return {
                 ...state,
@@ -110,7 +143,8 @@ export default function (state = initialState, action) {
                   isSuccess: false,
                 };
         case `${LIST_BUSINESS_UNIT}_FULFILLED`:
-                return {
+        return {
+                  
                   ...state,
                   isLoading: false,
                   isError: false,

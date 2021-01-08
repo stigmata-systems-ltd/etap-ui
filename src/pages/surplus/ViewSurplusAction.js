@@ -4,49 +4,50 @@ import FormContainer from "../../common/forms/FormContainer";
 import DataTable from "../../common/DataTable";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
-import { listViewRequirementsMetaData, transformViewRequirementList } from "./utils";
+import { listViewSurplusMetaData, transformViewSurplusList } from "./utils";
 import Button from "../../common/forms/Button";
 import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 
-import RequirementsViewMore from "../../container/requirement/requirementsViewMore";
+import SurplusViewMore from "../../container/surplus/surplusViewMore";
 
-class ViewRequirementAction extends Component {
+class ViewSurplusAction extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeId: null,
+      showApproveModal:false,
       showDeleteModal: false,
       filterText: "",
       resetPaginationToggle: false,
     };
   }
   componentDidMount() {
-    this.props.getRequirementsList();
+    this.props.getSurplus();
   }
 
   render() {
     return (
       <ContentLoader>
-        {this.props.requirement.isAddComponentMsg && (
+        {this.props.surplus.isAddComponentMsg && (
           <CustomAlert
             variant="success"
-            message={this.props.requirement.message}
+            message={this.props.surplus.message}
           />
         )}
-        <RequirementsViewMore showAddComponentModal={this.props.requirement.showrequirementMoreModal} />
+        <SurplusViewMore showAddComponentModal={this.props.surplus.showSurplusMoreModal} />
         <ConfirmModal
-            showModal={this.state.showDeleteModal}
+            showModal={this.state.showApproveModal}
             handleClose={() =>{
-              this.setState({ showDeleteModal: false, activeId: null })
+              this.setState({ showApproveModal: false, activeId: null })
             }
               
             }
-            title="Approve Requirement"
+            title="Approve Surplus"
             handleConfirm={() => {
               this.props.handleApprove(this.state.activeId);
-              this.setState({ showDeleteModal: false, activeId: null });
+              this.setState({ showApproveModal: false, activeId: null });
             }}
           >
             <h6 className="text-danger">
@@ -60,7 +61,7 @@ class ViewRequirementAction extends Component {
               this.setState({ showDeleteModal: false, activeId: null })
             }
             }
-            title="Reject Requirement"
+            title="Reject Surplus"
             handleConfirm={() => {
               this.props.handleReject(this.state.activeId);
               this.setState({ showDeleteModal: false, activeId: null });
@@ -71,22 +72,22 @@ class ViewRequirementAction extends Component {
             </h6>
           </ConfirmModal>
         <FormContainer formTitle={"View Requirements"}>
-          {this.props.requirement.requirementsList && (
+          {this.props.surplus.surplusList && (
             <CustomDataTable
-              metaData={listViewRequirementsMetaData(
-                id => this.setState({ activeId: id, showDeleteModal: true }),
+              metaData={listViewSurplusMetaData(
+                id => this.setState({ activeId: id, showApproveModal: true }),
                 id => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleMore(id),
 
               )}
-              bodyData={transformViewRequirementList(
-                this.props.requirement.requirementsList
+              bodyData={transformViewSurplusList(
+                this.props.surplus.surplusList
               )}
-              progressPending={this.props.requirement.isLoading}
+              progressPending={this.props.surplus.isLoading}
               pagination={true}
               paginationTotalRows={
-                this.props.requirement.requirementsList &&
-                this.props.requirement.requirementsList.length
+                this.props.surplus.surplusList &&
+                this.props.surplus.surplusList.length
               }
               paginationPerPage={5}
               noHeader={true}
@@ -116,4 +117,4 @@ class ViewRequirementAction extends Component {
   }
 }
 
-export default ViewRequirementAction;
+export default ViewSurplusAction;

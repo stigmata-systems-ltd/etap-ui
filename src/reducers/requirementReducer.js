@@ -21,7 +21,10 @@ import {
     ADD_REQUIREMENT,
     LIST_STRUCTURE_PROJECT_DATA,
     LIST_REQUIREMENTS,
-    ACTION_REQUIREMENT
+    ACTION_REQUIREMENT,
+    VIEW_REQUIREMENTS_MORE_PAGE,
+  CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS,
+  GET_REQUIREMENT_DATA_SINGLE
 } from '../actions/types';
 
 const initialState = {
@@ -31,7 +34,9 @@ const initialState = {
     contactNumber: '',
     siteRequirementList:[], 
     structureProjectList:[],
-    structureList:[]
+    structureList:[],
+    showrequirementMoreModal: false,
+    requirementViewMore:[]
 };
 
 export default function (state = initialState, action) {
@@ -206,6 +211,22 @@ export default function (state = initialState, action) {
                     isSuccess: false,
                     message: action.payload.data.message,
                   };
+          case GET_REQUIREMENT_DATA_SINGLE:
+
+                    return {
+                      ...state,
+                      requirementViewMore: action.payload,
+                    };
+          case VIEW_REQUIREMENTS_MORE_PAGE:
+                    return {
+                      ...state,
+                      showViewMore: action.payload
+                    }
+          case CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS:
+                    return {
+                        ...state,
+                        showrequirementMoreModal: action.payload
+                    }
         case RESET_REQUIREMENT_FORM:
             return {
                 ...state,

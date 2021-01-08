@@ -10,6 +10,7 @@ import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 
 import AddBusinessUnit from "../../container/businessUnit/addBusinessUnit";
+import EditBusinessUnit from "../../container/businessUnit/editBusinessUnit";
 
 class ViewBusinessUnit extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class ViewBusinessUnit extends Component {
     };
   }
   componentDidMount() {
+    console.log( this.props.businessUnitList());  
     this.props.businessUnitList();
   }
 
@@ -35,7 +37,9 @@ class ViewBusinessUnit extends Component {
           />
         )}
         <AddBusinessUnit showAddBusinessUnitModal={this.props.businessUnit.showAddBusinessUnitModal} />
-        <FormContainer formTitle={"View Business Unit"}>
+        <EditBusinessUnit showEditBusinessUnitModal={this.props.businessUnit.showEditBusinessUnitModal} />
+        
+        <FormContainer formTitle={"Business Unit Management"}>
           {this.props.businessUnit.businessUnitTypeList && (
             <CustomDataTable
               metaData={businessUnitMetaData(
@@ -58,7 +62,7 @@ class ViewBusinessUnit extends Component {
                 <>
 
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By BU Name"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&

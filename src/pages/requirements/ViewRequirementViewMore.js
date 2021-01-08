@@ -11,18 +11,19 @@ import { transformDropDownData } from "../../utils/dataTransformer";
 import DataTable from '../../common/DataTable';
 import IconTextButton from '../../common/forms/IconTextButton';
 import Button from '../../common/forms/Button';
-import AddAttributes from './AddAttributes';
-class AddStructure extends Component {
+
+class ViewRequirementViewMore extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    console.log(`Show model: ${this.props.showAddComponentModal}`)
     return (
       <Modal
-        title={`View Structure - Details`}
+        title={`View Requirement - Details`}
         showModal={this.props.showAddComponentModal}
-        handleClose={this.props.closeAssignStructureViewMoreModal}
+        handleClose={this.props.closeRequirementViewMoreModal}
         size="lg"
         isShowFooter={false}
       >
@@ -31,131 +32,77 @@ class AddStructure extends Component {
         
             <FormRow>
               <TextInput
-                label="Structure ID"
-                name="structureId"
-                id="structureId"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.structureId}
+                label="MR No"
+                name="mrNo"
+                id="mrNo"
+                value={this.props.requirement.requirementViewMore.mrNo}
               />
               <TextInput
-                label="Structure Name"
-                name="strcutureName"
-                id="strcutureName"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.strcutureName}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Structure Family"
-                name="structureFamily"
-                id="structureFamily"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.strcutureTypeName}
-              />
-              <TextInput
-                label="Total Weight"
-                name="totalWeight"
-                id="totalWeight"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.totalWeight}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Structure Status"
-                name="structureStatus"
-                id="structureStatus"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.status}
-              />
-              <TextInput
-                label="Current Status"
-                name="currentStatus"
-                id="currentStatus"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.currentStatus}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Project Name"
-                name="projectName"
-                id="projectName"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.projectName}
-              />
-              <TextInput
-                label="Project Id"
+                label="Project ID"
                 name="projectId"
                 id="projectId"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.projectId}
+                value={this.props.requirement.requirementViewMore.projectId}
               />
             </FormRow>
             <FormRow>
               <TextInput
-                label="Number Of Component"
-                name="componentsCount"
-                id="componentsCount"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.componentsCount}
+                label="Planned Start Date"
+                name="planStartdate"
+                id="planStartdate"
+                value={this.props.requirement.requirementViewMore.planStartdate}
               />
               <TextInput
-                label="Drawing Number"
-                name="drawingNo"
-                id="drawingNo"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignStructureViewMore.drawingNo}
+                label="Planned Releas edate"
+                name="planReleasedate"
+                id="planReleasedate"
+                value={this.props.requirement.requirementViewMore.planReleasedate}
               />
             </FormRow>
-            <label>Structure Attributes</label>
-            <div class="form-group row location-row">
-                  {this.props.assignStructure.assignStructureViewMoreAttributes.map((e, i) => {
-                    return (
-                      <AddAttributes
-                      onNameChange={e =>
-                          this.props.onNameChange(e.target.value, i)
-                        }
-                        onTypeOfInputChange={e =>
-                          this.props.onTypeOfInputChange(e.target.value, i)
-                        }
-                        onUoMChange={e =>
-                          this.props.onUoMChange(e.target.value, i)
-                        }
-                        
-                        index={i}
-                        nameValue={this.props.assignStructure.assignStructureViewMoreAttributes[i].name}
-                        typeOfInputValue={this.props.assignStructure.assignStructureViewMoreAttributes[i].typeOfInput}
-                        uomValue={this.props.assignStructure.assignStructureViewMoreAttributes[i].uom}
-                        
-                      />
-                    );
-                  })}
-                </div>
+            <FormRow>
+              <TextInput
+                label="Actual Start Date"
+                name="actualStartdate"
+                id="actualStartdate"
+                value={this.props.requirement.requirementViewMore.actualStartdate}
+              />
+              <TextInput
+                label="Actual Release Date"
+                name="actualReleasedate"
+                id="actualReleasedate"
+                value={this.props.requirement.requirementViewMore.actualReleasedate}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Required Wbs ID"
+                name="requireWbsId"
+                id="requireWbsId"
+                value={this.props.requirement.requirementViewMore.requireWbsId}
+              />
+              <TextInput
+                label="Actual Wbs ID"
+                name="actualWbsId"
+                id="actualWbsId"
+                value={this.props.requirement.requirementViewMore.actualWbsId}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Status"
+                name="status"
+                id="status"
+                value={this.props.requirement.requirementViewMore.status}
+              />
+              <TextInput
+                label="Status Internal"
+                name="statusInternal"
+                id="statusInternal"
+                value={this.props.requirement.requirementViewMore.statusInternal}
+              />
+            </FormRow>
       </Modal>
     );
   }
 }
 
-export default AddStructure;
+export default ViewRequirementViewMore;

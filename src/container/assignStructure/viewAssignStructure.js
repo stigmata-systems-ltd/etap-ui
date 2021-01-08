@@ -37,7 +37,6 @@ const mapDispatchToProps = (dispatch,props) => {
           type: CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS,
           payload: true,
         })
-      
     },
     handleComponentCheck(structID,projectID){
       

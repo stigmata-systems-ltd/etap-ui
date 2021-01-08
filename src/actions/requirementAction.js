@@ -1,7 +1,7 @@
 import store from '../store';
 import axios from 'axios';
 import config from '../config';
-import { ACTION_REQUIREMENT,LIST_REQUIREMENTS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,LIST_STRUCTURE_PROJECT_DATA } from "./types";
+import { GET_REQUIREMENT_DATA_SINGLE,ACTION_REQUIREMENT,LIST_REQUIREMENTS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,LIST_STRUCTURE_PROJECT_DATA } from "./types";
 
 
 export const getProjectList = () => {
@@ -64,7 +64,8 @@ export const getProjectStructureData = () => {
 }
 
 export const getRequirementsList = () => {
-    const ROLE_NAME="SITE";
+    let auth = store.getState().auth;
+    const ROLE_NAME=auth.token.roleName;
     return {
         type: LIST_REQUIREMENTS,
         payload: axios.get(config.BASE_URL + `/api/SiteRequirement/getSiteReqDetails?role_name=${ROLE_NAME}`)
@@ -72,16 +73,28 @@ export const getRequirementsList = () => {
 }
 
 export const requirementAction = (id,action) => {
+    let auth = store.getState().auth;
+    const ROLE_NAME=auth.token.roleName;
     let requirementList = store.getState().requirement.requirementsList;
     let singleRequirement=requirementList[id];
       const body={
             "siteReqId": singleRequirement.id,
             "mode": action,
-            "role_name": "ADMIN",
+            "role_name": auth.token.roleName,
           }
       
     return {
         type: ACTION_REQUIREMENT,
         payload: axios.post(config.BASE_URL + '/api/SiteRequirement/WorkflowManagement', body)
     }
+}
+
+export const singleRequirementFetch = (id) => {
+    const requirement = store.getState().requirement;
+    const data=requirement.requirementsList[id];
+      console.log(`Single Requirement Data: ${JSON.stringify(data)}`)
+      return {
+        type: GET_REQUIREMENT_DATA_SINGLE,
+        payload: data,
+      };
 }

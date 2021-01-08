@@ -22,13 +22,13 @@ export const businessUnitMetaData = (handleDelete, handleEdit) => {
       width: '2%',
     },
     {
-      name: 'Business Unit',
+      name: 'BU Name',
       selector: 'businessUnit',
       sortable: false,
     },
     {
-      name: 'Status',
-      selector: 'status',
+      name: 'IC Name',
+      selector: 'icName',
       sortable: false,
     },
     {
@@ -54,7 +54,7 @@ export const businessUnitBodyData = businessUnitList => {
   let tmpArr = [];
   let statusValue;
   businessUnitList &&
-    businessUnitList.map(businessUnit => {
+    businessUnitList.map((businessUnit,i) => {
       if (businessUnit.isActive) {
         statusValue = "Active"
       }
@@ -62,8 +62,9 @@ export const businessUnitBodyData = businessUnitList => {
         statusValue = "InActive"
       }
       let tmpObj = {
+        id: i,
         businessUnit: businessUnit.name,
-        status: statusValue,
+        icName: businessUnit.icName,
       };
       tmpArr.push(tmpObj);
     });

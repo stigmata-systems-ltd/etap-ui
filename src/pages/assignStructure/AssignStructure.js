@@ -101,7 +101,25 @@ class AssignStructure extends Component {
                 placeholder="Auto Fetch"
                 disabled={true}
               />
-              <TextInput
+               <TextInput
+                label="Structure Code"
+                name="structureCode"
+                id="structureCode"
+                onChange={(e) =>
+                  this.props.handleChangeComponentStructureFamily(
+                    e.target.value
+                  )
+                }
+                value={this.props.scr.structureCode}
+                placeholder="Auto Fetch"
+                disabled={true}
+              />
+             
+              
+            </FormRow>
+            <FormRow>
+            <TextInput
+             size="col-md-6"
                 label="Estimated Weight"
                 name="estimatedWeight"
                 id="estimatedWeight"
@@ -110,10 +128,9 @@ class AssignStructure extends Component {
                 }
                 value={this.props.scr.estimatedWeight}
               />
-            </FormRow>
-            <FormRow>
               <TextInput
-                label="Drawing No"
+               size="col-md-3"
+                label="Dr No"
                 name="drawingNumber"
                 id="drawingNumber"
                 onChange={(e) =>
@@ -122,6 +139,7 @@ class AssignStructure extends Component {
                 value={this.props.scr.drawingNum}
               />
               <MultiFileInput
+               size="col-md-3"
                 labelSize="col-sm-0"
                 onChange={(e) => this.props.handleFileUpload(e.target.files)}
                 value={this.props.scr.fileInput}
@@ -158,7 +176,7 @@ class AssignStructure extends Component {
                 title="Structure Attributes"
               />
             </FormRow>
-            <br />
+            <hr />
             <FormRow>
               <Button
                 btnText="SAVE"
@@ -171,6 +189,7 @@ class AssignStructure extends Component {
                 btnType="btn-secondary"
               /> */}
             </FormRow>
+            <br/>
             <FormRow className="excel-upload-btn">
               <CSVReader
                 onDrop={this.props.handleOnDrop}

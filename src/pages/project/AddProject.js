@@ -15,7 +15,7 @@ class AddProjModal extends Component {
     return (
       <Modal
         title={`${
-          this.props.proj.isEditMode ? "Update" : "Create New"
+          this.props.proj.isEditMode ? "Update" : "Add New"
         } Project`}
         showModal={this.props.proj.showAddProjModal}
         handleSave={

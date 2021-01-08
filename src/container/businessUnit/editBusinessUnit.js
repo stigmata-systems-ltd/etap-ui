@@ -10,11 +10,13 @@ import {
   BUSINESS_UNIT_STATUS,
   LIST_IC_CODES,
   IC_CODE,
-  BUSINESS_UNIT_LIST
+  BUSINESS_UNIT_LIST,
+  CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS,
+  RESET_EDIT_BUSINESS_UNIT_FORM
 }
   from '../../actions/types';
 import { addBusinessUnit, updateBusinessUnitType, businessUnitList, getICCodes } from '../../actions/businessUnitAction'
-import AddBusinessUnit from '../../pages/businessUnit/AddBusinessUnit';
+import EditBusinessUnit from '../../pages/businessUnit/EditBusinessUnit';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -24,31 +26,16 @@ const mapDispatchToProps = dispatch => {
     getICCodes() {
       dispatch(getICCodes());
     },
-    addBusinessUnitType() {
-      dispatch(addBusinessUnit()).then(() => {
-        dispatch(businessUnitList());
-        dispatch({
-          type: SET_BUSINESS_UNIT_EDIT_MODE,
-          payload: false,
-        })
-        dispatch({ type: RESET_CREATE_BUSINESS_UNIT_FORM });
-        dispatch({
-          type: CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
-          payload: false,
-        })
-
-      });;
-    },
     updateBusinessUnitType() {
       dispatch(updateBusinessUnitType()).then(() => {
         dispatch(businessUnitList());
         dispatch({
           type: SET_BUSINESS_UNIT_EDIT_MODE,
           payload: false,
-        })
-        dispatch({ type: RESET_CREATE_BUSINESS_UNIT_FORM });
+        });
+        dispatch({ type: RESET_EDIT_BUSINESS_UNIT_FORM });
         dispatch({
-          type: CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
+          type: CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS,
           payload: false,
         })
 
@@ -56,33 +43,16 @@ const mapDispatchToProps = dispatch => {
     },
     closeAddBusinessUnitModal() {
       dispatch({
-        type: CHANGE_ADD_BUSINESS_UNIT_MODAL_STATUS,
+        type: CHANGE_EDIT_BUSINESS_UNIT_MODAL_STATUS,
         payload: false,
       })
       dispatch({ type: RESET_CREATE_BUSINESS_UNIT_FORM })
     },
-    addBU(){
-      const businessUnit = store.getState().businessUnit;
-      let businessUnitList=businessUnit.businessUnitList;
-      businessUnitList.push({name: ""});
-      dispatch({
-        type: BUSINESS_UNIT_LIST,
-        payload: businessUnitList,
-      });
-    },
+    
     handleChangeBusinessUnitName(value) {
       dispatch({
         type: BUSINESS_UNIT_NAME,
         payload: value,
-      });
-    },
-    onBUNameChange(value,i){
-      const businessUnit = store.getState().businessUnit;
-      let businessUnitList=businessUnit.businessUnitList;
-      businessUnitList[i].name=value;
-      dispatch({
-        type: BUSINESS_UNIT_LIST,
-        payload: businessUnitList,
       });
     },
     handleChangeICCode(value){
@@ -91,9 +61,9 @@ const mapDispatchToProps = dispatch => {
         payload: value,
       });
     },
-    handleBusinessUnitStatus(value) {
+    handleChangeBusinessUnit(value) {
       dispatch({
-        type: BUSINESS_UNIT_STATUS,
+        type: BUSINESS_UNIT_NAME,
         payload: value,
       });
     },
@@ -107,4 +77,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddBusinessUnit);
+export default connect(mapStateToProps, mapDispatchToProps)(EditBusinessUnit);

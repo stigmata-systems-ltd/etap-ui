@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import store from '../../store';
-import {getRequirementsList,requirementAction} from '../../actions/requirementAction';
+import {getRequirementsList,requirementAction,singleRequirementFetch} from '../../actions/requirementAction';
 import { withRouter } from "react-router-dom";
 
 import {
@@ -8,7 +8,9 @@ import {
   SHOW_ADD_STRUCTURE_MSG,
   SET_PROJECT_STRUCTURE_ID,
   ASSIGN_STRUCTURE_MORE_PAGE,
-  CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS
+  CHANGE_ASSIGN_STRUCTURE_MORE_MODAL_STATUS,
+  VIEW_REQUIREMENTS_MORE_PAGE,
+  CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS
 } from '../../actions/types';
 import ViewRequirementAction from '../../pages/requirements/ViewRequirementAction';
 
@@ -30,6 +32,15 @@ const mapDispatchToProps = (dispatch,props) => {
     },
     handleMore(id){
       console.log(`ID: ${id}`)
+      dispatch(singleRequirementFetch(id));
+      dispatch({
+        type: VIEW_REQUIREMENTS_MORE_PAGE,
+        payload: true,
+      });
+      dispatch({
+        type: CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS,
+        payload: true,
+      })
     },
   };
 };

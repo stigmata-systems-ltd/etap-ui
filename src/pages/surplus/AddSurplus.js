@@ -25,6 +25,7 @@ class AddSurplus extends Component {
     }
     componentDidMount() {
         this.props.getProjectList();
+        
       }
     render() {
         const subprop = this.props.addRequirement;
