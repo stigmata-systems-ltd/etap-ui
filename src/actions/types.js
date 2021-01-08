@@ -32,6 +32,8 @@ export const RESET_CREATE_USER_FORM = "RESET_CREATE_USER_FORM";
 export const GET_USER_SINGLE = "GET_USER_SINGLE";
 export const USER_EDIT_PAGE = "USER_EDIT_PAGE";
 export const UPDATE_USER = "UPDATE_USER";
+export const JOB_CODE = "JOB_CODE";
+export const EDRC_CODE = "EDRC_CODE";
 //Component
 export const COMPONENT_TYPE = "COMPONENT_TYPE";
 export const ADD_COMPONENT = "ADD_COMPONENT";

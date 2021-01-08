@@ -65,6 +65,8 @@ class AssignStructure extends Component {
                   "id",
                   "name"
                 )}
+                labelSize="col-sm-4"
+                fieldSize="col-sm-8"
                 onChange={(obj) =>
                   this.props.handleChangeComponentProjectName(obj)
                 }

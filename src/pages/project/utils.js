@@ -20,18 +20,13 @@ export const listProjectMetaData = (handleDelete, handleEdit) => {
         sortable: false,
       },
       {
-        name: 'IC Id',
+        name: 'IC',
         selector: 'icId',
         sortable: false,
       },
       {
-        name: 'BU Id',
+        name: 'BU',
         selector: 'buId',
-        sortable: false,
-      },
-      {
-        name: 'Segment Id',
-        selector: 'segmentId',
         sortable: false,
       },
       {

@@ -94,6 +94,9 @@ select.form-control {
 
 /*Navbar Custom Styles
 *********************/
+.margin-fix {
+  margin-left: 30px;
+}
 
 .sidebar button {
   color: inherit;
