@@ -21,12 +21,12 @@ export const listProjectMetaData = (handleDelete, handleEdit) => {
       },
       {
         name: 'IC',
-        selector: 'icId',
+        selector: 'icName',
         sortable: false,
       },
       {
         name: 'BU',
-        selector: 'buId',
+        selector: 'buName',
         sortable: false,
       },
       {
@@ -58,8 +58,8 @@ export const listProjectMetaData = (handleDelete, handleEdit) => {
             name: project.name,
             projCode: project.projCode,
             area: project.area,
-            icId: project.icId,
-            buId: project.buId,
+            icName: project.icName,
+            buName: project.buName,
             segmentId: project.segmentId,
             projectSites: project.projectSiteLocationDetails.map(dt => dt.name).join().replaceAll(",",", "),
         };

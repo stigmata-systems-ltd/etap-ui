@@ -4,23 +4,23 @@ import IconButton from '../../common/forms/IconButton';
 
 export const businessUnitMetaData = (handleDelete, handleEdit) => {
   return [
-    {
-      sortable: false,
-      cell: row => {
-        return (
-          <>
-            { (
-              <IconButton
-                iconName="faTimes"
-                className={'table-delete-icon'}
-                onClick={() => handleDelete(row.id)}
-              />
-            )}
-          </>
-        );
-      },
-      width: '2%',
-    },
+    // {
+    //   sortable: false,
+    //   cell: row => {
+    //     return (
+    //       <>
+    //         { (
+    //           <IconButton
+    //             iconName="faTimes"
+    //             className={'table-delete-icon'}
+    //             onClick={() => handleDelete(row.id)}
+    //           />
+    //         )}
+    //       </>
+    //     );
+    //   },
+    //   width: '2%',
+    // },
     {
       name: 'BU Name',
       selector: 'businessUnit',

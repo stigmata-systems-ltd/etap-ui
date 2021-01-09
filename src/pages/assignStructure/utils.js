@@ -398,7 +398,7 @@ export const transformAssignedStructureList = (assignStructureList) => {
       let tmpObj = {
         projectID: assignStructure.projectId,
         structureName: assignStructure.strcutureName,
-        structureID: assignStructure.structureId,
+        structureID: assignStructure.structureCode,
         structureFamily: assignStructure.strcutureTypeName,
         totalWeight: assignStructure.totalWeight,
         componentsCount: assignStructure.componentsCount,

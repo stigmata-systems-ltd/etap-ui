@@ -39,7 +39,7 @@ class ViewBusinessUnit extends Component {
         <AddBusinessUnit showAddBusinessUnitModal={this.props.businessUnit.showAddBusinessUnitModal} />
         <EditBusinessUnit showEditBusinessUnitModal={this.props.businessUnit.showEditBusinessUnitModal} />
         
-        <FormContainer formTitle={"Business Unit Management"}>
+        <FormContainer formTitle={"BU Management"}>
           {this.props.businessUnit.businessUnitTypeList && (
             <CustomDataTable
               metaData={businessUnitMetaData(

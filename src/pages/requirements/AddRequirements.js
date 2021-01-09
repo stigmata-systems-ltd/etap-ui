@@ -179,6 +179,8 @@ class AddRequirement extends Component {
             </div>
             <FormRow>
               <TextArea
+              labelSize = "col-lg-3"
+               size="col-lg-6"
                 label="Remarks"
                 name="remarks"
                 id="remarks"

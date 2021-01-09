@@ -48,7 +48,7 @@ class ViewStructure extends Component {
           />
         )}
         <AddStructure showAddComponentModal={this.props.structure.showAddStructureModal} />
-        <FormContainer formTitle={"Structure List"}>
+        <FormContainer formTitle={"Structure Management"}>
           {this.props.structure.structureList && (
             <CustomDataTable
               metaData={listStructureMetaData(
