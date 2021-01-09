@@ -11,6 +11,7 @@ class NavItem extends Component {
       isSubNavOpen: false,
       currentOpenParentId: "0",
       activeId: "1",
+      isParentOpen: false,
     };
   }
   componentDidMount = () => {

@@ -21364,7 +21364,7 @@ dl li {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  width: 257px;
+  width: 300px;
   height: 60px;
   border-right: 1px solid #e3e3e3;
 }
@@ -21437,7 +21437,7 @@ dl li {
   color: #9b9b9b;
   padding-left: 1.062rem;
   padding-right: 1.062rem;
-  width: calc(100% - 257px);
+  width: calc(100% - 300px);
   height: 60px;
   border-bottom: 1px solid #e3e3e3;
 }
