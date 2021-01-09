@@ -33,7 +33,7 @@ class SiteRequirementStructure extends Component {
             onChange={(e) =>
               this.props.ondrawingNumberChange(e, this.props.index)
             }
-            value={this.props.drawingNumber}
+            value={this.props.componentsCount}
             disabled
           />
         </div>
