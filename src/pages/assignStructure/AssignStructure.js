@@ -97,7 +97,7 @@ class AssignStructure extends Component {
                     e.target.value
                   )
                 }
-                value={this.props.scr.structFamily}
+                value={this.props.scr.strcutureType}
                 placeholder="Auto Fetch"
                 disabled={true}
               />
