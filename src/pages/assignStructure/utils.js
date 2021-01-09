@@ -328,7 +328,7 @@ export const listAssignedStructureMetaData = (
     },
     {
       name: "Structure ID",
-      selector: "structureID",
+      selector: "structureCode",
       sortable: false,
       cell: (row) => {
         return (
@@ -337,10 +337,10 @@ export const listAssignedStructureMetaData = (
               <a
                 href="#"
                 onClick={() => {
-                  handleComponentCheck(row.structureID, row.projectID);
+                  handleComponentCheck(row.structureId, row.projectID);
                 }}
               >
-                {row.structureID}
+                {row.structureCode}
               </a>
             }
           </>
@@ -398,7 +398,8 @@ export const transformAssignedStructureList = (assignStructureList) => {
       let tmpObj = {
         projectID: assignStructure.projectId,
         structureName: assignStructure.strcutureName,
-        structureID: assignStructure.structureCode,
+        structureId: assignStructure.structureId,
+        structureCode: assignStructure.structureCode,
         structureFamily: assignStructure.strcutureTypeName,
         totalWeight: assignStructure.totalWeight,
         componentsCount: assignStructure.componentsCount,
