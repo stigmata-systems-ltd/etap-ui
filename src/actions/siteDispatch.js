@@ -39,7 +39,7 @@ export const updateSiteDispatch = () => {
   );
   data.append("workOrderNumber", siteDispatch.workOrderNumber);
   data.append("dispatchDate", siteDispatch.dispatchDate);
-  data.append("updatedBy", 1); // ! this field takes only integers
+  data.append("updatedBy", 1);
   data.append("structureId", siteDispatch.structureId.split("R")[1]);
   data.append("uploadDocs", siteDispatch.uploadedFile);
 
