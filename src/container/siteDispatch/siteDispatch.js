@@ -67,9 +67,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: RESET_UPDATE_SITE_DISPATCH_MODAL });
     },
     updateSiteDispatch() {
-      dispatch(updateSiteDispatch())
-        .then((response) => alert(response.action.payload.data.message))
-        .catch((error) => alert(error));
+      dispatch(updateSiteDispatch());
+      // .then((response) => alert(response.action.payload.data.message))
+      // .catch((error) => alert(error));
       dispatch({
         type: SET_SHOW_EDIT_MODAL_FLAG,
         payload: false,
