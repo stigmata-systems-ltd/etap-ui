@@ -86,6 +86,15 @@ select.form-control {
 .data-table {
   margin-bottom: 3%;
 }
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 /* Map Styles
 ************/
 .map-height {
@@ -95,7 +104,16 @@ select.form-control {
 /*Navbar Custom Styles
 *********************/
 .margin-fix {
-  margin-left: 30px;
+  margin-left: 15px;
+}
+.hide-menu {
+  display: none;
+  transition: display 2s ease-in-out 1s;
+}
+.sidebar {
+  overflow-y: scroll !important;
+  width: 300px;
+  height: 100vh;
 }
 
 .sidebar button {

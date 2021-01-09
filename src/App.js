@@ -149,6 +149,16 @@ class App extends Component {
           ></Route>
           <Route
             exact
+            path="/masters/viewStructure"
+            component={ViewStructure}
+          ></Route>
+          <Route
+            exact
+            path="/masters/viewComponent"
+            component={ViewComponent}
+          ></Route>
+          <Route
+            exact
             path="/structure/viewStructure"
             component={ViewAssignStructure}
           ></Route>
