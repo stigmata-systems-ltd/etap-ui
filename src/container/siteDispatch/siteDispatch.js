@@ -23,7 +23,6 @@ const mapDispatchToProps = (dispatch) => {
     getSiteDispatchDetails() {
       dispatch(getSiteDispatchDetails());
     },
-    //Add Vendor
     handleChangeStructureName(value) {
       dispatch({
         type: SET_STRUCTURE_ID,
@@ -68,8 +67,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateSiteDispatch() {
       dispatch(updateSiteDispatch());
-      // .then((response) => alert(response.action.payload.data.message))
-      // .catch((error) => alert(error));
       dispatch({
         type: SET_SHOW_EDIT_MODAL_FLAG,
         payload: false,

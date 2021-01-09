@@ -17,7 +17,7 @@ const initialState = {
   isSuccess: false,
   message: "",
   siteDispatchDetails: [],
-  activeItem: {}, // ! this is to hold the currently selected item, to display the modal
+  activeItem: {},
   structureListCode: [],
   structureId: 0,
   dispatchDate: "",
