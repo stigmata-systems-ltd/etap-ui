@@ -11,13 +11,6 @@ import UpdateSiteDispatchModal from "./UpdateSiteDispatchModal";
 class SiteDispatch extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeId: null,
-      showDeleteModal: false,
-      filterText: "",
-      resetPaginationToggle: false,
-      showModal: false,
-    };
   }
   componentDidMount() {
     this.props.getSiteDispatchDetails();
@@ -25,7 +18,6 @@ class SiteDispatch extends Component {
 
   showModal = (id) => {
     if (this.props.siteDispatch.showEditModalFlag) {
-      console.log("the id is.....***************", id);
       this.props.setActiveItem(id);
       this.props.showUpdateSiteDispatchModal(id);
     } else {
@@ -65,21 +57,6 @@ class SiteDispatch extends Component {
                 noHeader={true}
               />
             )}
-            <ConfirmModal
-              showModal={this.state.showDeleteModal}
-              handleClose={() =>
-                this.setState({ showDeleteModal: false, activeId: null })
-              }
-              title="Delete Vendor"
-              handleConfirm={() => {
-                this.props.handleConfirmDelete(this.state.activeId);
-                this.setState({ showDeleteModal: false, activeId: null });
-              }}
-            >
-              <h6 className="text-danger">
-                Are you sure you want to delete this Project?
-              </h6>
-            </ConfirmModal>
           </FormContainer>
         </ContentLoader>
       </>
