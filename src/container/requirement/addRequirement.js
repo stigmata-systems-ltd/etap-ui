@@ -146,12 +146,14 @@ const mapDispatchToProps = dispatch => {
         },
         handleStructureNameChange(value, i){
             const requirement = store.getState().requirement;
-            const length = requirement.siteRequirementList.length;
             requirement.siteRequirementList[i].structName = value;
-            let structFamilyName = requirement.structureProjectList.filter((ele) => {
+            let currentProject = requirement.structureProjectList.filter((ele) => {
                 return (ele.projectId === requirement.projectName.value && ele.structureId === value.value) 
-              }).map((ele) => {return ele.strcutureTypeName});
-            requirement.siteRequirementList[i].structFamily = structFamilyName[0];
+              })
+            requirement.siteRequirementList[i].structFamily = currentProject[0].strcutureTypeName;
+            requirement.siteRequirementList[i].drawingNo = currentProject[0].drawingNo;
+            requirement.siteRequirementList[i].componentsCount = currentProject[0].componentsCount;
+            requirement.siteRequirementList[i].structId = currentProject[0].structureId;
             dispatch({
                 type: SITE_REQUIRMENT_LIST,
                 payload: requirement.siteRequirementList,

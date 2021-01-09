@@ -60,12 +60,7 @@ export const listVendorMetaData = (handleDelete, handleEdit) => {
       name: 'Phone Number',
       selector: 'phoneNunmber',
       sortable: false,
-    },
-    {
-      name: 'Vendor Type',
-      selector: 'vendorType',
-      sortable: false,
-    },
+    },   
     {
       name: 'Status',
       selector: 'isStatus',
@@ -114,7 +109,7 @@ export const transformVendorList = vendorList => {
         sno: vendor.id,
         vendor: vendor.name,
         vendorCode: vendor.vendorCode,
-        vendorType: vendor.vendorId,
+      
         status: statusValue,
       };
       tmpArr.push(tmpObj);

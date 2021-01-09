@@ -19,7 +19,7 @@ class AddUser extends Component {
   render() {
     return (
       <Modal
-        title={`${this.props.users.isEdit ? "Update" : "add"} User`}
+        title={`${this.props.users.isEdit ? "Update" : "Add"} User`}
         showModal={this.props.showAddComponentModal}
         handleSave={
           this.props.users.isEdit
@@ -86,11 +86,19 @@ class AddUser extends Component {
             onChange={(obj) => this.props.handleChangeProject(obj)}
             value={this.props.users.project}
           />
+
+<SearchableDropDown
+            label="Role"
+            name="role"
+            selectOptions={transformDropDownData(this.props.users.rolesList, "id", "name")}
+            onChange={(obj) => this.props.handleChangeRole(obj)}
+            value={this.props.users.role}
+          />
             </FormRow>
             <FormRow>
               <TextInput
-                size="col-md-4"
-                label="BU"
+                size="col-md-6"
+                label="BU Name"
                 name="businessUnit"
                 id="businessUnit"
                 onChange={e =>
@@ -98,9 +106,9 @@ class AddUser extends Component {
                 }
                 value={this.props.users.bu}
                 placeholder="Auto Fetch"
-
+                disabled={true}
               />
-              <TextInput
+              {/* <TextInput
                 size="col-md-4"
                 label="Segment"
                 name="segment"
@@ -110,10 +118,10 @@ class AddUser extends Component {
                 }
                 value={this.props.users.segment}
                 placeholder="Auto Fetch"
-              />
+              /> */}
               <TextInput
-                size="col-md-4"
-                label="IC"
+                size="col-md-6"
+                label="IC Name"
                 name="independentCompany"
                 id="independentCompany"
                 onChange={e =>
@@ -121,18 +129,11 @@ class AddUser extends Component {
                 }
                 value={this.props.users.ic}
                 placeholder="Auto Fetch"
+                disabled={true}
               />
+            
             </FormRow>
 
-            <FormRow>
-              <SearchableDropDown
-            label="Role"
-            name="role"
-            selectOptions={transformDropDownData(this.props.users.rolesList, "id", "name")}
-            onChange={(obj) => this.props.handleChangeRole(obj)}
-            value={this.props.users.role}
-          />
-            </FormRow>
         
         {this.props.users.isModalMsg && (
           <p className="text-danger">{this.props.component.message}</p>

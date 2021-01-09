@@ -31,6 +31,7 @@ const initialState = {
     isLoading:false,
     icCodeList:[],
     icCode:{},
+    icName:"",
     showEditBusinessUnitModal: false,
     businessUnitList:[]
 };
@@ -142,7 +143,8 @@ export default function (state = initialState, action) {
                   isSuccess: false,
                 };
         case `${LIST_BUSINESS_UNIT}_FULFILLED`:
-                return {
+        return {
+                  
                   ...state,
                   isLoading: false,
                   isError: false,

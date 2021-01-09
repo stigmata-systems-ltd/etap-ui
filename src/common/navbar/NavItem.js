@@ -11,6 +11,7 @@ class NavItem extends Component {
       isSubNavOpen: false,
       currentOpenParentId: "0",
       activeId: "1",
+      isParentOpen: false,
     };
   }
   componentDidMount = () => {
@@ -74,7 +75,7 @@ class NavItem extends Component {
   };
   render() {
     return this.props.navData.map((navItem) => (
-      <li class={`nav-item ${this.state.activeId === navItem.id && "active"}`}>
+      <li class={`nav-item ${this.state.activeId === navItem.id && "active"} ${navItem.hasMargin === true && "margin-fix"}`}>
         <button
           key={navItem.id}
           class={`nav-link ${

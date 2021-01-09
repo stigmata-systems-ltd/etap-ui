@@ -48,7 +48,7 @@ class ViewIndependentCompany extends Component {
           />
         )}
         <AddIndependentCompany {...this.props} />
-        <FormContainer formTitle={"View IC"}>
+        <FormContainer formTitle={"IC Management"}>
           {this.props.icbu.icbuList && (
             <CustomDataTable
               metaData={icbuMetaData(

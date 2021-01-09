@@ -54,11 +54,12 @@ export const createProj = () => {
   const proj = store.getState().proj;
   const data = {
     name: proj.projectName,
+    jobCode: proj.jobCode,
+    edrcCode: proj.edrcCode,
     area: proj.area,
     projCode: proj.projectName+"-code",
     icId: proj.independentCompany.value,
     buId: proj.businessUnit.value,
-    segmentId: proj.selectedSegment.value,
     projectSiteLocationDetails: proj.locations,
   };
   return {
@@ -72,11 +73,12 @@ export const updateProj = () => {
   const data = {
     id: proj.selectedProjId,
     name: proj.projectName,
+    jobCode: proj.jobCode,
+    edrcCode: proj.edrcCode,
     projCode: proj.projCode,
     area: proj.area,
     icId: proj.independentCompany.value,
     buId: proj.businessUnit.value,
-    segmentId: proj.selectedSegment.value,
     projectSiteLocationDetails: proj.locations,
   };
   return {
