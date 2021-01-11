@@ -54,7 +54,7 @@ class UpdateSiteDispatchModal extends Component {
             }
           />
         </FormRow>
-        {this.props.siteDispatch.activeItem.serviceType === "Fabrication" && (
+        {this.props.siteDispatch.activeItem.serviceTypeId === 1 && (
           <>
             <FormRow>
               <TextInput
@@ -82,7 +82,7 @@ class UpdateSiteDispatchModal extends Component {
             </FormRow>
           </>
         )}
-        {this.props.siteDispatch.activeItem.serviceType === "Outsourcing" && (
+        {this.props.siteDispatch.activeItem.serviceTypeId === 2 && (
           <>
             <FormRow>
               <TextInput
