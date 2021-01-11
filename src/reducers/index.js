@@ -23,6 +23,7 @@ import assignStructureReducer from './assignStructureReducer';
 import structCompReducer from "./structCompReducer";
 import authReducer from "./authReducer";
 import surplusReducer from './surplusReducer';
+import scrapReducer from './scrapReducer';
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -39,7 +40,8 @@ const rootReducer = combineReducers({
   assignStructure: assignStructureReducer,
   scr: structCompReducer,
   auth: authReducer,
-  surplus: surplusReducer
+  surplus: surplusReducer,
+  scrap: scrapReducer
 });
 
 export default rootReducer;
