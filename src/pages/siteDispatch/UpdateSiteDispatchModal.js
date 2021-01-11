@@ -26,7 +26,13 @@ class UpdateSiteDispatchModal extends Component {
       <Modal
         title="Update Site Dispatch"
         showModal={this.props.showModal}
-        handleSave={this.props.updateSiteDispatch}
+        handleSave={() => {
+          this.props.siteDispatch.workOrderNumber !== "" &&
+          this.props.siteDispatch.dispatchDate !== "" &&
+          this.props.siteDispatch.structureId !== ""
+            ? this.props.updateSiteDispatch()
+            : alert("Fill all the fields");
+        }}
         handleClose={this.props.closeUpdateSiteDispatchModal}
         size="lg"
         isShowFooter={true}
