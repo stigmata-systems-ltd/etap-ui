@@ -7,15 +7,15 @@ import Modal from "../../common/Modal";
 import Button from "../../common/forms/Button";
 import { transformDropDownData } from "../../utils/dataTransformer";
 import FaIcon from "../../common/FaIcon";
-import IconTextButton from '../../common/forms/IconTextButton';
-import IconButton from '../../common/forms/IconButton';
+import IconTextButton from "../../common/forms/IconTextButton";
+import IconButton from "../../common/forms/IconButton";
 
 class AddProjModal extends Component {
   render() {
     return (
       <Modal
         title={`${
-          this.props.proj.isEditMode ? "Update" : "Create New"
+          this.props.proj.isEditMode ? "Update" : "Add New"
         } Project`}
         showModal={this.props.proj.showAddProjModal}
         handleSave={
@@ -33,20 +33,8 @@ class AddProjModal extends Component {
             name="PROJECT_NAME"
             id="projectName"
             value={this.props.proj.projectName}
+            onChange={(e) => this.props.handleChangeProjectName(e.target.value)}
           />
-          <SearchableDropDown
-            label="Segment"
-            name="segment"
-            selectOptions={transformDropDownData(
-              this.props.proj.segmentList,
-              "id",
-              "name"
-            )}
-            onChange={(obj) => this.props.handleChangeSegment(obj)}
-            value={this.props.proj.selectedSegment}
-          />
-        </FormRow>
-        <FormRow>
           <TextInput
             label="Area"
             name="area"
@@ -54,16 +42,17 @@ class AddProjModal extends Component {
             onChange={(e) => this.props.handleChangeArea(e.target.value)}
             value={this.props.proj.area}
           />
-          <SearchableDropDown
-            label="Business Unit"
-            name="businessUnit"
-            selectOptions={transformDropDownData(
-              this.props.proj.buList,
-              "id",
-              "name"
-            )}
-            onChange={(obj) => this.props.handleChangeBusinessUnit(obj)}
-            value={this.props.proj.businessUnit}
+        </FormRow>
+        <FormRow>
+          <TextInput
+            label="Job Code"
+            value={this.props.proj.jobCode}
+            onChange={(e) => this.props.handleChangeJobCode(e.target.value)}
+          />
+          <TextInput
+            label="EDRC Code"
+            value={this.props.proj.edrcCode}
+            onChange={(e) => this.props.handleChangeEdrcCode(e.target.value)}
           />
         </FormRow>
         <FormRow>
@@ -79,15 +68,26 @@ class AddProjModal extends Component {
             onChange={(obj) => this.props.handleChangeIndependentCompany(obj)}
             value={this.props.proj.independentCompany}
           />
+          <SearchableDropDown
+            label="Business Unit"
+            name="businessUnit"
+            selectOptions={transformDropDownData(
+              this.props.proj.buList,
+              "id",
+              "name"
+            )}
+            onChange={(obj) => this.props.handleChangeBusinessUnit(obj)}
+            value={this.props.proj.businessUnit}
+          />
         </FormRow>
         <FormRow>
-        <IconTextButton
+          <IconTextButton
             btnText="Add Location"
             onClick={this.props.addLocation}
             className="h-fit-content"
-          />  
+          />
         </FormRow>
-        <br/>
+        <br />
         <FormRow>
           {this.props.proj.locations.map((item, index) => {
             return (

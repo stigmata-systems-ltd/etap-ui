@@ -25,7 +25,8 @@ import {
     SURPLUS_DATE,
     RESET_SURPLUS_FORM,
     SURPLUS_FILE,
-    SURPLUS_STRUCTURE_FAMILY
+    SURPLUS_STRUCTURE_FAMILY,
+    SURPLUS_STRUCTURE_CODE
 } from '../../actions/types';
 import AddSurplus from '../../pages/surplus/AddSurplus';
 import {getProjectList,getWBSList,addSurplus,getProjectStructureData,getSurplus} from '../../actions/surplusAction';
@@ -69,6 +70,12 @@ const mapDispatchToProps = dispatch => {
             let structFamilyName = surplus.structureProjectList.filter((ele) => {
                 return (ele.projectId === surplus.projectName.value && ele.structureId === value.value) 
               }).map((ele) => {return ele.strcutureTypeName});
+              let structureCode = "";
+              surplus.structureProjectList.map(dt => {
+                if(dt.structureId === value.value) {
+                    structureCode = dt.structureCode
+                }
+              })
             dispatch({
                 type: SURPLUS_STRUCTURE_ID,
                 payload: value,
@@ -76,6 +83,10 @@ const mapDispatchToProps = dispatch => {
             dispatch({
                 type: SURPLUS_STRUCTURE_FAMILY,
                 payload: value,
+            });
+            dispatch({
+                type: SURPLUS_STRUCTURE_CODE,
+                payload: structureCode,
             });
             
         },

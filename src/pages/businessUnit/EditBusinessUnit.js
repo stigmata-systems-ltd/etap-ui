@@ -34,14 +34,14 @@ class EditBusinessUnit extends Component {
         {this.props.isLoading && <Loader />}
         <FormRow>
           <SearchableDropDown
-            label="IC Codes"
+            label="IC Name"
             name="icCodes"
             selectOptions={transformDropDownData(this.props.businessUnit.icCodeList, "id", "name")}
             onChange={(obj) => this.props.handleChangeICCode(obj)}
             value={this.props.businessUnit.icCode}
             />
             <TextInput
-            label="Business Unit Name"
+            label="BU Name"
             name="Business Unit Name"
             id="businessUnitName"
             onChange={(e) => this.props.handleChangeBusinessUnit(e.target.value)}

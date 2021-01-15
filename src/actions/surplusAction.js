@@ -2,7 +2,7 @@ import store from '../store';
 import axios from 'axios';
 import config from '../config';
 import { GET_SURPLUS_DATA_SINGLE,ACTION_SURPLUS,SURPLUS_APPROVAL_LIST,ADD_SURPLUS,LIST_PROJECT_CODES, LIST_WBS_CODES,SITE_REQUIRMENT_LIST,ADD_REQUIREMENT,SURPLUS_LIST_STRUCTURE_PROJECT_DATA } from "./types";
-
+import { getUserDetails } from "../utils/auth";
 
 export const getProjectList = () => {
     return {
@@ -43,8 +43,7 @@ export const getProjectStructureData = () => {
 }
 
 export const getSurplus = () => {
-    let auth = store.getState().auth;
-    const ROLE_NAME=auth.token.roleName;
+    const ROLE_NAME= getUserDetails().roleName;
     return {
         type: SURPLUS_APPROVAL_LIST,
         payload: axios.get(config.BASE_URL + '/api/surplus/getsurplus?role_name='+ROLE_NAME)
@@ -52,14 +51,13 @@ export const getSurplus = () => {
 }
 
 export const surplusAction = (id,action) => {
-    let auth = store.getState().auth;
-    const ROLE_NAME=auth.token.roleName;
+    const ROLE_NAME= getUserDetails().roleName;
     let surplusList = store.getState().surplus.surplusList;
     let singleSurplus=surplusList[id];
       const body={
             "siteReqId": singleSurplus.id,
             "mode": action,
-            "role_name": auth.token.roleName,
+            "role_name": ROLE_NAME,
           }
       
     return {
@@ -72,7 +70,6 @@ export const surplusAction = (id,action) => {
 export const singleSurplusFetch = (id) => {
     const surplus = store.getState().surplus;
     const data=surplus.surplusList[id];
-      console.log(`Single Requirement Data: ${JSON.stringify(data)}`)
       return {
         type: GET_SURPLUS_DATA_SINGLE,
         payload: data,

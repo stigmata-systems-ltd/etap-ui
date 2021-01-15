@@ -23,6 +23,7 @@ import assignStructureReducer from "./assignStructureReducer";
 import structCompReducer from "./structCompReducer";
 import authReducer from "./authReducer";
 import surplusReducer from "./surplusReducer";
+import scrapReducer from "./scrapReducer";
 import siteDispatchReducer from "./siteDispatchReducer";
 
 const rootReducer = combineReducers({
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
   scr: structCompReducer,
   auth: authReducer,
   surplus: surplusReducer,
+  scrap: scrapReducer,
   siteDispatch: siteDispatchReducer,
 });
 

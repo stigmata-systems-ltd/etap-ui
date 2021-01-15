@@ -16,6 +16,8 @@ import {
   RESET_PROJECT_FORM,
   SHOW_ERR_MSG,
   ADD_LOCATION_FIELD,
+  JOB_CODE,
+  EDRC_CODE,
 } from "../actions/types";
 
 import { getSelectedValue } from "../utils/dataTransformer";
@@ -37,6 +39,8 @@ const initialState = {
   icList: [],
   selectedProjId: "",
   locations: [],
+  jobCode: "",
+  edrcCode: "",
 };
 
 export default function (state = initialState, action) {
@@ -45,6 +49,16 @@ export default function (state = initialState, action) {
       return {
         ...state,
         projectName: action.payload,
+      };
+      case JOB_CODE:
+      return {
+        ...state,
+        jobCode: action.payload,
+      };
+      case EDRC_CODE:
+      return {
+        ...state,
+        edrcCode: action.payload,
       };
     case ON_CHANGE_SEGMENT:
       return {
@@ -124,6 +138,8 @@ export default function (state = initialState, action) {
         isLoading: false,
         projectName: proj.name,
         projCode: proj.projCode,
+        jobCode: proj.jobCode,
+        edrcCode: proj.edrcCode,
         selectedSegment: getSelectedValue(state.segmentList, proj.segmentId),
         businessUnit: getSelectedValue(state.buList, proj.buId),
         independentCompany: getSelectedValue(state.icList, proj.icId),
@@ -193,6 +209,8 @@ export default function (state = initialState, action) {
         isEditMode: false,
         selectedProjId: "",
         locations: [],
+        jobCode: "",
+        edrcCode: "",
       };
     case SHOW_ERR_MSG:
       return {

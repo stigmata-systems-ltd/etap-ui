@@ -35,7 +35,7 @@ class ViewStructureFamily extends Component {
           />
         )}
         <AddStructureFamily showAddStructureFamilyModal={this.props.structureFamily.showAddStructureFamilyModal} />
-        <FormContainer formTitle={"Structure Family List"}>
+        <FormContainer formTitle={"Structure Family Management"}>
           {this.props.structureFamily.structureFamilyTypeList && (
             <CustomDataTable
               metaData={structureFamilyMetaData(

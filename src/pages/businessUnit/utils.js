@@ -4,31 +4,31 @@ import IconButton from '../../common/forms/IconButton';
 
 export const businessUnitMetaData = (handleDelete, handleEdit) => {
   return [
+    // {
+    //   sortable: false,
+    //   cell: row => {
+    //     return (
+    //       <>
+    //         { (
+    //           <IconButton
+    //             iconName="faTimes"
+    //             className={'table-delete-icon'}
+    //             onClick={() => handleDelete(row.id)}
+    //           />
+    //         )}
+    //       </>
+    //     );
+    //   },
+    //   width: '2%',
+    // },
     {
-      sortable: false,
-      cell: row => {
-        return (
-          <>
-            { (
-              <IconButton
-                iconName="faTimes"
-                className={'table-delete-icon'}
-                onClick={() => handleDelete(row.id)}
-              />
-            )}
-          </>
-        );
-      },
-      width: '2%',
-    },
-    {
-      name: 'Business Unit',
+      name: 'BU Name',
       selector: 'businessUnit',
       sortable: false,
     },
     {
-      name: 'IC ID',
-      selector: 'icId',
+      name: 'IC Name',
+      selector: 'icName',
       sortable: false,
     },
     {
@@ -64,7 +64,7 @@ export const businessUnitBodyData = businessUnitList => {
       let tmpObj = {
         id: i,
         businessUnit: businessUnit.name,
-        icId: businessUnit.icId,
+        icName: businessUnit.icName,
       };
       tmpArr.push(tmpObj);
     });

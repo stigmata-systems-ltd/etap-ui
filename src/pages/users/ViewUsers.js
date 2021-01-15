@@ -46,7 +46,7 @@ class ViewUsers extends Component {
           />
         )}
         <AddUser showAddComponentModal={this.props.users.showAddUsersModal} />
-        <FormContainer formTitle={"Users List"}>
+        <FormContainer formTitle={"Users Management"}>
           {this.props.users.usersList && (
             <CustomDataTable
               metaData={listUsersMetaData(
@@ -68,7 +68,7 @@ class ViewUsers extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By Username"
+                    placeholder="Search By PS No"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&

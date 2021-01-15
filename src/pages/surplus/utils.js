@@ -48,7 +48,7 @@ export const listViewSurplusMetaData = (
   ) => {
     return [
       {
-        name: "Site Req Id",
+        name: "Project",
         selector: "siteReqId",
         sortable: false,
       },

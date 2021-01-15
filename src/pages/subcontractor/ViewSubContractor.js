@@ -47,7 +47,7 @@ class ViewSubContractor extends Component {
                         />
                     )}
                     <AddSubContractor {...this.props} />
-                    <FormContainer formTitle={"Vendors List"}>
+                    <FormContainer formTitle={"Vendor Management"}>
                         {this.props.vendor.vendorList && (
                             <CustomDataTable
                                 metaData={listVendorMetaData(
@@ -66,14 +66,7 @@ class ViewSubContractor extends Component {
                                 subHeader
                                 subHeaderComponent={
                                     <>
-                                        <SimpleDropDown
-                                           
-                                            label="Vendor Type"
-                                            name="vendorType"
-                                            id="vendorType"
-                                            onChange={(e) => this.props.handleChangeVendorType(e.target.value)}
-                                            value={this.props.vendor.vendorType}
-                                        />
+                                    
                                         <Col6>
 
                                             <Button

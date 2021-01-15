@@ -50,6 +50,7 @@ import ViewAssignComponent from "./container/assignStructure/viewAssignComponent
 import AddSurplus from "./container/surplus/addSurplus";
 import { setRespInterceptor, setAuthHeader } from "./utils/auth";
 import Login from "./container/login/login";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 const ViewProject = React.lazy(() =>
   import("./container/project/viewProjectContainer")
