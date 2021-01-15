@@ -137,6 +137,11 @@ export const metaDataNavbar = [
         navText: "View Surplus",
         route: "/requirementRequest/viewSurplus",
       },
+      {
+        id: "requirementRequestSub" + 8,
+        navText: "Site Dispatch",
+        route: "/requirementRequest/siteDispatch",
+      },
     ],
   },
   {
