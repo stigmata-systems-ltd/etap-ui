@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
-import CustomAlert from "../../common/forms/customAlert";
 import Modal from "../../common/Modal";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
-import CheckBox from "../../common/forms/CheckBox";
 import Label from "../../common/forms/Label";
 import DateInput from "../../common/forms/DateInput";
 import FileInput from "../../common/forms/FileInput";
@@ -28,7 +26,13 @@ class UpdateSiteDispatchModal extends Component {
       <Modal
         title="Update Site Dispatch"
         showModal={this.props.showModal}
-        handleSave={this.props.updateSiteDispatch}
+        handleSave={() => {
+          this.props.siteDispatch.workOrderNumber !== "" &&
+          this.props.siteDispatch.dispatchDate !== "" &&
+          this.props.siteDispatch.structureId !== ""
+            ? this.props.updateSiteDispatch()
+            : alert("Fill all the fields");
+        }}
         handleClose={this.props.closeUpdateSiteDispatchModal}
         size="lg"
         isShowFooter={true}
@@ -46,7 +50,6 @@ class UpdateSiteDispatchModal extends Component {
             onChange={(item) =>
               this.props.handleChangeStructureName(item.value)
             }
-            // value={this.props.siteDispatch.structureListCode[0]}
           />
           <DateInput
             label="Dispatch Date"
@@ -55,17 +58,15 @@ class UpdateSiteDispatchModal extends Component {
             onChange={(e) =>
               this.props.handleChangeDispatchDate(e.target.value)
             }
-            // value="jsdfjhbhjbsdfg"
           />
         </FormRow>
-        {this.props.siteDispatch.activeItem.serviceType === "Fabrication" && (
+        {this.props.siteDispatch.activeItem.serviceTypeId === 1 && (
           <>
             <FormRow>
               <TextInput
                 label="Fabrication Cost"
                 name="fabricationCost"
                 id="fabricationCost"
-                // onChange={(e) => this.props.handleChangeVendorEmail(e.target.value)}
                 value={
                   this.props.siteDispatch.activeItem.fabricationCost
                     ? this.props.siteDispatch.activeItem.fabricationCost
@@ -80,7 +81,6 @@ class UpdateSiteDispatchModal extends Component {
                 onChange={(e) =>
                   this.props.handleChangeWorkOrderNumber(e.target.value)
                 }
-                // value={this.props.siteDispatch.workOrderNumber}
               />
             </FormRow>
             <FormRow>
@@ -88,14 +88,13 @@ class UpdateSiteDispatchModal extends Component {
             </FormRow>
           </>
         )}
-        {this.props.siteDispatch.activeItem.serviceType === "Outsourcing" && (
+        {this.props.siteDispatch.activeItem.serviceTypeId === 2 && (
           <>
             <FormRow>
               <TextInput
                 label="Monthly Rent"
                 name="monthlyRent"
                 id="monthlyRent"
-                // onChange={(e) => this.props.handleChangeVendorEmail(e.target.value)}
                 value={
                   this.props.siteDispatch.activeItem.monthlyRent
                     ? this.props.siteDispatch.activeItem.monthlyRent
@@ -108,7 +107,6 @@ class UpdateSiteDispatchModal extends Component {
                 label="Contract Years"
                 name="contractYears"
                 id="contractYears"
-                // onChange={(e) => this.props.handleChangeVendorEmail(e.target.value)}
                 value={
                   this.props.siteDispatch.activeItem.contractYears
                     ? this.props.siteDispatch.activeItem.contractYears
@@ -122,7 +120,6 @@ class UpdateSiteDispatchModal extends Component {
                 label="Plan Release Date"
                 name="planReleaseDate"
                 id="planReleaseDate"
-                // onChange={(e) => this.props.handleChangeVendorEmail(e.target.value)}
                 value={
                   this.props.siteDispatch.activeItem.planReleaseDate
                     ? this.props.siteDispatch.activeItem.planReleaseDate

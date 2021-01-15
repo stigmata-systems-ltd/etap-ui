@@ -14,7 +14,6 @@ import {
   GET_SURPLUS_DATA_SINGLE,
   VIEW_SURPLUS_MORE_PAGE,
   SURPLUS_STRUCTURE_CODE,
-  SCRAP_VENDOR
 } from "../actions/types";
 
 const initialState = {
@@ -27,7 +26,6 @@ const initialState = {
   projectID: {},
   structureFamily: "",
   surplusViewMore: [],
-  vendor: {}
 };
 
 export default function (state = initialState, action) {
@@ -51,11 +49,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         surplusFile: action.payload,
-      };
-    case SCRAP_VENDOR:
-      return {
-        ...state,
-        vendor: action.payload
       };
     case SURPLUS_PROJECT_ID:
       return {

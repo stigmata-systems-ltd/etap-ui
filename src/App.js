@@ -74,6 +74,7 @@ class App extends Component {
           <Suspense fallback={<div>Loading...</div>}>
             <Route exact path="/" component={Login}></Route>
             <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/dashboard" component={Dashboard}></Route>
             <Route
               exact
               path="/masters/addComponent"
@@ -137,13 +138,23 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/structure/viewStructure"
+              path="/masters/viewStructure"
               component={ViewStructure}
             ></Route>
             <Route
               exact
-              path="/structure/viewComponent"
+              path="/masters/viewComponent"
               component={ViewComponent}
+            ></Route>
+            <Route
+              exact
+              path="/structure/viewStructure"
+              component={ViewAssignStructure}
+            ></Route>
+            <Route
+              exact
+              path="/structure/viewComponent"
+              component={ViewAssignComponent}
             ></Route>
             <Route
               exact
@@ -164,11 +175,6 @@ class App extends Component {
               exact
               path="/requirementRequest/viewSurplus"
               component={ViewSurplus}
-            ></Route>
-            <Route
-              exact
-              path="/requirementRequest/siteDispatch"
-              component={SiteDispatch}
             ></Route>
             <Route
               exact
@@ -237,6 +243,44 @@ class App extends Component {
               exact
               path="/modification/cmpcModification"
               component={CmpcModification}
+            ></Route>
+            <Route
+              exact
+              path="/outsourcing/outSourcing"
+              component={OutSourcing}
+            ></Route>
+            <Route
+              exact
+              path="/outsourcing/siteApproval"
+              component={SiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/transferPrice"
+              component={TransferPrice}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/initiatingReuse"
+              component={InitiatingReuse}
+            ></Route>
+            <Route exact path="/reuse/reuse" component={Reuse}></Route>
+
+            <Route exact path="/scrap/scrap" component={Scrap}></Route>
+            <Route
+              exact
+              path="/modification/structureModification"
+              component={StructureModification}
+            ></Route>
+            <Route
+              exact
+              path="/modification/cmpcModification"
+              component={CmpcModification}
+            ></Route>
+            <Route
+              exact
+              path="/requirementRequest/siteDispatch"
+              component={SiteDispatch}
             ></Route>
             <Route
               exact
