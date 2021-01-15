@@ -208,69 +208,6 @@ export const metaDataNavbar = [
     ],
   },
   {
-    id: "10",
-    navText: "Dispatch management",
-    iconName: "faTruck",
-    hasSubNav: true,
-    isSubNavOpen: false,
-    route: "/dispatch",
-    hasMargin: true,
-    subNavs: [
-      {
-        id: "dispatch" + 1,
-        navText: "Dispatch",
-        route: "/requirementRequest/addRequirements",
-      },
-    ],
-  },
-  {
-    id: "11",
-    navText: "Fabrication management",
-    iconName: "faObjectGroup",
-    hasSubNav: true,
-    isSubNavOpen: false,
-    route: "/fab",
-    hasMargin: true,
-    subNavs: [
-      {
-        id: "fab" + 1,
-        navText: "As built details",
-        route: "/requirementRequest/addRequirements",
-      },
-      {
-        id: "fab" + 2,
-        navText: "Modification management",
-        route: "/requirementRequest/addRequirements",
-      },
-    ],
-  },
-  {
-    id: "12",
-    navText: "Cost management",
-    iconName: "faFileArchive",
-    hasSubNav: true,
-    isSubNavOpen: false,
-    route: "/cost",
-    hasMargin: true,
-    subNavs: [
-      {
-        id: "cost" + 1,
-        navText: "Actual fabrication cost",
-        route: "/requirementRequest/addRequirements",
-      },
-      {
-        id: "cost" + 2,
-        navText: "Hire charges details",
-        route: "/requirementRequest/addRequirements",
-      },
-      {
-        id: "cost" + 3,
-        navText: "Depreciation management",
-        route: "/requirementRequest/addRequirements",
-      },
-    ],
-  },
-  {
     id: "13",
     navText: "Life cycle management",
     iconName: "faRandom",

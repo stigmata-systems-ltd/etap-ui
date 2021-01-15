@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import FaIcon from '../../common/FaIcon';
-import IconButton from '../../common/forms/IconButton';
+import React, { Component } from "react";
+import IconButton from "../../common/forms/IconButton";
 
 class AddAttributes extends Component {
   render() {
@@ -13,7 +12,7 @@ class AddAttributes extends Component {
             placeholder="Name"
             name={this.props.index}
             id={this.props.index}
-            onChange={e => this.props.onNameChange(e, this.props.index)}
+            onChange={(e) => this.props.onNameChange(e, this.props.index)}
             value={this.props.nameValue}
           />
         </div>
@@ -24,7 +23,9 @@ class AddAttributes extends Component {
             placeholder="TypeOfInput"
             name={this.props.index}
             id={this.props.index}
-            onChange={e => this.props.onTypeOfInputChange(e, this.props.index)}
+            onChange={(e) =>
+              this.props.onTypeOfInputChange(e, this.props.index)
+            }
             value={this.props.typeOfInputValue}
           />
         </div>
@@ -35,7 +36,7 @@ class AddAttributes extends Component {
             placeholder="UoM"
             name={this.props.index}
             id={this.props.index}
-            onChange={e => this.props.onUoMChange(e, this.props.index)}
+            onChange={(e) => this.props.onUoMChange(e, this.props.index)}
             value={this.props.uomValue}
           />
         </div>
