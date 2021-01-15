@@ -24,11 +24,7 @@ class AddStructure extends Component {
             ? this.props.updateStructure
             : this.props.addStructure
         }
-        handleClose={
-          this.props.structure.isEditMode
-            ? this.props.closeAddStructureModal
-            : this.props.closeAddStructureModal
-        }
+        handleClose={this.props.closeAddStructureModal}
         size="lg"
         isShowFooter={true}
       >

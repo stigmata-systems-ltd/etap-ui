@@ -54,6 +54,8 @@ class AddWorkBreak extends Component {
               <SearchableDropDown
                 label="Project Name"
                 name="projectName"
+                labelSize="mx-2"
+                fieldSize="col-md-6"
                 selectOptions={transformDropDownData(
                   this.props.wbs.projectCodesList,
                   "id",
