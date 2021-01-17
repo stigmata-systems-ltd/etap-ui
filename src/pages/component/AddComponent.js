@@ -5,7 +5,7 @@ import SimpleDropDown from "../../common/forms/SimpleDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
 import { transformUserRoles } from "./utils";
-
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
 class CreateUser extends Component {
   constructor(props) {
     super(props);
@@ -43,10 +43,17 @@ class CreateUser extends Component {
             onChange={(e) => this.props.handleChangeComponentType(e.target.value)}
             value={this.props.component.componentType}
           />
-          <SimpleDropDown
+          {/* <SimpleDropDown
             label="Status"
             selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
             onChange={(e) => this.props.handleComponentTypeStatus(e.target.value)}
+            value={this.props.component.componentTypeStatus}
+          /> */}
+          <SearchableDropDown
+            label="Status"
+            name="status"
+            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
+            onChange={(obj) => this.props.handleComponentTypeStatus(obj)}
             value={this.props.component.componentTypeStatus}
           />
         </FormRow>

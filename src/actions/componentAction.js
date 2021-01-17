@@ -17,7 +17,10 @@ export const addComponent = () => {
 }
 export const updateComponentType = (id) => {
     const {componentTypeID,componentType,componentTypeStatus} = store.getState().component;
-    const status=(componentTypeStatus==="InActive")?false:true
+    const status=(componentTypeStatus.id==="InActive")?false:true
+    console.log("++++++++++++")
+    console.log(`component type status: ${status}`)
+    console.log("++++++++++++")
       const body={
           id:componentTypeID,
           name: componentType,

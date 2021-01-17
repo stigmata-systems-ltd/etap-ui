@@ -5,7 +5,7 @@ import IconButton from '../../common/forms/IconButton';
 export const listProjectMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        name: 'Name',
+        name: 'Project',
         selector: 'name',
         sortable: false,
       },
