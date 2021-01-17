@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import { Alert } from 'react-bootstrap';
-import { Alert } from 'reactstrap';
-import store from '../../store';
+import { Alert } from "reactstrap";
+import store from "../../store";
 class customAlert extends Component {
   constructor(props) {
     super(props);
@@ -13,27 +13,27 @@ class customAlert extends Component {
     this.setState({ visible: true }, () => {
       window.setTimeout(() => {
         this.setState({ visible: false });
-        const scr = store.getState().scr;
-        const grid = store.getState().grid;
-        const client = store.getState().client;
-        const roles = store.getState().roles;
-        const pm = store.getState().pm;
-        const user = store.getState().user;
-        scr.message = '';
-        scr.editSubContractor.message = '';
-        scr.deleteSubContractor.message = '';
-        grid.gridAdd.message = '';
-        grid.deleteGrid.message = '';
-        grid.editGrid.message = '';
-        grid.cgAdd.message = '';
-        grid.gridAdd.layerUpdateMsg = '';
-        client.isSuccess = false;
-        client.isError = false;
-        client.message = '';
-        roles.updatePage.message = '';
-        pm.approveLayer.message = '';
-        user.isAddUserMsg = false;
-        user.profileMessage = "";
+        // const scr = store.getState().scr;
+        // const grid = store.getState().grid;
+        // const client = store.getState().client;
+        // const roles = store.getState().roles;
+        // const pm = store.getState().pm;
+        // const user = store.getState().user;
+        // scr.message = '';
+        // scr.editSubContractor.message = '';
+        // scr.deleteSubContractor.message = '';
+        // grid.gridAdd.message = '';
+        // grid.deleteGrid.message = '';
+        // grid.editGrid.message = '';
+        // grid.cgAdd.message = '';
+        // grid.gridAdd.layerUpdateMsg = '';
+        // client.isSuccess = false;
+        // client.isError = false;
+        // client.message = '';
+        // roles.updatePage.message = '';
+        // pm.approveLayer.message = '';
+        // user.isAddUserMsg = false;
+        // user.profileMessage = "";
       }, 5000);
     });
   }

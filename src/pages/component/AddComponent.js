@@ -10,15 +10,12 @@ class CreateUser extends Component {
   constructor(props) {
     super(props);
   }
-
-//   componentDidMount() {
-//     this.props.getUserRoles();
-//   }
-
   render() {
     return (
       <Modal
-        title={`${this.props.component.isEditMode ? "Update" : "Create New"} Component`}
+        title={`${
+          this.props.component.isEditMode ? "Update" : "Create New"
+        } Component`}
         showModal={this.props.showAddComponentModal}
         handleSave={
           this.props.component.isEditMode
@@ -33,20 +30,30 @@ class CreateUser extends Component {
         size="lg"
         isShowFooter={true}
       >
-        {console.log("isLoading",this.props.isLoading)}
         {this.props.isLoading && <Loader />}
         <FormRow>
           <TextInput
             label="Component Type"
             name="componentType"
             id="componentType"
-            onChange={(e) => this.props.handleChangeComponentType(e.target.value)}
+            labelSize="col-md-5 text-right"
+            fieldSize="col-md-6"
+            onChange={(e) =>
+              this.props.handleChangeComponentType(e.target.value)
+            }
             value={this.props.component.componentType}
           />
           {/* <SimpleDropDown
             label="Status"
-            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
-            onChange={(e) => this.props.handleComponentTypeStatus(e.target.value)}
+            labelSize="col-md-3 text-right"
+            fieldSize="col-md-6"
+            selectOptions={[
+              { id: "Active", label: "Active" },
+              { id: "InActive", label: "InActive" },
+            ]}
+            onChange={(e) =>
+              this.props.handleComponentTypeStatus(e.target.value)
+            }
             value={this.props.component.componentTypeStatus}
           /> */}
           <SearchableDropDown
@@ -57,7 +64,7 @@ class CreateUser extends Component {
             value={this.props.component.componentTypeStatus}
           />
         </FormRow>
-        
+
         {this.props.component.isModalMsg && (
           <p className="text-danger">{this.props.component.message}</p>
         )}

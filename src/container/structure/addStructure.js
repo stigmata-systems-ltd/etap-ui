@@ -1,22 +1,29 @@
-import { connect } from 'react-redux';
-import AddStructure from '../../pages/structure/AddStructure';
-import store from '../../store';
-import {addAttribute,addStructure,structureList,updateStructure,structureFamilyList} from '../../actions/structureAction';
+import { connect } from "react-redux";
+import AddStructure from "../../pages/structure/AddStructure";
+import store from "../../store";
+import {
+  addAttribute,
+  addStructure,
+  structureList,
+  updateStructure,
+  structureFamilyList,
+} from "../../actions/structureAction";
 import {
   STRUCTURE_NAME,
   RESET_STRUCTURE_FORM,
   STRUCTURE_FAMILY,
   NUMBER_OF_ATTRIBUTES,
   CHANGE_ADD_STRUCTURE_MODAL_STATUS,
-  STRUCTURE_ATTRIBUTE_LIST
-} from '../../actions/types';
+  STRUCTURE_ATTRIBUTE_LIST,
+  STRUCTURE_EDIT_PAGE,
+} from "../../actions/types";
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     resetStructureData() {
       dispatch({ type: RESET_STRUCTURE_FORM });
     },
-    structureFamilyList(){
+    structureFamilyList() {
       dispatch(structureFamilyList());
     },
     handleChangeStructureName(value) {
@@ -37,13 +44,20 @@ const mapDispatchToProps = dispatch => {
         payload: value,
       });
     },
-    closeAddStructureModal(){
+    closeAddStructureModal() {
+      dispatch({
+        type: STRUCTURE_EDIT_PAGE,
+        payload: false,
+      });
       dispatch({
         type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
         payload: false,
-      })
+      });
+      dispatch({
+        type: RESET_STRUCTURE_FORM,
+      });
     },
-    onNameChange(value,i){
+    onNameChange(value, i) {
       const structure = store.getState().structure;
       const length = structure.attributeList.length;
       structure.attributeList[i].name = value;
@@ -52,7 +66,7 @@ const mapDispatchToProps = dispatch => {
         payload: structure.attributeList,
       });
     },
-    onTypeOfInputChange(value,i){
+    onTypeOfInputChange(value, i) {
       const structure = store.getState().structure;
       const length = structure.attributeList.length;
       structure.attributeList[i].typeOfInput = value;
@@ -61,7 +75,7 @@ const mapDispatchToProps = dispatch => {
         payload: structure.attributeList,
       });
     },
-    onUoMChange(value,i){
+    onUoMChange(value, i) {
       const structure = store.getState().structure;
       const length = structure.attributeList.length;
       structure.attributeList[i].uom = value;
@@ -70,7 +84,7 @@ const mapDispatchToProps = dispatch => {
         payload: structure.attributeList,
       });
     },
-    onAttributeRemove(i){
+    onAttributeRemove(i) {
       const structure = store.getState().structure;
       const attributeList = [...structure.attributeList];
       attributeList.splice(i, 1);
@@ -79,37 +93,37 @@ const mapDispatchToProps = dispatch => {
         payload: attributeList,
       });
     },
-    addAttribute(){
+    addAttribute() {
       dispatch(addAttribute());
     },
-    addStructure(){
+    addStructure() {
       dispatch(addStructure()).then(() => {
         dispatch({
           type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
           payload: false,
         });
         dispatch({
-          type: RESET_STRUCTURE_FORM
+          type: RESET_STRUCTURE_FORM,
         });
         dispatch(structureList());
       });
     },
-    updateStructure(){
+    updateStructure() {
       dispatch(updateStructure()).then(() => {
         dispatch({
           type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
           payload: false,
         });
         dispatch({
-          type: RESET_STRUCTURE_FORM
+          type: RESET_STRUCTURE_FORM,
         });
         dispatch(structureList());
       });
-    }
+    },
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const structure = store.getState().structure;
   return {
     structure,

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
-import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
-import { structureFamilyRoles } from "./utils";
 import SimpleDropDown from "../../common/forms/SearchableDropDown";
 
 class AddStructureFamily extends Component {
@@ -12,14 +10,12 @@ class AddStructureFamily extends Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   this.props.addStructureFamily();
-  // }
-
   render() {
     return (
       <Modal
-        title={`${this.props.structureFamily.isEditMode ? "Update" : "Create New"} Structure Family`}
+        title={`${
+          this.props.structureFamily.isEditMode ? "Update" : "Create New"
+        } Structure Family`}
         showModal={this.props.showAddStructureFamilyModal}
         handleSave={
           this.props.structureFamily.isEditMode
@@ -34,27 +30,32 @@ class AddStructureFamily extends Component {
         size="lg"
         isShowFooter={true}
       >
-        {console.log("isLoading", this.props.isLoading)}
         {this.props.isLoading && <Loader />}
         <FormRow>
           <TextInput
             label="Structure Family"
             name="structureFamily"
             id="structureFamily"
-            onChange={(e) => this.props.handleChangeStructureFamilyType(e.target.value)}
+            labelSize="col-md-5 text-right"
+            fieldSize="col-md-6"
+            onChange={(e) =>
+              this.props.handleChangeStructureFamilyType(e.target.value)
+            }
             value={this.props.structureFamily.structureFamilyType}
           />
 
           <SimpleDropDown
             label="Status"
-            selectOptions={[{ value: 'Active', label: 'Active' }, { value: 'InActive', label: 'InActive' }]}
+            labelSize="col-md-3 text-right"
+            fieldSize="col-md-7"
+            selectOptions={[
+              { value: "Active", label: "Active" },
+              { value: "InActive", label: "InActive" },
+            ]}
             onChange={(obj) => this.props.handleStructureFamilyTypeStatus(obj)}
             value={this.props.structureFamily.structureFamilyTypeStatus}
           />
-
-
         </FormRow>
-
 
         {this.props.structureFamily.isModalMsg && (
           <p className="text-danger">{this.props.structureFamily.message}</p>

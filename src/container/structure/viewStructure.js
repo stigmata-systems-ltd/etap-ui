@@ -1,15 +1,19 @@
-import { connect } from 'react-redux';
-import store from '../../store';
-import {structureList, structureFetch,structureFamilyList} from '../../actions/structureAction';
+import { connect } from "react-redux";
+import store from "../../store";
+import {
+  structureList,
+  structureFetch,
+  structureFamilyList,
+} from "../../actions/structureAction";
 
 import {
   CHANGE_ADD_STRUCTURE_MODAL_STATUS,
   SHOW_ADD_STRUCTURE_MSG,
-  STRUCTURE_EDIT_PAGE
-} from '../../actions/types';
-import ViewStructure from '../../pages/structure/ViewStructure';
+  STRUCTURE_EDIT_PAGE,
+} from "../../actions/types";
+import ViewStructure from "../../pages/structure/ViewStructure";
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     structureList() {
       dispatch(structureList());
@@ -19,16 +23,17 @@ const mapDispatchToProps = dispatch => {
     },
     showAddStructureModal() {
       dispatch(structureFamilyList());
+
       dispatch({
         type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
         payload: true,
-      })
+      });
       dispatch({
         type: SHOW_ADD_STRUCTURE_MSG,
         payload: false,
-      })
+      });
     },
-    handleEdit(id){
+    handleEdit(id) {
       dispatch(structureFamilyList());
       dispatch(structureFetch(id)).then(() => {
         dispatch({
@@ -38,13 +43,13 @@ const mapDispatchToProps = dispatch => {
         dispatch({
           type: CHANGE_ADD_STRUCTURE_MODAL_STATUS,
           payload: true,
-        })
+        });
       });
     },
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const structure = store.getState().structure;
   return {
     structure,

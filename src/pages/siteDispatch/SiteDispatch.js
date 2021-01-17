@@ -5,10 +5,10 @@ import FormContainer from "../../common/forms/FormContainer";
 import Loader from "../../common/Loader";
 import { siteDispatchMetaData } from "./utils";
 import ConfirmModal from "../../common/ConfirmModal";
-import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
-import AssignVendorModal from "./AssignVendorModal";
-class Procurement extends Component {
+import UpdateSiteDispatchModal from "./UpdateSiteDispatchModal";
+
+class SiteDispatch extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,7 +17,7 @@ class Procurement extends Component {
   }
 
   showModal = (id) => {
-    if (this.props.procurement.showEditModalFlag) {
+    if (this.props.siteDispatch.showEditModalFlag) {
       this.props.setActiveItem(id);
       this.props.showUpdateSiteDispatchModal(id);
     } else {
@@ -29,29 +29,29 @@ class Procurement extends Component {
     return (
       <>
         <ContentLoader>
-          {this.props.procurement.isLoading && <Loader />}
-          {this.props.procurement.message && (
+          {this.props.siteDispatch.isLoading && <Loader />}
+          {/* {this.props.siteDispatch.message && (
             <CustomAlert
-              variant={this.props.procurement.isSuccess ? "success" : "danger"}
-              message={this.props.procurement.message}
+              variant={this.props.siteDispatch.isSuccess ? "success" : "danger"}
+              message={this.props.siteDispatch.message}
             />
-          )}
-          <AssignVendorModal
+          )} */}
+          <UpdateSiteDispatchModal
             {...this.props}
-            showModal={this.props.procurement.showEditModalFlag}
+            showModal={this.props.siteDispatch.showEditModalFlag}
           />
-          <FormContainer formTitle={"Procurement"}>
-            {this.props.procurement.siteDispatchDetails && (
+          <FormContainer formTitle={"Site Dispatch"}>
+            {this.props.siteDispatch.siteDispatchDetails && (
               <CustomDataTable
                 metaData={siteDispatchMetaData(
-                  this.props.showAssignVendorModal
+                  this.props.showUpdateSiteDispatchModal
                 )}
-                bodyData={this.props.procurement.siteDispatchDetails}
-                progressPending={this.props.procurement.isLoading}
+                bodyData={this.props.siteDispatch.siteDispatchDetails}
+                progressPending={this.props.siteDispatch.isLoading}
                 pagination={true}
                 paginationTotalRows={
-                  this.props.procurement.siteDispatchDetails &&
-                  this.props.procurement.siteDispatchDetails.length
+                  this.props.siteDispatch.siteDispatchDetails &&
+                  this.props.siteDispatch.siteDispatchDetails.length
                 }
                 paginationPerPage={5}
                 noHeader={true}
@@ -64,4 +64,4 @@ class Procurement extends Component {
   }
 }
 
-export default Procurement;
+export default SiteDispatch;
