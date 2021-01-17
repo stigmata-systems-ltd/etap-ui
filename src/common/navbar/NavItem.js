@@ -18,8 +18,9 @@ class NavItem extends Component {
     this.setActiveMenu(this.props.navData);
   };
   renderSubNavs = (subNavs, id) => {
-    return subNavs.map((subNav) => (
+    return subNavs.map((subNav, index) => (
       <div
+        key={index}
         class={`collapse ${
           this.state.isSubNavOpen && this.state.activeId === id && "show"
         }`}
@@ -74,8 +75,13 @@ class NavItem extends Component {
     });
   };
   render() {
-    return this.props.navData.map((navItem) => (
-      <li class={`nav-item ${this.state.activeId === navItem.id && "active"} ${navItem.hasMargin === true && "margin-fix"}`}>
+    return this.props.navData.map((navItem, index) => (
+      <li
+        key={index}
+        class={`nav-item ${this.state.activeId === navItem.id && "active"} ${
+          navItem.hasMargin === true && "margin-fix"
+        }`}
+      >
         <button
           key={navItem.id}
           class={`nav-link ${

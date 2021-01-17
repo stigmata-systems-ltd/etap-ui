@@ -18,7 +18,7 @@ class UpdateSiteDispatchModal extends Component {
     let tempArr = [];
     this.props.siteDispatch.structureListCode.map((item) => {
       tempArr.push({
-        value: item.structureId,
+        value: item.id,
         label: item.structureName,
       });
     });
@@ -84,7 +84,12 @@ class UpdateSiteDispatchModal extends Component {
               />
             </FormRow>
             <FormRow>
-              <FileInput size="col-md-6" />
+              <FileInput
+                size="col-md-6"
+                onChange={(e) =>
+                  this.props.handleChangeUploadedFile(e.target.files[0])
+                }
+              />
             </FormRow>
           </>
         )}

@@ -32,9 +32,9 @@ export const siteDispatchMetaData = (handleUpdate) => {
         return (
           <>
             <IconButton
-              id={row.dispatchRequestSubContractorId}
+              id={row.dispatchId}
               iconName="faEdit"
-              onClick={() => handleUpdate(row.dispatchRequestSubContractorId)}
+              onClick={() => handleUpdate(row.dispatchId)}
             />
             <Button btnText="View More" btnType="btn-primary btn-sm" />
           </>

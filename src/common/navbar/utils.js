@@ -196,6 +196,11 @@ export const metaDataNavbar = [
         route: "/requirementRequest/addRequirements",
       },
       {
+        id: "cost" + 4,
+        navText: "Procurement",
+        route: "/cost/procurement",
+      },
+      {
         id: "cost" + 2,
         navText: "Hire charges details",
         route: "/requirementRequest/addRequirements",

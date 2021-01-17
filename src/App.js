@@ -178,7 +178,7 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/vendor/procurement"
+              path="/cost/procurement"
               component={Procurement}
             ></Route>
             <Route

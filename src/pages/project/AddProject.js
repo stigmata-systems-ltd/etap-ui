@@ -25,6 +25,7 @@ class AddProjModal extends Component {
       >
         <FormRow>
           <TextInput
+            size="col-md-4"
             label="Project Name"
             name="PROJECT_NAME"
             id="projectName"
@@ -32,27 +33,30 @@ class AddProjModal extends Component {
             onChange={(e) => this.props.handleChangeProjectName(e.target.value)}
           />
           <TextInput
+            size="col-md-4"
             label="Area"
             name="area"
             id="area"
             onChange={(e) => this.props.handleChangeArea(e.target.value)}
             value={this.props.proj.area}
           />
-        </FormRow>
-        <FormRow>
           <TextInput
+            size="col-md-4"
             label="Job Code"
             value={this.props.proj.jobCode}
             onChange={(e) => this.props.handleChangeJobCode(e.target.value)}
           />
+        </FormRow>
+
+        <FormRow>
           <TextInput
+            size="col-md-4"
             label="EDRC Code"
             value={this.props.proj.edrcCode}
             onChange={(e) => this.props.handleChangeEdrcCode(e.target.value)}
           />
-        </FormRow>
-        <FormRow>
           <SearchableDropDown
+            size="col-md-4"
             label="Independent Company"
             name="independentCompany"
             id="independentCompany"
@@ -65,6 +69,7 @@ class AddProjModal extends Component {
             value={this.props.proj.independentCompany}
           />
           <SearchableDropDown
+            size="col-md-4"
             label="Business Unit"
             name="businessUnit"
             selectOptions={transformDropDownData(

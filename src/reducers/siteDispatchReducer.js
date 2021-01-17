@@ -70,7 +70,7 @@ export default (state = initialState, action) => {
       };
     case SET_ACTIVE_ITEM:
       const activeItem = state.siteDispatchDetails.filter((item) => {
-        return item.dispatchRequestSubContractorId === action.payload;
+        return item.dispatchId === action.payload;
       })[0];
       return { ...state, activeItem: activeItem };
     case SET_SHOW_EDIT_MODAL_FLAG:

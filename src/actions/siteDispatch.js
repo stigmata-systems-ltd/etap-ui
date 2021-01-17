@@ -18,11 +18,11 @@ export const getSiteDispatchDetails = () => {
   };
 };
 
-export const getStructureListCode = (id) => {
+export const getStructureListCode = (id, heirarchy) => {
   return {
     type: SET_STRUCTURE_LIST_CODE,
     payload: axios.get(
-      `${config.BASE_URL}/api/SiteDispatch/getStructureListCode/${id}`
+      `${config.BASE_URL}/api/SiteDispatch/getStructureListCode?dispReqId=${id}&role_hierarchy=${heirarchy}`
     ),
   };
 };

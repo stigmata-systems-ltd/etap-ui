@@ -25,6 +25,7 @@ import authReducer from "./authReducer";
 import surplusReducer from "./surplusReducer";
 import scrapReducer from "./scrapReducer";
 import siteDispatchReducer from "./siteDispatchReducer";
+import procurementReducer from "./procurementReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -44,6 +45,7 @@ const rootReducer = combineReducers({
   surplus: surplusReducer,
   scrap: scrapReducer,
   siteDispatch: siteDispatchReducer,
+  procurement: procurementReducer,
 });
 
 export default rootReducer;
