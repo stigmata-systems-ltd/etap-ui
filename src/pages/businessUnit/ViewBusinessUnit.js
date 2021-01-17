@@ -26,7 +26,16 @@ class ViewBusinessUnit extends Component {
     console.log( this.props.businessUnitList());  
     this.props.businessUnitList();
   }
-
+  filteredItems = (data) => {
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.name &&
+          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
   render() {
     return (
       <ContentLoader>
@@ -47,13 +56,13 @@ class ViewBusinessUnit extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={businessUnitBodyData(
-                this.props.businessUnit.businessUnitTypeList
+                this.filteredItems(this.props.businessUnit.businessUnitTypeList)
               )}
               progressPending={this.props.businessUnit.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.businessUnit.businessUnitList &&
-                this.props.businessUnit.businessUnitList.length
+                this.filteredItems(this.props.businessUnit.businessUnitList).length
               }
               paginationPerPage={5}
               noHeader={true}
