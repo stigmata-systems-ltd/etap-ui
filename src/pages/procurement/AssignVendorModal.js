@@ -4,9 +4,7 @@ import TextInput from "../../common/forms/TextInput";
 import Modal from "../../common/Modal";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Button from "../../common/forms/Button";
-import Label from "../../common/forms/Label";
 import DateInput from "../../common/forms/DateInput";
-import FileInput from "../../common/forms/FileInput";
 import {
   transformStructureListData,
   transformVendorCodeListData,
@@ -16,10 +14,6 @@ import {
 import CustomDataTable from "../../common/CustomDataTable";
 
 class AssignVendorModal extends Component {
-  constructor() {
-    super();
-  }
-
   populateVendorStructures = () => {
     if (
       this.props.procurement.selectedStructures !== [] &&
