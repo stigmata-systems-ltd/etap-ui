@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import IconButton from "../../common/forms/IconButton";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
 
 class AddAttributes extends Component {
   render() {
@@ -16,8 +17,23 @@ class AddAttributes extends Component {
             value={this.props.nameValue}
           />
         </div>
-        <div class="col-sm-3">
-          <input
+        {/* <div class="col-sm-3"> */}
+        <SearchableDropDown
+          size="col-md-3"
+          fieldSize="w-100"
+          placeholder="TypeOfInput"
+          name="typeOfInput"
+          selectOptions={[
+            { id: "alphabetic", label: "Alphabetic" },
+            { id: "numeric", label: "Numeric" },
+            { id: "both", label: "Both" },
+          ]}
+          onChange={(obj) =>
+            this.props.onTypeOfInputChange(obj, this.props.index)
+          }
+          value={this.props.typeOfInputValue}
+        />
+        {/* <input
             type="text"
             class="form-control"
             placeholder="TypeOfInput"
@@ -27,8 +43,8 @@ class AddAttributes extends Component {
               this.props.onTypeOfInputChange(e, this.props.index)
             }
             value={this.props.typeOfInputValue}
-          />
-        </div>
+          /> */}
+        {/* </div> */}
         <div class="col-sm-3">
           <input
             type="text"

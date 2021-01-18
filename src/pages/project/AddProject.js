@@ -57,7 +57,8 @@ class AddProjModal extends Component {
           />
           <SearchableDropDown
             size="col-md-4"
-            label="Independent Company"
+            labelSize="col-md-3 text-center"
+            label="IC"
             name="independentCompany"
             id="independentCompany"
             selectOptions={transformDropDownData(

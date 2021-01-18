@@ -75,8 +75,8 @@ class AddStructure extends Component {
             return (
               <AddAttributes
                 onNameChange={(e) => this.props.onNameChange(e.target.value, i)}
-                onTypeOfInputChange={(e) =>
-                  this.props.onTypeOfInputChange(e.target.value, i)
+                onTypeOfInputChange={(obj) =>
+                  this.props.onTypeOfInputChange(obj.label, i)
                 }
                 onUoMChange={(e) => this.props.onUoMChange(e.target.value, i)}
                 onAttributeRemove={(i) => this.props.onAttributeRemove(i)}
