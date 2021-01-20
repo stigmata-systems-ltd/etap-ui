@@ -49,7 +49,7 @@ import ViewStructureFamily from './container/structureFamily/viewStructureFamily
 import ViewAssignStructure from './container/assignStructure/viewAssignStructure';
 import ViewAssignComponent from './container/assignStructure/viewAssignComponent';
 import AddSurplus from './container/surplus/addSurplus';
-import AddScrap from './container/scrap/addScrap';
+import AddScrap from './container/scrap/scrap';
 
 import { setRespInterceptor, setAuthHeader } from "./utils/auth";
 import Login from "./container/login/login";

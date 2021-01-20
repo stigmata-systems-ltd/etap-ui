@@ -25,6 +25,7 @@ class ViewUsers extends Component {
     this.props.usersList();
   }
 
+  
   filteredItems = (data) => {
     return (
       data &&
