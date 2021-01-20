@@ -33,11 +33,12 @@ class CreateUser extends Component {
         {this.props.isLoading && <Loader />}
         <FormRow>
           <TextInput
+            size="col-md-7"
             label="Component Type"
             name="componentType"
             id="componentType"
-            labelSize="col-md-5 text-right"
-            fieldSize="col-md-6"
+            labelSize="col-md-4 text-center"
+            fieldSize="col-md-7"
             onChange={(e) =>
               this.props.handleChangeComponentType(e.target.value)
             }
@@ -57,9 +58,15 @@ class CreateUser extends Component {
             value={this.props.component.componentTypeStatus}
           /> */}
           <SearchableDropDown
+            size="col-md-5"
+            labelSize="col-md-3 text-right"
+            fieldSize="col-md-8"
             label="Status"
             name="status"
-            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
+            selectOptions={[
+              { id: "Active", label: "Active" },
+              { id: "InActive", label: "InActive" },
+            ]}
             onChange={(obj) => this.props.handleComponentTypeStatus(obj)}
             value={this.props.component.componentTypeStatus}
           />

@@ -8,7 +8,7 @@ import { businessUnitRoles } from "./utils";
 import { transformDropDownData } from "../../utils/dataTransformer";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import BUList from "./buList";
-import IconTextButton from '../../common/forms/IconTextButton';
+import IconTextButton from "../../common/forms/IconTextButton";
 
 class AddBusinessUnit extends Component {
   constructor(props) {
@@ -37,39 +37,39 @@ class AddBusinessUnit extends Component {
         size="lg"
         isShowFooter={true}
       >
-        
-        {console.log("isLoading",this.props.isLoading)}
+        {console.log("isLoading", this.props.isLoading)}
         {this.props.isLoading && <Loader />}
         <FormRow>
           <SearchableDropDown
             label="IC Name"
             name="icCodes"
-            selectOptions={transformDropDownData(this.props.businessUnit.icCodeList, "id", "name")}
+            selectOptions={transformDropDownData(
+              this.props.businessUnit.icCodeList,
+              "id",
+              "name"
+            )}
             onChange={(obj) => this.props.handleChangeICCode(obj)}
             value={this.props.businessUnit.icCode}
-            />
+          />
         </FormRow>
         <div class="col-sm-8">
-                    <IconTextButton
-                      btnText="Add BU"
-                      onClick={this.props.addBU}
-                    />
-                  </div>
-                  <br/>
-        <div class="form-group row location-row">
-                  {this.props.businessUnit.businessUnitList.map((e, i) => {
-                    return (
-                      <BUList
-                      onBUNameChange={e =>
-                          this.props.onBUNameChange(e.target.value, i)
-                        }
-                        onBUNameRemove={i => this.props.onBUNameRemove(i)}
-                        index={i}
-                        buName={this.props.businessUnit.businessUnitList[i].buName}
-                      />
-                    );
-                  })}
-                </div>
+          <IconTextButton btnText="Add BU" onClick={this.props.addBU} />
+        </div>
+        <br />
+        <div class="form-group row">
+          {this.props.businessUnit.businessUnitList.map((e, i) => {
+            return (
+              <BUList
+                onBUNameChange={(e) =>
+                  this.props.onBUNameChange(e.target.value, i)
+                }
+                onBUNameRemove={(i) => this.props.onBUNameRemove(i)}
+                index={i}
+                buName={this.props.businessUnit.businessUnitList[i].buName}
+              />
+            );
+          })}
+        </div>
         {this.props.businessUnit.isModalMsg && (
           <p className="text-danger">{this.props.businessUnit.message}</p>
         )}
