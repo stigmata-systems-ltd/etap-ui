@@ -27,7 +27,7 @@ class ViewStructure extends Component {
   }
 
   filteredItems = (data) => {
-    console.log(data)
+    console.log(data);
     return (
       data &&
       data.filter(
@@ -47,16 +47,19 @@ class ViewStructure extends Component {
             message={this.props.structure.message}
           />
         )}
-        <AddStructure showAddComponentModal={this.props.structure.showAddStructureModal} />
+        <AddStructure
+          showAddComponentModal={this.props.structure.showAddStructureModal}
+        />
         <FormContainer formTitle={"Structure Management"}>
           {this.props.structure.structureList && (
             <CustomDataTable
               metaData={listStructureMetaData(
                 (id) => this.setState({ activeId: id, showDeleteModal: true }),
-                (id) => this.props.handleEdit(id),
+                (id) => this.props.handleEdit(id)
               )}
               bodyData={transformStructureList(
-                this.filteredItems(this.props.structure.structureList), this.props.structure.structureFamilyList
+                this.filteredItems(this.props.structure.structureList),
+                this.props.structure.structureFamilyList
               )}
               progressPending={this.props.structure.isLoading}
               pagination={true}
@@ -83,12 +86,11 @@ class ViewStructure extends Component {
                     filterText={this.state.filterText}
                   />
                   <Col6>
-                  
-                  <Button
-                    btnText="Create New Structure"
-                    btnType="btn-primary float-right"
-                    onClick={this.props.showAddStructureModal}
-                  />
+                    <Button
+                      btnText="Create New Structure"
+                      btnType="btn-primary float-right"
+                      onClick={this.props.showAddStructureModal}
+                    />
                   </Col6>
                 </>
               }

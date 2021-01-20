@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
-import CustomAlert from "../../common/forms/customAlert";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
-import Button from "../../common/forms/Button";
 import { transformDropDownData } from "../../utils/dataTransformer";
-import FaIcon from "../../common/FaIcon";
 import IconTextButton from "../../common/forms/IconTextButton";
 import IconButton from "../../common/forms/IconButton";
+import Col6 from "../../common/forms/Col6";
 
 class AddProjModal extends Component {
   render() {
     return (
       <Modal
-        title={`${
-          this.props.proj.isEditMode ? "Update" : "Add New"
-        } Project`}
+        title={`${this.props.proj.isEditMode ? "Update" : "Add New"} Project`}
         showModal={this.props.proj.showAddProjModal}
         handleSave={
           this.props.proj.isEditMode
@@ -29,6 +25,7 @@ class AddProjModal extends Component {
       >
         <FormRow>
           <TextInput
+            size="col-md-4"
             label="Project Name"
             name="PROJECT_NAME"
             id="projectName"
@@ -36,28 +33,32 @@ class AddProjModal extends Component {
             onChange={(e) => this.props.handleChangeProjectName(e.target.value)}
           />
           <TextInput
+            size="col-md-4"
             label="Area"
             name="area"
             id="area"
             onChange={(e) => this.props.handleChangeArea(e.target.value)}
             value={this.props.proj.area}
           />
-        </FormRow>
-        <FormRow>
           <TextInput
+            size="col-md-4"
             label="Job Code"
             value={this.props.proj.jobCode}
             onChange={(e) => this.props.handleChangeJobCode(e.target.value)}
           />
+        </FormRow>
+
+        <FormRow>
           <TextInput
+            size="col-md-4"
             label="EDRC Code"
             value={this.props.proj.edrcCode}
             onChange={(e) => this.props.handleChangeEdrcCode(e.target.value)}
           />
-        </FormRow>
-        <FormRow>
           <SearchableDropDown
-            label="Independent Company"
+            size="col-md-4"
+            labelSize="col-md-3 text-center"
+            label="IC"
             name="independentCompany"
             id="independentCompany"
             selectOptions={transformDropDownData(
@@ -69,6 +70,7 @@ class AddProjModal extends Component {
             value={this.props.proj.independentCompany}
           />
           <SearchableDropDown
+            size="col-md-4"
             label="Business Unit"
             name="businessUnit"
             selectOptions={transformDropDownData(
@@ -91,11 +93,10 @@ class AddProjModal extends Component {
         <FormRow>
           {this.props.proj.locations.map((item, index) => {
             return (
-              <>
+              <Col6 size="col-md-4">
                 <TextInput
-                  labelSize="col-sm-0"
-                  fieldSize="col-sm-10"
-                  size="col-md-5"
+                  size="col-md-12"
+                  fieldSize="col-md-10 px-0"
                   placeholder="Site Location"
                   name="siteLocation"
                   id="siteLocation"
@@ -103,14 +104,16 @@ class AddProjModal extends Component {
                     this.props.handleChangeSiteLocation(e.target.value, index)
                   }
                   value={item.name}
+                  iconSize="col-md-2"
+                  rightIcon={
+                    <IconButton
+                      className="px-0"
+                      iconName="faTimesCircle"
+                      onClick={() => this.props.removeLocation(index)}
+                    />
+                  }
                 />
-                <div class="col-md-1">
-                  <IconButton
-                    iconName="faTimesCircle"
-                    onClick={() => this.props.removeLocation(index)}
-                  />
-                </div>
-              </>
+              </Col6>
             );
           })}
         </FormRow>

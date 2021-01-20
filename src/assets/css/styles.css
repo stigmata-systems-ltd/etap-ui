@@ -92,8 +92,8 @@ select.form-control {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0,0,0,.5);
-  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 /* Map Styles
 ************/
@@ -319,4 +319,15 @@ select.form-control {
   100% {
     transform: translate(24px, 0);
   }
+}
+/*CSVLoader
+************/
+.loader-text {
+  font-size: large;
+  font-weight: bold;
+  color: #859aec;
+}
+.loader-text:hover {
+  text-decoration: underline;
+  text-decoration-color: #859aec;
 }

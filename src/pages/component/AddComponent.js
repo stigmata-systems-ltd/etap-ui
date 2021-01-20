@@ -5,20 +5,17 @@ import SimpleDropDown from "../../common/forms/SimpleDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
 import { transformUserRoles } from "./utils";
-
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
 class CreateUser extends Component {
   constructor(props) {
     super(props);
   }
-
-//   componentDidMount() {
-//     this.props.getUserRoles();
-//   }
-
   render() {
     return (
       <Modal
-        title={`${this.props.component.isEditMode ? "Update" : "Create New"} Component`}
+        title={`${
+          this.props.component.isEditMode ? "Update" : "Create New"
+        } Component`}
         showModal={this.props.showAddComponentModal}
         handleSave={
           this.props.component.isEditMode
@@ -33,24 +30,48 @@ class CreateUser extends Component {
         size="lg"
         isShowFooter={true}
       >
-        {console.log("isLoading",this.props.isLoading)}
         {this.props.isLoading && <Loader />}
         <FormRow>
           <TextInput
+            size="col-md-7"
             label="Component Type"
             name="componentType"
             id="componentType"
-            onChange={(e) => this.props.handleChangeComponentType(e.target.value)}
+            labelSize="col-md-4 text-center"
+            fieldSize="col-md-7"
+            onChange={(e) =>
+              this.props.handleChangeComponentType(e.target.value)
+            }
             value={this.props.component.componentType}
           />
-          <SimpleDropDown
+          {/* <SimpleDropDown
             label="Status"
-            selectOptions={[{id: 'Active',label:'Active'},{id:'InActive',label:'InActive'}]}
-            onChange={(e) => this.props.handleComponentTypeStatus(e.target.value)}
+            labelSize="col-md-3 text-right"
+            fieldSize="col-md-6"
+            selectOptions={[
+              { id: "Active", label: "Active" },
+              { id: "InActive", label: "InActive" },
+            ]}
+            onChange={(e) =>
+              this.props.handleComponentTypeStatus(e.target.value)
+            }
+            value={this.props.component.componentTypeStatus}
+          /> */}
+          <SearchableDropDown
+            size="col-md-5"
+            labelSize="col-md-3 text-right"
+            fieldSize="col-md-8"
+            label="Status"
+            name="status"
+            selectOptions={[
+              { id: "Active", label: "Active" },
+              { id: "InActive", label: "InActive" },
+            ]}
+            onChange={(obj) => this.props.handleComponentTypeStatus(obj)}
             value={this.props.component.componentTypeStatus}
           />
         </FormRow>
-        
+
         {this.props.component.isModalMsg && (
           <p className="text-danger">{this.props.component.message}</p>
         )}

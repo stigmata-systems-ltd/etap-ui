@@ -32,8 +32,10 @@ import IconTextButton from "../../common/forms/IconTextButton";
 import IconButton from "../../common/forms/IconButton";
 import DownloadToExcelButton from "../../common/forms/DownloadToExcelButton";
 import { CSVDownloader } from "react-papaparse";
+import Col from "reactstrap/lib/Col";
 
 class AssignStructure extends Component {
+  fileInputRef = React.createRef();
   componentDidMount = () => {
     this.props.setInitialData();
   };
@@ -57,6 +59,7 @@ class AssignStructure extends Component {
           <FormContainer formTitle={"Assign Structure"}>
             <FormRow>
               <SearchableDropDown
+                size="col-md-4"
                 label="Select Project"
                 name="projectName"
                 id="projectName"
@@ -73,6 +76,9 @@ class AssignStructure extends Component {
                 value={this.props.scr.projName}
               />
               <SearchableDropDown
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
                 label="Select Structure"
                 name="structureName"
                 id="structureName"
@@ -86,9 +92,24 @@ class AssignStructure extends Component {
                 }
                 value={this.props.scr.structName}
               />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-5 pr-0"
+                fieldSize="col-md-7 "
+                label="Estimated Weight"
+                name="estimatedWeight"
+                id="estimatedWeight"
+                onChange={(e) =>
+                  this.props.handleChangeEstimatedWeight(e.target.value)
+                }
+                value={this.props.scr.estimatedWeight}
+              />
             </FormRow>
             <FormRow>
               <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
                 label="Structure Family"
                 name="structureFamily"
                 id="structureFamily"
@@ -101,7 +122,10 @@ class AssignStructure extends Component {
                 placeholder="Auto Fetch"
                 disabled={true}
               />
-               <TextInput
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
                 label="Structure Code"
                 name="structureCode"
                 id="structureCode"
@@ -114,40 +138,42 @@ class AssignStructure extends Component {
                 placeholder="Auto Fetch"
                 disabled={true}
               />
-             
-              
+              <Col6 size="col-md-4">
+                <FormRow>
+                  <TextInput
+                    label="Dr No"
+                    size="col-md-7 px-0"
+                    labelSize="col-md-5 pl-4"
+                    fieldSize="col-md-7 px-0"
+                    name="drawingNumber"
+                    id="drawingNumber"
+                    onChange={(e) =>
+                      this.props.handleChangeComponentDrawingNumber(
+                        e.target.value
+                      )
+                    }
+                    value={this.props.scr.drawingNum}
+                  />
+                  <Col6 size="col-md-5">
+                    <IconTextButton
+                      iconName="faFileAlt"
+                      size="lg"
+                      btnText="Upload"
+                      onClick={() => this.fileInputRef.current.click()}
+                    />
+                  </Col6>
+                </FormRow>
+              </Col6>
             </FormRow>
-            <FormRow>
-            <TextInput
-             size="col-md-6"
-                label="Estimated Weight"
-                name="estimatedWeight"
-                id="estimatedWeight"
-                onChange={(e) =>
-                  this.props.handleChangeEstimatedWeight(e.target.value)
-                }
-                value={this.props.scr.estimatedWeight}
-              />
-              <TextInput
-               size="col-md-3"
-                label="Dr No"
-                name="drawingNumber"
-                id="drawingNumber"
-                onChange={(e) =>
-                  this.props.handleChangeComponentDrawingNumber(e.target.value)
-                }
-                value={this.props.scr.drawingNum}
-              />
-              <MultiFileInput
-               size="col-md-3"
-                labelSize="col-sm-0"
-                onChange={(e) => this.props.handleFileUpload(e.target.files)}
-                value={this.props.scr.fileInput}
-              />
-            </FormRow>
+            <MultiFileInput
+              innerRef={this.fileInputRef}
+              style={{ display: "none" }}
+              onChange={(e) => this.props.handleFileUpload(e.target.files)}
+              value={this.props.scr.fileInput}
+            />
             <FormRow>
               {this.getFiles(this.props.scr.files).map((file, index) => (
-                <Col6 size="col-md-4">
+                <Col6 size="col-md-3">
                   <div class="row mb-10">
                     <div class="col-md-2">
                       <IconButton
@@ -177,19 +203,22 @@ class AssignStructure extends Component {
               />
             </FormRow>
             <hr />
-            <FormRow>
-              <Button
-                btnText="SAVE"
-                onClick={this.props.saveAssignStruct}
-                btnType="primary"
-              />
+            <FormRow className="row">
+              <Col6 size="col-md-6 offset-md-3 d-flex justify-content-center">
+                <Button
+                  btnText="SAVE"
+                  onClick={this.props.saveAssignStruct}
+                  btnType="primary"
+                />
+              </Col6>
+
               {/* <Button
                 btnText="Clear"
                 onClick={this.props.clearStrcutAttri}
                 btnType="btn-secondary"
               /> */}
             </FormRow>
-            <br/>
+            <br />
             <FormRow className="excel-upload-btn">
               <CSVReader
                 onDrop={this.props.handleOnDrop}
@@ -200,8 +229,7 @@ class AssignStructure extends Component {
                 className="test"
               >
                 <span class="btnText">
-                  <FaIcon iconName="faUpload" />
-                  {" "}Upload Excel Template
+                  <FaIcon iconName="faUpload" /> Upload Excel Template
                 </span>
               </CSVReader>
               <ExportExcel

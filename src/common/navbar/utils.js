@@ -137,6 +137,11 @@ export const metaDataNavbar = [
         navText: "View Surplus",
         route: "/requirementRequest/viewSurplus",
       },
+      {
+        id: "requirementRequestSub" + 8,
+        navText: "Site Dispatch",
+        route: "/requirementRequest/siteDispatch",
+      },
     ],
   },
   {
@@ -189,6 +194,11 @@ export const metaDataNavbar = [
         id: "cost" + 1,
         navText: "Actual fabrication cost",
         route: "/requirementRequest/addRequirements",
+      },
+      {
+        id: "cost" + 4,
+        navText: "Procurement",
+        route: "/cost/procurement",
       },
       {
         id: "cost" + 2,

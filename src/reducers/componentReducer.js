@@ -18,7 +18,7 @@ const initialState = {
     componentType: '',
     isAddComponentMsg: false,
     componentTypeID:'',
-    componentTypeStatus:''
+    componentTypeStatus:{}
 
 };
 
@@ -144,7 +144,7 @@ export default function (state = initialState, action) {
                 ...state,
                 componentTypeID:action.payload.data.id,
                 componentType: action.payload.data.name,
-                componentTypeStatus: action.payload.data.isActive
+                componentTypeStatus: (action.payload.data.isActive === true)?{id: 'Active',label: 'Active'}:{id: 'InActive',label: 'InActive'}
             }
         case `${GET_COMPONENT_TYPE}_PENDING`:
             return {
