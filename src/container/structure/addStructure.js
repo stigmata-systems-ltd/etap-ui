@@ -69,7 +69,8 @@ const mapDispatchToProps = (dispatch) => {
     onTypeOfInputChange(value, i) {
       const structure = store.getState().structure;
       const length = structure.attributeList.length;
-      structure.attributeList[i].typeOfInput = value;
+
+      structure.attributeList[i].typeOfInput = {"id": value, "label": value};
       dispatch({
         type: STRUCTURE_ATTRIBUTE_LIST,
         payload: structure.attributeList,

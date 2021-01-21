@@ -142,6 +142,7 @@ export const RESET_WBS_FORM = "RESET_WBS_FORM";
 export const LIST_PROJECT_CODES = "LIST_PROJECT_CODES";
 export const SAVE_WBS_DATA = "SAVE_WBS_DATA";
 export const LIST_WBS_DATA = "LIST_WBS_DATA";
+export const SINGLE_WBS_DATA="SINGLE_WBS_DATA";
 // Assign Structure
 export const CAPACITY = "CAPACITY";
 export const OVER_ALL_LENGTH = "OVER_ALL_LENGTH";

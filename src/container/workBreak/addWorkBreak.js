@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Structure from '../../pages/structure/AddStructure';
 import store from '../../store';
 import csv from 'csvtojson';
-import {projectCodesList,saveWBSData} from '../../actions/wbsActions'
+import {projectCodesList,saveWBSData,singleWBS,wbsList} from '../../actions/wbsActions'
 import {
 
     RESET_WBS_FORM,
@@ -52,7 +52,8 @@ const mapDispatchToProps = dispatch => {
             dispatch({
                 type: WORK_BREAK_PROJECT_NAME,
                 payload: value,
-            });
+            })
+            dispatch(wbsList());       
         },
 
 

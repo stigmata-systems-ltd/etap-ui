@@ -44,6 +44,18 @@ class AddWorkBreak extends Component {
   componentDidMount() {
     this.props.getProjectList();
   }
+  filteredItems = (data) => {
+    console.log(data);
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.wbs &&
+          item.wbs.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
+
   render() {
     const subprop = this.props.addWorkBreak;
     return (
@@ -85,12 +97,12 @@ class AddWorkBreak extends Component {
               {this.props.wbs.wbsUploadedData && (
                 <CustomDataTable
                   metaData={listWBSMetaData()}
-                  bodyData={transformWBSData(this.props.wbs.wbsUploadedData)}
+                  bodyData={this.filteredItems(transformWBSData(this.props.wbs.wbsUploadedData))}
                   progressPending={this.props.wbs.isLoading}
                   pagination={true}
                   paginationTotalRows={
                     this.props.wbs.wbsUploadedData &&
-                    this.props.wbs.wbsUploadedData.length
+                    this.filteredItems(this.props.wbs.wbsUploadedData).length
                   }
                   paginationPerPage={5}
                   noHeader={true}

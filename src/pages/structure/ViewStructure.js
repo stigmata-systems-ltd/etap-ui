@@ -54,7 +54,7 @@ class ViewStructure extends Component {
           {this.props.structure.structureList && (
             <CustomDataTable
               metaData={listStructureMetaData(
-                (id) => this.setState({ activeId: id, showDeleteModal: true }),
+                (id) => this.props.handleDelete(id),
                 (id) => this.props.handleEdit(id)
               )}
               bodyData={transformStructureList(
