@@ -34,7 +34,7 @@ import StructureModification from "./container/modificationManagement/structureM
 
 import Procurement from "./container/procurement/procurement";
 import OutSourcing from "./container/dispatchManagement/outSourcing";
-import TransferPrice from "./container/reuse/transferPrice";
+// import TransferPrice from "./container/transferPrice/transferPrice";
 import Reuse from "./container/reuse/reuse";
 import InitiatingReuse from "./container/initiatingReuse/initiatingReuse";
 import InitiatePhyscialVerification from "./container/lifeCycleManagement/initialPhysicalVerification";
@@ -62,6 +62,9 @@ const ViewVendors = React.lazy(() =>
 
 const SiteDispatch = React.lazy(() =>
   import("./container/siteDispatch/siteDispatch")
+);
+const TransferPrice = React.lazy(() =>
+  import("./container/transferPrice/transferPrice")
 );
 
 setAuthHeader();
@@ -287,11 +290,7 @@ class App extends Component {
               path="/outsourcing/siteApproval"
               component={SiteApproval}
             ></Route>
-            <Route
-              exact
-              path="/reuse/transferPrice"
-              component={TransferPrice}
-            ></Route>
+
             <Route
               exact
               path="/reuse/initiatingReuse"
@@ -320,11 +319,7 @@ class App extends Component {
               path="/outsourcing/siteApproval"
               component={SiteApproval}
             ></Route>
-            <Route
-              exact
-              path="/reuse/transferPrice"
-              component={TransferPrice}
-            ></Route>
+
             <Route
               exact
               path="/reuse/initiatingReuse"

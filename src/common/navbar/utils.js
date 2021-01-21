@@ -210,6 +210,16 @@ export const metaDataNavbar = [
         navText: "Depreciation management",
         route: "/requirementRequest/addRequirements",
       },
+      {
+        id: "cost" + 4,
+        navText: "Condition Assessment",
+        route: "/reuse/conditionAssessment",
+      },
+      {
+        id: "cost" + 5,
+        navText: "Transfer Price",
+        route: "/reuse/transferPrice",
+      },
     ],
   },
   {

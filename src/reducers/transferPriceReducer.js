@@ -1,112 +1,70 @@
 import {
-    MR_NUMBER,
-    STRUCTURE_FAMILY,
-    COMPONENT_TYPE,
-    STRUCTURE_ID,
-    COMPONENT_ID,
-    QUANTITY_REQUESTED,
-    FROM_SITE,
-    TO_SITE,
-    DISPATCH_ADVICE_NUMBER,
-    DISPATCHED_ON,
-    QUANTITY_DISPATCHED,
+    SET_SHOW_EDIT_MODAL_FLAG,
+    SET_ACTIVE_ITEM,
+    SET_TRANSFER_PRICE_DETAILS,
     TRANSFER_PRICE,
-    RESET_STRUCTURE_FORM
-
-
-} from '../actions/types';
-
+    RESET_UPDATE_TRANSFER_PRICE_MODAL,
+} from "../actions/types";
 const initialState = {
-    mrNumber: '',
-    structureFamily: '',
-    componentType: '',
-    structureId: '',
-    componentId: '',
-    quantityRequested: '',
-    fromSite: '',
-    toSite: '',
-    dispatchAdviceNumber: '',
-    dispatchedOn: '',
-    quantityDispatched: '',
-    transferPrice: '',
+    isLoading: false,
+    showEditModalFlag: false,
+    isError: false,
+    isSuccess: false,
+    message: "",
+    transferPriceDetails: [],
+    activeItem: {},
+    transferPrice: "",
 
 };
 
-export default function (state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
-        case MR_NUMBER:
+        case `${SET_TRANSFER_PRICE_DETAILS}_PENDING`:
             return {
                 ...state,
-                mrNumber: action.payload,
+                isLoading: true,
             };
-        case STRUCTURE_FAMILY:
+        case `${SET_TRANSFER_PRICE_DETAILS}_REJECTED`:
             return {
                 ...state,
-                structureFamily: action.payload,
+                isLoading: false,
+                isError: true,
+                isSuccess: false,
+                message: action.payload.error,
             };
-        case COMPONENT_TYPE:
+        case `${SET_TRANSFER_PRICE_DETAILS}_FULFILLED`:
             return {
                 ...state,
-                componentType: action.payload,
-            };
-        case STRUCTURE_ID:
-            return {
-                ...state,
-                structureId: action.payload,
-            };
-        case QUANTITY_REQUESTED:
-            return {
-                ...state,
-                quantityRequested: action.payload,
-            };
-        case FROM_SITE:
-            return {
-                ...state,
-                fromSite: action.payload,
-            };
-        case TO_SITE:
-            return {
-                ...state,
-                toSite: action.payload,
-            };
-        case DISPATCH_ADVICE_NUMBER:
-            return {
-                ...state,
-                dispatchAdviceNumber: action.payload,
-            };
-        case DISPATCHED_ON:
-            return {
-                ...state,
-                dispatchedOn: action.payload,
-            };
-        case QUANTITY_DISPATCHED:
-            return {
-                ...state,
-                quantityDispatched: action.payload,
+                isLoading: false,
+                transferPriceDetails: action.payload.data,
             };
         case TRANSFER_PRICE:
             return {
                 ...state,
-                transferPrice: action.payload,
+                transferPrice: action.payload
             };
 
-        case RESET_STRUCTURE_FORM:
+        case SET_ACTIVE_ITEM:
+            const activeItem = state.transferPriceDetails.filter((item) => {
+                return item.dispatchId === action.payload;
+            })[0];
+            return { ...state, activeItem: activeItem };
+        case SET_SHOW_EDIT_MODAL_FLAG:
+            return { ...state, showEditModalFlag: action.payload };
+
+        case RESET_UPDATE_TRANSFER_PRICE_MODAL:
             return {
                 ...state,
-                mrNumber: '',
-                structureFamily: '',
-                componentType: '',
-                structureId: '',
-                componentId: '',
-                quantityRequested: '',
-                fromSite: '',
-                toSite: '',
-                dispatchAdviceNumber: '',
-                dispatchedOn: '',
-                quantityDispatched: '',
-                transferPrice: '',
+                isLoading: false,
+                showEditModalFlag: false,
+                isError: false,
+                isSuccess: false,
+                message: "",
+                transferPriceDetails: [],
+                activeItem: {},
+                transferPrice: "",
             };
         default:
             return state;
     }
-}
+};

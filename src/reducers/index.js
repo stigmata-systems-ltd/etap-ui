@@ -46,6 +46,7 @@ const rootReducer = combineReducers({
   scrap: scrapReducer,
   siteDispatch: siteDispatchReducer,
   procurement: procurementReducer,
+
 });
 
 export default rootReducer;
