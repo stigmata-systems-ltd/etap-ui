@@ -18,7 +18,22 @@ export const addStructure = () => {
     }
 }
 
+export const inActiveStructure = () => {
 
+    const structure = store.getState().structure;
+    let stringifiedStructure = JSON.stringify(structure.attributeList);
+  
+    const body={
+      "name": structure.structureName,
+      "structureTypeId": structure.structureFamily.value,
+      "isActive": false,
+      "structureAttributes": stringifiedStructure,
+    }
+  return {
+      type: UPDATE_STRUCTURE,
+      payload: axios.put(config.BASE_URL + '/api/Structure/updatestructure/'+ structure.id, body)
+  }
+}
 export const structureList = () => {
     return {
         type: LIST_STRUCTURE,
@@ -47,6 +62,7 @@ export const addAttribute = () => {
   };
 
 export const structureFetch = (id) => {
+  console.log("Fetch")
     return {
       type: GET_STRUCTURE_DATA,
       payload: axios.get(config.BASE_URL + '/api/Structure/getstructure/'+ id),

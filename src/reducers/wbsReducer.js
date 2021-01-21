@@ -5,7 +5,8 @@ import {
     WBS_UPLOADED_DATA,
     LIST_PROJECT_CODES,
     SAVE_WBS_DATA,
-    LIST_WBS_DATA
+    LIST_WBS_DATA,
+    SINGLE_WBS_DATA
 } from '../actions/types';
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
     isAddComponentMsg: false,
     componentTypeID:'',
     componentTypeStatus:'',
-    listProjectCodes: []
+    listProjectCodes: [],
+    wbsSingle:[]
 
 };
 
@@ -100,13 +102,41 @@ export default function (state = initialState, action) {
                           isSuccess: false,
                         };
                 case `${LIST_WBS_DATA}_FULFILLED`:
+                        const projectname=state.wbsProjectName;
+                        const singleProjectData=action.payload.data.filter(ele => ele.projectId === projectname.value)
+                        console.log(projectname)
+                        console.log(singleProjectData)
                         return {
                           ...state,
                           isLoading: false,
                           isError: false,
                           isSuccess: false,
+                          wbsUploadedData: singleProjectData,
                           wbsList: action.payload.data,
-                        };                
+                        };  
+                  case `${SINGLE_WBS_DATA}_PENDING`:
+                          return {
+                            ...state,
+                            isLoading: true,
+                            isError: false,
+                            isSuccess: false,
+                          };
+                  case `${SINGLE_WBS_DATA}_REJECTED`:
+                          return {
+                            ...state,
+                            isLoading: false,
+                            isError: true,
+                            isSuccess: false,
+                          };
+                  case `${SINGLE_WBS_DATA}_FULFILLED`:
+                          return {
+                            ...state,
+                            isLoading: false,
+                            isError: false,
+                            isSuccess: false,
+                            wbsUploadedData: [action.payload.data],
+                          };   
+                                     
         default:
             return state;
     }

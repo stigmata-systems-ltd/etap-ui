@@ -24,9 +24,9 @@ class AddAttributes extends Component {
           placeholder="TypeOfInput"
           name="typeOfInput"
           selectOptions={[
-            { id: "alphabetic", label: "Alphabetic" },
-            { id: "numeric", label: "Numeric" },
-            { id: "both", label: "Both" },
+            { id: "alphabetic", label: "alphabetic" },
+            { id: "numeric", label: "numeric" },
+            { id: "both", label: "both" },
           ]}
           onChange={(obj) =>
             this.props.onTypeOfInputChange(obj, this.props.index)

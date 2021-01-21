@@ -5,6 +5,23 @@ import { getSelectedValue } from "../../utils/dataTransformer";
 export const listStructureMetaData = (handleDelete, handleEdit) => {
     return [
       {
+        sortable: false,
+        cell: row => {
+          return (
+            <>
+              { (
+                <IconButton
+                  iconName="faTimes"
+                  className={'table-delete-icon'}
+                  onClick={() => handleDelete(row.id)}
+                />
+              )}
+            </>
+          );
+        },
+        width: '2%',
+      },
+      {
         name: 'Structure Name',
         selector: 'structureName',
         sortable: false,
@@ -44,10 +61,10 @@ export const listStructureMetaData = (handleDelete, handleEdit) => {
     structureList &&
     structureList.map(structure => {
         if(structure.isActive){
-          isActiveValue="True"
+          isActiveValue="Active"
         }
         else{
-          isActiveValue="False"
+          isActiveValue="inActive"
         }
 
         const structureFamilyValue=getSelectedValue(structureFamilyList,structure.structureTypeId)

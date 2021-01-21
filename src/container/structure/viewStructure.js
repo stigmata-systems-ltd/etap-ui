@@ -4,6 +4,7 @@ import {
   structureList,
   structureFetch,
   structureFamilyList,
+  inActiveStructure
 } from "../../actions/structureAction";
 
 import {
@@ -46,6 +47,12 @@ const mapDispatchToProps = (dispatch) => {
         });
       });
     },
+    handleDelete(id){
+      dispatch(structureFetch(id)).then(() => {
+        dispatch(inActiveStructure());
+        dispatch(structureList());
+      });
+    }
   };
 };
 
