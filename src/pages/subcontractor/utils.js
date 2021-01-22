@@ -9,7 +9,37 @@ export const tranformServTypeList = (data) => {
   })
   return tmpArr;
 }
+export const tranformServTypeListEnableCheck = (data) => {
+  let tmpArr = [];
+  let defaultData = [
+    {
+      name: "Fabrication",
+      id: 1,
+      checked: false
+    },
+    {
+      name: "Outsourcing",
+      id: 2,
+      checked: false
+    },
+    {
+      name: "Scrap",
+      id: 3,
+      checked:false
+    },
+  ];
 
+  data && data.map((dt,i) => {
+    defaultData.map(dtt => {
+      if (dt.serviceTypeId === dtt.id){
+        dtt.checked = true
+      }
+    })
+    tmpArr.push(dt);
+  })
+  console.log(`Changed Data Array: ${JSON.stringify(defaultData)}`)
+  return defaultData;
+}
 // export const _subContractorData = ["S.No", "Vendor", "Vendor Code", "Vendor Type", "Status"];
 // export const _subContractorBodyData = [
 //   {

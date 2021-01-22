@@ -34,6 +34,18 @@ class ViewSubContractor extends Component {
         this.props.vendorList();
     }
 
+    filteredItems = (data) => {
+        console.log(data);
+        return (
+          data &&
+          data.filter(
+            (item) =>
+              item.name &&
+              item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+          )
+        );
+      };
+
     render() {
         const subprop = this.props.addSubContractor;
         return (
@@ -54,21 +66,32 @@ class ViewSubContractor extends Component {
                                     (id) => this.setState({ activeId: id, showDeleteModal: true }),
                                     (id) => this.props.handleEdit(id),
                                 )}
-                                bodyData={this.props.vendor.vendorList}
+                                bodyData={this.filteredItems(this.props.vendor.vendorList)}
                                 progressPending={this.props.vendor.isLoading}
                                 pagination={true}
                                 paginationTotalRows={
-                                    this.props.vendor.componentList &&
-                                    this.props.vendor.componentList.length
+                                    this.props.vendor.vendorList &&
+                                    this.filteredItems(this.props.vendor.vendorList).length
                                 }
                                 paginationPerPage={5}
                                 noHeader={true}
                                 subHeader
                                 subHeaderComponent={
                                     <>
-                                    
+                                    <TableFilter
+                                        placeholder="Search By Vendor Name"
+                                        fieldSize="float-left col-sm-10"
+                                        onFilter={(e) => {
+                                        e.target.value === "" &&
+                                            this.setState({
+                                            resetPaginationToggle: !this.state
+                                                .resetPaginationToggle,
+                                            });
+                                        this.setState({ filterText: e.target.value });
+                                        }}
+                                        filterText={this.state.filterText}
+                                    />
                                         <Col6>
-
                                             <Button
                                                 btnText="Add Vendor"
                                                 btnType="btn-primary float-right"

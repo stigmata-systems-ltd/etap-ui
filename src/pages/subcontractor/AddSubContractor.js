@@ -8,7 +8,9 @@ import CheckBox from "../../common/forms/CheckBox";
 
 class AddSubContractor extends Component {
 
+    
     render() {
+        console.log(`In vendor page: ${JSON.stringify(this.props.vendor.venServList)}`)
         return (
             <Modal
                 title={`${this.props.vendor.isEditMode ? "Update" : "Add"
