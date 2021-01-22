@@ -9,32 +9,40 @@ export const tranformServTypeList = (data) => {
   })
   return tmpArr;
 }
+export const tranformServTypeListEnableCheck = (data) => {
+  let tmpArr = [];
+  let defaultData = [
+    {
+      name: "Fabrication",
+      id: 1,
+      checked: false
+    },
+    {
+      name: "Outsourcing",
+      id: 2,
+      checked: false
+    },
+    {
+      name: "Scrap",
+      id: 3,
+      checked:false
+    },
+  ];
 
-// export const _subContractorData = ["S.No", "Vendor", "Vendor Code", "Vendor Type", "Status"];
-// export const _subContractorBodyData = [
-//   {
-//     sno: "1",
-//     vendor: "",
-//     vendorCode: "",
-//     vendorType: "",
-//     Status: "Active",
-//   },
-//   {
-//     sno: "2",
-//     vendor: "",
-//     vendorCode: "",
-//     vendorType: "",
-//     Status: "InActive",
-//   },
-//   {
-//     sno: "3",
-//     vendor: "",
-//     vendorCode: "",
-//     vendorType: "",
-//     Status: "Active",
-//   },
-
-// ];
+  data && data.map((dt,i) => {
+    defaultData.map(dtt => {
+      if (dt.serviceTypeId === dtt.id){
+        dtt.checked = true;
+        dtt.vendorId = dt.vendorId;
+        dtt.serviceTypeId = dt.serviceTypeId;
+        dtt.serviceId= dt.id;
+      }
+    })
+    tmpArr.push(dt);
+  })
+  console.log(`Changed Data Array: ${JSON.stringify(defaultData)}`)
+  return defaultData;
+}
 
 
 

@@ -15,7 +15,7 @@ import {
   ON_CHANGE_VEN_SERV_TYPES,
   ON_CHANGE_VEN_STS,
 } from "../actions/types";
-import { tranformServTypeList } from "../pages/subcontractor/utils";
+import { tranformServTypeList,tranformServTypeListEnableCheck } from "../pages/subcontractor/utils";
 
 const initialState = {
   vendorName: "",
@@ -102,14 +102,22 @@ export default function (state = initialState, action) {
       };
     case `${GET_SINGLE_VENDOR}_FULFILLED`:
       const vendor = action.payload.data;
+      let currentStatus;
+      if (vendor.isStatus){
+        currentStatus = { "label": "Active", "value": "Active"};
+      }else{
+        currentStatus = { "label": "InActive", "value": "InActive"};
+      }
       return {
         ...state,
+        id: vendor.id,
         isLoading: false,
-        vendorName: vendor.vendorName,
+        vendorName: vendor.name,
         vendorCode: vendor.vendorCode,
         email: vendor.email,
-        contactNumber: vendor.contactNumber,
-        venServList: tranformServTypeList(vendor.vendorServiceTypeDetails),
+        contactNumber: vendor.phoneNunmber,
+        vendorStatus: currentStatus,
+        venServList: tranformServTypeListEnableCheck(vendor.vendorServiceTypeDetails),
       };
 
     case RESET_VENDOR_FORM:
