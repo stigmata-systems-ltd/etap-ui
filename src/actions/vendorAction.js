@@ -36,14 +36,32 @@ export const createVendor = () => {
 
 export const updateVendor = () => {
   const vendor = store.getState().vendor;
+  const status=(vendor.vendorStatus.label === "Active")?true:false;
+  
+  const tranformServTypeList = (data) => {
+    let tmpArr = [];
+    data && data.map(dt => {
+      if(dt.checked === true){
+        const ele = {
+          id: dt.serviceId,
+          vendorId: dt.vendorId, 
+          serviceTypeId: dt.serviceTypeId
+        };
+        tmpArr.push(ele);
+      }
+    })
+    console.log(`Converted Array ${JSON.stringify(tmpArr)}`)
+    return tmpArr;
+  }
+
   const data = {
     id: vendor.id,
-    vendorCode: "test-code",
-    name: vendor.name,
+    vendorCode: vendor.vendorCode,
+    name: vendor.vendorName,
     email: vendor.email,
-    phoneNunmber: vendor.phoneNunmber,
-    vendorStatus: vendor.isStatus,
-
+    phoneNunmber: vendor.contactNumber,
+    isStatus: status,
+    vendorServiceTypeDetails: tranformServTypeList(vendor.venServList)
   };
   return {
     type: UPDATE_VENDOR,

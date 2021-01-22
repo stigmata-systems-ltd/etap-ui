@@ -110,6 +110,7 @@ export default function (state = initialState, action) {
       }
       return {
         ...state,
+        id: vendor.id,
         isLoading: false,
         vendorName: vendor.name,
         vendorCode: vendor.vendorCode,

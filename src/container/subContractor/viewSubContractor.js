@@ -111,7 +111,7 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
     handleEdit(id) {
-      dispatch(getVendorServiceList());
+      // dispatch(getVendorServiceList());
       dispatch({
         type: SHOW_ADD_VENDOR_MODAL,
         payload: true,
