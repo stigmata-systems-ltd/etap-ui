@@ -95,7 +95,7 @@ export const listViewSurplusMetaData = (
                 }
                 {
                     <IconButton
-                    iconName="faEdit"
+                    iconName="faEye"
                     onClick={() => handleMore(row.id)}
                   />
                 }
@@ -106,7 +106,7 @@ export const listViewSurplusMetaData = (
               <>
                 {
                     <IconButton
-                    iconName="faEdit"
+                    iconName="faEye"
                     onClick={() => handleMore(row.id)}
                   />
                 }

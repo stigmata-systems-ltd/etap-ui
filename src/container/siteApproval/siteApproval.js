@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import store from "../../store";
 
 import {
-   
+
     SET_SHOW_TABLE_FLAG,
     SET_ACTIVE_ITEM,
     SET_SHOW_MORE_MODAL_FLAG,
@@ -26,17 +26,15 @@ const mapDispatchToProps = (dispatch) => {
             });
         },
 
-        handleApprove(id){
+        handleApprove(id) {
             let siteApprovalList = store.getState().siteApproval.siteApprovalList;
-            let singleSiteApproval=siteApprovalList[id];
-            console.log(singleSiteApproval)
+            let singleSiteApproval = siteApprovalList[id];
+            dispatch(siteApprovalAction(id, "Approval"));
+        },
+        handleReject(id) {
             console.log(`ID: ${id}`)
-            //dispatch(siteApprovalAction(id,"Approval"));
-          },
-          handleReject(id){
-            console.log(`ID: ${id}`)
-            //dispatch(siteApprovalAction(id,"Rejection"));
-          },
+            dispatch(siteApprovalAction(id, "Rejection"));
+        },
 
         showSiteApprovalMoreModal(id) {
             dispatch({
@@ -49,8 +47,8 @@ const mapDispatchToProps = (dispatch) => {
             });
 
         },
-   
-       
+
+
 
     };
 };

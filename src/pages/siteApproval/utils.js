@@ -82,7 +82,7 @@ export const siteApprovalMetaData = (handleApprove,handleReject,handleMore) => {
                         }
                         {
                             <IconButton
-                                iconName="faEdit"
+                                iconName="faEye"
                                 onClick={() => handleMore(row.id)}
                             />
                         }
