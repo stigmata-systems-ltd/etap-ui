@@ -37,7 +37,7 @@ class SiteApprovalViewMore extends Component {
             label="Structure ID"
             name="structureId"
             id="structureId"
-          //value={this.props.surplus.surplusViewMore.siteReqId}
+          //value={this.props.siteApproval.siteApprovalViewMore.structureId}
           />
           <TextInput
             labelSize="col-md-5 pr-0"
@@ -45,7 +45,7 @@ class SiteApprovalViewMore extends Component {
             label="Quantity Requested"
             name="quantityRequested"
             id="quantityRequested"
-          //value={this.props.surplus.surplusViewMore.structureId}
+          //value={this.props.siteApproval.siteApprovalViewMore.quantityRequested}
           />
         </FormRow>
 

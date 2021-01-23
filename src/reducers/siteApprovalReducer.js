@@ -12,7 +12,6 @@ const initialState = {
     showMoreModalFlag: false,
     isError: false,
     isSuccess: false,
-    closeSiteApprovalViewMoreModal:false,
     message: "",
     siteApprovalDetails: [],
     activeItem: {},
@@ -52,8 +51,8 @@ export default (state = initialState, action) => {
             return { ...state, showEditModalFlag: action.payload };
         case SET_SHOW_MORE_MODAL_FLAG:
             return { ...state, showMoreModalFlag: action.payload };
-        case CHANGE_VIEW_SITE_APPROVAL_MORE_MODAL_STATUS:
-            return { ...state, closeSiteApprovalViewMoreModal: action.payload };
+        // case CHANGE_VIEW_SITE_APPROVAL_MORE_MODAL_STATUS:
+        //     return { ...state, closeSiteApprovalViewMoreModal: action.payload };
 
         case RESET_UPDATE_SITE_APPROVAL_MODAL:
             return {
