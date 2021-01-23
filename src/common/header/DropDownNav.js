@@ -39,7 +39,7 @@ class DropDownNav extends Component {
             class={`dropdown-menu dropdown-menu-right navbar-dropdown ${this
               .state.isShowDropDown && 'show'}`}
           >
-            <DropDownNavItem navData={metaDataHeaderDropDowNav} />
+            <DropDownNavItem navData={metaDataHeaderDropDowNav} logout={(e) => this.props.logout(e)}/>
           </div>
         </li>
       </ul>

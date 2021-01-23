@@ -64,7 +64,7 @@ class AddWorkBreak extends Component {
           <FormContainer formTitle={"Add WBS"}>
             <FormRow>
               <SearchableDropDown
-                label="Project Name"
+                label="Project Code"
                 name="projectName"
                 labelSize="mx-2"
                 fieldSize="col-md-6"

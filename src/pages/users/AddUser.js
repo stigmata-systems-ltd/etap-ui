@@ -37,7 +37,7 @@ class AddUser extends Component {
         isShowFooter={true}
       >
         {console.log("isLoading",this.props.isLoading)}
-        {this.props.isLoading && <Loader />}
+        {this.props.users.isLoading && <Loader />}
         <FormRow>
               <TextInput
                 label="First Name"

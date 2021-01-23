@@ -52,7 +52,7 @@ class ViewComponent extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={transformComponentList(
-                this.filteredItems(this.props.component.componentTypeList)
+                this.filteredItems(this.props.component.componentTypeList.reverse())
               )}
               progressPending={this.props.component.isLoading}
               pagination={true}

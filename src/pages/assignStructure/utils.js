@@ -477,9 +477,9 @@ export const transformAssignedComponentList = (assignComponentList) => {
     assignComponentList.map((assignComponent, i) => {
       let tmpObj = {
         componentNo: assignComponent.componentNo,
-        component: assignComponent.compId,
+        component: assignComponent.componentName,
         componentID: assignComponent.compId,
-        componentFamily: assignComponent.compTypeId,
+        componentFamily: assignComponent.compTypeName,
         drawingNumber: assignComponent.drawingNo,
         oM: assignComponent.compStatus,
         modNo: assignComponent.compStatus,
