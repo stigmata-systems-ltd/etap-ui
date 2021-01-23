@@ -129,6 +129,29 @@ class AddStructure extends Component {
                 value={this.props.assignStructure.assignStructureViewMore.drawingNo}
               />
             </FormRow>
+            <FormRow>
+              <TextInput
+                label="BU Name"
+                name="buName"
+                id="buName"
+                value={this.props.assignStructure.assignStructureViewMore.buName}
+              />
+              <TextInput
+                label="IC Name"
+                name="icName"
+                id="icName"
+                value={this.props.assignStructure.assignStructureViewMore.icName}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Estimated Weight"
+                name="estimatedWeight"
+                id="estimatedWeight"
+                value={this.props.assignStructure.assignStructureViewMore.estimatedWeight}
+              />
+            </FormRow>
+            
             <label>Structure Attributes</label>
             <div class="form-group row location-row">
                   {this.props.assignStructure.assignStructureViewMoreAttributes.map((e, i) => {

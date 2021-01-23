@@ -28,7 +28,60 @@ class AssignComponentViewMore extends Component {
       >
         {console.log("isLoading",this.props.isLoading)}
         {this.props.isLoading && <Loader />}
-        
+            <FormRow>
+              <TextInput
+                label="Structure ID"
+                name="structureId"
+                id="structureId"
+                // onChange={e =>
+                //   this.props.handleChangeStructureName(e.target.value)
+                // }
+                value={this.props.assignStructure.assignComponentList.structureId}
+              />
+              <TextInput
+                label="Structure Name"
+                name="strcutureName"
+                id="strcutureName"
+                // onChange={e =>
+                //   this.props.handleChangeStructureFamily(e.target.value)
+                // }
+                value={this.props.assignStructure.assignComponentList.strcutureName}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Structure Family"
+                name="structureFamily"
+                id="structureFamily"
+                // onChange={e =>
+                //   this.props.handleChangeStructureName(e.target.value)
+                // }
+                value={this.props.assignStructure.assignComponentList.strcutureTypeName}
+              />
+              <TextInput
+                label="Structure Code"
+                name="structureCode"
+                id="structureCode"
+                // onChange={e =>
+                //   this.props.handleChangeStructureFamily(e.target.value)
+                // }
+                value={this.props.assignStructure.assignComponentList.structureCode}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="BU Name"
+                name="buName"
+                id="buName"
+                value={this.props.assignStructure.assignComponentList.buName}
+              />
+              <TextInput
+                label="IC Name"
+                name="icName"
+                id="icName"
+                value={this.props.assignStructure.assignComponentList.icName}
+              />
+            </FormRow>
             <FormRow>
               <TextInput
                 label="Component ID"
@@ -54,7 +107,7 @@ class AssignComponentViewMore extends Component {
                 label="Component Type"
                 name="compTypeId"
                 id="compTypeId"
-                value={this.props.assignStructure.assignComponentViewMore.compTypeId}
+                value={this.props.assignStructure.assignComponentViewMore.compTypeName}
               />
             </FormRow>
             <FormRow>
@@ -97,6 +150,34 @@ class AssignComponentViewMore extends Component {
                 name="width"
                 id="width"
                 value={this.props.assignStructure.assignComponentViewMore.width}
+              />
+              </FormRow>
+              <FormRow>
+              <TextInput
+                label="Make Type"
+                name="makeType"
+                id="makeType"
+                value={this.props.assignStructure.assignComponentViewMore.makeType}
+              />
+              <TextInput
+                label="Thickness"
+                name="thickness"
+                id="thickness"
+                value={this.props.assignStructure.assignComponentViewMore.thickness}
+              />
+            </FormRow>
+            <FormRow>
+              <TextInput
+                label="Tag"
+                name="tag"
+                id="tag"
+                value={this.props.assignStructure.assignComponentViewMore.isTag}
+              />
+              <TextInput
+                label="QR Code"
+                name="qrCode"
+                id="qrCode"
+                value={this.props.assignStructure.assignComponentViewMore.qrCode}
               />
             </FormRow>
       </Modal>
