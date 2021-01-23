@@ -13,14 +13,17 @@ import {
 
 
 } from '../../actions/types';
-import DispatchManagement from '../../pages/dispatchManagement/DispatchManagement';
+import {getSiteDispatchDetails} from '../../actions/siteDispatch';
+import DispatchManagement from '../../pages/dispatch/dispatchManagement';
 
 const mapDispatchToProps = dispatch => {
     return {
         resetStructureData() {
             dispatch({ type: RESET_STRUCTURE_FORM });
         },
-
+        getSiteDispatchDetails(){
+            getSiteDispatchDetails();
+        },
         handleChangeDispatchManagementMrNumber(value) {
             dispatch({
                 type: MR_NUMBER,
@@ -75,9 +78,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-    const dispatchManagement = store.getState().dispatchManagement;
+    const siteDispatch = store.getState().siteDispatch;
     return {
-        dispatchManagement,
+        siteDispatch,
     };
 };
 
