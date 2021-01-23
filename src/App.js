@@ -66,6 +66,9 @@ const SiteDispatch = React.lazy(() =>
 const TransferPrice = React.lazy(() =>
   import("./container/transferPrice/transferPrice")
 );
+const NewFabricationSiteApproval = React.lazy(() =>
+  import("./container/siteApproval/siteApproval")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -318,6 +321,11 @@ class App extends Component {
               exact
               path="/outsourcing/siteApproval"
               component={SiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/newFabrication/siteApproval"
+              component={NewFabricationSiteApproval}
             ></Route>
 
             <Route

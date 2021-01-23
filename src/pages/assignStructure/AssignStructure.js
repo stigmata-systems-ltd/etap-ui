@@ -156,7 +156,7 @@ class AssignStructure extends Component {
                   />
                   <Col6 size="col-md-5">
                     <IconTextButton
-                    fieldSize="col-md-7"
+                      fieldSize="col-md-7"
                       iconName="faFileAlt"
                       size="lg"
                       btnText="Upload"
@@ -234,6 +234,7 @@ class AssignStructure extends Component {
                 </span>
               </CSVReader>
               <ExportExcel
+
                 data={getExcelData(this.props.scr)}
                 // header={this.props.headers}
                 filename={"test"}

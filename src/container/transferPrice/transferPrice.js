@@ -7,7 +7,8 @@ import {
     SET_ACTIVE_ITEM,
     TRANSFER_PRICE,
     RESET_TRANSFER_PRICE_MODAL,
-    
+    SET_SHOW_MORE_MODAL_FLAG,
+    RESET_TRANSFER_PRICE_VIEW_MORE_MODAL
     
 } from "../../actions/types";
 
@@ -50,6 +51,24 @@ const mapDispatchToProps = (dispatch) => {
                 payload: false,
             });
             dispatch({ type: RESET_TRANSFER_PRICE_MODAL });
+        },
+        showTransferPriceViewMoreModal(id) {
+            dispatch({
+                type: SET_SHOW_MORE_MODAL_FLAG,
+                payload: true,
+            });
+            dispatch({
+                type: SET_ACTIVE_ITEM,
+                payload: id,
+            });
+
+        },
+        closeTransferPriceViewMoreModal() {
+            dispatch({
+                type: SET_SHOW_MORE_MODAL_FLAG,
+                payload: false,
+            });
+            dispatch({ type: RESET_TRANSFER_PRICE_VIEW_MORE_MODAL });
         },
 
     };

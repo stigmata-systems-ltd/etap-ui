@@ -8,6 +8,7 @@ import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 import AddTransferPrice from "./AddTransferPrice";
+import TransferPriceViewMore from "./TransferPriceViewMore";
 
 class TransferPrice extends Component {
   constructor(props) {
@@ -16,15 +17,6 @@ class TransferPrice extends Component {
   componentDidMount() {
     this.props.getTransferPriceDetails();
   }
-
-  showModal = (id) => {
-    if (this.props.transferPrice.showEditModalFlag) {
-      this.props.setActiveItem(id);
-      this.props.showTransferPriceModal(id);
-    } else {
-      this.props.closeTransferPriceModal();
-    }
-  };
 
   render() {
     return (
@@ -41,11 +33,16 @@ class TransferPrice extends Component {
             {...this.props}
             showModal={this.props.transferPrice.showEditModalFlag}
           />
+          <TransferPriceViewMore
+            {...this.props}
+            showMoreModal={this.props.transferPrice.showMoreModalFlag}
+          />
           <FormContainer formTitle={"Transfer Price"}>
             {this.props.transferPrice.transferPriceDetails && (
               <CustomDataTable
                 metaData={transferPriceMetaData(
-                  this.props.showTransferPriceModal
+                  this.props.showTransferPriceModal,
+                  this.props.showTransferPriceViewMoreModal
                 )}
                 bodyData={this.props.transferPrice.transferPriceDetails}
                 progressPending={this.props.transferPrice.isLoading}

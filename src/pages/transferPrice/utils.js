@@ -3,7 +3,7 @@ import IconButton from '../../common/forms/IconButton';
 import Button from "../../common/forms/Button";
 
 
-export const transferPriceMetaData = ( handleEdit) => {
+export const transferPriceMetaData = (handleEdit,handleMore) => {
   return [
 
     {
@@ -16,11 +16,11 @@ export const transferPriceMetaData = ( handleEdit) => {
       selector: 'dispatchNo',
       sortable: false,
     },
-    {
-      name: 'Structure Name',
-      selector: 'structureName',
-      sortable: false,
-    },
+    // {
+    //   name: 'Structure Name',
+    //   selector: 'structureName',
+    //   sortable: false,
+    // },
     {
       name: 'Quantity Requested',
       selector: 'quantityRequested',
@@ -42,12 +42,21 @@ export const transferPriceMetaData = ( handleEdit) => {
       cell: (row) => {
         return (
           <>
-            <IconButton
-              id={row.id}
-              iconName="faEdit"
-              onClick={() => handleEdit(row.id)}
-            />
-            {/* <Button btnText="View More" btnType="btn-primary btn-sm" /> */}
+            {
+
+              <IconButton
+                id={row.id}
+                iconName="faEdit"
+                onClick={() => handleEdit(row.id)}
+              />
+            }
+            {
+              <Button btnText="View More"
+                btnType="btn-primary btn-sm"
+                onClick={() => handleMore(row.id)}
+              />
+            }
+
           </>
         );
       },
