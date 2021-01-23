@@ -126,7 +126,7 @@ class AssignComponentViewMore extends Component {
             </FormRow>
             <FormRow>
               <TextInput
-                label="Breath"
+                label="Breadth"
                 name="breath"
                 id="breath"
                 value={this.props.assignStructure.assignComponentViewMore.breath}

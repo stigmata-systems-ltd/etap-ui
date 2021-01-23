@@ -10355,8 +10355,8 @@ select.form-control:focus::-ms-value, .dataTables_wrapper select:focus::-ms-valu
 }
 
 .col-form-label {
-  padding-top: calc(0.875rem + 1px);
-  padding-bottom: calc(0.875rem + 1px);
+  /* padding-top: calc(0.875rem + 1px);
+  padding-bottom: calc(0.875rem + 1px); */
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1;
@@ -10419,7 +10419,7 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .form-text {
@@ -20414,9 +20414,9 @@ select.form-control.border-dark:focus, .dataTables_wrapper select.border-dark:fo
 
 .form-group label {
   font-size: 0.875rem;
-  line-height: 1.4rem;
+  /* line-height: 1.4rem; */
   vertical-align: top;
-  margin-bottom: .5rem;
+  /* margin-bottom: .5rem; */
 }
 
 .form-group.has-danger .form-control, .form-group.has-danger .dataTables_wrapper select, .dataTables_wrapper .form-group.has-danger select {

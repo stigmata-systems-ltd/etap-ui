@@ -38,7 +38,6 @@ export const _viewSurplusInputBodyData = [
     },
   
 
-
 ];
 
 export const listViewSurplusMetaData = (
