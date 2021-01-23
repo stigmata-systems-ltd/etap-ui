@@ -56,7 +56,7 @@ class ViewIndependentCompany extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={icbuList(
-                this.filteredItems(this.props.icbu.icbuList)
+                this.filteredItems(this.props.icbu.icbuList.reverse())
               )}
               progressPending={this.props.icbu.isLoading}
               pagination={true}
