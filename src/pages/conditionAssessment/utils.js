@@ -2,7 +2,7 @@ import React from "react";
 import IconButton from "../../common/forms/IconButton";
 import Button from "../../common/forms/Button";
 
-export const conditionAssessmentMetaData = (handleUpdate) => {
+export const conditionAssessmentMetaData = (handleApprove, handleReject) => {
   return [
     {
       name: "MR Number",
@@ -11,7 +11,7 @@ export const conditionAssessmentMetaData = (handleUpdate) => {
     },
     {
       name: "DA Number",
-      selector: "daNo",
+      selector: "dispatchNo",
       sortable: false,
     },
     {
@@ -41,8 +41,19 @@ export const conditionAssessmentMetaData = (handleUpdate) => {
               iconName="faEdit"
               onClick={() => handleUpdate(row.dispatchId)}
             /> */}
-            <Button btnText="Approve" btnType="btn-primary btn-sm" />
-            <Button btnText="Decline" btnType="btn-primary btn-sm" />
+            {
+              <IconButton
+                iconName="faThumbsUp"
+                onClick={() => handleApprove(row.id)}
+              />
+
+            }
+            {
+              <IconButton
+                iconName="faThumbsDown"
+                onClick={() => handleReject(row.id)}
+              />
+            }
           </>
         );
       },

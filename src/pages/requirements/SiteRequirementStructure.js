@@ -9,7 +9,7 @@ class SiteRequirementStructure extends Component {
     return (
       <>
         <SearchableDropDown
-          size="col-sm-2"
+          size="col-sm-3"
           labelSize="col-sm-0"
           fieldSize="col-sm-12"
           name="structureName"
@@ -27,7 +27,7 @@ class SiteRequirementStructure extends Component {
           <input
             type="text"
             class="form-control"
-            placeholder="No. of Comp"
+            placeholder="No.of Comp"
             name={this.props.index}
             id={this.props.index}
             onChange={(e) =>
@@ -37,11 +37,11 @@ class SiteRequirementStructure extends Component {
             disabled
           />
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <input
             type="text"
             class="form-control"
-            placeholder="Structure Family"
+            placeholder="Str Family"
             name={this.props.index}
             id={this.props.index}
             onChange={(e) =>
@@ -55,7 +55,7 @@ class SiteRequirementStructure extends Component {
           <input
             type="text"
             class="form-control"
-            placeholder="Drawing Number"
+            placeholder="Dr Number"
             name={this.props.index}
             id={this.props.index}
             onChange={(e) =>
@@ -69,7 +69,7 @@ class SiteRequirementStructure extends Component {
           <input
             type="text"
             class="form-control"
-            placeholder="Quantity"
+            placeholder="Qty"
             name={this.props.index}
             id={this.props.index}
             onChange={(e) => this.props.onQuantityChange(e, this.props.index)}
