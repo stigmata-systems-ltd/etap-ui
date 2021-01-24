@@ -118,10 +118,10 @@ class AssignComponentViewMore extends Component {
                 value={this.props.assignStructure.assignComponentViewMore.drawingNo}
               />
               <TextInput
-                label="Project Structure Id"
-                name="projectStructureId"
-                id="projectStructureId"
-                value={this.props.assignStructure.assignComponentViewMore.projectStructureId}
+                label="Project Id"
+                name="projectId"
+                id="projectId"
+                value={this.props.assignStructure.assignComponentList.projectId}
               />
             </FormRow>
             <FormRow>
