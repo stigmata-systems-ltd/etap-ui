@@ -16,7 +16,10 @@ class ViewRequirementViewMore extends Component {
   constructor(props) {
     super(props);
   }
-
+   dateFormatter(ele){
+    let dateArray=ele.split('T');
+    return dateArray[0];
+  }
   render() {
     console.log(`Show model: ${this.props.showAddComponentModal}`)
     return (
@@ -49,13 +52,13 @@ class ViewRequirementViewMore extends Component {
                 label="Planned Start Date"
                 name="planStartdate"
                 id="planStartdate"
-                value={this.props.requirement.requirementViewMore.planStartdate}
+                value={this.dateFormatter(`${this.props.requirement.requirementViewMore.planStartdate}`)}
               />
               <TextInput
                 label="Planned Releas edate"
                 name="planReleasedate"
                 id="planReleasedate"
-                value={this.props.requirement.requirementViewMore.planReleasedate}
+                value={this.dateFormatter(`${this.props.requirement.requirementViewMore.planReleasedate}`)}
               />
             </FormRow>
             <FormRow>
@@ -63,13 +66,13 @@ class ViewRequirementViewMore extends Component {
                 label="Actual Start Date"
                 name="actualStartdate"
                 id="actualStartdate"
-                value={this.props.requirement.requirementViewMore.actualStartdate}
+                value={this.dateFormatter(`${this.props.requirement.requirementViewMore.actualStartdate}`)}
               />
               <TextInput
                 label="Actual Release Date"
                 name="actualReleasedate"
                 id="actualReleasedate"
-                value={this.props.requirement.requirementViewMore.actualReleasedate}
+                value={this.dateFormatter(`${this.props.requirement.requirementViewMore.actualReleasedate}`)}
               />
             </FormRow>
             <FormRow>
@@ -93,12 +96,12 @@ class ViewRequirementViewMore extends Component {
                 id="status"
                 value={this.props.requirement.requirementViewMore.status}
               />
-              <TextInput
+              {/* <TextInput
                 label="Status Internal"
                 name="statusInternal"
                 id="statusInternal"
                 value={this.props.requirement.requirementViewMore.statusInternal}
-              />
+              /> */}
             </FormRow>
       </Modal>
     );

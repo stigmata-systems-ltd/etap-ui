@@ -70,4 +70,4 @@ export const listViewDispatchMetaData = (
         tmpArr.push(tmpObj);
       });
     return tmpArr;
-  };
+};
