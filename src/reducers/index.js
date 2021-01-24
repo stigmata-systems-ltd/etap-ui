@@ -28,6 +28,7 @@ import siteDispatchReducer from "./siteDispatchReducer";
 import procurementReducer from "./procurementReducer";
 import siteApprovalReducer from "./siteApprovalReducer";
 import newFabricationVendorReducer from "./newFabricationVendorReducer";
+import outSourcingSiteApprovalReducer from "./outSourcingSiteApprovalReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -48,8 +49,9 @@ const rootReducer = combineReducers({
   scrap: scrapReducer,
   siteDispatch: siteDispatchReducer,
   procurement: procurementReducer,
-  siteApproval : siteApprovalReducer,
-  newFabricationVendor : newFabricationVendorReducer,
+  siteApproval: siteApprovalReducer,
+  newFabricationVendor: newFabricationVendorReducer,
+  outSourcingsiteApproval: outSourcingSiteApprovalReducer,
 
 });
 

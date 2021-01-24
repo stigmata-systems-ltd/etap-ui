@@ -227,6 +227,11 @@ export const metaDataNavbar = [
         navText: "Transfer Price",
         route: "/reuse/transferPrice",
       },
+      {
+        id: "cost" + 6,
+        navText: "Site Approval",
+        route: "/outSourcing/outSourceSiteApproval",
+      },
     ],
   },
   {
