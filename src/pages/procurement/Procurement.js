@@ -16,15 +16,6 @@ class Procurement extends Component {
     this.props.getSiteDispatchDetails();
   }
 
-  showModal = (id) => {
-    if (this.props.procurement.showEditModalFlag) {
-      this.props.setActiveItem(id);
-      this.props.showUpdateSiteDispatchModal(id);
-    } else {
-      this.props.closeUpdateSiteDispatchModal();
-    }
-  };
-
   render() {
     return (
       <>
@@ -34,6 +25,7 @@ class Procurement extends Component {
             <CustomAlert
               variant={this.props.procurement.isSuccess ? "success" : "danger"}
               message={this.props.procurement.message}
+              onClose={this.props.resetMessage}
             />
           )}
           <AssignVendorModal

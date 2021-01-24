@@ -16,6 +16,7 @@ import {
   SET_VENDOR_CODE_LIST,
   SET_SHOW_TABLE_FLAG,
   SET_SELECTED_STRUCTURES,
+  RESET_MESSAGE,
 } from "../actions/types";
 
 const initialState = {
@@ -32,7 +33,7 @@ const initialState = {
   selectedStructures: [],
   vendorStructures: [],
   vendor: {},
-  fabricationCost: 0,
+  fabricationCost: [],
   plannedReleaseDate: "",
   actualStartDate: "",
   expectedReleaseDate: "",
@@ -100,13 +101,24 @@ export default (state = initialState, action) => {
         isLoading: false,
         vendorCodeList: action.payload.data,
       };
+    case RESET_MESSAGE:
+      return { ...state, message: "", isSuccess: false, isError: false };
     case SET_ACTIVE_ITEM:
       const activeItem = state.siteDispatchDetails.filter((item) => {
         return item.dispatchId === action.payload;
       })[0];
       return { ...state, activeItem: activeItem };
     case SET_FABRICATION_COST:
-      return { ...state, fabricationCost: action.payload };
+      let tempFabricationCost = state.fabricationCost;
+      tempFabricationCost.map((structure) => {
+        if (structure.structureId === action.id) {
+          structure.cost = action.payload;
+        }
+      });
+      return {
+        ...state,
+        fabricationCost: tempFabricationCost,
+      };
     case SET_ACTUAL_START_DATE:
       return { ...state, actualStartDate: action.payload };
     case SET_PLANNED_RELEASE_DATE:
@@ -118,7 +130,21 @@ export default (state = initialState, action) => {
     case SET_CONTRACT_YEARS:
       return { ...state, contractYears: action.payload };
     case SET_SELECTED_STRUCTURES:
-      return { ...state, selectedStructures: action.payload };
+      let tempArr = [];
+      action.payload.map((structure) => {
+        let structureObj = {
+          structureId: structure.value,
+          cost: 0,
+        };
+
+        tempArr.push(structureObj);
+      });
+
+      return {
+        ...state,
+        selectedStructures: action.payload,
+        fabricationCost: tempArr,
+      };
     case SET_VENDOR:
       return { ...state, vendor: action.payload };
     case SET_SHOW_EDIT_MODAL_FLAG:
@@ -157,10 +183,11 @@ export default (state = initialState, action) => {
         activeItem: {},
         structureListCode: [],
         vendorStructures: [],
+        selectedStructures: [],
         vendor: {},
         vendorCodeList: [],
         showTableFlag: false,
-        fabricationCost: 0,
+        fabricationCost: [],
         plannedReleaseDate: "",
         actualStartDate: "",
         expectedReleaseDate: "",
