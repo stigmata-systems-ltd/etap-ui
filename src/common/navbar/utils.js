@@ -232,6 +232,16 @@ export const metaDataNavbar = [
         navText: "Site Approval",
         route: "/outSourcing/outSourceSiteApproval",
       },
+      {
+        id: "cost" + 7,
+        navText: "From Site Approval",
+        route: "/reuse/fromSiteApproval",
+      },
+      {
+        id: "cost" + 8,
+        navText: "To Site Approval",
+        route: "/reuse/toSiteApproval",
+      },
      
     ],
   },
