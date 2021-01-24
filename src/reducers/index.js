@@ -26,6 +26,8 @@ import surplusReducer from "./surplusReducer";
 import scrapReducer from "./scrapReducer";
 import siteDispatchReducer from "./siteDispatchReducer";
 import procurementReducer from "./procurementReducer";
+import siteApprovalReducer from "./siteApprovalReducer";
+import newFabricationVendorReducer from "./newFabricationVendorReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -46,6 +48,9 @@ const rootReducer = combineReducers({
   scrap: scrapReducer,
   siteDispatch: siteDispatchReducer,
   procurement: procurementReducer,
+  siteApproval : siteApprovalReducer,
+  newFabricationVendor : newFabricationVendorReducer,
+
 });
 
 export default rootReducer;

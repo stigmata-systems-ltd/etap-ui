@@ -3,7 +3,7 @@ import store from "../../store";
 export const getNavbar = () => {
   const auth = store.getState().auth;
   let tmpArr = [];
-  auth.pageAccess && auth.pageAccess.map((item) => {});
+  auth.pageAccess && auth.pageAccess.map((item) => { });
 };
 export const metaDataNavbar = [
   {
@@ -51,30 +51,31 @@ export const metaDataNavbar = [
       },
       {
         id: "mastersSub" + 5,
+        navText: "IC",
+        route: "/masters/viewIndependentCompany",
+      },
+      {
+        id: "mastersSub" + 6,
+        navText: "BU",
+        route: "/masters/viewBusinessUnit",
+      },
+      {
+        id: "mastersSub" + 7,
         navText: "Project",
         route: "/masters/viewProject",
       },
       {
-        id: "mastersSub" + 6,
+        id: "mastersSub" + 8,
         navText: "WBS",
         route: "/masters/addWBS",
       },
 
       {
-        id: "mastersSub" + 7,
+        id: "mastersSub" + 9,
         navText: "Users",
         route: "/masters/viewUsers",
       },
-      {
-        id: "mastersSub" + 8,
-        navText: "IC",
-        route: "/masters/viewIndependentCompany",
-      },
-      {
-        id: "mastersSub" + 9,
-        navText: "BU",
-        route: "/masters/viewBusinessUnit",
-      },
+
       {
         id: "mastersSub" + 10,
         navText: "Vendors",
@@ -179,6 +180,12 @@ export const metaDataNavbar = [
         navText: "Modification management",
         route: "/requirementRequest/addRequirements",
       },
+      {
+        id: "fab" + 3,
+        navText: "Site Approval",
+        route: "/newFabrication/siteApproval",
+      },
+    ,
     ],
   },
   {
@@ -209,6 +216,16 @@ export const metaDataNavbar = [
         id: "cost" + 3,
         navText: "Depreciation management",
         route: "/requirementRequest/addRequirements",
+      },
+      {
+        id: "cost" + 4,
+        navText: "Condition Assessment",
+        route: "/reuse/conditionAssessment",
+      },
+      {
+        id: "cost" + 5,
+        navText: "Transfer Price",
+        route: "/reuse/transferPrice",
       },
     ],
   },

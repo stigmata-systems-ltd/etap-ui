@@ -56,7 +56,7 @@ class AssignStructure extends Component {
           {this.props.scr.isProjMsg && (
             <CustomAlert variant="success" message={this.props.proj.message} />
           )}
-          <FormContainer formTitle={"Assign Structure"}>
+          <FormContainer formTitle={"Create Structure"}>
             <FormRow>
               <SearchableDropDown
                 size="col-md-4"
@@ -156,6 +156,7 @@ class AssignStructure extends Component {
                   />
                   <Col6 size="col-md-5">
                     <IconTextButton
+                      fieldSize="col-md-7"
                       iconName="faFileAlt"
                       size="lg"
                       btnText="Upload"
@@ -233,6 +234,7 @@ class AssignStructure extends Component {
                 </span>
               </CSVReader>
               <ExportExcel
+
                 data={getExcelData(this.props.scr)}
                 // header={this.props.headers}
                 filename={"test"}

@@ -25,8 +25,8 @@ class AddSurplus extends Component {
     }
     componentDidMount() {
         this.props.getProjectList();
-        
-      }
+
+    }
     render() {
         const subprop = this.props.addRequirement;
         return (
@@ -34,37 +34,51 @@ class AddSurplus extends Component {
                 <ContentLoader>
                     <FormContainer formTitle={'Surplus Declaration'}>
                         <FormRow>
-                        <SearchableDropDown
-                                    label="Project Name"
-                                    name="projectName"
-                                    selectOptions={transformDropDownData(this.props.surplus.projectCodesList, "id", "name")}
-                                    onChange={(obj) => this.props.handleChangeRequirementProjectName(obj)}
-                                    value={this.props.surplus.projectName}
-                        />
-                         <SearchableDropDown
-                                    label="Structure Name"
-                                    name="structureName"
-                                    selectOptions={transformDropDownData(this.props.surplus.structureProjectList, "structureId", "strcutureName")}
-                                    onChange={(obj) => this.props.handleChangeStructureList(obj)}
-                                    value={this.props.surplus.structureID}
-                        />
+                            <SearchableDropDown
+                                size="col-md-4"
+                                labelSize="pr-0"
+                                fieldSize="col-md-7 pr-0"
+                                label="Project Name"
+                                name="projectName"
+                                selectOptions={transformDropDownData(this.props.surplus.projectCodesList, "id", "name")}
+                                onChange={(obj) => this.props.handleChangeRequirementProjectName(obj)}
+                                value={this.props.surplus.projectName}
+                            />
+                            <SearchableDropDown
+                                size="col-md-4"
+                                labelSize="pr-0"
+                                fieldSize="col-md-8 pr-0"
+                                label="Structure Name"
+                                name="structureName"
+                                selectOptions={transformDropDownData(this.props.surplus.structureProjectList, "structureId", "strcutureName")}
+                                onChange={(obj) => this.props.handleChangeStructureList(obj)}
+                                value={this.props.surplus.structureID}
+                            />
+                            <TextInput
+                                size="col-md-4"
+                                labelSize="pr-0"
+                                fieldSize="col-md-7 pr-0"
+                                label="Structure Family"
+                                name="structureFamily"
+                                id="structureFamily"
+                                value={this.props.surplus.structureFamily.label}
+                            />
                         </FormRow>
 
                         <FormRow>
-                        <TextInput
-                            label="Structure Family"
-                            name="structureFamily"
-                            id="structureFamily"
-                            value={this.props.surplus.structureFamily.label}
-                        />
-                        <TextInput
-                            label="Structure Code"
-                            value={this.props.surplus.structureCode}
-                            disabled={true}
-                        />
-                        </FormRow>
-                        <FormRow>
-                        <DateInput
+
+                            <TextInput
+                                size="col-md-4"
+                                labelSize="pr-0"
+                                fieldSize="col-md-8 pr-0"
+                                label="Structure Code"
+                                value={this.props.surplus.structureCode}
+                                disabled={true}
+                            />
+                            <DateInput
+                                size="col-md-4"
+                                labelSize="pr-0"
+                                fieldSize="col-md-8 pr-0"
                                 label="Surplus From"
                                 name="surplusFrom"
                                 id="surplusFrom"
@@ -74,11 +88,12 @@ class AddSurplus extends Component {
                                 value={this.props.surplus.dateFrom}
                             />
                             <FileInput
-                            size="col-md-6"
-                            label="Select Photo"
-                            onChange={e => this.props.handleFileUpload(e.target.files[0])}
+                                size="col-md-4"
+                                label="Select Photo"
+                                onChange={e => this.props.handleFileUpload(e.target.files[0])}
                             />
                         </FormRow>
+
                         <Button
                             btnText="SAVE"
                             onClick={this.props.saveSurplus}

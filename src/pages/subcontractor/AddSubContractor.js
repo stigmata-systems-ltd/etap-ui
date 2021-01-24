@@ -27,6 +27,8 @@ class AddSubContractor extends Component {
             >
                 <FormRow>
                     <TextInput
+                        labelSize="col-md-5 pr-0"
+                        fieldSize="col-md-7 pl-0"
                         label="Vendor Name"
                         name="vendorName"
                         id="vendorName"
@@ -34,6 +36,8 @@ class AddSubContractor extends Component {
                         value={this.props.vendor.vendorName}
                     />
                     <TextInput
+                        labelSize="col-md-5 pr-0"
+                        fieldSize="col-md-7 pl-0"
                         label="Vendor Code"
                         name="vendorCode"
                         id="vendorCode"
@@ -43,6 +47,8 @@ class AddSubContractor extends Component {
                 </FormRow>
                 <FormRow>
                     <TextInput
+                        labelSize="col-md-5 pr-0"
+                        fieldSize="col-md-7 pl-0"
                         label="Email"
                         name="email"
                         id="email"
@@ -50,6 +56,8 @@ class AddSubContractor extends Component {
                         value={this.props.vendor.email}
                     />
                     <TextInput
+                        labelSize="col-md-5 pr-0"
+                        fieldSize="col-md-7 pl-0"
                         label="Contact Number"
                         name="contactNumber"
                         id="contactNumber"
@@ -59,6 +67,8 @@ class AddSubContractor extends Component {
                 </FormRow>
                 <FormRow>
                     <SearchableDropDown
+                        labelSize="col-md-5 pr-0"
+                        fieldSize="col-md-7 pl-0"
                         label="Status"
                         selectOptions={[{ value: 'Active', label: 'Active' }, { value: 'InActive', label: 'InActive' }]}
                         onChange={(obj) => this.props.handleChangeVendorStatus(obj)}
@@ -67,8 +77,8 @@ class AddSubContractor extends Component {
                 </FormRow>
                 <FormRow>
                     {this.props.vendor.venServList.map((dt, i) => {
-                        return(
-                            <CheckBox 
+                        return (
+                            <CheckBox
                                 label={dt.name}
                                 size="col-md-4"
                                 onChange={() => this.props.onServTypeChange(i)}
