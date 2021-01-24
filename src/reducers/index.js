@@ -31,6 +31,7 @@ import newFabricationVendorReducer from "./newFabricationVendorReducer";
 import outSourcingSiteApprovalReducer from "./outSourcingSiteApprovalReducer";
 import conditionAssessmentReducer from "./conditionAssessmentReducer";
 import fromSiteApprovalReducer from "./fromSiteApprovalReducer";
+import toSiteApprovalReducer from "./toSiteApprovalReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -56,6 +57,7 @@ const rootReducer = combineReducers({
   outSourcingsiteApproval: outSourcingSiteApprovalReducer,
   conditionAssessment: conditionAssessmentReducer,
   fromSiteApproval: fromSiteApprovalReducer,
+  toSiteApproval: toSiteApprovalReducer,
 
 });
 

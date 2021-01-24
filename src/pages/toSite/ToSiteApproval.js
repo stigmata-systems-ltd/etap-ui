@@ -3,14 +3,14 @@ import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
 
 import Loader from "../../common/Loader";
-import { fromSiteApprovalMetaData } from "./utils";
+import { toSiteApprovalMetaData } from "./utils";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 
 import TableFilter from "../../common/TableFilter";
 
-class FromSiteApproval extends Component {
+class ToSiteApproval extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class FromSiteApproval extends Component {
         };
     }
     componentDidMount() {
-        this.props.getFromSiteApprovalDetails();
+        this.props.getToSiteApprovalDetails();
     }
 
 
@@ -31,14 +31,14 @@ class FromSiteApproval extends Component {
         return (
             <>
                 <ContentLoader>
-                    {this.props.fromSiteApproval.isLoading && <Loader />}
-                    {this.props.fromSiteApproval.message && (
+                    {this.props.toSiteApproval.isLoading && <Loader />}
+                    {this.props.toSiteApproval.message && (
                         <CustomAlert
-                            variant={this.props.fromSiteApproval.isSuccess ? "success" : "danger"}
-                            message={this.props.fromSiteApproval.message}
+                            variant={this.props.toSiteApproval.isSuccess ? "success" : "danger"}
+                            message={this.props.toSiteApproval.message}
                         />
                     )}
-                    {/* <FromSiteApprovalViewMore showMoreModal={this.props.fromSiteApprovalDetails.showMoreModalFlag} /> */}
+                    {/* <ToSiteApprovalViewMore showMoreModal={this.props.toSiteApprovalDetails.showMoreModalFlag} /> */}
                     <ConfirmModal
                         showModal={this.state.showApproveModal}
                         handleClose={() => {
@@ -46,7 +46,7 @@ class FromSiteApproval extends Component {
                         }
 
                         }
-                        title="Approve From Site"
+                        title="Approve To Site"
                         handleConfirm={() => {
                             this.props.handleApprove(this.state.activeId);
                             this.setState({ showApproveModal: false, activeId: null });
@@ -62,7 +62,7 @@ class FromSiteApproval extends Component {
                             this.setState({ showDeleteModal: false, activeId: null })
                         }
                         }
-                        title="Reject From Site Approval"
+                        title="Reject To Site Approval"
                         handleConfirm={() => {
                             this.props.handleReject(this.state.activeId);
                             this.setState({ showDeleteModal: false, activeId: null });
@@ -72,20 +72,20 @@ class FromSiteApproval extends Component {
                             Are you sure you want to Reject this request?
             </h6>
                     </ConfirmModal>
-                    <FormContainer formTitle={"Reuse : From Site Approval"}>
-                        {this.props.fromSiteApproval.fromSiteApprovalDetails && (
+                    <FormContainer formTitle={"Reuse : To Site Approval"}>
+                        {this.props.toSiteApproval.toSiteApprovalDetails && (
                             <CustomDataTable
-                                metaData={fromSiteApprovalMetaData(
+                                metaData={toSiteApprovalMetaData(
                                     id => this.setState({ activeId: id, showApproveModal: true }),
                                     id => this.setState({ activeId: id, showDeleteModal: true }),
 
                                 )}
-                                bodyData={this.props.fromSiteApproval.fromSiteApprovalDetails}
-                                progressPending={this.props.fromSiteApproval.isLoading}
+                                bodyData={this.props.toSiteApproval.toSiteApprovalDetails}
+                                progressPending={this.props.toSiteApproval.isLoading}
                                 pagination={true}
                                 paginationTotalRows={
-                                    this.props.fromSiteApproval.fromSiteApprovalDetails &&
-                                    this.props.fromSiteApproval.fromSiteApprovalDetails.length
+                                    this.props.toSiteApproval.toSiteApprovalDetails &&
+                                    this.props.toSiteApproval.toSiteApprovalDetails.length
                                 }
                                 paginationPerPage={5}
                                 noHeader={true}
@@ -116,4 +116,4 @@ class FromSiteApproval extends Component {
     }
 }
 
-export default FromSiteApproval;
+export default ToSiteApproval;

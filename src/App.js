@@ -78,6 +78,9 @@ const ConditionAssessment = React.lazy(() =>
 const FromSiteApproval = React.lazy(() =>
   import("./container/fromSiteApproval/fromSiteApproval")
 );
+const ToSiteApproval = React.lazy(() =>
+  import("./container/toSiteApproval/toSiteApproval")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -354,6 +357,11 @@ class App extends Component {
               exact
               path="/reuse/fromSiteApproval"
               component={FromSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/toSiteApproval"
+              component={ToSiteApproval}
             ></Route>
 
             <Route
