@@ -72,6 +72,9 @@ const NewFabricationSiteApproval = React.lazy(() =>
 const OutSourcingSiteApproval = React.lazy(() =>
   import("./container/outSource/siteApproval")
 );
+const ConditionAssessment = React.lazy(() =>
+  import("./container/conditionAssessment/conditionAssessment")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -338,6 +341,11 @@ class App extends Component {
               exact
               path="/outSourcing/outSourceSiteApproval"
               component={OutSourcingSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/conditionAssessment"
+              component={ConditionAssessment}
             ></Route>
 
             <Route
