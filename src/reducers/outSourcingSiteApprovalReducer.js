@@ -1,5 +1,5 @@
 import {
-    SET_SITE_APPROVAL_DETAILS,
+    SET_OUT_SOURCING_SITE_APPROVAL_DETAILS,
     RESET_UPDATE_SITE_APPROVAL_MODAL,
     SET_SHOW_EDIT_MODAL_FLAG,
     SET_ACTIVE_ITEM,
@@ -12,7 +12,7 @@ const initialState = {
     isError: false,
     isSuccess: false,
     message: "",
-    siteApprovalDetails: [],
+    outSourcingSiteApprovalDetails: [],
     activeItem: {},
 
 
@@ -20,12 +20,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case `${SET_SITE_APPROVAL_DETAILS}_PENDING`:
+        case `${SET_OUT_SOURCING_SITE_APPROVAL_DETAILS}_PENDING`:
             return {
                 ...state,
                 isLoading: true,
             };
-        case `${SET_SITE_APPROVAL_DETAILS}_REJECTED`:
+        case `${SET_OUT_SOURCING_SITE_APPROVAL_DETAILS}_REJECTED`:
             return {
                 ...state,
                 isLoading: false,
@@ -33,16 +33,16 @@ export default (state = initialState, action) => {
                 isSuccess: false,
                 message: action.payload.error,
             };
-        case `${SET_SITE_APPROVAL_DETAILS}_FULFILLED`:
+        case `${SET_OUT_SOURCING_SITE_APPROVAL_DETAILS}_FULFILLED`:
             return {
                 ...state,
                 isLoading: false,
-                siteApprovalDetails: action.payload.data,
+                outSourcingSiteApprovalDetails: action.payload.data,
             };
 
 
         case SET_ACTIVE_ITEM:
-            const activeItem = state.siteApprovalDetails.filter((item) => {
+            const activeItem = state.outSourcingSiteApprovalDetails.filter((item) => {
                 return item.dispatchId === action.payload;
             })[0];
             return { ...state, activeItem: activeItem };
@@ -60,7 +60,7 @@ export default (state = initialState, action) => {
                 isError: false,
                 isSuccess: false,
                 message: "",
-                siteApprovalDetails: [],
+                outSourcingSiteApprovalDetails: [],
                 activeItem: {},
 
             };

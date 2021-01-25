@@ -1,13 +1,19 @@
 import axios from "axios";
 import store from "../store";
 import config from "../config";
-import { SET_SITE_APPROVAL_DETAILS, ACTION_SITE_APPROVAL, GET_SITE_APPROVAL_DATA_SINGLE } from "../actions/types";
+import {
+ACTION_SITE_APPROVAL,
+GET_SITE_APPROVAL_DATA_SINGLE,
+SET_OUT_SOURCING_SITE_APPROVAL_DETAILS
+} from "../actions/types";
+
+
 import { getUserDetails } from "../utils/auth";
 
-export const getSiteApprovalDetails = () => {
+export const getOutSourcingSiteApprovalDetails = () => {
     const roleName = getUserDetails().roleName;
     return {
-        type: SET_SITE_APPROVAL_DETAILS,
+        type: SET_OUT_SOURCING_SITE_APPROVAL_DETAILS,
         payload: axios.get(
             `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}`
         ),
