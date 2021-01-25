@@ -36,6 +36,9 @@ class AddRequirement extends Component {
           <FormContainer formTitle={"Add Requirement"}>
             <FormRow>
               <SearchableDropDown
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
                 label="Project Name"
                 name="projectName"
                 selectOptions={transformDropDownData(
@@ -48,7 +51,12 @@ class AddRequirement extends Component {
                 }
                 value={this.props.requirement.projectName}
               />
+            </FormRow>
+            <FormRow>
               <SearchableDropDown
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
                 label="Required for WBS"
                 name="requiredWorkBreak"
                 selectOptions={transformDropDownData(
@@ -61,10 +69,10 @@ class AddRequirement extends Component {
                 }
                 value={this.props.requirement.requiredWorkBreak}
               />
-            </FormRow>
-
-            <FormRow>
               <SearchableDropDown
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
                 label="Actual WBS"
                 name="actualWorkBreak"
                 selectOptions={transformDropDownData(
@@ -78,6 +86,9 @@ class AddRequirement extends Component {
                 value={this.props.requirement.actualWorkBreak}
               />
               <DateInput
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
                 label="Planned Start Date"
                 name="plannedStartDate"
                 id="plannedStartDate"
@@ -89,9 +100,13 @@ class AddRequirement extends Component {
                 value={this.props.requirement.planedStartDate}
               />
             </FormRow>
+
             <FormRow>
               <DateInput
-                label="Actual Start Date of Usage"
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
+                label="Actual Start Date"
                 name="actualStartDateOfUsage"
                 id="actualStartDateOfUsage"
                 onChange={(e) =>
@@ -102,7 +117,10 @@ class AddRequirement extends Component {
                 value={this.props.requirement.actualStartDateOfUsage}
               />
               <DateInput
-                label="Planned Release Date"
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
+                label="Planned Release"
                 name="plannedReleaseDate"
                 id="plannedReleaseDate"
                 onChange={(e) =>
@@ -112,10 +130,11 @@ class AddRequirement extends Component {
                 }
                 value={this.props.requirement.expectedReleaseDate}
               />
-            </FormRow>
-            <FormRow>
               <DateInput
-                label="Expected Release Date"
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
+                label="Expected Release"
                 name="expectedReleaseDate"
                 id="expectedReleaseDate"
                 onChange={(e) =>
@@ -126,6 +145,7 @@ class AddRequirement extends Component {
                 value={this.props.requirement.expectedReleaseDate}
               />
             </FormRow>
+
 
             <div class="form-group row">
               <div class="col-sm-8">
@@ -158,8 +178,8 @@ class AddRequirement extends Component {
                     structureFamily={
                       this.props.requirement.siteRequirementList[i].structFamily
                     }
-                    componentsCount= {
-                        this.props.requirement.siteRequirementList[i].componentsCount
+                    componentsCount={
+                      this.props.requirement.siteRequirementList[i].componentsCount
                     }
                     drawingNumber={
                       this.props.requirement.siteRequirementList[i]
@@ -179,8 +199,8 @@ class AddRequirement extends Component {
             </div>
             <FormRow>
               <TextArea
-              labelSize = "col-lg-3"
-               size="col-lg-6"
+                labelSize="col-lg-3"
+                size="col-lg-6"
                 label="Remarks"
                 name="remarks"
                 id="remarks"

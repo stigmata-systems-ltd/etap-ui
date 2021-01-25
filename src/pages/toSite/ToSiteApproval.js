@@ -3,14 +3,14 @@ import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
 
 import Loader from "../../common/Loader";
-import { conditionAssessmentMetaData } from "./utils";
+import { toSiteApprovalMetaData } from "./utils";
 import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 
 import TableFilter from "../../common/TableFilter";
 
-class ConditionAssessment extends Component {
+class ToSiteApproval extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class ConditionAssessment extends Component {
         };
     }
     componentDidMount() {
-        this.props.getConditionAssessmentDetails();
+        this.props.getToSiteApprovalDetails();
     }
 
 
@@ -31,14 +31,14 @@ class ConditionAssessment extends Component {
         return (
             <>
                 <ContentLoader>
-                    {this.props.conditionAssessment.isLoading && <Loader />}
-                    {this.props.conditionAssessment.message && (
+                    {this.props.toSiteApproval.isLoading && <Loader />}
+                    {this.props.toSiteApproval.message && (
                         <CustomAlert
-                            variant={this.props.conditionAssessment.isSuccess ? "success" : "danger"}
-                            message={this.props.conditionAssessment.message}
+                            variant={this.props.toSiteApproval.isSuccess ? "success" : "danger"}
+                            message={this.props.toSiteApproval.message}
                         />
                     )}
-                    {/* <OutSourcingSiteApprovalViewMore showMoreModal={this.props.outSourcingsiteApproval.showMoreModalFlag} /> */}
+                    {/* <ToSiteApprovalViewMore showMoreModal={this.props.toSiteApprovalDetails.showMoreModalFlag} /> */}
                     <ConfirmModal
                         showModal={this.state.showApproveModal}
                         handleClose={() => {
@@ -46,7 +46,7 @@ class ConditionAssessment extends Component {
                         }
 
                         }
-                        title="Approve Condition Assessment"
+                        title="Approve To Site"
                         handleConfirm={() => {
                             this.props.handleApprove(this.state.activeId);
                             this.setState({ showApproveModal: false, activeId: null });
@@ -62,7 +62,7 @@ class ConditionAssessment extends Component {
                             this.setState({ showDeleteModal: false, activeId: null })
                         }
                         }
-                        title="Reject Condition Assessment"
+                        title="Reject To Site Approval"
                         handleConfirm={() => {
                             this.props.handleReject(this.state.activeId);
                             this.setState({ showDeleteModal: false, activeId: null });
@@ -72,20 +72,20 @@ class ConditionAssessment extends Component {
                             Are you sure you want to Reject this request?
             </h6>
                     </ConfirmModal>
-                    <FormContainer formTitle={"Reuse : Condition Assessment"}>
-                        {this.props.conditionAssessment.conditionAssessmentDetails && (
+                    <FormContainer formTitle={"Reuse : To Site Approval"}>
+                        {this.props.toSiteApproval.toSiteApprovalDetails && (
                             <CustomDataTable
-                                metaData={conditionAssessmentMetaData(
+                                metaData={toSiteApprovalMetaData(
                                     id => this.setState({ activeId: id, showApproveModal: true }),
                                     id => this.setState({ activeId: id, showDeleteModal: true }),
 
                                 )}
-                                bodyData={this.props.conditionAssessment.conditionAssessmentDetails}
-                                progressPending={this.props.conditionAssessment.isLoading}
+                                bodyData={this.props.toSiteApproval.toSiteApprovalDetails}
+                                progressPending={this.props.toSiteApproval.isLoading}
                                 pagination={true}
                                 paginationTotalRows={
-                                    this.props.conditionAssessment.conditionAssessmentDetails &&
-                                    this.props.conditionAssessment.conditionAssessmentDetails.length
+                                    this.props.toSiteApproval.toSiteApprovalDetails &&
+                                    this.props.toSiteApproval.toSiteApprovalDetails.length
                                 }
                                 paginationPerPage={5}
                                 noHeader={true}
@@ -116,4 +116,4 @@ class ConditionAssessment extends Component {
     }
 }
 
-export default ConditionAssessment;
+export default ToSiteApproval;

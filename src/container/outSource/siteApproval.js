@@ -6,16 +6,17 @@ import {
     SET_SHOW_TABLE_FLAG,
     SET_ACTIVE_ITEM,
     SET_SHOW_MORE_MODAL_FLAG,
+    CHANGE_VIEW_SITE_APPROVAL_MORE_MODAL_STATUS,
 
 } from "../../actions/types";
 
-import { getSiteApprovalDetails, siteApprovalAction } from '../../actions/siteApprovalAction';
-import NewFabricationSiteApproval from "../../pages/siteApproval/SiteApproval";
+import { getOutSourcingSiteApprovalDetails, siteApprovalAction } from '../../actions/outSourcingSiteApprovalAction';
+import OutSourcingSiteApproval from "../../pages/outsource/OutSourcingSiteApproval";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSiteApprovalDetails() {
-            dispatch(getSiteApprovalDetails());
+        getOutSourcingSiteApprovalDetails() {
+            dispatch(getOutSourcingSiteApprovalDetails());
         },
 
 
@@ -27,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         handleApprove(id) {
-            let siteApprovalList = store.getState().siteApproval.siteApprovalList;
+            let siteApprovalList = store.getState().outSourcingsiteApproval.siteApprovalList;
             let singleSiteApproval = siteApprovalList[id];
             dispatch(siteApprovalAction(id, "Approval"));
         },
@@ -47,6 +48,12 @@ const mapDispatchToProps = (dispatch) => {
             });
 
         },
+        closeSiteApprovalViewMoreModal() {
+            dispatch({
+                type: CHANGE_VIEW_SITE_APPROVAL_MORE_MODAL_STATUS,
+                payload: false,
+            })
+        }
 
 
 
@@ -54,10 +61,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-    const siteApproval = store.getState().siteApproval;
+    const outSourcingsiteApproval = store.getState().outSourcingsiteApproval;
     return {
-        siteApproval,
+        outSourcingsiteApproval,
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewFabricationSiteApproval);
+export default connect(mapStateToProps, mapDispatchToProps)(OutSourcingSiteApproval);

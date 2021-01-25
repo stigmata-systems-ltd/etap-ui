@@ -69,6 +69,18 @@ const TransferPrice = React.lazy(() =>
 const NewFabricationSiteApproval = React.lazy(() =>
   import("./container/siteApproval/siteApproval")
 );
+const OutSourcingSiteApproval = React.lazy(() =>
+  import("./container/outSource/siteApproval")
+);
+const ConditionAssessment = React.lazy(() =>
+  import("./container/conditionAssessment/conditionAssessment")
+);
+const FromSiteApproval = React.lazy(() =>
+  import("./container/fromSiteApproval/fromSiteApproval")
+);
+const ToSiteApproval = React.lazy(() =>
+  import("./container/toSiteApproval/toSiteApproval")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -262,6 +274,14 @@ class App extends Component {
             ></Route>
             <Route
               exact
+              path="/outSourcing/siteApproval"
+              component={OutSourcingSiteApproval}
+            ></Route>
+
+
+
+            <Route
+              exact
               path="/reuse/initiatingReuse"
               component={InitiatingReuse}
             ></Route>
@@ -317,15 +337,31 @@ class App extends Component {
               path="/outsourcing/outSourcing"
               component={OutSourcing}
             ></Route>
-            <Route
-              exact
-              path="/outsourcing/siteApproval"
-              component={SiteApproval}
-            ></Route>
+
             <Route
               exact
               path="/newFabrication/siteApproval"
               component={NewFabricationSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/outSourcing/outSourceSiteApproval"
+              component={OutSourcingSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/conditionAssessment"
+              component={ConditionAssessment}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/fromSiteApproval"
+              component={FromSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/reuse/toSiteApproval"
+              component={ToSiteApproval}
             ></Route>
 
             <Route

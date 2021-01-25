@@ -1,18 +1,15 @@
 import {
-    SET_SITE_APPROVAL_DETAILS,
-    RESET_UPDATE_SITE_APPROVAL_MODAL,
-    SET_SHOW_EDIT_MODAL_FLAG,
+    SET_TO_SITE_APPROVAL_DETAILS,
     SET_ACTIVE_ITEM,
-    SET_SHOW_MORE_MODAL_FLAG,
+    RESET_UPDATE_TO_SITE_APPROVAL_MODAL
+
 } from "../actions/types";
 const initialState = {
     isLoading: false,
-    showEditModalFlag: false,
-    showMoreModalFlag: false,
     isError: false,
     isSuccess: false,
     message: "",
-    siteApprovalDetails: [],
+    toSiteApprovalDetails: [],
     activeItem: {},
 
 
@@ -20,12 +17,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case `${SET_SITE_APPROVAL_DETAILS}_PENDING`:
+        case `${SET_TO_SITE_APPROVAL_DETAILS}_PENDING`:
             return {
                 ...state,
                 isLoading: true,
             };
-        case `${SET_SITE_APPROVAL_DETAILS}_REJECTED`:
+        case `${SET_TO_SITE_APPROVAL_DETAILS}_REJECTED`:
             return {
                 ...state,
                 isLoading: false,
@@ -33,34 +30,28 @@ export default (state = initialState, action) => {
                 isSuccess: false,
                 message: action.payload.error,
             };
-        case `${SET_SITE_APPROVAL_DETAILS}_FULFILLED`:
+        case `${SET_TO_SITE_APPROVAL_DETAILS}_FULFILLED`:
             return {
                 ...state,
                 isLoading: false,
-                siteApprovalDetails: action.payload.data,
+                toSiteApprovalDetails: action.payload.data,
             };
 
 
         case SET_ACTIVE_ITEM:
-            const activeItem = state.siteApprovalDetails.filter((item) => {
+            const activeItem = state.toSiteApprovalDetails.filter((item) => {
                 return item.dispatchId === action.payload;
             })[0];
             return { ...state, activeItem: activeItem };
-        case SET_SHOW_EDIT_MODAL_FLAG:
-            return { ...state, showEditModalFlag: action.payload };
-        case SET_SHOW_MORE_MODAL_FLAG:
-            return { ...state, showMoreModalFlag: action.payload };
-        
-        case RESET_UPDATE_SITE_APPROVAL_MODAL:
+
+        case RESET_UPDATE_TO_SITE_APPROVAL_MODAL:
             return {
                 ...state,
                 isLoading: false,
-                showEditModalFlag: false,
-                showMoreModalFlag: false,
                 isError: false,
                 isSuccess: false,
                 message: "",
-                siteApprovalDetails: [],
+                toSiteApprovalDetails: [],
                 activeItem: {},
 
             };
