@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import storeConfig from "./store";
-import { Provider } from 'react-redux'
+import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>

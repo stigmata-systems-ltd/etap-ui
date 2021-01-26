@@ -131,14 +131,16 @@ export default (state = initialState, action) => {
       return { ...state, contractYears: action.payload };
     case SET_SELECTED_STRUCTURES:
       let tempArr = [];
-      action.payload.map((structure) => {
-        let structureObj = {
-          structureId: structure.value,
-          cost: 0,
-        };
+      if (state.activeItem.serviceType === "Fabrication") {
+        action.payload.map((structure) => {
+          let structureObj = {
+            structureId: structure.value,
+            cost: 0,
+          };
 
-        tempArr.push(structureObj);
-      });
+          tempArr.push(structureObj);
+        });
+      }
 
       return {
         ...state,

@@ -8,6 +8,8 @@ import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 import AssignVendorModal from "./AssignVendorModal";
+import Popup from "../../common/forms/Popup";
+
 class Procurement extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +24,8 @@ class Procurement extends Component {
         <ContentLoader>
           {this.props.procurement.isLoading && <Loader />}
           {this.props.procurement.message && (
-            <CustomAlert
-              variant={this.props.procurement.isSuccess ? "success" : "danger"}
+            <Popup
+              type={this.props.procurement.isSuccess ? "success" : "danger"}
               message={this.props.procurement.message}
               onClose={this.props.resetMessage}
             />
