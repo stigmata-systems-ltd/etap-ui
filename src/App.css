@@ -21900,3 +21900,8 @@ dl li {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+.modal-background-color{
+  background-color: DarkBlue;
+  color: white;
+}

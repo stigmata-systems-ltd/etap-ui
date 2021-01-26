@@ -25,13 +25,22 @@ import {
   getAssignStructDetails,
   saveAssignStruct,
   saveAssignComp,
+  resetExistingData
 } from "../../actions/StructCompAction";
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setInitialData() {
+      dispatch({
+        type: RESET_ASSIGN_STRUCT_FORM
+      });
+      dispatch({
+        type: RESET_ASSIGN_COMP_FORM
+      });
+      
       dispatch(getProjList());
       dispatch(getStructList());
+      
     },
     resetStructureData() {
       dispatch({ type: RESET_ASSIGN_STRUCT_FORM });

@@ -233,14 +233,7 @@ class AssignStructure extends Component {
                   <FaIcon iconName="faUpload" /> Upload Excel Template
                 </span>
               </CSVReader>
-              <ExportExcel
-
-                data={getExcelData(this.props.scr)}
-                // header={this.props.headers}
-                filename={"test"}
-                className="download-btn"
-                iconName="faDownload"
-              />
+              
               <CustomDataTable
                 metaData={componentsMetaData()}
                 bodyData={getComponentTableData(this.props.scr)}
@@ -248,8 +241,8 @@ class AssignStructure extends Component {
               />
             </FormRow>
             <br />
-
-            <Button
+              <FormRow>
+              <Button
               btnText="SAVE"
               onClick={this.props.saveAssignComp}
               btnType="primary"
@@ -259,6 +252,16 @@ class AssignStructure extends Component {
               btnType="cancel"
               onClick={this.props.resetSubContractorData}
             />
+              </FormRow>
+            <br/>
+            <ExportExcel
+
+              data={getExcelData(this.props.scr)}
+              // header={this.props.headers}
+              filename={"test"}
+              className="download-btn"
+              iconName="faDownload"
+              />
           </FormContainer>
         </ContentLoader>
       </>

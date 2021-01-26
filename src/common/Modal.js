@@ -12,7 +12,7 @@ class CustomModal extends Component {
                 size={this.props.size}
                 centered
             >
-                <Modal.Header closeButton>
+                <Modal.Header className="modal-background-color" closeButton>
                     <Modal.Title>{this.props.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>{this.props.children}</Modal.Body>

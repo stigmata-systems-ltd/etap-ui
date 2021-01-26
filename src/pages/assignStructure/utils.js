@@ -99,6 +99,10 @@ export const getExcelData = (scr) => {
 
 export const transformAttri = (data) => {
   let tmpArr = [];
+  while(typeof data === 'string'){
+    data=JSON.parse(data);
+    console.log(`typeof data is ${typeof data}`)
+  }
   data &&
     data.map((dt, index) => {
       tmpArr.push({
