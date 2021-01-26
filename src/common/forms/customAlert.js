@@ -13,6 +13,7 @@ class customAlert extends Component {
     this.setState({ visible: true }, () => {
       window.setTimeout(() => {
         this.setState({ visible: false });
+        this.props.onClose();
         // const scr = store.getState().scr;
         // const grid = store.getState().grid;
         // const client = store.getState().client;

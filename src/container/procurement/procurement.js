@@ -23,6 +23,7 @@ import {
   SET_VENDOR_STRUCTURES,
   RESET_ASSIGN_VENDOR_MODAL,
   SET_SELECTED_STRUCTURES,
+  RESET_MESSAGE,
 } from "../../actions/types";
 
 import Procurement from "../../pages/procurement/Procurement";
@@ -32,10 +33,11 @@ const mapDispatchToProps = (dispatch) => {
     getSiteDispatchDetails() {
       dispatch(getSiteDispatchDetails());
     },
-    handleChangeFabricationCost(value) {
+    handleChangeFabricationCost(value, structureId) {
       dispatch({
         type: SET_FABRICATION_COST,
         payload: value,
+        id: structureId,
       });
     },
     handleChangePlannedReleaseDate(value) {
@@ -110,6 +112,11 @@ const mapDispatchToProps = (dispatch) => {
         payload: false,
       });
       dispatch({ type: RESET_ASSIGN_VENDOR_MODAL });
+    },
+    resetMessage() {
+      dispatch({
+        type: RESET_MESSAGE,
+      });
     },
     osAssignVendor() {
       dispatch(osAssignVendor());

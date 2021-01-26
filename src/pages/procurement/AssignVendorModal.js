@@ -17,18 +17,22 @@ class AssignVendorModal extends Component {
   populateVendorStructures = () => {
     if (
       this.props.procurement.selectedStructures !== [] &&
-      this.props.procurement.vendor !== {}
+      this.props.procurement.vendor.value !== undefined
     ) {
       let tempArr = [];
       if (this.props.procurement.activeItem.serviceType === "Fabrication") {
-        if (this.props.procurement.fabricationCost !== 0) {
+        if (this.props.procurement.fabricationCost !== []) {
           this.props.procurement.selectedStructures.map((structure) => {
             let tempObj = {
               subContId: this.props.procurement.vendor.value,
               vendorName: this.props.procurement.vendor.label,
               structureId: structure.value,
               structureName: structure.label,
-              fabricationCost: this.props.procurement.fabricationCost,
+              fabricationCost: this.props.procurement.fabricationCost.find(
+                (item) => {
+                  return item.structureId === structure.value;
+                }
+              ).cost,
             };
             tempArr.push(tempObj);
           });
@@ -57,7 +61,6 @@ class AssignVendorModal extends Component {
           });
         }
       }
-
       this.props.setVendorStructures(tempArr);
     }
     this.props.setShowTableFlag(true);
@@ -90,11 +93,7 @@ class AssignVendorModal extends Component {
       >
         <FormRow>
           <SearchableDropDown
-            size={
-              this.props.procurement.activeItem.serviceType === "Fabrication"
-                ? "col-md-4 px-0"
-                : "col-md-6"
-            }
+            size="col-md-6"
             labelSize={
               this.props.procurement.activeItem.serviceType === "Fabrication"
                 ? "col-md-4"
@@ -102,7 +101,7 @@ class AssignVendorModal extends Component {
             }
             fieldSize={
               this.props.procurement.activeItem.serviceType === "Fabrication"
-                ? "col-md-8"
+                ? "col-md-8 px-0"
                 : "col-md-9"
             }
             label="Structure Name"
@@ -115,11 +114,7 @@ class AssignVendorModal extends Component {
             onChange={(item) => this.props.handleChangeSelectedStructures(item)}
           />
           <SearchableDropDown
-            size={
-              this.props.procurement.activeItem.serviceType === "Fabrication"
-                ? "col-md-4 px-0"
-                : "col-md-6"
-            }
+            size="col-md-6"
             labelSize={
               this.props.procurement.activeItem.serviceType === "Fabrication"
                 ? "col-md-4"
@@ -127,7 +122,7 @@ class AssignVendorModal extends Component {
             }
             fieldSize={
               this.props.procurement.activeItem.serviceType === "Fabrication"
-                ? "col-md-8"
+                ? "col-md-8 px-0"
                 : "col-md-9"
             }
             label="Vendor Name"
@@ -138,20 +133,36 @@ class AssignVendorModal extends Component {
             )}
             onChange={(item) => this.props.handleChangeVendorId(item)}
           />
-          {this.props.procurement.activeItem.serviceType === "Fabrication" && (
-            <TextInput
-              size="col-md-4 px-0"
-              labelSize="col-md-4"
-              fieldSize="col-md-8"
-              label="Fabrication Cost"
-              name="fabricationCost"
-              id="fabricationCost"
-              onChange={(e) =>
-                this.props.handleChangeFabricationCost(e.target.value)
-              }
-            />
-          )}
         </FormRow>
+        {this.props.procurement.activeItem.serviceType === "Fabrication" &&
+          this.props.procurement.selectedStructures &&
+          this.props.procurement.selectedStructures.length !== 0 && (
+            <>
+              <FormRow>
+                <h4 className="ml-2 mb-4">Fabrication Cost</h4>
+              </FormRow>
+              <FormRow>
+                {this.props.procurement.selectedStructures.map(
+                  (structure, index) => (
+                    <TextInput
+                      size="col-md-4"
+                      labelSize="col-md-3"
+                      fieldSize="col-md-9 pl-0"
+                      label={structure.label}
+                      name="fabricationCost"
+                      id="fabricationCost"
+                      onChange={(e) =>
+                        this.props.handleChangeFabricationCost(
+                          e.target.value,
+                          structure.value
+                        )
+                      }
+                    />
+                  )
+                )}
+              </FormRow>
+            </>
+          )}
         {this.props.procurement.activeItem.serviceType === "Outsourcing" && (
           <>
             <FormRow>

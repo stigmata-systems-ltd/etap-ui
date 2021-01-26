@@ -81,6 +81,9 @@ const FromSiteApproval = React.lazy(() =>
 const ToSiteApproval = React.lazy(() =>
   import("./container/toSiteApproval/toSiteApproval")
 );
+const CreateDispatch = React.lazy(() =>
+  import("./container/createDispatch/createDispatch")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -278,8 +281,6 @@ class App extends Component {
               component={OutSourcingSiteApproval}
             ></Route>
 
-
-
             <Route
               exact
               path="/reuse/initiatingReuse"
@@ -368,6 +369,11 @@ class App extends Component {
               exact
               path="/reuse/initiatingReuse"
               component={InitiatingReuse}
+            ></Route>
+            <Route
+              exact
+              path="/dispatch/createDispatch"
+              component={CreateDispatch}
             ></Route>
             <Route exact path="/reuse/reuse" component={Reuse}></Route>
           </Suspense>

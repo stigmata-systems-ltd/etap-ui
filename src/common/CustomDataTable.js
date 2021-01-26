@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import DataTable from 'react-data-table-component';
+import React, { Component } from "react";
+import DataTable from "react-data-table-component";
 
 const customStyles = {
   // table: {
@@ -7,13 +7,13 @@ const customStyles = {
   // },
   headCells: {
     style: {
-      fontSize: '14px',
-      fontWeight: 'bold',
+      fontSize: "14px",
+      fontWeight: "bold",
     },
   },
   rows: {
     style: {
-      fontSize: '14px',
+      fontSize: "14px",
     },
   },
 };

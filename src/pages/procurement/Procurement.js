@@ -4,10 +4,10 @@ import FormContainer from "../../common/forms/FormContainer";
 
 import Loader from "../../common/Loader";
 import { siteDispatchMetaData } from "./utils";
-import ConfirmModal from "../../common/ConfirmModal";
-import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 import AssignVendorModal from "./AssignVendorModal";
+import Popup from "../../common/forms/Popup";
+
 class Procurement extends Component {
   constructor(props) {
     super(props);
@@ -16,24 +16,16 @@ class Procurement extends Component {
     this.props.getSiteDispatchDetails();
   }
 
-  showModal = (id) => {
-    if (this.props.procurement.showEditModalFlag) {
-      this.props.setActiveItem(id);
-      this.props.showUpdateSiteDispatchModal(id);
-    } else {
-      this.props.closeUpdateSiteDispatchModal();
-    }
-  };
-
   render() {
     return (
       <>
         <ContentLoader>
           {this.props.procurement.isLoading && <Loader />}
           {this.props.procurement.message && (
-            <CustomAlert
-              variant={this.props.procurement.isSuccess ? "success" : "danger"}
+            <Popup
+              type={this.props.procurement.isSuccess ? "success" : "danger"}
               message={this.props.procurement.message}
+              onClose={this.props.resetMessage}
             />
           )}
           <AssignVendorModal

@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
-import ContentLoader from '../../common/ContentLoader';
-import FormContainer from '../../common/forms/FormContainer';
+import ContentLoader from "../../common/ContentLoader";
+import FormContainer from "../../common/forms/FormContainer";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Modal from "../../common/Modal";
 import Loader from "../../common/Loader";
 import { transformUserRoles } from "./utils";
 import { transformDropDownData } from "../../utils/dataTransformer";
-import DataTable from '../../common/DataTable';
-import IconTextButton from '../../common/forms/IconTextButton';
-import Button from '../../common/forms/Button';
+import DataTable from "../../common/DataTable";
+import IconTextButton from "../../common/forms/IconTextButton";
+import Button from "../../common/forms/Button";
 
 class SiteApprovalViewMore extends Component {
   constructor(props) {
@@ -18,7 +18,6 @@ class SiteApprovalViewMore extends Component {
   }
 
   render() {
-    console.log(`Show model: ${this.props.showMoreModal}`)
     return (
       <Modal
         title={`View Site Approval - Details`}
@@ -27,8 +26,8 @@ class SiteApprovalViewMore extends Component {
         size="lg"
         isShowFooter={false}
       >
-        {console.log("isLoading", this.props.isLoading)}
-        {this.props.isLoading && <Loader />}
+        {/* {console.log("isLoading", this.props.siteApproval.isLoading)}
+        {this.props.siteApproval.isLoading && <Loader />} */}
 
         <FormRow>
           <TextInput
@@ -37,7 +36,7 @@ class SiteApprovalViewMore extends Component {
             label="Structure ID"
             name="structureId"
             id="structureId"
-          //value={this.props.siteApproval.siteApprovalViewMore.structureId}
+            //value={this.props.siteApproval.siteApprovalViewMore.structureId}
           />
           <TextInput
             labelSize="col-md-5 pr-0"
@@ -45,10 +44,9 @@ class SiteApprovalViewMore extends Component {
             label="Quantity Requested"
             name="quantityRequested"
             id="quantityRequested"
-          //value={this.props.siteApproval.siteApprovalViewMore.quantityRequested}
+            //value={this.props.siteApproval.siteApprovalViewMore.quantityRequested}
           />
         </FormRow>
-
       </Modal>
     );
   }

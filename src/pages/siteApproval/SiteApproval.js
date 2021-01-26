@@ -8,7 +8,7 @@ import ConfirmModal from "../../common/ConfirmModal";
 import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 
-import SiteApprovalViewMore from "./SiteApprovalViewMore";
+import SiteApprovalViewMore from "../../container/siteApproval/siteApprovalViewMore";
 import TableFilter from "../../common/TableFilter";
 
 class NewFabricationSiteApproval extends Component {
@@ -26,7 +26,6 @@ class NewFabricationSiteApproval extends Component {
     this.props.getSiteApprovalDetails();
   }
 
-
   render() {
     return (
       <>
@@ -39,14 +38,14 @@ class NewFabricationSiteApproval extends Component {
             />
           )}
 
-          <SiteApprovalViewMore showMoreModal={this.props.siteApproval.showMoreModalFlag}/>
+          <SiteApprovalViewMore
+            showMoreModal={this.props.siteApproval.showMoreModalFlag}
+          />
           <ConfirmModal
             showModal={this.state.showApproveModal}
             handleClose={() => {
-              this.setState({ showApproveModal: false, activeId: null })
-            }
-
-            }
+              this.setState({ showApproveModal: false, activeId: null });
+            }}
             title="Approve Site"
             handleConfirm={() => {
               this.props.handleApprove(this.state.activeId);
@@ -60,9 +59,8 @@ class NewFabricationSiteApproval extends Component {
           <ConfirmModal
             showModal={this.state.showDeleteModal}
             handleClose={() => {
-              this.setState({ showDeleteModal: false, activeId: null })
-            }
-            }
+              this.setState({ showDeleteModal: false, activeId: null });
+            }}
             title="Reject Site Approval"
             handleConfirm={() => {
               this.props.handleReject(this.state.activeId);
@@ -77,8 +75,10 @@ class NewFabricationSiteApproval extends Component {
             {this.props.siteApproval.siteApprovalDetails && (
               <CustomDataTable
                 metaData={siteApprovalMetaData(
-                  id => this.setState({ activeId: id, showApproveModal: true }),
-                  id => this.setState({ activeId: id, showDeleteModal: true }),
+                  (id) =>
+                    this.setState({ activeId: id, showApproveModal: true }),
+                  (id) =>
+                    this.setState({ activeId: id, showDeleteModal: true }),
                   (id) => this.props.showSiteApprovalMoreModal(id)
                 )}
                 bodyData={this.props.siteApproval.siteApprovalDetails}

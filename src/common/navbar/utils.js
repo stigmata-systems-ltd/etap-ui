@@ -156,6 +156,11 @@ export const metaDataNavbar = [
     subNavs: [
       {
         id: "dispatch" + 1,
+        navText: "Create Dispatch",
+        route: "/dispatch/createDispatch",
+      },
+      {
+        id: "dispatch" + 2,
         navText: "Dispatch",
         route: "/requirementRequest/addRequirements",
       },
