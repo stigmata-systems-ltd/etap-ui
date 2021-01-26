@@ -141,11 +141,7 @@ export default function (state = initialState, action) {
                   };
           case `${LIST_STRUCTURE_PROJECT_DATA}_FULFILLED`:
                   console.log(`Project Name: ${state.projectName}`)
-                  let structureListData= action.payload.data.filter((ele) => {
-                    if(ele.projectId === state.projectName.value) {
-                      return {id:ele.structureId, name: ele.strcutureName}
-                    }
-                  }).map((ele) => {return {id:ele.structureId, name: ele.strcutureName}});
+                  let structureListData= action.payload.data.map((ele) => {return {id:ele.structureId, name: ele.strcutureName}});
                   return {
                     ...state,
                     isLoading: false,
