@@ -32,6 +32,7 @@ import outSourcingSiteApprovalReducer from "./outSourcingSiteApprovalReducer";
 import conditionAssessmentReducer from "./conditionAssessmentReducer";
 import fromSiteApprovalReducer from "./fromSiteApprovalReducer";
 import toSiteApprovalReducer from "./toSiteApprovalReducer";
+import createDispatchReducer from "./createDispatchReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -59,6 +60,7 @@ const rootReducer = combineReducers({
   fromSiteApproval: fromSiteApprovalReducer,
   toSiteApproval: toSiteApprovalReducer,
 
+  createDispatch: createDispatchReducer,
 });
 
 export default rootReducer;
