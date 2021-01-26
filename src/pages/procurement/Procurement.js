@@ -4,8 +4,6 @@ import FormContainer from "../../common/forms/FormContainer";
 
 import Loader from "../../common/Loader";
 import { siteDispatchMetaData } from "./utils";
-import ConfirmModal from "../../common/ConfirmModal";
-import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 import AssignVendorModal from "./AssignVendorModal";
 import Popup from "../../common/forms/Popup";

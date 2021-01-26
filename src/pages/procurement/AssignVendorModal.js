@@ -61,7 +61,6 @@ class AssignVendorModal extends Component {
           });
         }
       }
-      console.log("tempArr.......:", tempArr);
       this.props.setVendorStructures(tempArr);
     }
     this.props.setShowTableFlag(true);

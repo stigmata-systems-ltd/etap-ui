@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { ToastContainer, toast, Flip, Slide, Bounce } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css";
-
 class Popup extends Component {
   constructor() {
     super();
