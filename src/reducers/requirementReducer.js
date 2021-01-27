@@ -96,12 +96,13 @@ export default function (state = initialState, action) {
         //       isSuccess: false,
         //     };
         case `${LIST_PROJECT_CODES}`:
+            console.log(`List project Code: ${JSON.stringify(action.payload)}`)
             return {
               ...state,
               isLoading: false,
               isError: false,
               isSuccess: false,
-              projectCodesList: action.payload,
+              projectCodesList: [action.payload],
             };  
         case `${LIST_WBS_CODES}_PENDING`:
                 return {

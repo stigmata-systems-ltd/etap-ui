@@ -15,7 +15,7 @@ import {
 export const getProjectList = () => {
   const auth = store.getState().auth;
   let project={name:auth.token.projectName, id:auth.token.projectId}
-  console.log(`Project Name: ${auth.token.projectName} ID: ${auth.token.projectId}`)
+  console.log(`Project Name: ${auth.token.projectName} ID: ${JSON.stringify(auth.token.projectId)}`)
   return {
     type: LIST_PROJECT_CODES,
     // payload: axios.get(config.BASE_URL + "/api/Project/projCodeList"),

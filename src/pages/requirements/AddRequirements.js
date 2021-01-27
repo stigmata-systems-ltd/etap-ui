@@ -29,7 +29,8 @@ class AddRequirement extends Component {
     this.props.getWBSList();
   }
   render() {
-    const subprop = this.props.addRequirement;
+    // const subprop = this.props.addRequirement;
+    console.log( `Project Code List in Requirement: ${JSON.stringify(this.props.requirement.projectCodesList)}`)
     return (
       <>
         <ContentLoader>
