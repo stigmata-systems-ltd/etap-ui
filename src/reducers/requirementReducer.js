@@ -81,27 +81,27 @@ export default function (state = initialState, action) {
           ...state,
           remarks: action.payload,
         };
-        case `${LIST_PROJECT_CODES}_PENDING`:
-            return {
-              ...state,
-              isLoading: true,
-              isError: false,
-              isSuccess: false,
-            };
-        case `${LIST_PROJECT_CODES}_REJECTED`:
+        // case `${LIST_PROJECT_CODES}_PENDING`:
+        //     return {
+        //       ...state,
+        //       isLoading: true,
+        //       isError: false,
+        //       isSuccess: false,
+        //     };
+        // case `${LIST_PROJECT_CODES}_REJECTED`:
+        //     return {
+        //       ...state,
+        //       isLoading: false,
+        //       isError: true,
+        //       isSuccess: false,
+        //     };
+        case `${LIST_PROJECT_CODES}`:
             return {
               ...state,
               isLoading: false,
-              isError: true,
-              isSuccess: false,
-            };
-        case `${LIST_PROJECT_CODES}_FULFILLED`:
-            return {
-              ...state,
-              isLoading: false,
               isError: false,
               isSuccess: false,
-              projectCodesList: action.payload.data,
+              projectCodesList: action.payload,
             };  
         case `${LIST_WBS_CODES}_PENDING`:
                 return {
