@@ -25,22 +25,21 @@ import {
   getAssignStructDetails,
   saveAssignStruct,
   saveAssignComp,
-  resetExistingData
+  resetExistingData,
 } from "../../actions/StructCompAction";
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setInitialData() {
       dispatch({
-        type: RESET_ASSIGN_STRUCT_FORM
+        type: RESET_ASSIGN_STRUCT_FORM,
       });
       dispatch({
-        type: RESET_ASSIGN_COMP_FORM
+        type: RESET_ASSIGN_COMP_FORM,
       });
-      
+
       dispatch(getProjList());
       dispatch(getStructList());
-      
     },
     resetStructureData() {
       dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
@@ -85,7 +84,7 @@ const mapDispatchToProps = (dispatch) => {
     handleOnDrop(data) {
       let wbsDataArr = [];
       data.forEach((a, i) => {
-        console.log("index",i,a);
+        console.log("index", i, a);
         if (i > 0 && a.data.length > 1) {
           let start = 6;
           let wbsSampleObject = {
@@ -114,14 +113,14 @@ const mapDispatchToProps = (dispatch) => {
     saveAssignStruct() {
       dispatch(saveAssignStruct()).then(() => {
         dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
-      })
+      });
     },
     handleFileUpload(value) {
       const scr = store.getState().scr;
       const newDocs = [...value];
-      newDocs.map(doc => {
+      newDocs.map((doc) => {
         doc.isNew = true;
-      })
+      });
       const tmpArr = [...scr.files, ...newDocs];
       dispatch({
         type: ASSIGN_FILE_UPLOAD,
@@ -144,19 +143,19 @@ const mapDispatchToProps = (dispatch) => {
       });
     },
     handleChangeAssignStruct(e, id) {
-        const as = store.getState().scr;
-        let tmpArr = JSON.parse(JSON.stringify(as.structAttri));
-        tmpArr.map(arr => {
-            if(arr.id === id) {
-              arr.value = e.target.value
-              console.log("test in if arr, eval",arr, e.target.value);
-            }
-            console.log("test",arr)
-        })
-        dispatch({
-            type: ON_CHANGE_ASSIGN_STRUCT,
-            payload: tmpArr
-        })
+      const as = store.getState().scr;
+      let tmpArr = JSON.parse(JSON.stringify(as.structAttri));
+      tmpArr.map((arr) => {
+        if (arr.id === id) {
+          arr.value = e.target.value;
+          // console.log("test in if arr, eval",arr, e.target.value);
+        }
+        // console.log("test",arr)
+      });
+      dispatch({
+        type: ON_CHANGE_ASSIGN_STRUCT,
+        payload: tmpArr,
+      });
     },
     clearStrcutAttri() {
       dispatch({ type: RESET_ASSIGN_STRUCT_FORM });

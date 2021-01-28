@@ -54,7 +54,7 @@ export const getAssignExcelHeaders = () => {
     "Tag",
   ];
   return headers;
-}
+};
 
 export const getExcelData = (scr) => {
   let data = scr.uploadData;
@@ -62,27 +62,27 @@ export const getExcelData = (scr) => {
   dataArr.push(getAssignExcelHeaders());
   if (data && data.length > 0) {
     data.map((dt, i) => {
-        let tmpArr = [];
-        tmpArr.push(scr.ic);
-        tmpArr.push(scr.bu);
-        tmpArr.push(scr.projName.label);
-        tmpArr.push(scr.strcutureType);
-        tmpArr.push(scr.structName.label);
-        tmpArr.push(scr.structName.value);
-        tmpArr.push(dt.compTypeName);
-        tmpArr.push(dt.componentName);
-        tmpArr.push(dt.compId);
-        tmpArr.push(dt.isGroup);
-        tmpArr.push(dt.componentNo);
-        tmpArr.push(dt.drawingNo);
-        tmpArr.push(dt.leng);
-        tmpArr.push(dt.breadth);
-        tmpArr.push(dt.height);
-        tmpArr.push(dt.thickness);
-        tmpArr.push(dt.weight);
-        tmpArr.push(dt.makeType);
-        tmpArr.push(dt.isTag);
-        dataArr.push(tmpArr);
+      let tmpArr = [];
+      tmpArr.push(scr.ic);
+      tmpArr.push(scr.bu);
+      tmpArr.push(scr.projName.label);
+      tmpArr.push(scr.strcutureType);
+      tmpArr.push(scr.structName.label);
+      tmpArr.push(scr.structName.value);
+      tmpArr.push(dt.compTypeName);
+      tmpArr.push(dt.componentName);
+      tmpArr.push(dt.compId);
+      tmpArr.push(dt.isGroup);
+      tmpArr.push(dt.componentNo);
+      tmpArr.push(dt.drawingNo);
+      tmpArr.push(dt.leng);
+      tmpArr.push(dt.breadth);
+      tmpArr.push(dt.height);
+      tmpArr.push(dt.thickness);
+      tmpArr.push(dt.weight);
+      tmpArr.push(dt.makeType);
+      tmpArr.push(dt.isTag);
+      dataArr.push(tmpArr);
     });
   } else {
     let tmpArr = [];
@@ -99,18 +99,18 @@ export const getExcelData = (scr) => {
 
 export const transformAttri = (data) => {
   let tmpArr = [];
-  while(typeof data === 'string'){
-    data=JSON.parse(data);
-    console.log(`typeof data is ${typeof data}`)
+  while (typeof data === "string") {
+    data = JSON.parse(data);
+    console.log(`typeof data is ${typeof data}`);
   }
   data &&
     data.map((dt, index) => {
       tmpArr.push({
         id: index + 1,
         name: dt.name,
-       
         uom: dt.uom,
         value: dt.value,
+        typeOfInput: dt.typeOfInput,
       });
     });
   return tmpArr;
