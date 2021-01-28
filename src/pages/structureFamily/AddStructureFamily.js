@@ -36,8 +36,8 @@ class AddStructureFamily extends Component {
             label="Structure Family"
             name="structureFamily"
             id="structureFamily"
-            labelSize="col-md-5 text-right"
-            fieldSize="col-md-6"
+            labelSize="col-md-4 pr-0"
+            fieldSize="col-md-8"
             onChange={(e) =>
               this.props.handleChangeStructureFamilyType(e.target.value)
             }

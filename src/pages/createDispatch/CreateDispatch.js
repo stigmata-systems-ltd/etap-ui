@@ -8,6 +8,8 @@ import { createDispatchMetaData } from "./utils";
 import CustomDataTable from "../../common/CustomDataTable";
 import FormRow from "../../common/forms/FormRow";
 import Button from "../../common/forms/Button";
+import Popup from "../../common/forms/Popup";
+
 class CreateDispatch extends Component {
   constructor() {
     super();
@@ -38,17 +40,19 @@ class CreateDispatch extends Component {
       <>
         <ContentLoader>
           {this.props.createDispatch.isLoading && <Loader />}
-          {/* {this.props.createDispatch.message && (
-            <CustomAlert
-              variant={this.props.createDispatch.isSuccess ? "success" : "danger"}
+          {this.props.createDispatch.message && (
+            <Popup
+              type={this.props.createDispatch.isSuccess ? "success" : "error"}
               message={this.props.createDispatch.message}
               onClose={this.props.resetMessage}
             />
-          )} */}
-          <FormContainer formTitle={"Dispatch"}>
+          )}
+          <FormContainer formTitle={"Create Dispatch"}>
             {this.props.createDispatch.siteReqDetails && (
               <CustomDataTable
-                metaData={createDispatchMetaData()}
+                metaData={createDispatchMetaData(
+                  this.props.redirectToDispatchStructure
+                )}
                 bodyData={this.filteredItems(
                   this.props.createDispatch.siteReqDetails.reverse()
                 )}
@@ -60,10 +64,6 @@ class CreateDispatch extends Component {
                 }
                 paginationPerPage={5}
                 noHeader={true}
-                selectableRows
-                onSelectedRowsChange={(row) => {
-                  this.props.setSelectedStructures(row.selectedRows);
-                }}
                 subHeader
                 subHeaderComponent={
                   <TableFilter
@@ -82,11 +82,6 @@ class CreateDispatch extends Component {
                 }
               />
             )}
-            <FormRow className="d-flex justify-content-end">
-              <Button btnText="Reuse" btnType="btn-primary mx-2" />
-              <Button btnText="New Fabrication" btnType="btn-primary mx-2" />
-              <Button btnText="Outsourcing" btnType="btn-primary mx-2" />
-            </FormRow>
           </FormContainer>
         </ContentLoader>
       </>
