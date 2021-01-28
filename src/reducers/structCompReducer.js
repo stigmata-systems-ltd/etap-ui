@@ -161,6 +161,7 @@ export default function (state = initialState, action) {
         structureCode: "",
         removeFiles: [],
         fileInput: null,
+        structName: {},
       };
     case RESET_ASSIGN_COMP_FORM:
       return {

@@ -1,6 +1,8 @@
 import store from "../store";
 import axios from "axios";
 import config from "../config";
+import { getUserDetails } from "../utils/auth";
+
 import {
   GET_REQUIREMENT_DATA_SINGLE,
   ACTION_REQUIREMENT,
@@ -13,12 +15,14 @@ import {
 } from "./types";
 
 export const getProjectList = () => {
-  const auth = store.getState().auth;
-  let project={name:auth.token.projectName, id:auth.token.projectId}
-  console.log(`Project Name: ${auth.token.projectName} ID: ${JSON.stringify(auth.token.projectId)}`)
+  const userDetails = getUserDetails();
+  const projectName = userDetails ? userDetails.projectName : "";
+  const projectID = userDetails ? userDetails.projectId : "";
+  let project={name: projectName, id: projectID}
+  console.log(`Project Name: ${projectName} ID: ${JSON.stringify(projectID)}`)
   return {
     type: LIST_PROJECT_CODES,
-    // payload: axios.get(config.BASE_URL + "/api/Project/projCodeList"),
+
     payload: project
   };
 };
