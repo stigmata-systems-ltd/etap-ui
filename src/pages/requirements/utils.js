@@ -67,8 +67,8 @@ export const listViewRequirementsMetaData = (
         sortable: false,
       },
       {
-        name: "Project Id",
-        selector: "projectId",
+        name: "Structure Name",
+        selector: "structureName",
         sortable: false,
       },
       {
@@ -128,7 +128,7 @@ export const listViewRequirementsMetaData = (
         let tmpObj = {
             mrNo: requirement.mrNo,
             project: requirement.projectName,
-            projectId: requirement.projectId,
+            structureName: requirement.structureName,
             status: requirement.status,
             id: i,
             isAction: requirement.isAction

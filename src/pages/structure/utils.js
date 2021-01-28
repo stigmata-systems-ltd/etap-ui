@@ -32,11 +32,6 @@ export const listStructureMetaData = (handleDelete, handleEdit) => {
         sortable: false,
       },
       {
-        name: 'Status',
-        selector: 'status',
-        sortable: false,
-      },
-      {
         name: 'Actions',
         sortable: false,
         cell: row => {
