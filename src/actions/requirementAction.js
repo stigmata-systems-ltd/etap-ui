@@ -97,8 +97,8 @@ export const getProjectStructureData = () => {
 };
 
 export const getRequirementsList = () => {
-  let auth = store.getState().auth;
-  const ROLE_NAME = auth.token.roleName;
+  const userDetails = getUserDetails();
+  let ROLE_NAME=userDetails.roleName;
   return {
     type: LIST_REQUIREMENTS,
     payload: axios.get(
