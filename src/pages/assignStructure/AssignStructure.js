@@ -13,6 +13,7 @@ import CustomDataTable from "../../common/CustomDataTable";
 import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import { transformDropDownData } from "../../utils/dataTransformer";
 import ExportExcel from "../../common/ExportExcel";
+import StructureAttributesTable from "./StructureAttributesTable";
 
 import {
   _componentInputData,
@@ -193,16 +194,15 @@ class AssignStructure extends Component {
                 </Col6>
               ))}
             </FormRow>
-            <FormRow>
-              {/* table */}
-              <CustomDataTable
-                metaData={structAttriMetaData((e, id) =>
-                  this.props.handleChangeAssignStruct(e, id)
-                )}
+            {/* table */}
+
+            {this.props.scr.structAttri.length > 0 ? (
+              <StructureAttributesTable
+                onChange={(e, id) => this.props.handleChangeAssignStruct(e, id)}
                 bodyData={this.props.scr.structAttri}
                 title="Structure Attributes"
               />
-            </FormRow>
+            ) : null}
             <hr />
             <FormRow className="row">
               <Col6 size="col-md-6 offset-md-3 d-flex justify-content-center">
@@ -233,35 +233,35 @@ class AssignStructure extends Component {
                   <FaIcon iconName="faUpload" /> Upload Excel Template
                 </span>
               </CSVReader>
-              
+
               <CustomDataTable
                 metaData={componentsMetaData()}
                 bodyData={getComponentTableData(this.props.scr)}
                 noHeader={true}
+                style={{ margin: "0" }}
               />
             </FormRow>
             <br />
-              <FormRow>
+            <FormRow>
               <Button
-              btnText="SAVE"
-              onClick={this.props.saveAssignComp}
-              btnType="primary"
-            />
-            <Button
-              btnText="DISCARD"
-              btnType="cancel"
-              onClick={this.props.resetSubContractorData}
-            />
-              </FormRow>
-            <br/>
+                btnText="SAVE"
+                onClick={this.props.saveAssignComp}
+                btnType="primary"
+              />
+              <Button
+                btnText="DISCARD"
+                btnType="cancel"
+                onClick={this.props.resetSubContractorData}
+              />
+            </FormRow>
+            <br />
             <ExportExcel
-
               data={getExcelData(this.props.scr)}
               // header={this.props.headers}
               filename={"test"}
               className="download-btn"
               iconName="faDownload"
-              />
+            />
           </FormContainer>
         </ContentLoader>
       </>
