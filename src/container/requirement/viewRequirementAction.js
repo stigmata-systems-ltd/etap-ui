@@ -24,11 +24,15 @@ const mapDispatchToProps = (dispatch,props) => {
       let singleRequirement=requirementList[id];
       console.log(singleRequirement)
       console.log(`ID: ${id}`)
-      dispatch(requirementAction(id,"Approval"));
+      dispatch(requirementAction(id,"Approval")).then(() => {
+        dispatch(getRequirementsList());
+      });
     },
     handleReject(id){
       console.log(`ID: ${id}`)
-      dispatch(requirementAction(id,"Rejection"));
+      dispatch(requirementAction(id,"Rejection")).then(() => {
+        dispatch(getRequirementsList());
+      });
     },
     handleMore(id){
       console.log(`ID: ${id}`)
