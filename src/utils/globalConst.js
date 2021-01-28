@@ -3,7 +3,7 @@ export const GRID_COMPLETED = '#71c016';
 export const LAYER_COMPLETED = '#730f4e';
 export const GRID_BILLED = '#7859df';
 export const GRID_YET_TO_START = '#ff4747';
-export const GRID_ACTIVE = '#4d83ff';
+export const GRID_ACTIVE = '#5e72e4';
 
 export const GRID_IN_PROGRESS_STROKE = '#CCCC00';
 export const GRID_COMPLETED_STROKE = '#006400';
