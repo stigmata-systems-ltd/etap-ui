@@ -68,10 +68,9 @@ class DispatchStructure extends Component {
             showModal={this.props.createDispatch.showModal}
             handleClose={() => this.props.hideConfirmModal()}
             title="Confirm Dispatch"
-            // handleConfirm={() => {
-            //   this.props.handleConfirmDelete(this.state.activeId);
-            //   this.setState({ showBusinessUnitDeleteModal: false, activeId: null });
-            // }}
+            handleConfirm={() => {
+              this.props.createDispatchApi();
+            }}
           >
             <h6 className="text-danger">
               {this.props.createDispatch.modalMessage}?

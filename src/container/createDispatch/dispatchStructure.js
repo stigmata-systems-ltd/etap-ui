@@ -10,7 +10,7 @@ import {
   SET_MODAL_DATA,
   SET_SERVICE_TYPE_ID,
   SET_DISPATCH_ERROR,
-  SET_ACTIVE_ITEM,
+  RESET_SELECTION,
 } from "../../actions/types";
 
 import DispatchStructure from "../../pages/createDispatch/DispatchStructure";
@@ -60,8 +60,11 @@ const mapDispatchToProps = (dispatch) => {
         },
       });
     },
-    createDispatch1() {
+    createDispatchApi() {
       dispatch(createDispatch());
+      dispatch({
+        type: RESET_SELECTION,
+      });
     },
     resetMessage() {
       dispatch({
