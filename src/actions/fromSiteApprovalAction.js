@@ -27,14 +27,13 @@ export const fromSiteApprovalAction = (id, action) => {
     let fromSiteApprovalList = store.getState().fromSiteApproval.fromSiteApprovalList;
     let singleFromSiteApproval = fromSiteApprovalList[id];
     const body = {
-        "siteReqId": singleFromSiteApproval.id,
-        "mode": action,
-        "role_name": ROLE_NAME,
+        "dispReqId": singleFromSiteApproval.id,
+        "roleName": ROLE_NAME,
     }
 
     return {
         type: ACTION_FROM_SITE_APPROVAL,
-        payload: axios.post(config.BASE_URL + '​/api​/SiteRequirement​/WorkflowManagement', body)
+        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchApproval', body)
     }
 }
 
