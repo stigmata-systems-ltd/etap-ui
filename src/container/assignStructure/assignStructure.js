@@ -114,8 +114,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(saveAssignStruct()).then(() => {
         dispatch({ type: RESET_ASSIGN_STRUCT_FORM });
       });
-        
-
     },
     handleFileUpload(value) {
       const scr = store.getState().scr;

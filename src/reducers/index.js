@@ -59,7 +59,6 @@ const rootReducer = combineReducers({
   conditionAssessment: conditionAssessmentReducer,
   fromSiteApproval: fromSiteApprovalReducer,
   toSiteApproval: toSiteApprovalReducer,
-
   createDispatch: createDispatchReducer,
 });
 

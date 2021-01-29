@@ -84,6 +84,9 @@ const ToSiteApproval = React.lazy(() =>
 const CreateDispatch = React.lazy(() =>
   import("./container/createDispatch/createDispatch")
 );
+const DispatchStructure = React.lazy(() =>
+  import("./container/createDispatch/dispatchStructure")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -374,6 +377,11 @@ class App extends Component {
               exact
               path="/dispatch/createDispatch"
               component={CreateDispatch}
+            ></Route>
+            <Route
+              exact
+              path="/dispatch/createDispatch/dispatchStructure/:siteReqId"
+              component={DispatchStructure}
             ></Route>
             <Route exact path="/reuse/reuse" component={Reuse}></Route>
           </Suspense>
