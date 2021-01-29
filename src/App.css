@@ -10328,7 +10328,7 @@ pre code {
 .form-control:focus, .dataTables_wrapper select:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #80bdff;
+  border:2px solid #5e72e4;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -10843,6 +10843,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:focus, .btn-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(104, 150, 255, 0.5);
+  background-color:#5e72e4;
+  border-color:#5e72e4;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
