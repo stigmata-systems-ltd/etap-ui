@@ -57,22 +57,6 @@ class AddRequirement extends Component {
                 placeholder="Auto Fetch"
                 disabled={true}
               />
-              {/* <SearchableDropDown
-                size="col-md-4"
-                labelSize="col-md-4"
-                fieldSize="col-md-8"
-                label="Project Name"
-                name="projectName"
-                selectOptions={transformDropDownData(
-                  this.props.requirement.projectCodesList,
-                  "id",
-                  "name"
-                )}
-                onChange={(obj) =>
-                  this.props.handleChangeRequirementProjectName(obj)
-                }
-                value={this.props.requirement.projectName}
-              /> */}
             </FormRow>
             <FormRow>
               <SearchableDropDown
