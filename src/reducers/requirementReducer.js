@@ -36,7 +36,8 @@ const initialState = {
     structureProjectList:[],
     structureList:[],
     showrequirementMoreModal: false,
-    requirementViewMore:[]
+    requirementViewMore:[],
+    projectCodesList:{}
 };
 
 export default function (state = initialState, action) {
@@ -96,6 +97,7 @@ export default function (state = initialState, action) {
         //       isSuccess: false,
         //     };
         case `${LIST_PROJECT_CODES}`:
+          console.log("In Reducer")
             console.log(`List project Code: ${JSON.stringify(action.payload)}`)
             return {
               ...state,

@@ -15,6 +15,7 @@ import {
 } from "./types";
 
 export const getProjectList = () => {
+  console.log("In Action")
   const userDetails = getUserDetails();
   const projectName = userDetails ? userDetails.projectName : "";
   const projectID = userDetails ? userDetails.projectId : "";
@@ -22,7 +23,6 @@ export const getProjectList = () => {
   console.log(`Project Name: ${projectName} ID: ${JSON.stringify(projectID)}`)
   return {
     type: LIST_PROJECT_CODES,
-
     payload: project
   };
 };
