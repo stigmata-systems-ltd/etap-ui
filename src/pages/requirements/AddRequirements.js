@@ -19,24 +19,45 @@ import Col6 from "../../common/forms/Col6";
 import DateInput from "../../common/forms/DateInput";
 import TextArea from "../../common/forms/TextArea";
 import SiteRequirementStructure from "./SiteRequirementStructure";
+import {transformProjectValue} from "./utils";
+
 
 class AddRequirement extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      projectName: "",
+    };
   }
   componentDidMount() {
-    this.props.getProjectList();
-    this.props.getWBSList();
+    const name=transformProjectValue();
+      console.log(`Project Name: ${name}`);
+       this.setState({ projectName : name});
+       this.props.getProjectList();
+       this.props.getWBSList();
   }
+    
+
   render() {
     // const subprop = this.props.addRequirement;
-    console.log( `Project Code List in Requirement: ${JSON.stringify(this.props.requirement.projectCodesList)}`)
+
     return (
       <>
         <ContentLoader>
           <FormContainer formTitle={"Add Requirement"}>
             <FormRow>
-              <SearchableDropDown
+            <TextInput
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
+                label="Project Name"
+                name="projectName"
+                id="projectName"
+                value={this.state.projectName}
+                placeholder="Auto Fetch"
+                disabled={true}
+              />
+              {/* <SearchableDropDown
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -51,7 +72,7 @@ class AddRequirement extends Component {
                   this.props.handleChangeRequirementProjectName(obj)
                 }
                 value={this.props.requirement.projectName}
-              />
+              /> */}
             </FormRow>
             <FormRow>
               <SearchableDropDown

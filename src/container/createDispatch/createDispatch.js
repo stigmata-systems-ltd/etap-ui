@@ -1,18 +1,24 @@
 import { connect } from "react-redux";
-import { getSiteReqDetails } from "../../actions/createDispatchActions";
-import { SET_SELECTED_ITEMS } from "../../actions/types";
-
+import {
+  getSiteReqDetails,
+  getSiteReqDetailsById,
+} from "../../actions/createDispatchActions";
+import { RESET_MESSAGE } from "../../actions/types";
 import CreateDispatch from "../../pages/createDispatch/CreateDispatch";
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, props) => {
   return {
     getSiteReqDetails() {
       dispatch(getSiteReqDetails());
     },
-    setSelectedStructures(value) {
+    redirectToDispatchStructure(id) {
+      props.history.push(
+        `/dispatch/createDispatch/dispatchStructure/${window.btoa(id)}`
+      );
+    },
+    resetMessage() {
       dispatch({
-        type: SET_SELECTED_ITEMS,
-        payload: value,
+        type: RESET_MESSAGE,
       });
     },
   };

@@ -127,6 +127,7 @@ const mapDispatchToProps = dispatch => {
             });
         },
         getProjectList(){
+            console.log("In Container")
             dispatch(getProjectList());
         },
         getWBSList(){
