@@ -60,7 +60,6 @@ export default (state = initialState, action) => {
                 isError: false,
                 isSuccess: false,
                 message: "",
-                outSourcingSiteApprovalDetails: [],
                 activeItem: {},
 
             };

@@ -4,39 +4,67 @@ import Button from "../../common/forms/Button";
 
 export const toSiteApprovalMetaData = (handleApprove, handleReject) => {
     return [
+        // {
+        //     name: "MR Number",
+        //     selector: "mrNo",
+        //     sortable: false,
+        // },
+        // {
+        //     name: "DA Number",
+        //     selector: "dispatchNo",
+        //     sortable: false,
+        // },
+        // {
+        //     name: "Structure Name",
+        //     selector: "structureName",
+        //     sortable: false,
+        // },
+        // {
+        //     name: "Quantity Requested",
+        //     selector: "quantityRequested",
+        //     sortable: false,
+        // },
+        // {
+        //     name: "From Site",
+        //     selector: "fromSite",
+        //     sortable: false,
+        // },
+        // {
+        //     name: "To Site",
+        //     selector: "toSite",
+        //     sortable: false,
+        // },
+        // {
+        //     name: "Transfer Price",
+        //     selector: "transferPrice",
+        //     sortable: false,
+        // },
+
         {
-            name: "MR Number",
-            selector: "mrNo",
+            name: 'MR No',
+            selector: 'mrNo',
+            sortable: false,
+
+        },
+        {
+            name: 'DC No',
+            selector: 'dispatchNo',
             sortable: false,
         },
         {
-            name: "DA Number",
-            selector: "dispatchNo",
+            name: 'Structure Name',
+            selector: 'structureName',
+            sortable: false,
+        },
+
+        {
+            name: 'Service Type',
+            selector: 'serviceType',
             sortable: false,
         },
         {
-            name: "Structure Name",
-            selector: "structureName",
-            sortable: false,
-        },
-        {
-            name: "Quantity Requested",
-            selector: "quantityRequested",
-            sortable: false,
-        },
-        {
-            name: "From Site",
-            selector: "fromSite",
-            sortable: false,
-        },
-        {
-            name: "To Site",
-            selector: "toSite",
-            sortable: false,
-        },
-        {
-            name: "Transfer Price",
-            selector: "transferPrice",
+            name: 'Created Date & Time',
+            selector: 'createdDateTime',
             sortable: false,
         },
 
@@ -54,14 +82,14 @@ export const toSiteApprovalMetaData = (handleApprove, handleReject) => {
                         {
                             <IconButton
                                 iconName="faThumbsUp"
-                                onClick={() => handleApprove(row.id)}
+                                onClick={() => handleApprove(row.siteRequestId)}
                             />
 
                         }
                         {
                             <IconButton
                                 iconName="faThumbsDown"
-                                onClick={() => handleReject(row.id)}
+                                onClick={() => handleReject(row.siteRequestId)}
                             />
                         }
                     </>

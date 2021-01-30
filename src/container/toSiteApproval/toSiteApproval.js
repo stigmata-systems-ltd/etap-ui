@@ -8,7 +8,7 @@ import {
 
 } from "../../actions/types";
 
-import { getToSiteApprovalDetails, toSiteApprovalAction } from '../../actions/toSiteApprovalAction';
+import { getToSiteApprovalDetails, toSiteApprovalAction, toSiteDeclineAction } from '../../actions/toSiteApprovalAction';
 import ToSiteApproval from "../../pages/toSite/ToSiteApproval";
 
 const mapDispatchToProps = (dispatch) => {
@@ -26,15 +26,25 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         handleApprove(id) {
-            let toSiteApprovalList = store.getState().toSiteApproval.toSiteApprovalList;
-            let singleToSite = toSiteApprovalList[id];
-            dispatch(toSiteApprovalAction(id, "Approval"));
+            let toSiteApprovalList = store.getState().toSiteApproval.toSiteApprovalDetails;
+            let singleSiteApproval = toSiteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            console.log("Approval Data------> ", singleSiteApproval)
+
+            dispatch(toSiteApprovalAction(singleSiteApproval, "Approval")).then(() => {
+                dispatch(getToSiteApprovalDetails());
+            });
         },
         handleReject(id) {
-            
-            dispatch(toSiteApprovalAction(id, "Rejection"));
+            let toSiteApprovalList = store.getState().toSiteApproval.toSiteApprovalDetails;
+            let singleSiteApproval = toSiteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            dispatch(toSiteDeclineAction(singleSiteApproval, "Rejection")).then(() => {
+                dispatch(getToSiteApprovalDetails());
+            });
         },
-
 
     };
 };

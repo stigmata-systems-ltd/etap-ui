@@ -2,9 +2,10 @@ import axios from "axios";
 import store from "../store";
 import config from "../config";
 import {
-ACTION_SITE_APPROVAL,
-GET_SITE_APPROVAL_DATA_SINGLE,
-SET_OUT_SOURCING_SITE_APPROVAL_DETAILS
+    ACTION_SITE_APPROVAL,
+    ACTION_SITE_DECLINE,
+    GET_SITE_APPROVAL_DATA_SINGLE,
+    SET_OUT_SOURCING_SITE_APPROVAL_DETAILS
 } from "../actions/types";
 
 
@@ -20,19 +21,36 @@ export const getOutSourcingSiteApprovalDetails = () => {
     };
 };
 
-export const siteApprovalAction = (id, action) => {
-    const ROLE_NAME = getUserDetails().roleName;
-    let siteApprovalList = store.getState().siteApproval.siteApprovalList;
-    let singleSiteApproval = siteApprovalList[id];
+export const siteApprovalAction = (singleSiteApproval, action) => {
+    // const ROLE_NAME = getUserDetails().roleName;
+    const { roleId, roleName } = getUserDetails();
     const body = {
-        "siteReqId": singleSiteApproval.id,
-        "mode": action,
-        "role_name": ROLE_NAME,
+        "dispReqId": singleSiteApproval.dispatchId,
+        "roleName": roleName,
+        "roleId": roleId,
+        "serviceTypeId": singleSiteApproval.serviceTypeId,
+        "roleHierarchy": 3
     }
 
     return {
         type: ACTION_SITE_APPROVAL,
-        payload: axios.post(config.BASE_URL + '​/api​/SiteRequirement​/WorkflowManagement', body)
+        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchApproval', body)
+    }
+}
+export const siteDeclineAction = (singleSiteApproval, action) => {
+    const { roleId, roleName } = getUserDetails();
+
+    const body = {
+        "dispReqId": singleSiteApproval.dispatchId,
+        "roleName": roleName,
+        "roleId": roleId,
+        "serviceTypeId": singleSiteApproval.serviceTypeId,
+        "roleHierarchy": 3
+    }
+
+    return {
+        type: ACTION_SITE_DECLINE,
+        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchRejection', body)
     }
 }
 

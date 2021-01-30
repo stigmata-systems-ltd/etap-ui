@@ -26,14 +26,14 @@ import Button from "../../common/forms/Button";
 
 
 
-export const siteApprovalMetaData = (handleApprove,handleReject,handleMore) => {
+export const siteApprovalMetaData = (handleApprove, handleReject, handleMore) => {
     return [
 
         {
             name: 'MR No',
             selector: 'mrNo',
             sortable: false,
-            
+
         },
         {
             name: 'DC No',
@@ -45,51 +45,69 @@ export const siteApprovalMetaData = (handleApprove,handleReject,handleMore) => {
             selector: 'structureName',
             sortable: false,
         },
+        // {
+        //     name: 'Vendor',
+        //     selector: 'subContractorName',
+        //     sortable: false,
+        // },
         {
-            name: 'Quantity',
-            selector: 'quantity',
+            name: 'Service Type',
+            selector: 'serviceType',
             sortable: false,
         },
         {
-            name: 'Fabrication Cost',
-            selector: 'fabricationCost',
+            name: 'Created Date & Time',
+            selector: 'createdDateTime',
             sortable: false,
         },
-        {
-            name: 'To Site',
-            selector: 'toSite',
-            sortable: false,
-        },
+        // {
+        //     name: 'Quantity',
+        //     selector: 'quantity',
+        //     sortable: false,
+        // },
+        // {
+        //     name: 'Fabrication Cost',
+        //     selector: 'fabricationCost',
+        //     sortable: false,
+        // },
+        // {
+        //     name: 'To Site',
+        //     selector: 'toSite',
+        //     sortable: false,
+        // },
         {
             name: "Actions",
             sortable: false,
+           
+
             cell: (row) => {
-                
+
                 return (
                     <>
                         {
                             <IconButton
                                 iconName="faThumbsUp"
-                                onClick={() => handleApprove(row.id)}
+                                onClick={() => handleApprove(row.siteRequestId)}
                             />
 
                         }
                         {
                             <IconButton
                                 iconName="faThumbsDown"
-                                onClick={() => handleReject(row.id)}
+                                onClick={() => handleReject(row.siteRequestId)}
                             />
                         }
                         {
                             <IconButton
-                                iconName="faEye"
-                                onClick={() => handleMore(row.id)}
+                                iconName="faList"
+                                onClick={() => handleMore(row.siteRequestId)}
                             />
                         }
 
                     </>
                 );
             },
+
         },
     ];
 };

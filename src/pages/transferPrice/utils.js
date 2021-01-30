@@ -3,7 +3,7 @@ import IconButton from '../../common/forms/IconButton';
 import Button from "../../common/forms/Button";
 
 
-export const transferPriceMetaData = (handleEdit,handleMore) => {
+export const transferPriceMetaData = (handleEdit, handleMore) => {
   return [
 
     {
@@ -51,8 +51,8 @@ export const transferPriceMetaData = (handleEdit,handleMore) => {
               />
             }
             {
-              <Button btnText="View More"
-                btnType="btn-primary btn-sm"
+              <IconButton
+                iconName="faList"
                 onClick={() => handleMore(row.id)}
               />
             }
