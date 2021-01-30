@@ -165,16 +165,19 @@ export const componentsMetaData = (onChangeValue) => {
       name: "IC",
       selector: "ic",
       sortable: false,
+
     },
     {
       name: "BU",
       selector: "bu",
       sortable: false,
+
     },
     {
       name: "Project",
       selector: "project",
       sortable: false,
+
     },
     {
       name: "Structure Family",

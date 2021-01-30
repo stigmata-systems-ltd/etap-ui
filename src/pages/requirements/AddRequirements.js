@@ -35,6 +35,7 @@ class AddRequirement extends Component {
        this.setState({ projectName : name});
        this.props.getProjectList();
        this.props.getWBSList();
+       this.props.getStructureData();
   }
     
 
