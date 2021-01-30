@@ -237,6 +237,13 @@ class AssignStructure extends Component {
               <CustomDataTable
                 metaData={componentsMetaData()}
                 bodyData={getComponentTableData(this.props.scr)}
+                // progressPending={this.props.assignStructure.isLoading}
+                pagination={true}
+                paginationTotalRows={
+                  this.props.scr.uploadData &&
+                  this.props.scr.uploadData.length
+                }
+                paginationPerPage={5}
                 noHeader={true}
                 style={{ margin: "0" }}
               />

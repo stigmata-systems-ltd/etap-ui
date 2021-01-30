@@ -1,6 +1,7 @@
 import React from "react";
 import IconButton from "../../common/forms/IconButton";
 import { Link } from "react-router";
+import { getUserDetails } from "../../utils/auth";
 
 export const _viewSurplusInputData = ["Structure Family", "Structure ID", "Existing Site", "Surplus Form", "Photo", "Action"];
 export const _viewSurplusInputBodyData = [
@@ -135,4 +136,9 @@ export const listViewSurplusMetaData = (
         tmpArr.push(tmpObj);
       });
     return tmpArr;
+  };
+
+  export const transformProjectValue = () => {
+    const userDetails = getUserDetails();
+    return userDetails.projectName
   };
