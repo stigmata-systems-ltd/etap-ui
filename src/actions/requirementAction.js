@@ -65,8 +65,9 @@ export const addRequirement = () => {
       structName: dt.structName.label,
     });
   });
+  const userDetails = getUserDetails();
   const body = {
-    projectId: requirement.projectName.value,
+    projectId: userDetails.projectId,
     planStartdate: requirement.planedStartDate + "T00:00:00.000Z",
     planReleasedate: requirement.plannedReleaseDate + "T00:00:00.000Z",
     actualStartdate: requirement.actualStartDateOfUsage + "T00:00:00.000Z",
