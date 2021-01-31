@@ -215,10 +215,13 @@ export default function (state = initialState, action) {
     case RESET_SCRAP_FORM:
       return {
         ...state,
-        scrapVendor: {},
+        projectName: {},
+        vendor: {},
         structureID: {},
+        structureFamily: "",
+        structureCode:"",
         scrapRate: "",
-        auctionId:"",
+        auctionID:"",
         scrapFile: []
       };
     case GET_SCRAP_DATA_SINGLE:

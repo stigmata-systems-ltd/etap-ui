@@ -21,6 +21,7 @@ export const getWBSList = () => {
 export const addSurplus= () => {
     const surplus = store.getState().surplus;
     const postData = new FormData();
+    postData.append("fromProjectId", parseInt(getUserDetails().projectId));
     postData.append("dispStructId", parseInt(surplus.structureID.value));
     postData.append("surplusDate", surplus.dateFrom+"T00:00:00.000Z");
     postData.append("uploadDocs",surplus.surplusFile)
@@ -55,7 +56,7 @@ export const surplusAction = (id,action) => {
     let surplusList = store.getState().surplus.surplusList;
     let singleSurplus=surplusList[id];
       const body={
-            "siteReqId": singleSurplus.id,
+            "decl_id": singleSurplus.id,
             "mode": action,
             "role_name": ROLE_NAME,
           }

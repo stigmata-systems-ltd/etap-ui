@@ -36,17 +36,17 @@ class ViewSurplusViewMore extends Component {
         {this.props.isLoading && <Loader />}
         
             <FormRow>
-              <TextInput
-                label="Site Request ID"
-                name="siteReqId"
-                id="siteReqId"
-                value={this.props.surplus.surplusViewMore.siteReqId}
+            <TextInput
+                label="Project Name"
+                name="projectName"
+                id="projectName"
+                value={this.props.surplus.surplusViewMore.projectName}
               />
               <TextInput
-                label="Structure ID"
-                name="structureId"
-                id="structureId"
-                value={this.props.surplus.surplusViewMore.structureId}
+                label="Structure Code"
+                name="structureCode"
+                id="structureCode"
+                value={this.props.surplus.surplusViewMore.structureCode}
               />
             </FormRow>
             <FormRow>
@@ -84,12 +84,7 @@ class ViewSurplusViewMore extends Component {
                 id="surplusDate"
                 value={this.dateFormatter(`${this.props.surplus.surplusViewMore.surplusDate}`)}
               />
-              <TextInput
-                label="Project Name"
-                name="projectName"
-                id="projectName"
-                value={this.props.surplus.surplusViewMore.projectName}
-              />
+              
             </FormRow>
       </Modal>
     );

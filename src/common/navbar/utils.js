@@ -272,7 +272,7 @@ export const metaDataNavbar = [
       {
         id: "Life" + 3,
         navText: "Scrapping",
-        route: "/requirementRequest/addRequirements",
+        route: "/scrap/add",
       },
     ],
   },
