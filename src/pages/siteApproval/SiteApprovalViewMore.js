@@ -13,18 +13,18 @@ import IconTextButton from "../../common/forms/IconTextButton";
 import Button from "../../common/forms/Button";
 
 class SiteApprovalViewMore extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
       <Modal
         title={`View Site Approval - Details`}
         showModal={this.props.showMoreModal}
-        handleClose={this.props.closeSiteApprovalViewMoreModal}
+        handleClose={() => this.props.closeSiteApprovalViewMoreModal()}
         size="lg"
         isShowFooter={false}
+
+
       >
         {/* {console.log("isLoading", this.props.siteApproval.isLoading)}
         {this.props.siteApproval.isLoading && <Loader />} */}
@@ -36,7 +36,7 @@ class SiteApprovalViewMore extends Component {
             label="Structure ID"
             name="structureId"
             id="structureId"
-            //value={this.props.siteApproval.siteApprovalViewMore.structureId}
+          //value={this.props.siteApproval.siteApprovalViewMore.structureId}
           />
           <TextInput
             labelSize="col-md-5 pr-0"
@@ -44,7 +44,7 @@ class SiteApprovalViewMore extends Component {
             label="Quantity Requested"
             name="quantityRequested"
             id="quantityRequested"
-            //value={this.props.siteApproval.siteApprovalViewMore.quantityRequested}
+          //value={this.props.siteApproval.siteApprovalViewMore.quantityRequested}
           />
         </FormRow>
       </Modal>

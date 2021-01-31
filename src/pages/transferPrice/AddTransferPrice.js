@@ -6,6 +6,10 @@ import Button from "../../common/forms/Button";
 
 
 class AddTransferPrice extends Component {
+    constructor(props) {
+        super(props);
+    }
+  
 
 
     render() {

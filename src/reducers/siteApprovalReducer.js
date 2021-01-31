@@ -4,6 +4,7 @@ import {
     SET_SHOW_EDIT_MODAL_FLAG,
     SET_ACTIVE_ITEM,
     SET_SHOW_MORE_MODAL_FLAG,
+    SET_SITE_APPROVAL_MORE_DETAILS
 } from "../actions/types";
 const initialState = {
     isLoading: false,
@@ -13,6 +14,7 @@ const initialState = {
     isSuccess: false,
     message: "",
     siteApprovalDetails: [],
+    siteApprovalMoreDetails: [],
     activeItem: {},
 
 
@@ -40,6 +42,26 @@ export default (state = initialState, action) => {
                 siteApprovalDetails: action.payload.data,
             };
 
+        case `${SET_SITE_APPROVAL_MORE_DETAILS}_PENDING`:
+            return {
+                ...state,
+                isLoading: true,
+            };
+        case `${SET_SITE_APPROVAL_MORE_DETAILS}_REJECTED`:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                isSuccess: false,
+                message: action.payload.error,
+            };
+        case `${SET_SITE_APPROVAL_MORE_DETAILS}_FULFILLED`:
+            return {
+                ...state,
+                isLoading: false,
+                siteApprovalMoreDetails: action.payload.data,
+            };
+
 
         case SET_ACTIVE_ITEM:
             const activeItem = state.siteApprovalDetails.filter((item) => {
@@ -49,8 +71,12 @@ export default (state = initialState, action) => {
         case SET_SHOW_EDIT_MODAL_FLAG:
             return { ...state, showEditModalFlag: action.payload };
         case SET_SHOW_MORE_MODAL_FLAG:
-            return { ...state, showMoreModalFlag: action.payload };
-        
+            return {
+                ...state,
+                showMoreModalFlag:
+                action.payload
+            };
+
         case RESET_UPDATE_SITE_APPROVAL_MODAL:
             return {
                 ...state,
@@ -60,7 +86,6 @@ export default (state = initialState, action) => {
                 isError: false,
                 isSuccess: false,
                 message: "",
-                siteApprovalDetails: [],
                 activeItem: {},
 
             };

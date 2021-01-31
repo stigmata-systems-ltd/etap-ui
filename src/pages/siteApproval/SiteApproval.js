@@ -39,6 +39,7 @@ class NewFabricationSiteApproval extends Component {
           )}
 
           <SiteApprovalViewMore
+            {...this.props}
             showMoreModal={this.props.siteApproval.showMoreModalFlag}
           />
           <ConfirmModal

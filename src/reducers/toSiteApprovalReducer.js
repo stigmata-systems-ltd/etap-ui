@@ -11,8 +11,6 @@ const initialState = {
     message: "",
     toSiteApprovalDetails: [],
     activeItem: {},
-
-
 };
 
 export default (state = initialState, action) => {
