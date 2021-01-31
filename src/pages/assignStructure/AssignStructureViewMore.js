@@ -30,7 +30,7 @@ class AddStructure extends Component {
         {this.props.isLoading && <Loader />}
         
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="Structure ID"
                 name="structureId"
                 id="structureId"
@@ -39,7 +39,7 @@ class AddStructure extends Component {
                 // }
                 value={this.props.assignStructure.assignStructureViewMore.structureId}
               />
-              <TextInput
+              <TextInput disabled
                 label="Structure Name"
                 name="strcutureName"
                 id="strcutureName"
@@ -50,7 +50,7 @@ class AddStructure extends Component {
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="Structure Family"
                 name="structureFamily"
                 id="structureFamily"
@@ -59,7 +59,8 @@ class AddStructure extends Component {
                 // }
                 value={this.props.assignStructure.assignStructureViewMore.strcutureTypeName}
               />
-              <TextInput
+              <TextInput disabled
+              
                 label="Total Weight"
                 name="totalWeight"
                 id="totalWeight"
@@ -70,7 +71,7 @@ class AddStructure extends Component {
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="Structure Status"
                 name="structureStatus"
                 id="structureStatus"
@@ -79,7 +80,7 @@ class AddStructure extends Component {
                 // }
                 value={this.props.assignStructure.assignStructureViewMore.status}
               />
-              <TextInput
+              <TextInput disabled
                 label="Current Status"
                 name="currentStatus"
                 id="currentStatus"
@@ -90,7 +91,7 @@ class AddStructure extends Component {
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="Project Name"
                 name="projectName"
                 id="projectName"
@@ -99,7 +100,7 @@ class AddStructure extends Component {
                 // }
                 value={this.props.assignStructure.assignStructureViewMore.projectName}
               />
-              <TextInput
+              <TextInput disabled
                 label="Project Id"
                 name="projectId"
                 id="projectId"
@@ -110,7 +111,7 @@ class AddStructure extends Component {
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="Number Of Component"
                 name="componentsCount"
                 id="componentsCount"
@@ -119,7 +120,7 @@ class AddStructure extends Component {
                 // }
                 value={this.props.assignStructure.assignStructureViewMore.componentsCount}
               />
-              <TextInput
+              <TextInput disabled
                 label="Drawing Number"
                 name="drawingNo"
                 id="drawingNo"
@@ -130,13 +131,13 @@ class AddStructure extends Component {
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="BU Name"
                 name="buName"
                 id="buName"
                 value={this.props.assignStructure.assignStructureViewMore.buName}
               />
-              <TextInput
+              <TextInput disabled
                 label="IC Name"
                 name="icName"
                 id="icName"
@@ -144,7 +145,7 @@ class AddStructure extends Component {
               />
             </FormRow>
             <FormRow>
-              <TextInput
+              <TextInput disabled
                 label="Estimated Weight"
                 name="estimatedWeight"
                 id="estimatedWeight"
