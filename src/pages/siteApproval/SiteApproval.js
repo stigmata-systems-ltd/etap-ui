@@ -31,12 +31,12 @@ class NewFabricationSiteApproval extends Component {
       <>
         <ContentLoader>
           {this.props.siteApproval.isLoading && <Loader />}
-          {this.props.siteApproval.message && (
+          {/* {this.props.siteApproval.message && (
             <CustomAlert
               variant={this.props.siteApproval.isSuccess ? "success" : "danger"}
               message={this.props.siteApproval.message}
             />
-          )}
+          )} */}
 
           <SiteApprovalViewMore
             {...this.props}
