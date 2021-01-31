@@ -1,7 +1,8 @@
 import {
     SET_FROM_SITE_APPROVAL_DETAILS,
     SET_ACTIVE_ITEM,
-    RESET_UPDATE_FROM_SITE_APPROVAL_MODAL
+    RESET_UPDATE_FROM_SITE_APPROVAL_MODAL,
+    ACTION_SITE_APPROVAL
 
 } from "../actions/types";
 const initialState = {
@@ -36,6 +37,28 @@ export default (state = initialState, action) => {
                 isLoading: false,
                 fromSiteApprovalDetails: action.payload.data,
             };
+        case `${ACTION_SITE_APPROVAL}_PENDING`:
+            return {
+                ...state,
+                isLoading: true,
+            };
+        case `${ACTION_SITE_APPROVAL}_REJECTED`:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                isSuccess: false,
+                message:
+                    action.payload.response && action.payload.response.data
+                        ? action.payload.response.data.message
+                        : "Please check your form data and retry",
+            };
+        case `${ACTION_SITE_APPROVAL}_FULFILLED`:
+            return {
+                ...state,
+                isLoading: false,
+                message: action.payload.data.message
+            };
 
 
         case SET_ACTIVE_ITEM:
@@ -51,7 +74,6 @@ export default (state = initialState, action) => {
                 isError: false,
                 isSuccess: false,
                 message: "",
-                fromSiteApprovalDetails: [],
                 activeItem: {},
 
             };

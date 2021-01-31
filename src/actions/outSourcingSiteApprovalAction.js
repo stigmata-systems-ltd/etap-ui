@@ -34,7 +34,7 @@ export const siteApprovalAction = (singleSiteApproval, action) => {
 
     return {
         type: ACTION_SITE_APPROVAL,
-        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchApproval', body)
+        payload: axios.post(`${config.BASE_URL}​/api/SiteDispatch/SiteDispatchApproval`, body)
     }
 }
 export const siteDeclineAction = (singleSiteApproval, action) => {
@@ -50,7 +50,7 @@ export const siteDeclineAction = (singleSiteApproval, action) => {
 
     return {
         type: ACTION_SITE_DECLINE,
-        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchRejection', body)
+        payload: axios.post(`${config.BASE_URL}/api/SiteDispatch/SiteDispatchRejection`, body)
     }
 }
 

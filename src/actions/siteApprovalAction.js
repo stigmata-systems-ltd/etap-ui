@@ -60,6 +60,6 @@ export const siteDeclineAction = (singleSiteApproval, action) => {
 
     return {
         type: ACTION_SITE_DECLINE,
-        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchRejection', body)
+        payload: axios.post(`${config.BASE_URL}/api/SiteDispatch/SiteDispatchRejection`, body)
     }
 }

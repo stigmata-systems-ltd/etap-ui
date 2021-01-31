@@ -6,7 +6,8 @@ import {
     GET_TO_SITE_APPROVAL_DATA_SINGLE,
     SET_TO_SITE_APPROVAL_DETAILS,
     ACTION_TO_SITE_APPROVAL,
-    ACTION_TO_SITE_DECLINE
+    ACTION_TO_SITE_DECLINE,
+    ACTION_SITE_APPROVAL
 
 } from "../actions/types";
 
@@ -34,8 +35,8 @@ export const toSiteApprovalAction = (singleSiteApproval, action) => {
     }
 
     return {
-        type: ACTION_TO_SITE_APPROVAL,
-        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchApproval', body)
+        type: ACTION_SITE_APPROVAL,
+        payload: axios.post(`${config.BASE_URL}​/api/SiteDispatch/SiteDispatchApproval`, body)
     }
 }
 export const toSiteDeclineAction = (singleSiteApproval, action) => {
@@ -50,7 +51,7 @@ export const toSiteDeclineAction = (singleSiteApproval, action) => {
 
     return {
         type: ACTION_TO_SITE_DECLINE,
-        payload: axios.post(config.BASE_URL + '/api/SiteDispatch/SiteDispatchRejection', body)
+        payload: axios.post(`${config.BASE_URL}/api/SiteDispatch/SiteDispatchRejection`, body)
     }
 }
 
