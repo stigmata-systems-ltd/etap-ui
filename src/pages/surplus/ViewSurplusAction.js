@@ -26,6 +26,16 @@ class ViewSurplusAction extends Component {
   componentDidMount() {
     this.props.getSurplus();
   }
+  filteredItems = (data) => {
+    return (
+      data &&
+      data.filter(
+        (item) =>
+          item.projectName &&
+          item.projectName.toLowerCase().includes(this.state.filterText.toLowerCase())
+      )
+    );
+  };
 
   render() {
     return (
@@ -80,14 +90,14 @@ class ViewSurplusAction extends Component {
                 (id) => this.props.handleMore(id),
 
               )}
-              bodyData={transformViewSurplusList(
+              bodyData={this.filteredItems(transformViewSurplusList(
                 this.props.surplus.surplusList
-              )}
+              ))}
               progressPending={this.props.surplus.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.surplus.surplusList &&
-                this.props.surplus.surplusList.length
+                this.filteredItems(this.props.surplus.surplusList).length
               }
               paginationPerPage={5}
               noHeader={true}

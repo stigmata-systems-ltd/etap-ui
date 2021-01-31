@@ -17,6 +17,11 @@ class ViewSurplusViewMore extends Component {
     super(props);
   }
 
+  dateFormatter(ele){
+    let dateArray=ele.split('T');
+    return dateArray[0];
+  }
+
   render() {
     console.log(`Show model: ${this.props.showAddComponentModal}`)
     return (
@@ -52,7 +57,7 @@ class ViewSurplusViewMore extends Component {
                 value={this.props.surplus.surplusViewMore.structureName}
               />
               <TextInput
-                label="Structure Type Name"
+                label="Structure Family"
                 name="structureTypeName"
                 id="structureTypeName"
                 value={this.props.surplus.surplusViewMore.structureTypeName}
@@ -77,7 +82,13 @@ class ViewSurplusViewMore extends Component {
                 label="Surplus Date"
                 name="surplusDate"
                 id="surplusDate"
-                value={this.props.surplus.surplusViewMore.surplusDate}
+                value={this.dateFormatter(`${this.props.surplus.surplusViewMore.surplusDate}`)}
+              />
+              <TextInput
+                label="Project Name"
+                name="projectName"
+                id="projectName"
+                value={this.props.surplus.surplusViewMore.projectName}
               />
             </FormRow>
       </Modal>

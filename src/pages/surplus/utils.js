@@ -49,7 +49,7 @@ export const listViewSurplusMetaData = (
     return [
       {
         name: "Project",
-        selector: "siteReqId",
+        selector: "projectName",
         sortable: false,
       },
       {
@@ -58,7 +58,7 @@ export const listViewSurplusMetaData = (
         sortable: false,
       },
       {
-        name: "Structure Type Name",
+        name: "Structure Family",
         selector: "structureTypeName",
         sortable: false,
       },
@@ -124,11 +124,13 @@ export const listViewSurplusMetaData = (
     let tmpArr = [];
     surplusList &&
     surplusList.map((surplus, i) => {
+      let dateArray=surplus.surplusDate.split('T')
         let tmpObj = {
             siteReqId: surplus.siteReqId,
+            projectName: surplus.projectName,
             structureName: surplus.structureName,
             structureTypeName: surplus.structureTypeName,
-            surplusDate: surplus.surplusDate,
+            surplusDate: dateArray[0],
             status: surplus.status,
             id: i,
             isAction: surplus.isAction

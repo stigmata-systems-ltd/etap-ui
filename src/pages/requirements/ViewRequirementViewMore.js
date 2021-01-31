@@ -41,10 +41,10 @@ class ViewRequirementViewMore extends Component {
                 value={this.props.requirement.requirementViewMore.mrNo}
               />
               <TextInput
-                label="Project ID"
-                name="projectId"
-                id="projectId"
-                value={this.props.requirement.requirementViewMore.projectId}
+                label="Project Name"
+                name="projectName"
+                id="projectName"
+                value={this.props.requirement.requirementViewMore.projectName}
               />
             </FormRow>
             <FormRow>
