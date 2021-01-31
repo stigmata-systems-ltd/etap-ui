@@ -31,8 +31,8 @@ class ViewSurplusAction extends Component {
       data &&
       data.filter(
         (item) =>
-          item.projectName &&
-          item.projectName.toLowerCase().includes(this.state.filterText.toLowerCase())
+          item.structureName &&
+          item.structureName.toLowerCase().includes(this.state.filterText.toLowerCase())
       )
     );
   };
@@ -105,7 +105,7 @@ class ViewSurplusAction extends Component {
               subHeaderComponent={
                 <>
                   <TableFilter
-                    placeholder="Search By ID"
+                    placeholder="Search By Structure Name"
                     fieldSize="float-left col-sm-10"
                     onFilter={(e) => {
                       e.target.value === "" &&

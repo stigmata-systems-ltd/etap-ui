@@ -22,7 +22,7 @@ code {
 
 .icon {
   padding: 20px;
-  background: dodgerblue;
+  background:#5e72e4;
   color: white;
   min-width: 50px;
   text-align: center;
@@ -35,5 +35,5 @@ code {
 }
 
 .form-control:focus {
-  border: 2px solid dodgerblue;
+  border-color: 2px solid #5e72e4;
 }

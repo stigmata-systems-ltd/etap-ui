@@ -16,6 +16,7 @@ import AddWorkBreak from "./container/workBreak/addWorkBreak";
 import ViewWorkBreak from "./container/workBreak/viewWBS";
 import AssignStructure from "./container/assignStructure/assignStructure";
 import AddRequirement from "./container/requirement/addRequirement";
+import AddScrap from "./container/scrap/addScrap"
 
 import ViewStructure from "./container/structure/viewStructure";
 import ViewComponent from "./container/component/viewComponent";
@@ -139,6 +140,7 @@ class App extends Component {
               path="/masters/viewIndependentCompany"
               component={ViewIndependentCompany}
             ></Route>
+            <Route exact path="/scrap/add" component={AddScrap}></Route>
             <Route exact path="/surplus/add" component={AddSurplus}></Route>
             <Route
               exact

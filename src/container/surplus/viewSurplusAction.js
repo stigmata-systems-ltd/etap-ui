@@ -27,11 +27,15 @@ const mapDispatchToProps = (dispatch,props) => {
       let singleSurplus=surplusList[id];
       console.log(singleSurplus)
       console.log(`ID: ${id}`)
-      dispatch(surplusAction(id,"Approval"));
+      dispatch(surplusAction(id,"Approval")).then(() => {
+        dispatch(getSurplus());
+      });
     },
     handleReject(id){
       console.log(`ID: ${id}`)
-      dispatch(surplusAction(id,"Rejection"));
+      dispatch(surplusAction(id,"Rejection")).then(() => {
+        dispatch(getSurplus());
+      });
     },
     handleMore(id){
       console.log(`ID: ${id}`)
