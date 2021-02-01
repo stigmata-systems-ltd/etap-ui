@@ -5,8 +5,8 @@ import {
 
     GET_FROM_SITE_APPROVAL_DATA_SINGLE,
     SET_FROM_SITE_APPROVAL_DETAILS,
-    ACTION_FROM_SITE_DECLINE,
-    ACTION_SITE_APPROVAL
+    ACTION_SITE_APPROVAL,
+    ACTION_SITE_DECLINE
 
 } from "../actions/types";
 
@@ -23,8 +23,10 @@ export const getFromSiteApprovalDetails = () => {
     };
 };
 
-export const fromSiteApprovalAction = (singleSiteApproval, action) => {
+export const siteApprovalAction = (singleSiteApproval, action) => {
+
     const { roleId, roleName } = getUserDetails();
+
     const body = {
         "dispReqId": singleSiteApproval.dispatchId,
         "roleName": roleName,
@@ -32,15 +34,16 @@ export const fromSiteApprovalAction = (singleSiteApproval, action) => {
         "serviceTypeId": singleSiteApproval.serviceTypeId,
         "roleHierarchy": 3
     }
-
+    console.log(`SiteApproval Data: ${body}`)
     return {
         type: ACTION_SITE_APPROVAL,
-        payload: axios.post(`${config.BASE_URL}​/api/SiteDispatch/SiteDispatchApproval`, body)
+        // payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchApproval', body)
+        payload: axios.post(`${config.BASE_URL}/api/siteDispatch/siteDispatchApproval`, body)
     }
 }
-
-export const fromSiteDeclineAction = (singleSiteApproval, action) => {
+export const siteDeclineAction = (singleSiteApproval, action) => {
     const { roleId, roleName } = getUserDetails();
+
     const body = {
         "dispReqId": singleSiteApproval.dispatchId,
         "roleName": roleName,
@@ -50,7 +53,7 @@ export const fromSiteDeclineAction = (singleSiteApproval, action) => {
     }
 
     return {
-        type: ACTION_FROM_SITE_DECLINE,
+        type: ACTION_SITE_DECLINE,
         payload: axios.post(`${config.BASE_URL}/api/SiteDispatch/SiteDispatchRejection`, body)
     }
 }

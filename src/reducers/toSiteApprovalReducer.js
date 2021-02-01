@@ -3,7 +3,7 @@ import {
     SET_ACTIVE_ITEM,
     RESET_UPDATE_TO_SITE_APPROVAL_MODAL,
     ACTION_SITE_APPROVAL,
-    ACTION_TO_SITE_DECLINE
+    ACTION_SITE_DECLINE
 
 } from "../actions/types";
 const initialState = {
@@ -58,12 +58,12 @@ export default (state = initialState, action) => {
                 isLoading: false,
                 message: action.payload.data.message
             };
-        case `${ACTION_TO_SITE_DECLINE}_PENDING`:
+        case `${ACTION_SITE_DECLINE}_PENDING`:
             return {
                 ...state,
                 isLoading: true,
             };
-        case `${ACTION_TO_SITE_DECLINE}_REJECTED`:
+        case `${ACTION_SITE_DECLINE}_REJECTED`:
             return {
                 ...state,
                 isLoading: false,
@@ -74,7 +74,7 @@ export default (state = initialState, action) => {
                         ? action.payload.response.data.message
                         : "Please check your form data and retry",
             };
-        case `${ACTION_TO_SITE_DECLINE}_FULFILLED`:
+        case `${ACTION_SITE_DECLINE}_FULFILLED`:
             return {
                 ...state,
                 isLoading: false,

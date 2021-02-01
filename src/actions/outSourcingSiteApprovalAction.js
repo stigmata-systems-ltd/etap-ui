@@ -22,8 +22,9 @@ export const getOutSourcingSiteApprovalDetails = () => {
 };
 
 export const siteApprovalAction = (singleSiteApproval, action) => {
-    // const ROLE_NAME = getUserDetails().roleName;
+
     const { roleId, roleName } = getUserDetails();
+
     const body = {
         "dispReqId": singleSiteApproval.dispatchId,
         "roleName": roleName,
@@ -31,10 +32,11 @@ export const siteApprovalAction = (singleSiteApproval, action) => {
         "serviceTypeId": singleSiteApproval.serviceTypeId,
         "roleHierarchy": 3
     }
-
+    console.log(`SiteApproval Data: ${body}`)
     return {
         type: ACTION_SITE_APPROVAL,
-        payload: axios.post(`${config.BASE_URL}​/api/SiteDispatch/SiteDispatchApproval`, body)
+        // payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchApproval', body)
+        payload: axios.post(`${config.BASE_URL}/api/siteDispatch/siteDispatchApproval`, body)
     }
 }
 export const siteDeclineAction = (singleSiteApproval, action) => {
@@ -54,11 +56,11 @@ export const siteDeclineAction = (singleSiteApproval, action) => {
     }
 }
 
-export const singleSiteApprovalFetch = (id) => {
-    const siteApproval = store.getState().siteApproval;
-    const data = siteApproval.siteApprovalList[id];
-    return {
-        type: GET_SITE_APPROVAL_DATA_SINGLE,
-        payload: data,
-    };
-}
+// export const singleSiteApprovalFetch = (id) => {
+//     const siteApproval = store.getState().siteApproval;
+//     const data = siteApproval.siteApprovalList[id];
+//     return {
+//         type: GET_SITE_APPROVAL_DATA_SINGLE,
+//         payload: data,
+//     };
+// }

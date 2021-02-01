@@ -47,7 +47,6 @@ export default (state = initialState, action) => {
                 ...state,
                 isLoading: true,
             };
-
         case `${ACTION_SITE_APPROVAL}_REJECTED`:
             return {
                 ...state,
@@ -65,7 +64,6 @@ export default (state = initialState, action) => {
                 isLoading: false,
                 message: action.payload.data.message
             };
-
         case `${ACTION_SITE_DECLINE}_PENDING`:
             return {
                 ...state,

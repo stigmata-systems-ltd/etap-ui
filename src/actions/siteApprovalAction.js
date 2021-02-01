@@ -8,7 +8,6 @@ import {
     SET_SITE_APPROVAL_MORE_DETAILS
 } from "../actions/types";
 import { getUserDetails } from "../utils/auth";
-import siteDispatchReducer from "../reducers/siteDispatchReducer";
 
 export const getSiteApprovalDetails = () => {
     const roleName = getUserDetails().roleName;

@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
             });
         },
         handleReject(id) {
-            let siteApprovalList = store.getState().siteApproval.outSourcingSiteApprovalDetails;
+            let siteApprovalList = store.getState().outSourcingsiteApproval.outSourcingSiteApprovalDetails;
             let singleSiteApproval = siteApprovalList.filter((listItem) => {
                 return listItem.siteRequestId === id;
             })[0];

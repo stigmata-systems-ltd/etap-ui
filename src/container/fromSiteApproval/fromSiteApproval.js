@@ -8,7 +8,7 @@ import {
 
 } from "../../actions/types";
 
-import { getFromSiteApprovalDetails, fromSiteApprovalAction,fromSiteDeclineAction } from '../../actions/fromSiteApprovalAction';
+import { getFromSiteApprovalDetails, siteApprovalAction,siteDeclineAction } from '../../actions/fromSiteApprovalAction';
 import FromSiteApproval from "../../pages/fromSite/FromSiteApproval";
 
 const mapDispatchToProps = (dispatch) => {
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
             })[0];
             console.log("Approval Data------> ", singleSiteApproval)
 
-            dispatch(fromSiteApprovalAction(singleSiteApproval, "Approval")).then(() => {
+            dispatch(siteApprovalAction(singleSiteApproval, "Approval")).then(() => {
                 dispatch(getFromSiteApprovalDetails());
             });
         },
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
             let singleSiteApproval = siteApprovalList.filter((listItem) => {
                 return listItem.siteRequestId === id;
             })[0];
-            dispatch(fromSiteDeclineAction(singleSiteApproval, "Rejection")).then(() => {
+            dispatch(siteDeclineAction(singleSiteApproval, "Rejection")).then(() => {
                 dispatch(getFromSiteApprovalDetails());
             });
         },

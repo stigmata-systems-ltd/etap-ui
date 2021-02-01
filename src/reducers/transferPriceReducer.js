@@ -4,15 +4,17 @@ import {
     SET_TRANSFER_PRICE_DETAILS,
     TRANSFER_PRICE,
     RESET_UPDATE_TRANSFER_PRICE_MODAL,
-    SET_SHOW_MORE_MODAL_FLAG
+    SET_SHOW_MORE_MODAL_FLAG,
+    DISPATCH_REQUEST_ID
 } from "../actions/types";
 const initialState = {
     isLoading: false,
     showEditModalFlag: false,
-    showMoreModalFlag:false,
+    showMoreModalFlag: false,
     isError: false,
     isSuccess: false,
     message: "",
+    dispReqId:0,
     transferPriceDetails: [],
     activeItem: {},
     transferPrice: "",
@@ -45,6 +47,11 @@ export default (state = initialState, action) => {
                 ...state,
                 transferPrice: action.payload
             };
+        case DISPATCH_REQUEST_ID:
+            return {
+                ...state,
+                dispReqId: action.payload
+            };
 
         case SET_ACTIVE_ITEM:
             const activeItem = state.transferPriceDetails.filter((item) => {
@@ -61,13 +68,13 @@ export default (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 showEditModalFlag: false,
-                showMoreModalFlag:false,
+                showMoreModalFlag: false,
                 isError: false,
                 isSuccess: false,
                 message: "",
-                transferPriceDetails: [],
                 activeItem: {},
                 transferPrice: "",
+                
             };
         default:
             return state;
