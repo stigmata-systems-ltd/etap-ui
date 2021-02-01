@@ -51,21 +51,25 @@ export const listViewSurplusMetaData = (
         name: "Project",
         selector: "projectName",
         sortable: false,
+       
       },
       {
         name: "Structure Name",
         selector: "structureName",
         sortable: false,
+        
       },
       {
         name: "Structure Family",
         selector: "structureTypeName",
         sortable: false,
+        
       },
       {
         name: "Surplus Date",
         selector: "surplusDate",
         sortable: false,
+        
       },
       
       {
