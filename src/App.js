@@ -88,6 +88,9 @@ const CreateDispatch = React.lazy(() =>
 const DispatchStructure = React.lazy(() =>
   import("./container/createDispatch/dispatchStructure")
 );
+const PhysicalVerificationn = React.lazy(() =>
+  import("./container/physicalVerification/physicalVerification")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -368,6 +371,11 @@ class App extends Component {
               exact
               path="/reuse/toSiteApproval"
               component={ToSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/requirementRequest/physicalVerification"
+              component={PhysicalVerificationn}
             ></Route>
 
             <Route

@@ -14,7 +14,7 @@ export const getSiteApprovalDetails = () => {
     return {
         type: SET_SITE_APPROVAL_DETAILS,
         payload: axios.get(
-            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}`
+            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}&role_hierarchy=4`
         ),
     };
 };
@@ -23,7 +23,7 @@ export const getSiteApprovalMoreDetails = () => {
     return {
         type: SET_SITE_APPROVAL_MORE_DETAILS,
         payload: axios.get(
-            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}`
+            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}&role_hierarchy=4`
         ),
     };
 };

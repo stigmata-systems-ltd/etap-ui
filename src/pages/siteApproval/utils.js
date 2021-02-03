@@ -60,6 +60,11 @@ export const siteApprovalMetaData = (handleApprove, handleReject, handleMore) =>
             selector: 'createdDateTime',
             sortable: false,
         },
+        {
+            name: 'Status',
+            selector: 'status',
+            sortable: false,
+        },
         // {
         //     name: 'Quantity',
         //     selector: 'quantity',
