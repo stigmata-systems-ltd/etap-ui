@@ -8,14 +8,13 @@ import {
     SET_SITE_APPROVAL_MORE_DETAILS
 } from "../actions/types";
 import { getUserDetails } from "../utils/auth";
-import siteDispatchReducer from "../reducers/siteDispatchReducer";
 
 export const getSiteApprovalDetails = () => {
     const roleName = getUserDetails().roleName;
     return {
         type: SET_SITE_APPROVAL_DETAILS,
         payload: axios.get(
-            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}`
+            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}&role_hierarchy=4`
         ),
     };
 };
@@ -24,7 +23,7 @@ export const getSiteApprovalMoreDetails = () => {
     return {
         type: SET_SITE_APPROVAL_MORE_DETAILS,
         payload: axios.get(
-            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}`
+            `${config.BASE_URL}/api/SiteDispatch/getSiteDispatchDetails?role_name=${roleName}&role_hierarchy=4`
         ),
     };
 };
@@ -60,6 +59,6 @@ export const siteDeclineAction = (singleSiteApproval, action) => {
 
     return {
         type: ACTION_SITE_DECLINE,
-        payload: axios.post(config.BASE_URL + '​/api/SiteDispatch/SiteDispatchRejection', body)
+        payload: axios.post(`${config.BASE_URL}/api/SiteDispatch/SiteDispatchRejection`, body)
     }
 }

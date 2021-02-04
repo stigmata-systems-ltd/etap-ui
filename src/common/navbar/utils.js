@@ -190,7 +190,6 @@ export const metaDataNavbar = [
         navText: "Site Approval",
         route: "/newFabrication/siteApproval",
       },
-    ,
     ],
   },
   {
@@ -247,7 +246,7 @@ export const metaDataNavbar = [
         navText: "To Site Approval",
         route: "/reuse/toSiteApproval",
       },
-     
+
     ],
   },
   {
@@ -267,7 +266,7 @@ export const metaDataNavbar = [
       {
         id: "Life" + 2,
         navText: "Physical verification",
-        route: "/requirementRequest/addRequirements",
+        route: "/requirementRequest/physicalVerification",
       },
       {
         id: "Life" + 3,

@@ -9,7 +9,7 @@ import {
     RESET_TRANSFER_PRICE_MODAL,
     SET_SHOW_MORE_MODAL_FLAG,
     RESET_TRANSFER_PRICE_VIEW_MORE_MODAL,
-    CHANGE_ADD_TRANSFER_PRICE_MODAL_STATUS
+    
 
 } from "../../actions/types";
 
@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
         getTransferPriceDetails() {
             dispatch(getTransferPriceDetails());
         },
-        handleTransferPrice(value) {
+        handleChangeTransferPrice(value) {
             dispatch({
                 type: TRANSFER_PRICE,
                 payload: value,
@@ -33,17 +33,15 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(addTransferPrice()).then(() => {
 
                 dispatch({
-                    type: SET_SHOW_EDIT_MODAL_FLAG,
+                    type: SET_SHOW_MORE_MODAL_FLAG,
                     payload: false,
                 })
                 dispatch({ type: RESET_TRANSFER_PRICE_MODAL });
-                dispatch({
-                    type: CHANGE_ADD_TRANSFER_PRICE_MODAL_STATUS,
-                    payload: false,
-                })
+                dispatch(getTransferPriceDetails());
 
             });;
         },
+
 
         setShowTableFlag(value) {
             dispatch({
