@@ -7,6 +7,7 @@ import Loader from "../../common/Loader";
 import {
   dispatchStructureMetaData,
   lstVerifyStructureQtyMetaData,
+  transformdispatchStructure
 } from "./utils";
 import CustomDataTable from "../../common/CustomDataTable";
 import FormRow from "../../common/forms/FormRow";
@@ -14,6 +15,7 @@ import Button from "../../common/forms/Button";
 import Popup from "../../common/forms/Popup";
 import TextInput from "../../common/forms/TextInput";
 import ConfirmModal from "../../common/ConfirmModal";
+import CheckBox from "../../common/forms/CheckBox";
 
 class DispatchStructure extends Component {
   constructor(props) {
@@ -45,6 +47,11 @@ class DispatchStructure extends Component {
   };
 
   render() {
+    console.log("+++++++++")
+    console.log(this.props.createDispatch.disableOutSourcing)
+    console.log(this.props.createDispatch.disableFabrication)
+    console.log(this.props.createDispatch.disableReuse)
+    console.log("+++++++++")
     return (
       <>
         {this.props.createDispatch.isLoading && <Loader />}
@@ -125,10 +132,9 @@ class DispatchStructure extends Component {
             )}
             {this.props.createDispatch.siteReqDetailsById && (
               <CustomDataTable
-                metaData={dispatchStructureMetaData()}
-                bodyData={this.filteredItems(
-                  this.props.createDispatch.siteReqDetailsById
-                    .lstStructforDispatch
+                metaData={dispatchStructureMetaData((row) => this.props.setSelectedStructures(row))}
+                bodyData={this.filteredItems(transformdispatchStructure(this.props.createDispatch.lstStructforDispatch)
+                  
                 )}
                 progressPending={this.props.createDispatch.isLoading}
                 pagination={true}
@@ -138,10 +144,10 @@ class DispatchStructure extends Component {
                 }
                 paginationPerPage={5}
                 noHeader={true}
-                selectableRows
-                onSelectedRowsChange={(row) => {
-                  this.props.setSelectedStructures(row.selectedRows);
-                }}
+                // selectableRows
+                // onSelectedRowsChange={(row) => {
+                //   this.props.setSelectedStructures(row.selectedRows);
+                // }}
                 // subHeader
                 subHeaderComponent={
                   <>
@@ -191,6 +197,7 @@ class DispatchStructure extends Component {
                     }
                   }
                 }}
+                disable={this.props.createDispatch.disableReuse}
               />
               <Button
                 btnText="Fabrication"
@@ -208,6 +215,7 @@ class DispatchStructure extends Component {
                     this.props.setServiceTypeId(1);
                   }
                 }}
+                disable={this.props.createDispatch.disableFabrication}
               />
               <Button
                 btnText="Outsourcing"
@@ -225,6 +233,7 @@ class DispatchStructure extends Component {
                     this.props.setServiceTypeId(2);
                   }
                 }}
+                disable={this.props.createDispatch.disableOutSourcing}
               />
             </FormRow>
           </FormContainer>

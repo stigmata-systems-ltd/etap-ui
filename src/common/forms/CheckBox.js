@@ -13,6 +13,7 @@ class CheckBox extends Component {
                 class="form-check-input"
                 checked={this.props.checked}
                 onChange={this.props.onChange}
+                disabled={this.props.disabled?true:false}
               />
               {this.props.label}
               <i class="input-helper"></i>

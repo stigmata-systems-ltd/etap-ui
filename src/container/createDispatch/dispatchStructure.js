@@ -3,6 +3,7 @@ import {
   getSiteReqDetailsById,
   createDispatch,
   setActiveItem,
+  setSelectedItem
 } from "../../actions/createDispatchActions";
 import {
   SET_SELECTED_ITEMS,
@@ -22,10 +23,11 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setActiveItem(id));
     },
     setSelectedStructures(value) {
-      dispatch({
-        type: SET_SELECTED_ITEMS,
-        payload: value,
-      });
+      // dispatch({
+      //   type: SET_SELECTED_ITEMS,
+      //   payload: value,
+      // });
+      dispatch(setSelectedItem(value))
     },
     showConfirmModal(message) {
       dispatch({

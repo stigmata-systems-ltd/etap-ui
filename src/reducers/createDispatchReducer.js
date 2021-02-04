@@ -25,6 +25,10 @@ const initialState = {
   siteReqDetails: [],
   siteReqDetailsById: [],
   selectedItems: [],
+  lstStructforDispatch:[],
+  disableReuse: true,
+  disableFabrication: true,
+  disableOutSourcing: true
 };
 
 export default (state = initialState, action) => {
@@ -62,10 +66,12 @@ export default (state = initialState, action) => {
         message: action.payload.response.data.message,
       };
     case `${GET_SITE_REQ_DETAILS_BY_ID}_FULFILLED`:
+      let lstStructforDispatchData = action.payload.data.lstStructforDispatch.map(obj=> ({ ...obj, checked: false }))
       return {
         ...state,
         isLoading: false,
         siteReqDetailsById: action.payload.data,
+        lstStructforDispatch: lstStructforDispatchData
       };
     case `${CREATE_DISPATCH}_PENDING`:
       return {
@@ -114,9 +120,14 @@ export default (state = initialState, action) => {
         modalMessage: action.payload.message,
       };
     case SET_SELECTED_ITEMS:
+      
       return {
         ...state,
         selectedItems: action.payload,
+        lstStructforDispatch:action.structureList,
+        disableReuse: action.reuseResult,
+    disableFabrication: action.fabOutResult,
+    disableOutSourcing: action.fabOutResult
       };
     case RESET_MESSAGE:
       return { ...state, message: "", isSuccess: false, isError: false };
