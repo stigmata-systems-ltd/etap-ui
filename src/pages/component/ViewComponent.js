@@ -44,7 +44,7 @@ class ViewComponent extends Component {
           />
         )}
         <CreateComponent showAddComponentModal={this.props.component.showAddComponentModal} />
-        <FormContainer formTitle={"Component Type List"}>
+        <FormContainer formTitle={"Component Management"}>
           {this.props.component.componentTypeList && (
             <CustomDataTable
               metaData={listComponentTypeMetaData(

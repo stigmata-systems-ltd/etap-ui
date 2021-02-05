@@ -26,160 +26,220 @@ class AssignComponentViewMore extends Component {
         size="lg"
         isShowFooter={false}
       >
-        {console.log("isLoading",this.props.isLoading)}
+        {console.log("isLoading", this.props.isLoading)}
         {this.props.isLoading && <Loader />}
-            <FormRow>
-              <TextInput
-                label="Structure ID"
-                name="structureId"
-                id="structureId"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignComponentList.structureId}
-              />
-              <TextInput
-                label="Structure Name"
-                name="strcutureName"
-                id="strcutureName"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignComponentList.strcutureName}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Structure Family"
-                name="structureFamily"
-                id="structureFamily"
-                // onChange={e =>
-                //   this.props.handleChangeStructureName(e.target.value)
-                // }
-                value={this.props.assignStructure.assignComponentList.strcutureTypeName}
-              />
-              <TextInput
-                label="Structure Code"
-                name="structureCode"
-                id="structureCode"
-                // onChange={e =>
-                //   this.props.handleChangeStructureFamily(e.target.value)
-                // }
-                value={this.props.assignStructure.assignComponentList.structureCode}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="BU Name"
-                name="buName"
-                id="buName"
-                value={this.props.assignStructure.assignComponentList.buName}
-              />
-              <TextInput
-                label="IC Name"
-                name="icName"
-                id="icName"
-                value={this.props.assignStructure.assignComponentList.icName}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Component ID"
-                name="componentID"
-                id="componentID"
-                value={this.props.assignStructure.assignComponentViewMore.compId}
-              />
-              <TextInput
-                label="Component Number"
-                name="componentNO"
-                id="componentNO"
-                value={this.props.assignStructure.assignComponentViewMore.componentNo}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Component Status"
-                name="compStatus"
-                id="compStatus"
-                value={this.props.assignStructure.assignComponentViewMore.compStatus}
-              />
-              <TextInput
-                label="Component Type"
-                name="compTypeId"
-                id="compTypeId"
-                value={this.props.assignStructure.assignComponentViewMore.compTypeName}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Drawing No"
-                name="drawingNo"
-                id="drawingNo"
-                value={this.props.assignStructure.assignComponentViewMore.drawingNo}
-              />
-              <TextInput
-                label="Project Id"
-                name="projectId"
-                id="projectId"
-                value={this.props.assignStructure.assignComponentList.projectId}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Breadth"
-                name="breath"
-                id="breath"
-                value={this.props.assignStructure.assignComponentViewMore.breath}
-              />
-              <TextInput
-                label="Height"
-                name="height"
-                id="height"
-                value={this.props.assignStructure.assignComponentViewMore.height}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Length"
-                name="leng"
-                id="leng"
-                value={this.props.assignStructure.assignComponentViewMore.leng}
-              />
-              <TextInput
-                label="Weight"
-                name="weight"
-                id="weight"
-                value={this.props.assignStructure.assignComponentViewMore.width}
-              />
-              </FormRow>
-              <FormRow>
-              <TextInput
-                label="Make Type"
-                name="makeType"
-                id="makeType"
-                value={this.props.assignStructure.assignComponentViewMore.makeType}
-              />
-              <TextInput
-                label="Thickness"
-                name="thickness"
-                id="thickness"
-                value={this.props.assignStructure.assignComponentViewMore.thickness}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                label="Tag"
-                name="tag"
-                id="tag"
-                value={this.props.assignStructure.assignComponentViewMore.isTag}
-              />
-              <TextInput
-                label="QR Code"
-                name="qrCode"
-                id="qrCode"
-                value={this.props.assignStructure.assignComponentViewMore.qrCode}
-              />
-            </FormRow>
+        <FormRow>
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Structure ID"
+            name="structureId"
+            id="structureId"
+            // onChange={e =>
+            //   this.props.handleChangeStructureName(e.target.value)
+            // }
+            value={this.props.assignStructure.assignComponentList.structureId}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Structure Name"
+            name="strcutureName"
+            id="strcutureName"
+            // onChange={e =>
+            //   this.props.handleChangeStructureFamily(e.target.value)
+            // }
+            value={this.props.assignStructure.assignComponentList.strcutureName}
+          />
+
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Structure Family"
+            name="structureFamily"
+            id="structureFamily"
+            // onChange={e =>
+            //   this.props.handleChangeStructureName(e.target.value)
+            // }
+            value={this.props.assignStructure.assignComponentList.strcutureTypeName}
+          />
+        </FormRow>
+        <FormRow>
+
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Structure Code"
+            name="structureCode"
+            id="structureCode"
+            // onChange={e =>
+            //   this.props.handleChangeStructureFamily(e.target.value)
+            // }
+            value={this.props.assignStructure.assignComponentList.structureCode}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="BU Name"
+            name="buName"
+            id="buName"
+            value={this.props.assignStructure.assignComponentList.buName}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="IC Name"
+            name="icName"
+            id="icName"
+            value={this.props.assignStructure.assignComponentList.icName}
+          />
+        </FormRow>
+
+        <FormRow>
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Component ID"
+            name="componentID"
+            id="componentID"
+            value={this.props.assignStructure.assignComponentViewMore.compId}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Component Number"
+            name="componentNO"
+            id="componentNO"
+            value={this.props.assignStructure.assignComponentViewMore.componentNo}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Component Status"
+            name="compStatus"
+            id="compStatus"
+            value={this.props.assignStructure.assignComponentViewMore.compStatus}
+          />
+        </FormRow>
+        <FormRow>
+
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Component Type"
+            name="compTypeId"
+            id="compTypeId"
+            value={this.props.assignStructure.assignComponentViewMore.compTypeName}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Drawing No"
+            name="drawingNo"
+            id="drawingNo"
+            value={this.props.assignStructure.assignComponentViewMore.drawingNo}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Project Id"
+            name="projectId"
+            id="projectId"
+            value={this.props.assignStructure.assignComponentList.projectId}
+          />
+        </FormRow>
+
+        <FormRow>
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Breadth"
+            name="breath"
+            id="breath"
+            value={this.props.assignStructure.assignComponentViewMore.breath}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Height"
+            name="height"
+            id="height"
+            value={this.props.assignStructure.assignComponentViewMore.height}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Length"
+            name="leng"
+            id="leng"
+            value={this.props.assignStructure.assignComponentViewMore.leng}
+          />
+        </FormRow>
+        <FormRow>
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Weight"
+            name="weight"
+            id="weight"
+            value={this.props.assignStructure.assignComponentViewMore.width}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Make Type"
+            name="makeType"
+            id="makeType"
+            value={this.props.assignStructure.assignComponentViewMore.makeType}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Thickness"
+            name="thickness"
+            id="thickness"
+            value={this.props.assignStructure.assignComponentViewMore.thickness}
+          />
+        </FormRow>
+
+        <FormRow>
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="Tag"
+            name="tag"
+            id="tag"
+            value={this.props.assignStructure.assignComponentViewMore.isTag}
+          />
+          <TextInput
+            size="col-md-4"
+            fieldSize="col-md-8"
+            labelSize="col-sm-4"
+            label="QR Code"
+            name="qrCode"
+            id="qrCode"
+            value={this.props.assignStructure.assignComponentViewMore.qrCode}
+          />
+        </FormRow>
       </Modal>
     );
   }

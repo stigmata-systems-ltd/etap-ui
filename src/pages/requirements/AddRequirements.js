@@ -51,7 +51,7 @@ class AddRequirement extends Component {
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
-                label="Project Name"
+                label="Project"
                 name="projectName"
                 id="projectName"
                 value={this.state.projectName}

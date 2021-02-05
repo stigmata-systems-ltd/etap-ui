@@ -61,7 +61,7 @@ class AssignStructure extends Component {
             <FormRow>
               <SearchableDropDown
                 size="col-md-4"
-                label="Select Project"
+                label="Project"
                 name="projectName"
                 id="projectName"
                 selectOptions={transformDropDownData(
@@ -80,7 +80,7 @@ class AssignStructure extends Component {
                 size="col-md-4"
                 labelSize="col-md-4 pr-0"
                 fieldSize="col-md-8 "
-                label="Select Structure"
+                label="Structure"
                 name="structureName"
                 id="structureName"
                 selectOptions={transformDropDownData(

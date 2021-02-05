@@ -61,7 +61,7 @@ class AddWorkBreak extends Component {
     return (
       <>
         <ContentLoader>
-          <FormContainer formTitle={"Add WBS"}>
+          <FormContainer formTitle={"WBS Management"}>
             <FormRow>
               <SearchableDropDown
                 label="Project Code"
