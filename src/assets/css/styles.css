@@ -111,7 +111,7 @@ select.form-control {
   transition: display 2s ease-in-out 1s;
 }
 .sidebar {
-  overflow-y: scroll !important;
+  overflow: scroll !important;
   width: 300px;
   height: 100vh;
 }

@@ -101,291 +101,291 @@ class App extends Component {
             <Route exact path="/dashboard" component={Dashboard}></Route>
             <Route
               exact
-              path="/masters/addComponent"
+              path="/etap/masters/addComponent"
               component={AddComponent}
             ></Route>
             <Route
               exact
-              path="/masters/viewStructureFamily"
+              path="/etap/masters/viewStructureFamily"
               component={ViewStructureFamily}
             ></Route>
             <Route
               exact
-              path="/masters/viewStructure"
+              path="/etap/masters/viewStructure"
               component={ViewStructure}
             ></Route>
             <Route
               exact
-              path="/masters/viewProject"
+              path="/etap/masters/viewProject"
               component={ViewProject}
             ></Route>
             <Route
               exact
-              path="/masters/viewUsers"
+              path="/etap/masters/viewUsers"
               component={ViewUsers}
             ></Route>
             <Route
               exact
-              path="/masters/addWBS"
+              path="/etap/masters/addWBS"
               component={AddWorkBreak}
             ></Route>
             <Route
               exact
-              path="/masters/viewWBS"
+              path="/etap/masters/viewWBS"
               component={ViewWorkBreak}
             ></Route>
             <Route
               exact
-              path="/masters/viewIndependentCompany"
+              path="/etap/masters/viewIndependentCompany"
               component={ViewIndependentCompany}
             ></Route>
-            <Route exact path="/surplus/add" component={AddSurplus}></Route>
+            <Route exact path="/etap/surplus/add" component={AddSurplus}></Route>
             <Route
               exact
-              path="/masters/viewBusinessUnit"
+              path="/etap/masters/viewBusinessUnit"
               component={ViewBusinessUnit}
             ></Route>
             <Route
               exact
-              path="/masters/viewVendors"
+              path="/etap/masters/viewVendors"
               component={ViewVendors}
             ></Route>
             <Route
               exact
-              path="/structure/assignStructure"
+              path="/etap/structure/assignStructure"
               component={AssignStructure}
             ></Route>
             <Route
               exact
-              path="/requirementRequest/addRequirements"
+              path="/etap/requirementRequest/addRequirements"
               component={AddRequirement}
             ></Route>
             <Route
               exact
-              path="/masters/viewComponent"
+              path="/etap/masters/viewComponent"
               component={ViewComponent}
             ></Route>
             <Route
               exact
-              path="/structure/viewStructure"
+              path="/etap/structure/viewStructure"
               component={ViewAssignStructure}
             ></Route>
             <Route
               exact
-              path="/structure/viewComponent"
+              path="/etap/structure/viewComponent"
               component={ViewAssignComponent}
             ></Route>
             <Route
               exact
-              path="/assignStructure/viewStructure"
+              path="/etap/assignStructure/viewStructure"
               component={ViewAssignStructure}
             ></Route>
             <Route
               exact
-              path="/assignStructure/viewComponent"
+              path="/etap/assignStructure/viewComponent"
               component={ViewAssignComponent}
             ></Route>
             <Route
               exact
-              path="/requirementRequest/viewRequirements"
+              path="/etap/requirementRequest/viewRequirements"
               component={ViewRequirements}
             ></Route>
             <Route
               exact
-              path="/requirementRequest/viewSurplus"
+              path="/etap/requirementRequest/viewSurplus"
               component={ViewSurplus}
             ></Route>
             <Route
               exact
-              path="/dispatchManagement/dispatchManagement"
+              path="/etap/dispatchManagement/dispatchManagement"
               component={DispatchManagement}
             ></Route>
             <Route
               exact
-              path="/cost/procurement"
+              path="/etap/cost/procurement"
               component={Procurement}
             ></Route>
             <Route
               exact
-              path="/vendor/siteApproval"
+              path="/etap/vendor/siteApproval"
               component={SiteApproval}
             ></Route>
             <Route
               exact
-              path="/dispatchManagement/technicalEvaluation"
+              path="/etap/dispatchManagement/technicalEvaluation"
               component={TechnicalEvaluation}
             ></Route>
             <Route
               exact
-              path="/vendor/newFabrication"
+              path="/etap/vendor/newFabrication"
               component={NewFabrication}
             ></Route>
-            <Route exact path="/vendor/outsource" component={OutSource}></Route>
+            <Route exact path="/etap/vendor/outsource" component={OutSource}></Route>
             <Route
               exact
-              path="/lifeCycle/healthSafty"
+              path="/etap/lifeCycle/healthSafty"
               component={HealthSafty}
             ></Route>
             <Route
               exact
-              path="/lifeCycle/qualityCheck"
+              path="/etap/lifeCycle/qualityCheck"
               component={QualityCheck}
             ></Route>
             <Route
               exact
-              path="/lifeCycle/initiatePhyscialVerification"
+              path="/etap/lifeCycle/initiatePhyscialVerification"
               component={InitiatePhyscialVerification}
             ></Route>
             <Route
               exact
-              path="/lifeCycle/siteViewPhysicalVerification"
+              path="/etap/lifeCycle/siteViewPhysicalVerification"
               component={SiteViewPhysicalVerification}
             ></Route>
             <Route
               exact
-              path="/lifeCycle/twccPhysicalVerification"
+              path="/etap/lifeCycle/twccPhysicalVerification"
               component={PhysicalVerification}
             ></Route>
             <Route
               exact
-              path="/lifeCycle/auditorPhysicalVerification"
+              path="/etap/lifeCycle/auditorPhysicalVerification"
               component={AuditorPhysicalVerification}
             ></Route>
 
-            <Route exact path="/scrap/scrap" component={Scrap}></Route>
+            <Route exact path="/etap/scrap/scrap" component={Scrap}></Route>
             <Route
               exact
-              path="/modification/structureModification"
+              path="/etap/modification/structureModification"
               component={StructureModification}
             ></Route>
             <Route
               exact
-              path="/modification/cmpcModification"
+              path="/etap/modification/cmpcModification"
               component={CmpcModification}
             ></Route>
             <Route
               exact
-              path="/outsourcing/outSourcing"
+              path="/etap/outsourcing/outSourcing"
               component={OutSourcing}
             ></Route>
             <Route
               exact
-              path="/outsourcing/siteApproval"
+              path="/etap/outsourcing/siteApproval"
               component={SiteApproval}
             ></Route>
             <Route
               exact
-              path="/reuse/transferPrice"
+              path="/etap/reuse/transferPrice"
               component={TransferPrice}
             ></Route>
             <Route
               exact
-              path="/outSourcing/siteApproval"
+              path="/etap/outSourcing/siteApproval"
               component={OutSourcingSiteApproval}
             ></Route>
 
             <Route
               exact
-              path="/reuse/initiatingReuse"
+              path="/etap/reuse/initiatingReuse"
               component={InitiatingReuse}
             ></Route>
-            <Route exact path="/reuse/reuse" component={Reuse}></Route>
+            <Route exact path="/etap/reuse/reuse" component={Reuse}></Route>
 
-            <Route exact path="/scrap/scrap" component={Scrap}></Route>
+            <Route exact path="/etap/scrap/scrap" component={Scrap}></Route>
             <Route
               exact
-              path="/modification/structureModification"
+              path="/etap/modification/structureModification"
               component={StructureModification}
             ></Route>
             <Route
               exact
-              path="/modification/cmpcModification"
+              path="/etap/modification/cmpcModification"
               component={CmpcModification}
             ></Route>
             <Route
               exact
-              path="/requirementRequest/siteDispatch"
+              path="/etap/requirementRequest/siteDispatch"
               component={SiteDispatch}
             ></Route>
             <Route
               exact
-              path="/outsourcing/outSourcing"
+              path="/etap/outsourcing/outSourcing"
               component={OutSourcing}
             ></Route>
             <Route
               exact
-              path="/outsourcing/siteApproval"
+              path="/etap/outsourcing/siteApproval"
               component={SiteApproval}
             ></Route>
 
             <Route
               exact
-              path="/reuse/initiatingReuse"
+              path="/etap/reuse/initiatingReuse"
               component={InitiatingReuse}
             ></Route>
-            <Route exact path="/reuse/reuse" component={Reuse}></Route>
+            <Route exact path="/etap/reuse/reuse" component={Reuse}></Route>
 
-            <Route exact path="/scrap/scrap" component={Scrap}></Route>
+            <Route exact path="/etap/scrap/scrap" component={Scrap}></Route>
             <Route
               exact
-              path="/modification/structureModification"
+              path="/etap/modification/structureModification"
               component={StructureModification}
             ></Route>
             <Route
               exact
-              path="/modification/cmpcModification"
+              path="/etap/modification/cmpcModification"
               component={CmpcModification}
             ></Route>
             <Route
               exact
-              path="/outsourcing/outSourcing"
+              path="/etap/outsourcing/outSourcing"
               component={OutSourcing}
             ></Route>
 
             <Route
               exact
-              path="/newFabrication/siteApproval"
+              path="/etap/newFabrication/siteApproval"
               component={NewFabricationSiteApproval}
             ></Route>
             <Route
               exact
-              path="/outSourcing/outSourceSiteApproval"
+              path="/etap/outSourcing/outSourceSiteApproval"
               component={OutSourcingSiteApproval}
             ></Route>
             <Route
               exact
-              path="/reuse/conditionAssessment"
+              path="/etap/reuse/conditionAssessment"
               component={ConditionAssessment}
             ></Route>
             <Route
               exact
-              path="/reuse/fromSiteApproval"
+              path="/etap/reuse/fromSiteApproval"
               component={FromSiteApproval}
             ></Route>
             <Route
               exact
-              path="/reuse/toSiteApproval"
+              path="/etap/reuse/toSiteApproval"
               component={ToSiteApproval}
             ></Route>
 
             <Route
               exact
-              path="/reuse/initiatingReuse"
+              path="/etap/reuse/initiatingReuse"
               component={InitiatingReuse}
             ></Route>
             <Route
               exact
-              path="/dispatch/createDispatch"
+              path="/etap/dispatch/createDispatch"
               component={CreateDispatch}
             ></Route>
             <Route
               exact
-              path="/dispatch/createDispatch/dispatchStructure/:siteReqId"
+              path="/etap/dispatch/createDispatch/dispatchStructure/:siteReqId"
               component={DispatchStructure}
             ></Route>
-            <Route exact path="/reuse/reuse" component={Reuse}></Route>
+            <Route exact path="/etap/reuse/reuse" component={Reuse}></Route>
           </Suspense>
-          <Route exact path="/unauthorized" component={unauthorized} />
+          <Route exact path="/etap/unauthorized" component={unauthorized} />
         </Switch>
       </Router>
     );
