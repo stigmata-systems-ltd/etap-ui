@@ -25,64 +25,7 @@ export const metaDataNavbar = [
     hasMargin: false,
     isParent: true,
   },
-  {
-    id: "1",
-    navText: "Masters",
-    iconName: "faEdit",
-    hasSubNav: true,
-    isSubNavOpen: false,
-    route: "/masters",
-    hasMargin: true,
-    subNavs: [
-      {
-        id: "mastersSub" + 2,
-        navText: "Component",
-        route: "/masters/viewComponent",
-      },
-      {
-        id: "mastersSub" + 3,
-        navText: "Structure Family",
-        route: "/masters/viewStructureFamily",
-      },
-      {
-        id: "mastersSub" + 4,
-        navText: "Structure",
-        route: "/masters/viewStructure",
-      },
-      {
-        id: "mastersSub" + 5,
-        navText: "IC",
-        route: "/masters/viewIndependentCompany",
-      },
-      {
-        id: "mastersSub" + 6,
-        navText: "BU",
-        route: "/masters/viewBusinessUnit",
-      },
-      {
-        id: "mastersSub" + 7,
-        navText: "Project",
-        route: "/masters/viewProject",
-      },
-      {
-        id: "mastersSub" + 8,
-        navText: "WBS",
-        route: "/masters/addWBS",
-      },
 
-      {
-        id: "mastersSub" + 9,
-        navText: "Users",
-        route: "/masters/viewUsers",
-      },
-
-      {
-        id: "mastersSub" + 10,
-        navText: "Vendors",
-        route: "/masters/viewVendors",
-      },
-    ],
-  },
   {
     id: "2",
     navText: "Structure Management",
@@ -283,6 +226,64 @@ export const metaDataNavbar = [
     isSubNavOpen: false,
     route: "/etap",
     hasMargin: true,
+  },
+  {
+    id: "1",
+    navText: "Masters",
+    iconName: "faEdit",
+    hasSubNav: true,
+    isSubNavOpen: false,
+    route: "/masters",
+    hasMargin: true,
+    subNavs: [
+      {
+        id: "mastersSub" + 2,
+        navText: "Component",
+        route: "/masters/viewComponent",
+      },
+      {
+        id: "mastersSub" + 3,
+        navText: "Structure Family",
+        route: "/masters/viewStructureFamily",
+      },
+      {
+        id: "mastersSub" + 4,
+        navText: "Structure",
+        route: "/masters/viewStructure",
+      },
+      {
+        id: "mastersSub" + 5,
+        navText: "IC",
+        route: "/masters/viewIndependentCompany",
+      },
+      {
+        id: "mastersSub" + 6,
+        navText: "BU",
+        route: "/masters/viewBusinessUnit",
+      },
+      {
+        id: "mastersSub" + 7,
+        navText: "Project",
+        route: "/masters/viewProject",
+      },
+      {
+        id: "mastersSub" + 8,
+        navText: "WBS",
+        route: "/masters/addWBS",
+      },
+
+      {
+        id: "mastersSub" + 9,
+        navText: "Users",
+        route: "/masters/viewUsers",
+      },
+
+      {
+        id: "mastersSub" + 10,
+        navText: "Vendors",
+        route: "/masters/viewVendors",
+      },
+    ],
   },
   {
     id: "5",

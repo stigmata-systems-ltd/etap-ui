@@ -89,7 +89,7 @@ class DispatchStructure extends Component {
               <FormRow>
                 <TextInput
                   size="col-md-4"
-                  label="MR Number"
+                  label="MR No"
                   value={this.props.createDispatch.activeItem.mrNo}
                   disabled
                 />
@@ -101,7 +101,7 @@ class DispatchStructure extends Component {
                 />
                 <TextInput
                   size="col-md-4"
-                  label="Project Name"
+                  label="Project"
                   value={this.props.createDispatch.activeItem.projectName}
                   disabled
                 />
