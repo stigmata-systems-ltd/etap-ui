@@ -23,7 +23,7 @@ class AssignComponentViewMore extends Component {
         title={`View Component - Details`}
         showModal={this.props.showAddComponentModal}
         handleClose={this.props.closeAssignComponentViewMoreModal}
-        size="lg"
+        size="xl"
         isShowFooter={false}
       >
         {console.log("isLoading", this.props.isLoading)}

@@ -11,6 +11,7 @@ class CustomModal extends Component {
                 onHide={this.props.handleClose} 
                 size={this.props.size}
                 centered
+                
             >
                 <Modal.Header className="modal-background-color" closeButton>
                     <Modal.Title>{this.props.title}</Modal.Title>
