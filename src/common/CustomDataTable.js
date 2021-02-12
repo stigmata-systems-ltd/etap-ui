@@ -17,7 +17,7 @@ const customStyles = {
     //  borderTopRightRadius: "25px",
      // borderTopLeftRadius: "25px",
 
-backgroundColor:"#5e72e4",
+backgroundColor:"#000080",
     },
   },
   headCells: {
