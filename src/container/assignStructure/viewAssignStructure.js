@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch,props) => {
         type: SET_PROJECT_STRUCTURE_ID,
         payload: { structureID: structID, projectID },
       })
-      props.history.push('/structure/viewComponent');
+      props.history.push('/etrack/structure/viewComponent');
 
     },
     handleGetComponent(structID,projectID){

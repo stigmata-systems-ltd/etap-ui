@@ -363,7 +363,9 @@ export const listAssignedStructureMetaData = (
       name: "Components Count",
       selector: "componentsCount",
       sortable: false,
+      
     },
+    
     {
       name: "Total Weight",
       selector: "totalWeight",
@@ -392,10 +394,15 @@ export const listAssignedStructureMetaData = (
               />
             }
           </>
+          
         );
+        
       },
+    
     },
+    
   ];
+  
 };
 
 export const transformAssignedStructureList = (assignStructureList) => {
