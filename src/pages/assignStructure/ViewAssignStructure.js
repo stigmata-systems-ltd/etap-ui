@@ -25,6 +25,21 @@ class ViewAssignStructure extends Component {
     this.props.assignStructureList();
   }
 
+  filteredItems = (data) => {
+   
+    if (data) {
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+
+
+    }
+  };
+
   render() {
     return (
       <ContentLoader>
@@ -39,17 +54,17 @@ class ViewAssignStructure extends Component {
           {this.props.assignStructure.assignStructureList && (
             <CustomDataTable
               metaData={listAssignedStructureMetaData(
-                (structureID,projectID) => { this.props.handleComponentCheck(structureID,projectID)},
+                (structureID, projectID) => { this.props.handleComponentCheck(structureID, projectID) },
                 (id) => this.props.handleMore(id),
               )}
               bodyData={transformAssignedStructureList(
-                this.props.assignStructure.assignStructureList
+                this.filteredItems(this.props.assignStructure.assignStructureList)
               )}
               progressPending={this.props.assignStructure.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.assignStructure.assignStructureList &&
-                this.props.assignStructure.assignStructureList.length
+                this.filteredItems(this.props.assignStructure.assignStructureList).length
               }
               paginationPerPage={5}
               noHeader={true}

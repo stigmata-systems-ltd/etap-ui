@@ -23,18 +23,33 @@ class ViewBusinessUnit extends Component {
     };
   }
   componentDidMount() {
-    console.log( this.props.businessUnitList());  
+    console.log(this.props.businessUnitList());
     this.props.businessUnitList();
   }
+  // filteredItems = (data) => {
+  //   return (
+  //     data &&
+  //     data.filter(
+  //       (item) =>
+  //         item.name &&
+  //         item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+  //     )
+  //   );
+  // };
+
   filteredItems = (data) => {
-    return (
-      data &&
-      data.filter(
-        (item) =>
-          item.name &&
-          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
-      )
-    );
+
+    if (data) {
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+
+
+    }
   };
   render() {
     return (
@@ -47,7 +62,7 @@ class ViewBusinessUnit extends Component {
         )}
         <AddBusinessUnit showAddBusinessUnitModal={this.props.businessUnit.showAddBusinessUnitModal} />
         <EditBusinessUnit showEditBusinessUnitModal={this.props.businessUnit.showEditBusinessUnitModal} />
-        
+
         <FormContainer formTitle={"BU Management"}>
           {this.props.businessUnit.businessUnitTypeList && (
             <CustomDataTable
@@ -110,7 +125,7 @@ class ViewBusinessUnit extends Component {
               Are you sure you want to delete this User?
             </h6>
           </ConfirmModal>
-          
+
         </FormContainer>
       </ContentLoader>
     );

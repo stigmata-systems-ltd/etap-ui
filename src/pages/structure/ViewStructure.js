@@ -26,16 +26,30 @@ class ViewStructure extends Component {
     this.props.structureFamilyList();
   }
 
+  // filteredItems = (data) => {
+  //   console.log(data);
+  //   return (
+  //     data &&
+  //     data.filter(
+  //       (item) =>
+  //         item.name &&
+  //         item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+  //     )
+  //   );
+  // };
+
   filteredItems = (data) => {
-    console.log(data);
-    return (
-      data &&
-      data.filter(
-        (item) =>
-          item.name &&
-          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
-      )
-    );
+
+    if (data) {
+      console.log(data);
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+    }
   };
 
   render() {
