@@ -25,15 +25,28 @@ class ViewProject extends Component {
     this.props.projectList();
   }
 
+  // filteredItems = (data) => {
+  //   return (
+  //     data &&
+  //     data.filter(
+  //       (item) =>
+  //         item.name &&
+  //         item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+  //     )
+  //   );
+  // };
+
   filteredItems = (data) => {
-    return (
-      data &&
-      data.filter(
-        (item) =>
-          item.name &&
-          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
-      )
-    );
+
+    if (data) {
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+    }
   };
 
   render() {
@@ -82,12 +95,12 @@ class ViewProject extends Component {
                     filterText={this.state.filterText}
                   />
                   <Col6>
-                  
-                  <Button
-                    btnText="Create New Project"
-                    btnType="btn-primary float-right"
-                    onClick={this.props.showAddProjModal}
-                  />
+
+                    <Button
+                      btnText="Create New Project"
+                      btnType="btn-primary float-right"
+                      onClick={this.props.showAddProjModal}
+                    />
                   </Col6>
                 </>
               }

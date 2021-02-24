@@ -112,7 +112,7 @@ select.form-control {
 }
 .sidebar {
   overflow-y: scroll !important;
-  width: 300px;
+  width: 310px;
   height: 100vh;
 }
 

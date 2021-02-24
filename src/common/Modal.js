@@ -13,15 +13,15 @@ class CustomModal extends Component {
                 centered
                 
             >
-                <Modal.Header className="modal-background-color" closeButton>
-                    <Modal.Title>{this.props.title}</Modal.Title>
+                <Modal.Header className="bg bg-sm bg-primary" closeButton>
+                    <Modal.Title className="text-light">{this.props.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>{this.props.children}</Modal.Body>
                 {this.props.isShowFooter && 
                 <Modal.Footer>      
                     <Button btnType="primary" onClick={this.props.handleSave} btnText="Save" />
                     <Button btnType="btn-secondary" onClick={this.props.handleClose} btnText="Cancel" />
-                </Modal.Footer>}
+                </Modal.Footer >}
             </Modal>
         )
     }

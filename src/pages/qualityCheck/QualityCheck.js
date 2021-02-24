@@ -29,9 +29,7 @@ class QualityCheck extends Component {
             <>
                 <ContentLoader>
                     <FormContainer formTitle={'QA/QC'}>
-                        <FormRow>
-                            <SearchBox />
-                        </FormRow><br />
+                      
                         <FormRow>
 
                             <DataTable

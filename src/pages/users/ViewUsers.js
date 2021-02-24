@@ -25,16 +25,25 @@ class ViewUsers extends Component {
     this.props.usersList();
   }
 
-  
+
   filteredItems = (data) => {
-    return (
-      data &&
-      data.filter(
-        (item) =>
-          item.userName &&
-          item.userName.toLowerCase().includes(this.state.filterText.toLowerCase())
-      )
-    );
+    // return (
+    //   data &&
+    //   data.filter(
+    //     (item) =>
+    //       item.userName &&
+    //       item.userName.toLowerCase().includes(this.state.filterText.toLowerCase())
+    //   )
+    // );
+    if (data) {
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+    }
   };
 
   render() {
@@ -82,12 +91,12 @@ class ViewUsers extends Component {
                     filterText={this.state.filterText}
                   />
                   <Col6>
-                  
-                  <Button
-                    btnText="Add User"
-                    btnType="btn-primary float-right"
-                    onClick={this.props.showAddUsersModal}
-                  />
+
+                    <Button
+                      btnText="Add User"
+                      btnType="btn-primary float-right"
+                      onClick={this.props.showAddUsersModal}
+                    />
                   </Col6>
                 </>
               }
