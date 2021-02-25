@@ -93,6 +93,7 @@ const mapDispatchToProps = dispatch => {
               scrap.structureProjectList.map(dt => {
                 if(dt.structureId === value.value) {
                     structureCode = dt.structureCode
+                    strcutureTypeName = dt.strcutureTypeName
                     
                 }
               })
@@ -102,7 +103,7 @@ const mapDispatchToProps = dispatch => {
             });
             dispatch({
                 type: SCRAP_STRUCTURE_FAMILY,
-                payload: structFamilyName[0],
+                payload: strcutureTypeName,
             });
             dispatch({
                 type: SCRAP_STRUCTURE_CODE,

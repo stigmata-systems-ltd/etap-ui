@@ -1,5 +1,5 @@
 
-export const _qualityCheckInputData = ["S.No","Project", "Structure Family", "Structure ID","Component","Component ID","Status" ];
+export const _qualityCheckInputData = ["S.No","Project", "Structure Family", "Structure ID","Component","Component ID","Status","Action" ];
 export const _qualityCheckInputBodyData = [
     {
 

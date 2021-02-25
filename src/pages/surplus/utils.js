@@ -1,6 +1,7 @@
 import React from "react";
 import IconButton from "../../common/forms/IconButton";
 import { Link } from "react-router";
+import { getUserDetails } from "../../utils/auth";
 
 export const _viewSurplusInputData = ["Structure Family", "Structure ID", "Existing Site", "Surplus Form", "Photo", "Action"];
 export const _viewSurplusInputBodyData = [
@@ -48,23 +49,27 @@ export const listViewSurplusMetaData = (
     return [
       {
         name: "Project",
-        selector: "siteReqId",
+        selector: "projectName",
         sortable: false,
+       
       },
       {
         name: "Structure Name",
         selector: "structureName",
         sortable: false,
+        
       },
       {
-        name: "Structure Type Name",
+        name: "Structure Family",
         selector: "structureTypeName",
         sortable: false,
+        
       },
       {
         name: "Surplus Date",
         selector: "surplusDate",
         sortable: false,
+        
       },
       
       {
@@ -123,11 +128,13 @@ export const listViewSurplusMetaData = (
     let tmpArr = [];
     surplusList &&
     surplusList.map((surplus, i) => {
+      let dateArray=surplus.surplusDate.split('T')
         let tmpObj = {
             siteReqId: surplus.siteReqId,
+            projectName: surplus.projectName,
             structureName: surplus.structureName,
             structureTypeName: surplus.structureTypeName,
-            surplusDate: surplus.surplusDate,
+            surplusDate: dateArray[0],
             status: surplus.status,
             id: i,
             isAction: surplus.isAction
@@ -135,4 +142,9 @@ export const listViewSurplusMetaData = (
         tmpArr.push(tmpObj);
       });
     return tmpArr;
+  };
+
+  export const transformProjectValue = () => {
+    const userDetails = getUserDetails();
+    return userDetails.projectName
   };

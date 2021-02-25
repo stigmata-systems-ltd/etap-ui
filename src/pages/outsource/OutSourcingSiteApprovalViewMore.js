@@ -23,7 +23,7 @@ class OutSourcingSiteApprovalViewMore extends Component {
       <Modal
         title={`View Site Approval - Details`}
         showModal={this.props.showMoreModal}
-        handleClose={this.props.closeSiteApprovalViewMoreModal}
+        handleClose={this.props.closeOutSourceSiteApprovalViewMoreModal}
         size="lg"
         isShowFooter={false}
       >

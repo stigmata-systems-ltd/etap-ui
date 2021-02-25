@@ -2,13 +2,10 @@ import { connect } from "react-redux";
 import store from "../../store";
 
 import {
-
     SET_SHOW_TABLE_FLAG,
-
-
 } from "../../actions/types";
 
-import { getToSiteApprovalDetails, toSiteApprovalAction } from '../../actions/toSiteApprovalAction';
+import { getToSiteApprovalDetails, siteApprovalAction, siteDeclineAction } from '../../actions/toSiteApprovalAction';
 import ToSiteApproval from "../../pages/toSite/ToSiteApproval";
 
 const mapDispatchToProps = (dispatch) => {
@@ -16,25 +13,32 @@ const mapDispatchToProps = (dispatch) => {
         getToSiteApprovalDetails() {
             dispatch(getToSiteApprovalDetails());
         },
-
-
         setShowTableFlag(value) {
             dispatch({
                 type: SET_SHOW_TABLE_FLAG,
                 payload: value,
             });
         },
-
         handleApprove(id) {
-            let toSiteApprovalList = store.getState().toSiteApproval.toSiteApprovalList;
-            let singleToSite = toSiteApprovalList[id];
-            dispatch(toSiteApprovalAction(id, "Approval"));
+            let toSiteApprovalList = store.getState().toSiteApproval.toSiteApprovalDetails;
+            let singleSiteApproval = toSiteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            console.log("Approval Data------> ", singleSiteApproval)
+
+            dispatch(siteApprovalAction(singleSiteApproval, "Approval")).then(() => {
+                dispatch(getToSiteApprovalDetails());
+            });
         },
         handleReject(id) {
-            
-            dispatch(toSiteApprovalAction(id, "Rejection"));
+            let toSiteApprovalList = store.getState().toSiteApproval.toSiteApprovalDetails;
+            let singleSiteApproval = toSiteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            dispatch(siteDeclineAction(singleSiteApproval, "Rejection")).then(() => {
+                dispatch(getToSiteApprovalDetails());
+            });
         },
-
 
     };
 };

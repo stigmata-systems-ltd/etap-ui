@@ -24,16 +24,31 @@ class ViewComponent extends Component {
   componentDidMount() {
     this.props.componentList();
   }
+  // filteredItems = (data) => {
+  //   return (
+  //     data &&
+  //     data.filter(
+  //       (item) =>
+  //         item.name &&
+  //         item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
+  //     )
+  //   );
+  // };
+
   filteredItems = (data) => {
-    return (
-      data &&
-      data.filter(
-        (item) =>
-          item.name &&
-          item.name.toLowerCase().includes(this.state.filterText.toLowerCase())
-      )
-    );
+
+    if (data) {
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+    }
   };
+
+
   render() {
     return (
       <ContentLoader>
@@ -44,9 +59,9 @@ class ViewComponent extends Component {
           />
         )}
         <CreateComponent showAddComponentModal={this.props.component.showAddComponentModal} />
-        <FormContainer formTitle={"Component Type List"}>
+        <FormContainer formTitle={"Component Management"}>
           {this.props.component.componentTypeList && (
-            <CustomDataTable
+           <CustomDataTable
               metaData={listComponentTypeMetaData(
                 (id) => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleEdit(id),
@@ -79,12 +94,12 @@ class ViewComponent extends Component {
                     filterText={this.state.filterText}
                   />
                   <Col6>
-                  
-                  <Button
-                    btnText="Add Component Type"
-                    btnType="btn-primary float-right"
-                    onClick={this.props.showAddComponentModal}
-                  />
+
+                    <Button
+                      btnText="Add Component Type"
+                      btnType="btn-primary float-right"
+                      onClick={this.props.showAddComponentModal}
+                    />
                   </Col6>
                 </>
               }

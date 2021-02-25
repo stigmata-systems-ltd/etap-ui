@@ -15,6 +15,7 @@ import {
   VIEW_SURPLUS_MORE_PAGE,
   SURPLUS_STRUCTURE_CODE,
 } from "../actions/types";
+import { getUserDetails } from "../utils/auth";
 
 const initialState = {
   structureID: {},
@@ -80,9 +81,11 @@ export default function (state = initialState, action) {
         isSuccess: false,
       };
     case `${SURPLUS_LIST_STRUCTURE_PROJECT_DATA}_FULFILLED`:
+      const userDetails = getUserDetails();
+     
       let structureListData = action.payload.data
         .filter((ele) => {
-          if (ele.projectId === state.projectName.value) {
+          if (ele.projectId === userDetails.projectId) {
             return { id: ele.structureId, name: ele.strcutureName };
           }
         })
@@ -175,6 +178,7 @@ export default function (state = initialState, action) {
         projectName: {},
         dateFrom: "",
         structureFamily: "",
+        structureCode: ""
       };
     case GET_SURPLUS_DATA_SINGLE:
       return {

@@ -6,11 +6,10 @@ import {
     SET_SHOW_TABLE_FLAG,
     SET_ACTIVE_ITEM,
     SET_SHOW_MORE_MODAL_FLAG,
-    CHANGE_VIEW_SITE_APPROVAL_MORE_MODAL_STATUS,
 
 } from "../../actions/types";
 
-import { getOutSourcingSiteApprovalDetails, siteApprovalAction } from '../../actions/outSourcingSiteApprovalAction';
+import { getOutSourcingSiteApprovalDetails, siteApprovalAction, siteDeclineAction } from '../../actions/outSourcingSiteApprovalAction';
 import OutSourcingSiteApproval from "../../pages/outsource/OutSourcingSiteApproval";
 
 const mapDispatchToProps = (dispatch) => {
@@ -27,14 +26,26 @@ const mapDispatchToProps = (dispatch) => {
             });
         },
 
+
         handleApprove(id) {
-            let siteApprovalList = store.getState().outSourcingsiteApproval.siteApprovalList;
-            let singleSiteApproval = siteApprovalList[id];
-            dispatch(siteApprovalAction(id, "Approval"));
+            let siteApprovalList = store.getState().outSourcingsiteApproval.outSourcingSiteApprovalDetails;
+            let singleSiteApproval = siteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            console.log("Approval Data------> ", singleSiteApproval)
+
+            dispatch(siteApprovalAction(singleSiteApproval, "Approval")).then(() => {
+                dispatch(getOutSourcingSiteApprovalDetails());
+            });
         },
         handleReject(id) {
-            console.log(`ID: ${id}`)
-            dispatch(siteApprovalAction(id, "Rejection"));
+            let siteApprovalList = store.getState().outSourcingsiteApproval.outSourcingSiteApprovalDetails;
+            let singleSiteApproval = siteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            dispatch(siteDeclineAction(singleSiteApproval, "Rejection")).then(() => {
+                dispatch(getOutSourcingSiteApprovalDetails());
+            });
         },
 
         showSiteApprovalMoreModal(id) {
@@ -48,14 +59,6 @@ const mapDispatchToProps = (dispatch) => {
             });
 
         },
-        closeSiteApprovalViewMoreModal() {
-            dispatch({
-                type: CHANGE_VIEW_SITE_APPROVAL_MORE_MODAL_STATUS,
-                payload: false,
-            })
-        }
-
-
 
     };
 };

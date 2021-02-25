@@ -15,6 +15,7 @@ import {
 } from "./types";
 
 export const getProjectList = () => {
+  console.log("In Action")
   const userDetails = getUserDetails();
   const projectName = userDetails ? userDetails.projectName : "";
   const projectID = userDetails ? userDetails.projectId : "";
@@ -22,7 +23,6 @@ export const getProjectList = () => {
   console.log(`Project Name: ${projectName} ID: ${JSON.stringify(projectID)}`)
   return {
     type: LIST_PROJECT_CODES,
-
     payload: project
   };
 };
@@ -65,8 +65,9 @@ export const addRequirement = () => {
       structName: dt.structName.label,
     });
   });
+  const userDetails = getUserDetails();
   const body = {
-    projectId: requirement.projectName.value,
+    projectId: userDetails.projectId,
     planStartdate: requirement.planedStartDate + "T00:00:00.000Z",
     planReleasedate: requirement.plannedReleaseDate + "T00:00:00.000Z",
     actualStartdate: requirement.actualStartDateOfUsage + "T00:00:00.000Z",

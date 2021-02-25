@@ -8,24 +8,40 @@ import {
     TRANSFER_PRICE,
     RESET_TRANSFER_PRICE_MODAL,
     SET_SHOW_MORE_MODAL_FLAG,
-    RESET_TRANSFER_PRICE_VIEW_MORE_MODAL
+    RESET_TRANSFER_PRICE_VIEW_MORE_MODAL,
     
+
 } from "../../actions/types";
 
 import TransferPrice from "../../pages/transferPrice/TransferPrice";
-import {getTransferPriceDetails} from '../../actions/transferPriceAction';
+import { addTransferPrice, getTransferPriceDetails } from '../../actions/transferPriceAction';
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getTransferPriceDetails() {
             dispatch(getTransferPriceDetails());
         },
-        handleTransferPrice(value) {
+        handleChangeTransferPrice(value) {
             dispatch({
                 type: TRANSFER_PRICE,
                 payload: value,
             });
+
         },
+
+        addTransferPrice() {
+            dispatch(addTransferPrice()).then(() => {
+
+                dispatch({
+                    type: SET_SHOW_MORE_MODAL_FLAG,
+                    payload: false,
+                })
+                dispatch({ type: RESET_TRANSFER_PRICE_MODAL });
+                dispatch(getTransferPriceDetails());
+
+            });;
+        },
+
 
         setShowTableFlag(value) {
             dispatch({

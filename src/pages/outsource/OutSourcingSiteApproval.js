@@ -9,7 +9,7 @@ import CustomAlert from "../../common/forms/customAlert";
 import CustomDataTable from "../../common/CustomDataTable";
 
 import TableFilter from "../../common/TableFilter";
-import OutSourcingSiteApprovalViewMore from "./OutSourcingSiteApprovalViewMore";
+import OutSourcingSiteApprovalViewMore from "../../container/outSource/siteApprovalViewMore";
 
 class OutSourcingSiteApproval extends Component {
     constructor(props) {

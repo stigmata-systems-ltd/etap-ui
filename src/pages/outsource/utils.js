@@ -12,22 +12,53 @@ export const _newFabricationBodyData = [
         structureFamily: "",
         structureId: "",
         quantityRequired: "",
-        
-        
+
+
 
     },
 
 
 ];
 
-export const outSourcingSiteApprovalMetaData = (handleApprove,handleReject,handleMore) => {
+export const outSourcingSiteApprovalMetaData = (handleApprove, handleReject, handleMore) => {
     return [
 
+        // {
+        //     name: 'MR No',
+        //     selector: 'mrNo',
+        //     sortable: false,
+
+        // },
+        // {
+        //     name: 'DC No',
+        //     selector: 'dispatchNo',
+        //     sortable: false,
+        // },
+        // {
+        //     name: 'Structure Name',
+        //     selector: 'structureName',
+        //     sortable: false,
+        // },
+        // {
+        //     name: 'Quantity Requested',
+        //     selector: 'quantityRequested',
+        //     sortable: false,
+        // },
+        // {
+        //     name: 'Vendor',
+        //     selector: 'vendor',
+        //     sortable: false,
+        // },
+        // {
+        //     name: 'Monthly Rent',
+        //     selector: 'monthlyRent',
+        //     sortable: false,
+        // },
         {
             name: 'MR No',
             selector: 'mrNo',
             sortable: false,
-            
+
         },
         {
             name: 'DC No',
@@ -39,45 +70,41 @@ export const outSourcingSiteApprovalMetaData = (handleApprove,handleReject,handl
             selector: 'structureName',
             sortable: false,
         },
+
         {
-            name: 'Quantity Requested',
-            selector: 'quantityRequested',
+            name: 'Service Type',
+            selector: 'serviceType',
             sortable: false,
         },
         {
-            name: 'Vendor',
-            selector: 'vendor',
-            sortable: false,
-        },
-        {
-            name: 'Monthly Rent',
-            selector: 'monthlyRent',
+            name: 'Created Date & Time',
+            selector: 'createdDateTime',
             sortable: false,
         },
         {
             name: "Actions",
             sortable: false,
             cell: (row) => {
-                
+
                 return (
                     <>
                         {
                             <IconButton
                                 iconName="faThumbsUp"
-                                onClick={() => handleApprove(row.id)}
+                                onClick={() => handleApprove(row.siteRequestId)}
                             />
 
                         }
                         {
                             <IconButton
                                 iconName="faThumbsDown"
-                                onClick={() => handleReject(row.id)}
+                                onClick={() => handleReject(row.siteRequestId)}
                             />
                         }
                         {
                             <IconButton
                                 iconName="faEye"
-                                onClick={() => handleMore(row.id)}
+                                onClick={() => handleMore(row.siteRequestId)}
                             />
                         }
 

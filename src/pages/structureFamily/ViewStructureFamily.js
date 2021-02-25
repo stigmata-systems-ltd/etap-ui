@@ -25,6 +25,20 @@ class ViewStructureFamily extends Component {
     this.props.structureFamilyList();
   }
 
+  filteredItems = (data) => {
+
+    if (data) {
+      console.log(data);
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+    }
+  };
+
   render() {
     return (
       <ContentLoader>
@@ -43,13 +57,13 @@ class ViewStructureFamily extends Component {
                 (id) => this.props.handleEdit(id),
               )}
               bodyData={structureFamilyBodyData(
-                this.props.structureFamily.structureFamilyTypeList
+                this.filteredItems(this.props.structureFamily.structureFamilyTypeList)
               )}
               progressPending={this.props.structureFamily.isLoading}
               pagination={true}
               paginationTotalRows={
                 this.props.structureFamily.structureFamilyList &&
-                this.props.structureFamily.structureFamilyList.length
+                this.filteredItems(this.props.structureFamily.structureFamilyList).length
               }
               paginationPerPage={5}
               noHeader={true}

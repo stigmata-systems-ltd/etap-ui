@@ -19,43 +19,49 @@ import Col6 from "../../common/forms/Col6";
 import DateInput from "../../common/forms/DateInput";
 import TextArea from "../../common/forms/TextArea";
 import SiteRequirementStructure from "./SiteRequirementStructure";
+import {transformProjectValue} from "./utils";
+
 
 class AddRequirement extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      projectName: "",
+    };
   }
   componentDidMount() {
-    this.props.getProjectList();
-    this.props.getWBSList();
+    const name=transformProjectValue();
+      console.log(`Project Name: ${name}`);
+       this.setState({ projectName : name});
+       this.props.getProjectList();
+       this.props.getWBSList();
+       this.props.getStructureData();
   }
+    
+
   render() {
     // const subprop = this.props.addRequirement;
-    console.log( `Project Code List in Requirement: ${JSON.stringify(this.props.requirement.projectCodesList)}`)
+
     return (
       <>
         <ContentLoader>
           <FormContainer formTitle={"Add Requirement"}>
             <FormRow>
-              <SearchableDropDown
-                size="col-md-4"
+            <TextInput
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
-                label="Project Name"
+                label="Project"
                 name="projectName"
-                selectOptions={transformDropDownData(
-                  this.props.requirement.projectCodesList,
-                  "id",
-                  "name"
-                )}
-                onChange={(obj) =>
-                  this.props.handleChangeRequirementProjectName(obj)
-                }
-                value={this.props.requirement.projectName}
+                id="projectName"
+                value={this.state.projectName}
+                placeholder="Auto Fetch"
+                disabled={true}
               />
             </FormRow>
             <FormRow>
               <SearchableDropDown
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Required for WBS"
@@ -70,7 +76,7 @@ class AddRequirement extends Component {
                 }
                 value={this.props.requirement.requiredWorkBreak}
               />
-              <SearchableDropDown
+              {/* <SearchableDropDown
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -85,9 +91,9 @@ class AddRequirement extends Component {
                   this.props.handleChangeRequirementActualWorkBreak(obj)
                 }
                 value={this.props.requirement.actualWorkBreak}
-              />
+              /> */}
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Planned Start Date"
@@ -103,7 +109,7 @@ class AddRequirement extends Component {
             </FormRow>
 
             <FormRow>
-              <DateInput
+              {/* <DateInput
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -116,9 +122,9 @@ class AddRequirement extends Component {
                   )
                 }
                 value={this.props.requirement.actualStartDateOfUsage}
-              />
+              /> */}
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Planned Release"
@@ -132,7 +138,7 @@ class AddRequirement extends Component {
                 value={this.props.requirement.expectedReleaseDate}
               />
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Expected Release"
@@ -156,10 +162,11 @@ class AddRequirement extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row location-row">
+            <div class="form-group row">
               {this.props.requirement.siteRequirementList.map((e, i) => {
                 return (
                   <SiteRequirementStructure
+                  {...this.props}
                     onStructureIDChange={(e) =>
                       this.props.onStructureIDChange(e.target.value, i)
                     }
@@ -195,6 +202,7 @@ class AddRequirement extends Component {
                         .structureName
                     }
                   />
+
                 );
               })}
             </div>

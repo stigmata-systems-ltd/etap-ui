@@ -8,7 +8,7 @@ import {
 
 } from "../../actions/types";
 
-import { getConditionAssessmentDetails, conditionAssessmentAction } from '../../actions/conditionAssessmentAction';
+import { getConditionAssessmentDetails, siteApprovalAction, siteDeclineAction } from '../../actions/conditionAssessmentAction';
 import ConditionAssessment from "../../pages/conditionAssessment/ConditionAssessment";
 
 const mapDispatchToProps = (dispatch) => {
@@ -25,14 +25,36 @@ const mapDispatchToProps = (dispatch) => {
             });
         },
 
+        // handleApprove(id) {
+        //     let conditionAssessmentList = store.getState().conditionAssessment.conditionAssessmentList;
+        //     let singleConditionAssessment = conditionAssessmentList[id];
+        //     dispatch(siteApprovalAction(id, "Approval"));
+        // },
+        // handleReject(id) {
+        //     console.log(`ID: ${id}`)
+        //     dispatch(siteDeclineAction(id, "Rejection"));
+        // },
+
+
         handleApprove(id) {
-            let conditionAssessmentList = store.getState().conditionAssessment.conditionAssessmentList;
-            let singleConditionAssessment = conditionAssessmentList[id];
-            dispatch(conditionAssessmentAction(id, "Approval"));
+            let siteApprovalList = store.getState().conditionAssessment.conditionAssessmentDetails;
+            let singleSiteApproval = siteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            console.log("Approval Data------> ", singleSiteApproval)
+
+            dispatch(siteApprovalAction(singleSiteApproval, "Approval")).then(() => {
+                dispatch(getConditionAssessmentDetails());
+            });
         },
         handleReject(id) {
-            console.log(`ID: ${id}`)
-            dispatch(conditionAssessmentAction(id, "Rejection"));
+            let siteApprovalList = store.getState().conditionAssessment.conditionAssessmentDetails;
+            let singleSiteApproval = siteApprovalList.filter((listItem) => {
+                return listItem.siteRequestId === id;
+            })[0];
+            dispatch(siteDeclineAction(singleSiteApproval, "Rejection")).then(() => {
+                dispatch(getConditionAssessmentDetails());
+            });
         },
 
 

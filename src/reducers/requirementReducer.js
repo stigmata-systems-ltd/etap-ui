@@ -24,7 +24,8 @@ import {
     ACTION_REQUIREMENT,
     VIEW_REQUIREMENTS_MORE_PAGE,
   CHANGE_VIEW_REQUIREMENTS_MORE_MODAL_STATUS,
-  GET_REQUIREMENT_DATA_SINGLE
+  GET_REQUIREMENT_DATA_SINGLE,
+  SHOW_MODAL
 } from '../actions/types';
 
 const initialState = {
@@ -36,7 +37,9 @@ const initialState = {
     structureProjectList:[],
     structureList:[],
     showrequirementMoreModal: false,
-    requirementViewMore:[]
+    requirementViewMore:[],
+    projectCodesList:{},
+    showModal: false
 };
 
 export default function (state = initialState, action) {
@@ -56,6 +59,11 @@ export default function (state = initialState, action) {
           ...state,
           actualWorkBreak: action.payload,
         };
+        case SHOW_MODAL:
+          return{
+            ...state,
+            showModal:action.payload,
+          };
         case PLANNED_START_DATE:
         return {
           ...state,
@@ -96,6 +104,7 @@ export default function (state = initialState, action) {
         //       isSuccess: false,
         //     };
         case `${LIST_PROJECT_CODES}`:
+          console.log("In Reducer")
             console.log(`List project Code: ${JSON.stringify(action.payload)}`)
             return {
               ...state,

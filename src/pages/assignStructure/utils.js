@@ -165,16 +165,19 @@ export const componentsMetaData = (onChangeValue) => {
       name: "IC",
       selector: "ic",
       sortable: false,
+
     },
     {
       name: "BU",
       selector: "bu",
       sortable: false,
+
     },
     {
       name: "Project",
       selector: "project",
       sortable: false,
+
     },
     {
       name: "Structure Family",
@@ -261,7 +264,6 @@ export const _componentInputData = [
   "Structure Family",
   "Structure",
   "Structure ID",
-  ,
   "Component Type",
   "Component",
   "Component ID",
@@ -329,11 +331,14 @@ export const listAssignedStructureMetaData = (
       name: "Structure Name",
       selector: "structureName",
       sortable: false,
+     
     },
+    
     {
       name: "Structure ID",
       selector: "structureCode",
       sortable: false,
+      width:"110px",
       cell: (row) => {
         return (
           <>
@@ -357,14 +362,17 @@ export const listAssignedStructureMetaData = (
       sortable: false,
     },
     {
-      name: "Components Count",
+      name: "Component Count",
       selector: "componentsCount",
       sortable: false,
+      width:"90px"
     },
+    
     {
       name: "Total Weight",
       selector: "totalWeight",
       sortable: false,
+      width:"80px"
     },
     {
       name: "Structure Status",
@@ -379,6 +387,7 @@ export const listAssignedStructureMetaData = (
     {
       name: "Actions",
       sortable: false,
+      width:"70px",
       cell: (row) => {
         return (
           <>
@@ -389,10 +398,15 @@ export const listAssignedStructureMetaData = (
               />
             }
           </>
+          
         );
+        
       },
+    
     },
+    
   ];
+  
 };
 
 export const transformAssignedStructureList = (assignStructureList) => {

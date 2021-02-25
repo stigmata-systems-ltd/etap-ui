@@ -28,6 +28,7 @@ import {
     SURPLUS_STRUCTURE_FAMILY,
     SURPLUS_STRUCTURE_CODE
 } from '../../actions/types';
+import { getUserDetails } from "../../utils/auth";
 import AddSurplus from '../../pages/surplus/AddSurplus';
 import {getProjectList,getWBSList,addSurplus,getProjectStructureData,getSurplus} from '../../actions/surplusAction';
 const mapDispatchToProps = dispatch => {
@@ -58,7 +59,9 @@ const mapDispatchToProps = dispatch => {
             });
             dispatch(getProjectStructureData());
         },
-
+        fetchStructureData() {
+            dispatch(getProjectStructureData());
+        },
         // handleChangeRequirementStructureName(value,i) {
         //     dispatch({
         //         type: STRUCTURE_NAME,
@@ -67,13 +70,16 @@ const mapDispatchToProps = dispatch => {
         // },
         handleChangeStructureList(value) {
             const surplus = store.getState().surplus;
-            let structFamilyName = surplus.structureProjectList.filter((ele) => {
-                return (ele.projectId === surplus.projectName.value && ele.structureId === value.value) 
-              }).map((ele) => {return ele.strcutureTypeName});
+            const userDetails = getUserDetails();
+            // let structFamilyName = surplus.structureProjectList.filter((ele) => {
+            //     return (ele.projectId === userDetails.projectId && ele.structureId === value.value) 
+            //   }).map((ele) => {return ele.strcutureTypeName});
               let structureCode = "";
+              let structFamilyName="";
               surplus.structureProjectList.map(dt => {
                 if(dt.structureId === value.value) {
                     structureCode = dt.structureCode
+                    structFamilyName = dt.strcutureTypeName;
                 }
               })
             dispatch({
@@ -82,7 +88,7 @@ const mapDispatchToProps = dispatch => {
             });
             dispatch({
                 type: SURPLUS_STRUCTURE_FAMILY,
-                payload: value,
+                payload: structFamilyName,
             });
             dispatch({
                 type: SURPLUS_STRUCTURE_CODE,

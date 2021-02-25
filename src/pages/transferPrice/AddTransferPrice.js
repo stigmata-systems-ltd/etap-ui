@@ -6,21 +6,21 @@ import Button from "../../common/forms/Button";
 
 
 class AddTransferPrice extends Component {
+    constructor(props) {
+        super(props);
+    }
+
 
 
     render() {
         return (
 
             <Modal
-                title="Add Transfer"
+                title="Add Transfer Price"
                 showModal={this.props.showModal}
-                handleSave={() => {
-                    //   this.props.procurement.vendorStructures.length !== 0
-                    //     ? this.props.procurement.activeItem.serviceType === "Fabrication"
-                    //       ? this.props.fbAssignVendor()
-                    //       : this.props.osAssignVendor()
-                    //     : alert("Unable to save. Please check the fields");
-                }}
+                handleSave={
+                    this.props.addTransferPrice
+                }
                 handleClose={this.props.closeTransferPriceModal}
                 size="lg"
                 isShowFooter={true}
@@ -40,7 +40,9 @@ class AddTransferPrice extends Component {
                         }
                     />
                 </FormRow>
-
+                {this.props.transferPrice.message && (
+                    <p className="text-danger">{this.props.transferPrice.message}</p>
+                )}
             </Modal>
 
         );

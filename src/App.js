@@ -16,6 +16,7 @@ import AddWorkBreak from "./container/workBreak/addWorkBreak";
 import ViewWorkBreak from "./container/workBreak/viewWBS";
 import AssignStructure from "./container/assignStructure/assignStructure";
 import AddRequirement from "./container/requirement/addRequirement";
+import AddScrap from "./container/scrap/addScrap"
 
 import ViewStructure from "./container/structure/viewStructure";
 import ViewComponent from "./container/component/viewComponent";
@@ -87,6 +88,9 @@ const CreateDispatch = React.lazy(() =>
 const DispatchStructure = React.lazy(() =>
   import("./container/createDispatch/dispatchStructure")
 );
+const PhysicalVerificationn = React.lazy(() =>
+  import("./container/physicalVerification/physicalVerification")
+);
 
 setAuthHeader();
 setRespInterceptor();
@@ -101,83 +105,84 @@ class App extends Component {
             <Route exact path="/dashboard" component={Dashboard}></Route>
             <Route
               exact
-              path="/masters/addComponent"
+              path="/etrack/masters/addComponent"
               component={AddComponent}
             ></Route>
             <Route
               exact
-              path="/masters/viewStructureFamily"
+              path="/etrack/masters/viewStructureFamily"
               component={ViewStructureFamily}
             ></Route>
             <Route
               exact
-              path="/masters/viewStructure"
+              path="/etrack/masters/viewStructure"
               component={ViewStructure}
             ></Route>
             <Route
               exact
-              path="/masters/viewProject"
+              path="/etrack/masters/viewProject"
               component={ViewProject}
             ></Route>
             <Route
               exact
-              path="/masters/viewUsers"
+              path="/etrack/masters/viewUsers"
               component={ViewUsers}
             ></Route>
             <Route
               exact
-              path="/masters/addWBS"
+              path="/etrack/masters/addWBS"
               component={AddWorkBreak}
             ></Route>
             <Route
               exact
-              path="/masters/viewWBS"
+              path="/etrack/masters/viewWBS"
               component={ViewWorkBreak}
             ></Route>
             <Route
               exact
-              path="/masters/viewIndependentCompany"
+              path="/etrack/masters/viewIndependentCompany"
               component={ViewIndependentCompany}
             ></Route>
-            <Route exact path="/surplus/add" component={AddSurplus}></Route>
+            <Route exact path="/etrack/scrapping/addScrap" component={AddScrap}></Route>
+            <Route exact path="/etrack/surplus/add" component={AddSurplus}></Route>
             <Route
               exact
-              path="/masters/viewBusinessUnit"
+              path="/etrack/masters/viewBusinessUnit"
               component={ViewBusinessUnit}
             ></Route>
             <Route
               exact
-              path="/masters/viewVendors"
+              path="/etrack/masters/viewVendors"
               component={ViewVendors}
             ></Route>
             <Route
               exact
-              path="/structure/assignStructure"
+              path="/etrack/structure/assignStructure"
               component={AssignStructure}
             ></Route>
             <Route
               exact
-              path="/requirementRequest/addRequirements"
+              path="/etrack/requirementRequest/addRequirements"
               component={AddRequirement}
             ></Route>
             <Route
               exact
-              path="/masters/viewComponent"
+              path="/etrack/masters/viewComponent"
               component={ViewComponent}
             ></Route>
             <Route
               exact
-              path="/structure/viewStructure"
+              path="/etrack/structure/viewStructure"
               component={ViewAssignStructure}
             ></Route>
             <Route
               exact
-              path="/structure/viewComponent"
+              path="/etrack/structure/viewComponent"
               component={ViewAssignComponent}
             ></Route>
             <Route
               exact
-              path="/assignStructure/viewStructure"
+              path="/etrack/assignStructure/viewStructure"
               component={ViewAssignStructure}
             ></Route>
             <Route
@@ -187,12 +192,12 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/requirementRequest/viewRequirements"
+              path="/etrack/requirementRequest/viewRequirements"
               component={ViewRequirements}
             ></Route>
             <Route
               exact
-              path="/requirementRequest/viewSurplus"
+              path="/etrack/surplus/viewSurplus"
               component={ViewSurplus}
             ></Route>
             <Route
@@ -202,7 +207,7 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/cost/procurement"
+              path="/etrack/fabCost/procurement"
               component={Procurement}
             ></Route>
             <Route
@@ -223,12 +228,14 @@ class App extends Component {
             <Route exact path="/vendor/outsource" component={OutSource}></Route>
             <Route
               exact
-              path="/lifeCycle/healthSafty"
+              // path="/lifeCycle/healthSafty"
+              path="/etrack/inspection/ehs"
               component={HealthSafty}
             ></Route>
             <Route
               exact
-              path="/lifeCycle/qualityCheck"
+              path="/etrack/inspection/qaqc"
+              // path="/lifeCycle/qualityCheck"
               component={QualityCheck}
             ></Route>
             <Route
@@ -304,7 +311,7 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/requirementRequest/siteDispatch"
+              path="/etrack/dispatch/siteDispatch"
               component={SiteDispatch}
             ></Route>
             <Route
@@ -354,7 +361,7 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/reuse/conditionAssessment"
+              path="/etrack/dispatch/conditionAssessment"
               component={ConditionAssessment}
             ></Route>
             <Route
@@ -367,6 +374,11 @@ class App extends Component {
               path="/reuse/toSiteApproval"
               component={ToSiteApproval}
             ></Route>
+            <Route
+              exact
+              path="/etrack/physicalverification/initiatePhysicalVerification"
+              component={PhysicalVerificationn}
+            ></Route>
 
             <Route
               exact
@@ -375,12 +387,12 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/dispatch/createDispatch"
+              path="/etrack/dispatch/createDispatch"
               component={CreateDispatch}
             ></Route>
             <Route
               exact
-              path="/dispatch/createDispatch/dispatchStructure/:siteReqId"
+              path="/etrack/dispatch/createDispatch/dispatchStructure/:siteReqId"
               component={DispatchStructure}
             ></Route>
             <Route exact path="/reuse/reuse" component={Reuse}></Route>

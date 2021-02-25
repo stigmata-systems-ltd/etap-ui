@@ -19,9 +19,11 @@ import {
     MR_NUMBER,
     REMARKS,
     RESET_REQUIREMENT_FORM,
-    SITE_REQUIRMENT_LIST
+    SITE_REQUIRMENT_LIST,
+    SHOW_MODAL
 } from '../../actions/types';
 import AddRequirement from '../../pages/requirements/AddRequirements';
+import { getUserDetails } from "../../utils/auth";
 import {getProjectList,getWBSList, addSiteRequirement,addRequirement,getProjectStructureData} from '../../actions/requirementAction'
 const mapDispatchToProps = dispatch => {
     return {
@@ -41,7 +43,16 @@ const mapDispatchToProps = dispatch => {
             });
             dispatch(getProjectStructureData());
         },
+        getStructureData(){
+            dispatch(getProjectStructureData());
+        },
+        showModalOpen(){
+            dispatch({type:SHOW_MODAL,payload:true});
+        },
+        showModalClose(){
+            dispatch({type:SHOW_MODAL,payload:false});
 
+        },
         // handleChangeRequirementStructureName(value,i) {
         //     dispatch({
         //         type: STRUCTURE_NAME,
@@ -127,6 +138,7 @@ const mapDispatchToProps = dispatch => {
             });
         },
         getProjectList(){
+            console.log("In Container")
             dispatch(getProjectList());
         },
         getWBSList(){
@@ -145,11 +157,14 @@ const mapDispatchToProps = dispatch => {
             });
         },
         handleStructureNameChange(value, i){
+            const userDetails = getUserDetails();
+
             const requirement = store.getState().requirement;
             requirement.siteRequirementList[i].structName = value;
             let currentProject = requirement.structureProjectList.filter((ele) => {
-                return (ele.projectId === requirement.projectName.value && ele.structureId === value.value) 
+                return (ele.structureId === value.value) 
               })
+            console.log(`Current Project is: ${currentProject}`)
             requirement.siteRequirementList[i].structFamily = currentProject[0].strcutureTypeName;
             requirement.siteRequirementList[i].drawingNo = currentProject[0].drawingNo;
             requirement.siteRequirementList[i].componentsCount = currentProject[0].componentsCount;

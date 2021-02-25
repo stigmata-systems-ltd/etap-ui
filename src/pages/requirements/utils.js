@@ -1,6 +1,7 @@
 import React from "react";
 import IconButton from "../../common/forms/IconButton";
 import { Link } from "react-router";
+import { getUserDetails } from "../../utils/auth";
 
 export const _viewRequirementsInputData = ["Project", "Structure Family", "Structure ID", "Drawing No", "Quantity", "Required By", "Required for WBS", "Planned Start Date", "Planned Release Date", "Actual Start Date", "Actual WBS", "Expected Release Date", "Remarks", "MR No","BU","TWCC"];
 export const _viewRequirementsInputBodyData = [
@@ -136,4 +137,9 @@ export const listViewRequirementsMetaData = (
         tmpArr.push(tmpObj);
       });
     return tmpArr;
+  };
+
+  export const transformProjectValue = () => {
+    const userDetails = getUserDetails();
+    return userDetails.projectName
   };
