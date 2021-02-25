@@ -97,7 +97,7 @@ export const twccDispatchMetaData = (
         return (
           <>
             <IconButton
-              iconName="faEdit"
+              iconName="faEye"
               onClick={() => handleMore(row.id)}
             />
           </>
@@ -184,7 +184,7 @@ export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore
               <CheckBox
                 checked={row.checked}
                 onChange={() => setSelectedStructures(row)}
-                disabled={row.dispStructureStatus === "DISPATCHED" ? true : false}
+                disabled={row.availability === "No" ? true : false}
               />
             )}
           </>
@@ -199,7 +199,7 @@ export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore
     },
     {
       name: "Availability",
-      selector: "structureCode",
+      selector: "availability",
       sortable: false,
       cell: (row) => {
         return row.availProjectId === null ? "NO" : "YES";
@@ -207,18 +207,18 @@ export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore
     },
     {
       name: "Avail.Site",
-      selector: "projectName",
+      selector: "site",
       sortable: false,
     },
     {
       name: "Avail.Date",
       sortable: false,
-      selector: "projectName",
+      selector: "date",
 
     },
     {
       name: "Attribute",
-      selector: "dispStructureStatus",
+      selector: "attr",
       sortable: false,
     },
     {
@@ -228,7 +228,7 @@ export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore
         return (
           <>
             <IconButton
-              iconName="faEdit"
+              iconName="faEye"
               onClick={() => handleMore(row.id)}
             />
           </>
@@ -268,7 +268,8 @@ export const transformdispatchStructure = dispatchStructure => {
         dispStructureStatus: structure.dispStructureStatus,
         availProjectName: structure.availProjectName,
         checked: structure.checked,
-        availProjectId: structure.availProjectId
+        availProjectId: structure.availProjectId,
+        planStartdate: structure.planStartdate
       };
       tmpArr.push(tmpObj);
     });

@@ -27,7 +27,7 @@ export const metaDataNavbar = [
     subNavs: [
       {
         id: "etrack" + 1,
-        navText: "Structure Management",
+        navText: "Structure Mgt.",
         iconName: "faBuilding",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -42,13 +42,13 @@ export const metaDataNavbar = [
           },
           {
             id: "structMgmnt" + 2,
-            navText: "Modification management",
+            navText: "Modification Mgt.",
             iconName: "faEdit",
             route: "/etrack/structure/assignStructure",
           },
           {
             id: "structMgmnt" + 3,
-            navText: "View Structure",
+            navText: "Structure Mgt.",
             iconName: "faEye",
             route: "/etrack/structure/viewStructure",
           },
@@ -56,7 +56,7 @@ export const metaDataNavbar = [
       },
       {
         id: "etrack" + 2,
-        navText: "Requirement Management",
+        navText: "Requirement Mgt.",
         iconName: "faClock",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -66,103 +66,104 @@ export const metaDataNavbar = [
             id: "scheduleMgmnt" + 1,
             navText: "Request Creation",
             iconName: "faPaperPlane",
-            hasSubNav: true,
-            route: "/etrack/requirementRequest",
-            subNavs: [
-              {
-                id: "requirementRequestSub" + 1,
-                navText: "Add Requirements",
-                iconName: "faPlus",
-                route: "/etrack/requirementRequest/addRequirements",
-              },
-              {
-                id: "requirementRequestSub" + 2,
-                navText: "View Requirements",
-                iconName: "faEye",
-                route: "/etrack/requirementRequest/viewRequirements",
-              },
-              {
-                id: "requirementRequestSub" + 3,
-                navText: "BU Approval",
-                iconName: "faThumbsUp",
-                route: "/etrack/requirementRequest/businessUnitApproval",
-              },
-              {
-                id: "requirementRequestSub" + 4,
-                navText: "TWCC Approval",
-                iconName: "faThumbsUp",
-                route: "/etrack/requirementRequest/twccApproval",
-              },
-              {
-                id: "requirementRequestSub" + 5,
-                navText: "CMPC Approval",
-                iconName: "faThumbsUp",
-                route: "/etrack/requirementRequest/cmpcApproval",
-              },
-              // {
-              //   id: "requirementRequestSub" + 3,
-              //   navText: "Site Dispatch",
-              //   route: "/etap/requirementRequest/siteDispatch",
-              // },
-            ],
+            //hasSubNav: true,
+            route: "/etrack/requirementRequest/addRequirements",
+            
+            // subNavs: [
+            //   {
+            //     id: "requirementRequestSub" + 1,
+            //     navText: "Add Requirements",
+            //     iconName: "faPlus",
+            //     route: "/etrack/requirementRequest/addRequirements",
+            //   },
+            //   {
+            //     id: "requirementRequestSub" + 2,
+            //     navText: "View Requirements",
+            //     iconName: "faEye",
+            //     route: "/etrack/requirementRequest/viewRequirements",
+            //   },
+            //   {
+            //     id: "requirementRequestSub" + 3,
+            //     navText: "BU Approval",
+            //     iconName: "faThumbsUp",
+            //     route: "/etrack/requirementRequest/businessUnitApproval",
+            //   },
+            //   {
+            //     id: "requirementRequestSub" + 4,
+            //     navText: "TWCC Approval",
+            //     iconName: "faThumbsUp",
+            //     route: "/etrack/requirementRequest/twccApproval",
+            //   },
+            //   {
+            //     id: "requirementRequestSub" + 5,
+            //     navText: "CMPC Approval",
+            //     iconName: "faThumbsUp",
+            //     route: "/etrack/requirementRequest/cmpcApproval",
+            //   },
+            //   // {
+            //   //   id: "requirementRequestSub" + 3,
+            //   //   navText: "Site Dispatch",
+            //   //   route: "/etap/requirementRequest/siteDispatch",
+            //   // },
+            // ],
           },
           {
             id: "scheduleMgmnt" + 2,
             navText: "Request Approval",
             iconName: "faFolderPlus",
-            hasSubNav: true,
+            // hasSubNav: true,
             route: "/etrack/surplus",
-            subNavs: [
-              {
-                id: "surplusDecl" + 1,
-                navText: "Add Surplus",
-                iconName: "faPlus",
-                route: "/etrack/surplus/add",
-              },
-              {
-                id: "surplusDecl" + 2,
-                navText: "View Surplus",
-                iconName: "faEye",
-                route: "/etrack/surplus/viewSurplus",
-              },
-            ]
+            // subNavs: [
+            //   {
+            //     id: "surplusDecl" + 1,
+            //     navText: "Add Surplus",
+            //     iconName: "faPlus",
+            //     route: "/etrack/surplus/add",
+            //   },
+            //   {
+            //     id: "surplusDecl" + 2,
+            //     navText: "View Surplus",
+            //     iconName: "faEye",
+            //     route: "/etrack/surplus/viewSurplus",
+            //   },
+            // ]
           }
         ]
       },
-      {
-        id: "3",
-        navText: "Dispatch management",
-        iconName: "faTruck",
-        hasSubNav: true,
-        isSubNavOpen: false,
-        route: "/dispatch",
-        hasMargin: true,
-        subNavs: [
-          {
-            id: "dispatch" + 1,
-            navText: "Create Dispatch",
-            route: "/etrack/dispatch/createDispatch",
-          },
-          {
-            id: "dispatch" + 2,
-            navText: "Site Dispatch",
-            route: "/etrack/dispatch/siteDispatch",
-          },
-          {
-            id: "dispatch" + 3,
-            navText: "Condition Assessment",
-            route: "/etrack/dispatch/conditionAssessment",
-          },
-          {
-            id: "dispatch" + 4,
-            navText: "TWCC Dispatch",
-            route: "/etrack/dispatch/twccDispatch",
-          },
-        ],
-      },
+      // {
+      //   id: "3",
+      //   navText: "Dispatch management",
+      //   iconName: "faTruck",
+      //   hasSubNav: true,
+      //   isSubNavOpen: false,
+      //   route: "/dispatch",
+      //   hasMargin: true,
+      //   subNavs: [
+      //     {
+      //       id: "dispatch" + 1,
+      //       navText: "Create Dispatch",
+      //       route: "/etrack/dispatch/createDispatch",
+      //     },
+      //     {
+      //       id: "dispatch" + 2,
+      //       navText: "Site Dispatch",
+      //       route: "/etrack/dispatch/siteDispatch",
+      //     },
+      //     {
+      //       id: "dispatch" + 3,
+      //       navText: "Condition Assessment",
+      //       route: "/etrack/dispatch/conditionAssessment",
+      //     },
+      //     {
+      //       id: "dispatch" + 4,
+      //       navText: "TWCC Dispatch",
+      //       route: "/etrack/dispatch/twccDispatch",
+      //     },
+      //   ],
+      // },
       {
         id: "4",
-        navText: "Fabrication management",
+        navText: "Fabrication Mgt.",
         iconName: "faObjectGroup",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -188,25 +189,25 @@ export const metaDataNavbar = [
               },
             ],
           },
-          {
-            id: "fabMgmnt" + 2,
-            navText: "Modification management",
-            hasSubNav: true,
-            route: "/etrack/modificationMgmnt",
-            subNavs: [
+          // {
+          //   id: "fabMgmnt" + 2,
+          //   navText: "Modification management",
+          //   hasSubNav: true,
+          //   route: "/etrack/modificationMgmnt",
+          //   subNavs: [
 
-              {
-                id: "modificationMgmntSub" + 1,
-                navText: "Add Modification",
-                route: "/etrack/modificationMgmnt/addModification",
-              },
-              {
-                id: "modificationMgmntSub" + 2,
-                navText: "CMPC Approval",
-                route: "/etrack/modificationMgmnt/cmpcApproval",
-              },
-            ],
-          },
+          //     {
+          //       id: "modificationMgmntSub" + 1,
+          //       navText: "Add Modification",
+          //       route: "/etrack/modificationMgmnt/addModification",
+          //     },
+          //     {
+          //       id: "modificationMgmntSub" + 2,
+          //       navText: "CMPC Approval",
+          //       route: "/etrack/modificationMgmnt/cmpcApproval",
+          //     },
+          //   ],
+          // },
 
           // {
           //   id: "fab" + 3,
@@ -217,7 +218,7 @@ export const metaDataNavbar = [
       },
       {
         id: "5",
-        navText: "Cost management",
+        navText: "Cost Mgt.",
         iconName: "faFileArchive",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -242,68 +243,68 @@ export const metaDataNavbar = [
               },
             ],
           },
-          {
-            id: "costMgmnt" + 2,
-            navText: "Hire charges details",
-            hasSubNav: true,
-            route: "/etrack/hireCharges",
-            subNavs: [
-              {
-                id: "hireCharges" + 1,
-                navText: "Procurement",
-                route: "/etrack/hireCharges/procurement",
-              },
-              {
-                id: "hireCharges" + 2,
-                navText: "Site Approval",
-                route: "/etrack/hireCharges/siteApproval",
-              },
-            ],
-          },
-          {
-            id: "costMgmnt" + 3,
-            navText: "Depreciation management",
-            hasSubNav: true,
-            route: "/etrack/depreciationMgmnt",
-            subNavs: [
-              {
-                id: "depreciationMgmntSub" + 1,
-                navText: "Depreciation Value",
-                route: "/etrack/depreciationMgmnt/depreciationValue",
-              },
-              {
-                id: "depreciationMgmntSub" + 2,
-                navText: "TWCC Approval",
-                route: "/etrack/depreciationMgmnt/twccApproval",
-              },
-            ],
-          },
-          {
-            id: "cost" + 5,
-            navText: "Transfer Price",
-            route: "/reuse/transferPrice",
-          },
-          {
-            id: "cost" + 6,
-            navText: "Site Approval",
-            route: "/outSourcing/outSourceSiteApproval",
-          },
-          {
-            id: "cost" + 7,
-            navText: "From Site Approval",
-            route: "/reuse/fromSiteApproval",
-          },
-          {
-            id: "cost" + 8,
-            navText: "To Site Approval",
-            route: "/reuse/toSiteApproval",
-          },
+          // {
+          //   id: "costMgmnt" + 2,
+          //   navText: "Hire charges details",
+          //   hasSubNav: true,
+          //   route: "/etrack/hireCharges",
+          //   subNavs: [
+          //     {
+          //       id: "hireCharges" + 1,
+          //       navText: "Procurement",
+          //       route: "/etrack/hireCharges/procurement",
+          //     },
+          //     {
+          //       id: "hireCharges" + 2,
+          //       navText: "Site Approval",
+          //       route: "/etrack/hireCharges/siteApproval",
+          //     },
+          //   ],
+          // },
+          // {
+          //   id: "costMgmnt" + 3,
+          //   navText: "Depreciation management",
+          //   hasSubNav: true,
+          //   route: "/etrack/depreciationMgmnt",
+          //   subNavs: [
+          //     {
+          //       id: "depreciationMgmntSub" + 1,
+          //       navText: "Depreciation Value",
+          //       route: "/etrack/depreciationMgmnt/depreciationValue",
+          //     },
+          //     {
+          //       id: "depreciationMgmntSub" + 2,
+          //       navText: "TWCC Approval",
+          //       route: "/etrack/depreciationMgmnt/twccApproval",
+          //     },
+          //   ],
+          // },
+          // {
+          //   id: "cost" + 5,
+          //   navText: "Transfer Price",
+          //   route: "/reuse/transferPrice",
+          // },
+          // {
+          //   id: "cost" + 6,
+          //   navText: "Site Approval",
+          //   route: "/outSourcing/outSourceSiteApproval",
+          // },
+          // {
+          //   id: "cost" + 7,
+          //   navText: "From Site Approval",
+          //   route: "/reuse/fromSiteApproval",
+          // },
+          // {
+          //   id: "cost" + 8,
+          //   navText: "To Site Approval",
+          //   route: "/reuse/toSiteApproval",
+          // },
 
         ],
       },
       {
         id: "6",
-        navText: "Life cycle management",
+        navText: "Life cycle Mgt.",
         iconName: "faRandom",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -379,6 +380,7 @@ export const metaDataNavbar = [
 
         ],
       },
+
 
       {
         id: "7",
@@ -461,32 +463,62 @@ export const metaDataNavbar = [
       },
       {
         id: "8",
-        navText: "Reports",
-        iconName: "faChartPie",
-        hasSubNav: false,
+        navText: "Dispatch Mgt",
+        iconName: "faTruck",
+        hasSubNav: true,
         isSubNavOpen: false,
-        route: "/etrack",
+        route: "/dispatch",
         hasMargin: true,
+        subNavs: [
+          {
+            id: "dispatchSub" + 1,
+            navText: "Dispatch",
+            iconName: "faTruck",
+            route: "/etrack/dispatch/twccDispatch",
+          },
+          {
+            id: "dispatchSub" + 2,
+            navText: "Procurement",
+            iconName: "faBusinessTime",
+            route: "/etrack/",
+          },
+          {
+            id: "dispatchSub" + 3,
+            navText: "Vendor",
+            iconName: "faUser",
+            route: "/etrack/",
+          },
+
+        ],
       },
+      // {
+      //   id: "8",
+      //   navText: "Reports",
+      //   iconName: "faChartPie",
+      //   hasSubNav: false,
+      //   isSubNavOpen: false,
+      //   route: "/etrack",
+      //   hasMargin: true,
+      // },
     ]
   },
-  {
-    id: "9",
-    navText: "Form Track",
-    iconName: "faDatabase",
-    hasSubNav: false,
-    isSubNavOpen: false,
-    route: "/formTrack",
-    isParent: true,
-  },
-  {
-    id: "10",
-    navText: "EP Tracking",
-    iconName: "faMicrochip",
-    hasSubNav: false,
-    isSubNavOpen: false,
-    route: "/eptrack",
-    hasMargin: false,
-    isParent: true,
-  },
+  // {
+  //   id: "9",
+  //   navText: "Form Track",
+  //   iconName: "faDatabase",
+  //   hasSubNav: false,
+  //   isSubNavOpen: false,
+  //   route: "/formTrack",
+  //   isParent: true,
+  // },
+  // {
+  //   id: "10",
+  //   navText: "EP Tracking",
+  //   iconName: "faMicrochip",
+  //   hasSubNav: false,
+  //   isSubNavOpen: false,
+  //   route: "/eptrack",
+  //   hasMargin: false,
+  //   isParent: true,
+  // },
 ];

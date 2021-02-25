@@ -16,7 +16,7 @@ class TwccDispatchViewMore extends Component {
         title={`TWCC Dispatch - Details`}
         showModal={this.props.showAddComponentModal}
         handleClose={this.props.closeTwccDispatchViewMoreModal}
-        size="xl"
+        size="lg"
         isShowFooter={false}
       >
         {console.log("isLoading", this.props.isLoading)}
@@ -24,9 +24,8 @@ class TwccDispatchViewMore extends Component {
 
         <FormRow>
           <TextInput disabled
-            size="col-md-4"
-            fieldSize="col-md-8"
-            labelSize="col-sm-4"
+            size="col-md-3"
+            fieldSize="col-md-12"
             label="Quantity"
             name="quantity"
             id="quantity"
@@ -36,11 +35,11 @@ class TwccDispatchViewMore extends Component {
           //value={this.props.assignStructure.assignStructureViewMore.structureId}
           />
         </FormRow>
-        <h4>Attributes :</h4>
+        <h4>Structure Attributes :</h4>
         <FormRow>
           <TextInput disabled
-            size="col-md-4"
-            fieldSize="col-md-8"
+            size="col-md-3"
+            fieldSize="col-md-12"
             name="strcutureName"
             id="strcutureName"
           // onChange={e =>
@@ -49,8 +48,8 @@ class TwccDispatchViewMore extends Component {
           //value={this.props.assignStructure.assignStructureViewMore.strcutureName}
           />
           <TextInput disabled
-            size="col-md-4"
-            fieldSize="col-md-8"
+            size="col-md-3"
+            fieldSize="col-md-12"
             name="structureFamily"
             id="structureFamily"
           // onChange={e =>
@@ -59,8 +58,8 @@ class TwccDispatchViewMore extends Component {
           //value={this.props.assignStructure.assignStructureViewMore.strcutureTypeName}
           />
           <TextInput disabled
-            size="col-md-4"
-            fieldSize="col-md-8"
+            size="col-md-3"
+            fieldSize="col-md-12"
             name="structureFamily"
             id="structureFamily"
           // onChange={e =>
