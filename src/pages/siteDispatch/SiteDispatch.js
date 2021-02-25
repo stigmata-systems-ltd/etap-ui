@@ -46,7 +46,8 @@ class SiteDispatch extends Component {
                 metaData={siteDispatchMetaData(
                   this.props.showUpdateSiteDispatchModal
                 )}
-                bodyData={this.props.siteDispatch.siteDispatchDetails}
+                // bodyData={this.props.siteDispatch.siteDispatchDetails}
+                bodyData={[{}, {}]}
                 progressPending={this.props.siteDispatch.isLoading}
                 pagination={true}
                 paginationTotalRows={

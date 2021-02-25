@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
+import FaIcon from "../../common/FaIcon";
 import FormRow from "../../common/forms/FormRow";
+import IconButton from "../../common/forms/IconButton";
 import Popup from "../../common/forms/Popup";
 
 class StructureAttributesTable extends Component {
@@ -51,9 +53,9 @@ class StructureAttributesTable extends Component {
     return (
       <>
         <FormRow>
-          <h3 className="mr-auto ml-3 mb-4">{this.props.title}</h3>
+          <h4 className="card-title mr-auto ml-3 mb-4">{this.props.title}</h4>
         </FormRow>
-        <Table bordered size="sm">
+        <Table bordered striped size="sm">
           <thead>
             <tr>
               <th>
@@ -65,6 +67,9 @@ class StructureAttributesTable extends Component {
               <th>
                 <strong>Value</strong>
               </th>
+              <th>
+                <strong>Actions</strong>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -72,12 +77,9 @@ class StructureAttributesTable extends Component {
               <tr key={attribute.id}>
                 <td>{attribute.name}</td>
                 <td>{attribute.uom}</td>
+                <td>{attribute.value}</td>
                 <td>
-                  <input
-                    type="text"
-                    value={attribute.value}
-                    onChange={(e) => this.handleOnChange(e, attribute)}
-                  />
+                  <IconButton iconName="faEdit" onClick={() => {}} />
                 </td>
               </tr>
             ))}

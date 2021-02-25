@@ -1,7 +1,7 @@
 /*Custom Styles
 ***************/
 body {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 /*Common Styles
 **************/
@@ -179,9 +179,9 @@ select.form-control {
   position: relative;
   left: 50%;
 }
-/* .excel-upload-btn .btnText {
-  padding: 5%;
-} */
+.excel-upload-btn .btnText:hover {
+  text-decoration: underline;
+}
 
 /*Login Form
 ***********/
