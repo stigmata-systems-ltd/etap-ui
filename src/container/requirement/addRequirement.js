@@ -19,7 +19,8 @@ import {
     MR_NUMBER,
     REMARKS,
     RESET_REQUIREMENT_FORM,
-    SITE_REQUIRMENT_LIST
+    SITE_REQUIRMENT_LIST,
+    SHOW_MODAL
 } from '../../actions/types';
 import AddRequirement from '../../pages/requirements/AddRequirements';
 import { getUserDetails } from "../../utils/auth";
@@ -44,6 +45,13 @@ const mapDispatchToProps = dispatch => {
         },
         getStructureData(){
             dispatch(getProjectStructureData());
+        },
+        showModalOpen(){
+            dispatch({type:SHOW_MODAL,payload:true});
+        },
+        showModalClose(){
+            dispatch({type:SHOW_MODAL,payload:false});
+
         },
         // handleChangeRequirementStructureName(value,i) {
         //     dispatch({

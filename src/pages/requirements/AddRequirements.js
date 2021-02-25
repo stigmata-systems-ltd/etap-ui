@@ -48,7 +48,7 @@ class AddRequirement extends Component {
           <FormContainer formTitle={"Add Requirement"}>
             <FormRow>
             <TextInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Project"
@@ -61,7 +61,7 @@ class AddRequirement extends Component {
             </FormRow>
             <FormRow>
               <SearchableDropDown
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Required for WBS"
@@ -76,7 +76,7 @@ class AddRequirement extends Component {
                 }
                 value={this.props.requirement.requiredWorkBreak}
               />
-              <SearchableDropDown
+              {/* <SearchableDropDown
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -91,9 +91,9 @@ class AddRequirement extends Component {
                   this.props.handleChangeRequirementActualWorkBreak(obj)
                 }
                 value={this.props.requirement.actualWorkBreak}
-              />
+              /> */}
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Planned Start Date"
@@ -109,7 +109,7 @@ class AddRequirement extends Component {
             </FormRow>
 
             <FormRow>
-              <DateInput
+              {/* <DateInput
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -122,9 +122,9 @@ class AddRequirement extends Component {
                   )
                 }
                 value={this.props.requirement.actualStartDateOfUsage}
-              />
+              /> */}
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Planned Release"
@@ -138,7 +138,7 @@ class AddRequirement extends Component {
                 value={this.props.requirement.expectedReleaseDate}
               />
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Expected Release"
@@ -162,10 +162,11 @@ class AddRequirement extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row location-row">
+            <div class="form-group row">
               {this.props.requirement.siteRequirementList.map((e, i) => {
                 return (
                   <SiteRequirementStructure
+                  {...this.props}
                     onStructureIDChange={(e) =>
                       this.props.onStructureIDChange(e.target.value, i)
                     }
@@ -201,6 +202,7 @@ class AddRequirement extends Component {
                         .structureName
                     }
                   />
+
                 );
               })}
             </div>
