@@ -366,6 +366,11 @@ class App extends Component {
             ></Route>
             <Route
               exact
+              path="/etrack/dispatch/twccDispatch"
+              component={CreateDispatch}
+            ></Route>
+            <Route
+              exact
               path="/reuse/fromSiteApproval"
               component={FromSiteApproval}
             ></Route>
@@ -385,11 +390,7 @@ class App extends Component {
               path="/reuse/initiatingReuse"
               component={InitiatingReuse}
             ></Route>
-            <Route
-              exact
-              path="/etrack/dispatch/createDispatch"
-              component={CreateDispatch}
-            ></Route>
+            
             <Route
               exact
               path="/etrack/dispatch/createDispatch/dispatchStructure/:siteReqId"

@@ -19,6 +19,15 @@ export const getSiteReqDetails = () => {
     ),
   };
 };
+export const twccDispatchDataFetch = () => {
+  // ! roleName is to be get from the userDetails
+  return {
+    type: GET_SITE_REQ_DETAILS,
+    payload: axios.get(
+      `${config.BASE_URL}/api/SiteRequirement/getSiteReqDetails?role_name=TWCC&role_hierarchy=1`
+    ),
+  };
+};
 
 export const setSelectedItem = (value) => {
 let createDispatch = store.getState().createDispatch;
