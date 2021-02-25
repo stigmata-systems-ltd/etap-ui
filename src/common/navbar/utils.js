@@ -3,7 +3,7 @@ import store from "../../store";
 export const getNavbar = () => {
   const auth = store.getState().auth;
   let tmpArr = [];
-  auth.pageAccess && auth.pageAccess.map((item) => { });
+  auth.pageAccess && auth.pageAccess.map((item) => {});
 };
 export const metaDataNavbar = [
   {
@@ -68,7 +68,7 @@ export const metaDataNavbar = [
             iconName: "faPaperPlane",
             //hasSubNav: true,
             route: "/etrack/requirementRequest/addRequirements",
-            
+
             // subNavs: [
             //   {
             //     id: "requirementRequestSub" + 1,
@@ -127,8 +127,8 @@ export const metaDataNavbar = [
             //     route: "/etrack/surplus/viewSurplus",
             //   },
             // ]
-          }
-        ]
+          },
+        ],
       },
       // {
       //   id: "3",
@@ -299,7 +299,6 @@ export const metaDataNavbar = [
           //   navText: "To Site Approval",
           //   route: "/reuse/toSiteApproval",
           // },
-
         ],
       },
       {
@@ -311,7 +310,6 @@ export const metaDataNavbar = [
         route: "/life",
         hasMargin: true,
         subNavs: [
-
           {
             id: "lifeCycleMgmnt" + 1,
             navText: "Surplus Declaration",
@@ -331,7 +329,7 @@ export const metaDataNavbar = [
                 iconName: "faCheckSquare",
                 route: "/etrack/inspection/qaqc",
               },
-            ]
+            ],
           },
 
           {
@@ -347,8 +345,7 @@ export const metaDataNavbar = [
                 iconName: "faScroll",
                 route: "/etrack/scrapping/addScrap",
               },
-
-            ]
+            ],
           },
           {
             id: "lifeCycleMgmnt" + 3,
@@ -361,7 +358,8 @@ export const metaDataNavbar = [
                 id: "physicalverificationSub" + 1,
                 navText: "Initiate Verification",
                 iconName: "faCheck",
-                route: "/etrack/physicalverification/initiatePhysicalVerification",
+                route:
+                  "/etrack/physicalverification/initiatePhysicalVerification",
               },
               {
                 id: "physicalverification" + 2,
@@ -375,12 +373,10 @@ export const metaDataNavbar = [
                 iconName: "faThumbsUp",
                 route: "/etrack/physicalverification/auditorApproval",
               },
-            ]
+            ],
           },
-
         ],
       },
-
 
       {
         id: "7",
@@ -480,15 +476,14 @@ export const metaDataNavbar = [
             id: "dispatchSub" + 2,
             navText: "Procurement",
             iconName: "faBusinessTime",
-            route: "/etrack/",
+            route: "/etrack/dispatch/procurement",
           },
           {
             id: "dispatchSub" + 3,
             navText: "Vendor",
             iconName: "faUser",
-            route: "/etrack/",
+            route: "/etrack/dispatch/vendor",
           },
-
         ],
       },
       // {
@@ -500,7 +495,7 @@ export const metaDataNavbar = [
       //   route: "/etrack",
       //   hasMargin: true,
       // },
-    ]
+    ],
   },
   // {
   //   id: "9",

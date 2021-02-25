@@ -40,7 +40,7 @@ class SiteDispatch extends Component {
             {...this.props}
             showModal={this.props.siteDispatch.showEditModalFlag}
           />
-          <FormContainer formTitle={"Site Dispatch"}>
+          <FormContainer formTitle={"Vendor"}>
             {this.props.siteDispatch.siteDispatchDetails && (
               <CustomDataTable
                 metaData={siteDispatchMetaData(
