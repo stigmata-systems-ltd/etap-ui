@@ -4,11 +4,10 @@ import FormContainer from "../../common/forms/FormContainer";
 import TableFilter from "../../common/TableFilter";
 
 import Loader from "../../common/Loader";
-import { createDispatchMetaData } from "./utils";
+import { twccDispatchMetaData } from "./utils";
 import CustomDataTable from "../../common/CustomDataTable";
-import FormRow from "../../common/forms/FormRow";
-import Button from "../../common/forms/Button";
 import Popup from "../../common/forms/Popup";
+import TwccDispatchViewMore from "../../container/createDispatch/twccDispatchViewMore";
 
 class CreateDispatch extends Component {
   constructor() {
@@ -23,16 +22,15 @@ class CreateDispatch extends Component {
   }
 
   filteredItems = (data) => {
-    return (
-      data &&
-      data.filter(
-        (item) =>
-          item.structureName &&
-          item.structureName
-            .toLowerCase()
-            .includes(this.state.filterText.toLowerCase())
-      )
-    );
+    if (data) {
+      return data.filter((item) => {
+        for (let key in item) {
+          if (item[key] && item[key].toString().toLowerCase().includes(this.state.filterText.toLowerCase())) {
+            return true;
+          }
+        }
+      })
+    }
   };
 
   render() {
@@ -47,11 +45,14 @@ class CreateDispatch extends Component {
               onClose={this.props.resetMessage}
             />
           )}
-          <FormContainer formTitle={"Create Dispatch"}>
+          <TwccDispatchViewMore showAddComponentModal={this.props.createDispatch.showTwccDispatchMoreModal} />
+          <FormContainer formTitle={"TWCC Dispatch"}>
             {this.props.createDispatch.siteReqDetails && (
               <CustomDataTable
-                metaData={createDispatchMetaData(
-                  this.props.redirectToDispatchStructure
+                metaData={twccDispatchMetaData(
+                  (structureID, projectID) => { this.props.redirectToDispatchStructure(structureID, projectID) },
+                  //this.props.redirectToDispatchStructure,
+                  (id) => this.props.handleMore(id),
                 )}
                 bodyData={this.filteredItems(
                   this.props.createDispatch.siteReqDetails.reverse()

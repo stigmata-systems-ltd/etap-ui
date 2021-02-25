@@ -6,6 +6,7 @@ import TableFilter from "../../common/TableFilter";
 import Loader from "../../common/Loader";
 import {
   dispatchStructureMetaData,
+  twccdispatchStructureMetaData,
   lstVerifyStructureQtyMetaData,
   transformdispatchStructure
 } from "./utils";
@@ -15,7 +16,7 @@ import Button from "../../common/forms/Button";
 import Popup from "../../common/forms/Popup";
 import TextInput from "../../common/forms/TextInput";
 import ConfirmModal from "../../common/ConfirmModal";
-import CheckBox from "../../common/forms/CheckBox";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
 
 class DispatchStructure extends Component {
   constructor(props) {
@@ -86,55 +87,56 @@ class DispatchStructure extends Component {
           <FormContainer formTitle={"Create Dispatch"}>
             <hr />
             {this.props.createDispatch.activeItem && (
-              <FormRow>
-                <TextInput
-                  size="col-md-4"
-                  label="MR No"
-                  value={this.props.createDispatch.activeItem.mrNo}
-                  disabled
-                />
-                <TextInput
-                  size="col-md-4"
-                  label="Req. Status"
-                  value={this.props.createDispatch.activeItem.status}
-                  disabled
-                />
-                <TextInput
-                  size="col-md-4"
-                  label="Project"
-                  value={this.props.createDispatch.activeItem.projectName}
-                  disabled
-                />
-              </FormRow>
-            )}
-            <hr />
-            {this.props.createDispatch.siteReqDetailsById && (
               <>
-                <CustomDataTable
-                  metaData={lstVerifyStructureQtyMetaData()}
-                  bodyData={
-                    this.props.createDispatch.siteReqDetailsById
-                      .lstVerifyStructureQty
-                  }
-                  progressPending={this.props.createDispatch.isLoading}
-                  pagination={true}
-                  paginationTotalRows={
-                    this.props.createDispatch.siteReqDetailsById
-                      .lstVerifyStructureQty &&
-                    this.props.createDispatch.siteReqDetailsById
-                      .lstVerifyStructureQty.length
-                  }
-                  paginationPerPage={3}
-                  noHeader={true}
-                />
-                <hr />
+                <FormRow>
+                  <TextInput
+                    size="col-md-4"
+                    label="MR No"
+                    value={this.props.createDispatch.activeItem.mrNo}
+                    disabled
+                  />
+                  <TextInput
+                    size="col-md-4"
+                    label="Structur Name"
+                    value={this.props.createDispatch.activeItem.projectName}
+                    disabled
+                  />
+                  <TextInput
+                    size="col-md-4"
+                    label="Req Site"
+                    value={this.props.createDispatch.activeItem.projectName}
+                    disabled
+                  />
+                </FormRow>
+                <FormRow>
+                  <TextInput
+                    size="col-md-4"
+                    label="Qty"
+                    value={this.props.createDispatch.activeItem.quantity}
+                    disabled
+                  />
+                  <SearchableDropDown
+                    size="col-md-4"
+                    label="Search By Rel.Date"
+                    value={this.props.createDispatch.activeItem.projectName}
+                    disabled
+                  />
+                  <SearchableDropDown
+                    size="col-md-4"
+                    label="Search By Attributes"
+                    value={this.props.createDispatch.activeItem.projectName}
+                    disabled
+                  />
+                </FormRow>
               </>
             )}
+            <hr />
+
             {this.props.createDispatch.siteReqDetailsById && (
               <CustomDataTable
-                metaData={dispatchStructureMetaData((row) => this.props.setSelectedStructures(row))}
+                metaData={twccdispatchStructureMetaData((row) => this.props.setSelectedStructures(row))}
                 bodyData={this.filteredItems(transformdispatchStructure(this.props.createDispatch.lstStructforDispatch)
-                  
+
                 )}
                 progressPending={this.props.createDispatch.isLoading}
                 pagination={true}

@@ -129,32 +129,37 @@ export const metaDataNavbar = [
           }
         ]
       },
-      // {
-      //   id: "3",
-      //   navText: "Dispatch management",
-      //   iconName: "faTruck",
-      //   hasSubNav: true,
-      //   isSubNavOpen: false,
-      //   route: "/dispatch",
-      //   hasMargin: true,
-      //   subNavs: [
-      //     {
-      //       id: "dispatch" + 1,
-      //       navText: "Create Dispatch",
-      //       route: "/etrack/dispatch/createDispatch",
-      //     },
-      //     {
-      //       id: "dispatch" + 2,
-      //       navText: "Site Dispatch",
-      //       route: "/etrack/dispatch/siteDispatch",
-      //     },
-      //     {
-      //       id: "dispatch" + 3,
-      //       navText: "Condition Assessment",
-      //       route: "/etrack/dispatch/conditionAssessment",
-      //     },
-      //   ],
-      // },
+      {
+        id: "3",
+        navText: "Dispatch management",
+        iconName: "faTruck",
+        hasSubNav: true,
+        isSubNavOpen: false,
+        route: "/dispatch",
+        hasMargin: true,
+        subNavs: [
+          {
+            id: "dispatch" + 1,
+            navText: "Create Dispatch",
+            route: "/etrack/dispatch/createDispatch",
+          },
+          {
+            id: "dispatch" + 2,
+            navText: "Site Dispatch",
+            route: "/etrack/dispatch/siteDispatch",
+          },
+          {
+            id: "dispatch" + 3,
+            navText: "Condition Assessment",
+            route: "/etrack/dispatch/conditionAssessment",
+          },
+          {
+            id: "dispatch" + 4,
+            navText: "TWCC Dispatch",
+            route: "/etrack/dispatch/twccDispatch",
+          },
+        ],
+      },
       {
         id: "4",
         navText: "Fabrication management",
@@ -183,25 +188,25 @@ export const metaDataNavbar = [
               },
             ],
           },
-          // {
-          //   id: "fabMgmnt" + 2,
-          //   navText: "Modification management",
-          //   hasSubNav: true,
-          //   route: "/etrack/modificationMgmnt",
-          //   subNavs: [
+          {
+            id: "fabMgmnt" + 2,
+            navText: "Modification management",
+            hasSubNav: true,
+            route: "/etrack/modificationMgmnt",
+            subNavs: [
 
-          //     {
-          //       id: "modificationMgmntSub" + 1,
-          //       navText: "Add Modification",
-          //       route: "/etrack/modificationMgmnt/addModification",
-          //     },
-          //     {
-          //       id: "modificationMgmntSub" + 2,
-          //       navText: "CMPC Approval",
-          //       route: "/etrack/modificationMgmnt/cmpcApproval",
-          //     },
-          //   ],
-          // },
+              {
+                id: "modificationMgmntSub" + 1,
+                navText: "Add Modification",
+                route: "/etrack/modificationMgmnt/addModification",
+              },
+              {
+                id: "modificationMgmntSub" + 2,
+                navText: "CMPC Approval",
+                route: "/etrack/modificationMgmnt/cmpcApproval",
+              },
+            ],
+          },
 
           // {
           //   id: "fab" + 3,
@@ -237,62 +242,62 @@ export const metaDataNavbar = [
               },
             ],
           },
-          // {
-          //   id: "costMgmnt" + 2,
-          //   navText: "Hire charges details",
-          //   hasSubNav: true,
-          //   route: "/etrack/hireCharges",
-          //   subNavs: [
-          //     {
-          //       id: "hireCharges" + 1,
-          //       navText: "Procurement",
-          //       route: "/etrack/hireCharges/procurement",
-          //     },
-          //     {
-          //       id: "hireCharges" + 2,
-          //       navText: "Site Approval",
-          //       route: "/etrack/hireCharges/siteApproval",
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: "costMgmnt" + 3,
-          //   navText: "Depreciation management",
-          //   hasSubNav: true,
-          //   route: "/etrack/depreciationMgmnt",
-          //   subNavs: [
-          //     {
-          //       id: "depreciationMgmntSub" + 1,
-          //       navText: "Depreciation Value",
-          //       route: "/etrack/depreciationMgmnt/depreciationValue",
-          //     },
-          //     {
-          //       id: "depreciationMgmntSub" + 2,
-          //       navText: "TWCC Approval",
-          //       route: "/etrack/depreciationMgmnt/twccApproval",
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: "cost" + 5,
-          //   navText: "Transfer Price",
-          //   route: "/reuse/transferPrice",
-          // },
-          // {
-          //   id: "cost" + 6,
-          //   navText: "Site Approval",
-          //   route: "/outSourcing/outSourceSiteApproval",
-          // },
-          // {
-          //   id: "cost" + 7,
-          //   navText: "From Site Approval",
-          //   route: "/reuse/fromSiteApproval",
-          // },
-          // {
-          //   id: "cost" + 8,
-          //   navText: "To Site Approval",
-          //   route: "/reuse/toSiteApproval",
-          // },
+          {
+            id: "costMgmnt" + 2,
+            navText: "Hire charges details",
+            hasSubNav: true,
+            route: "/etrack/hireCharges",
+            subNavs: [
+              {
+                id: "hireCharges" + 1,
+                navText: "Procurement",
+                route: "/etrack/hireCharges/procurement",
+              },
+              {
+                id: "hireCharges" + 2,
+                navText: "Site Approval",
+                route: "/etrack/hireCharges/siteApproval",
+              },
+            ],
+          },
+          {
+            id: "costMgmnt" + 3,
+            navText: "Depreciation management",
+            hasSubNav: true,
+            route: "/etrack/depreciationMgmnt",
+            subNavs: [
+              {
+                id: "depreciationMgmntSub" + 1,
+                navText: "Depreciation Value",
+                route: "/etrack/depreciationMgmnt/depreciationValue",
+              },
+              {
+                id: "depreciationMgmntSub" + 2,
+                navText: "TWCC Approval",
+                route: "/etrack/depreciationMgmnt/twccApproval",
+              },
+            ],
+          },
+          {
+            id: "cost" + 5,
+            navText: "Transfer Price",
+            route: "/reuse/transferPrice",
+          },
+          {
+            id: "cost" + 6,
+            navText: "Site Approval",
+            route: "/outSourcing/outSourceSiteApproval",
+          },
+          {
+            id: "cost" + 7,
+            navText: "From Site Approval",
+            route: "/reuse/fromSiteApproval",
+          },
+          {
+            id: "cost" + 8,
+            navText: "To Site Approval",
+            route: "/reuse/toSiteApproval",
+          },
 
         ],
       },
