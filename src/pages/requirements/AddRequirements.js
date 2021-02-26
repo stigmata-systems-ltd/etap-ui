@@ -44,7 +44,7 @@ class AddRequirement extends Component {
     return (
       <>
         <ContentLoader>
-          <FormContainer formTitle={"Add Requirement"}>
+          <FormContainer formTitle={"Request Creation"}>
             <FormRow>
               <TextInput
                 size="col-md-6"
@@ -62,7 +62,7 @@ class AddRequirement extends Component {
               <SearchableDropDown
                 size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
+                fieldSize="col-md-6"
                 label="Required for WBS"
                 name="requiredWorkBreak"
                 selectOptions={transformDropDownData(
@@ -94,7 +94,7 @@ class AddRequirement extends Component {
               <DateInput
                 size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
+                fieldSize="col-md-6"
                 label="Planned Start Date"
                 name="plannedStartDate"
                 id="plannedStartDate"
@@ -125,7 +125,7 @@ class AddRequirement extends Component {
               <DateInput
                 size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
+                fieldSize="col-md-6"
                 label="Planned Release"
                 name="plannedReleaseDate"
                 id="plannedReleaseDate"
@@ -139,8 +139,8 @@ class AddRequirement extends Component {
               <DateInput
                 size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
-                label="Expected Release"
+                fieldSize="col-md-6"
+                label="Required By"
                 name="expectedReleaseDate"
                 id="expectedReleaseDate"
                 onChange={(e) =>
@@ -155,7 +155,7 @@ class AddRequirement extends Component {
             <div class="form-group row">
               <div class="col-sm-8">
                 <IconTextButton
-                  btnText="Add Site Requirement"
+                  btnText="Requirement"
                   onClick={this.props.addSiteRequirement}
                 />
               </div>

@@ -4,11 +4,11 @@ import Button from "../../common/forms/Button";
 
 export const siteDispatchMetaData = (handleUpdate) => {
   return [
-    {
-      name: "MR Number",
-      selector: "mrNo",
-      sortable: false,
-    },
+    // {
+    //   name: "MR Number",
+    //   selector: "mrNo",
+    //   sortable: false,
+    // },
     {
       name: "DC Number",
       selector: "dispatchNo",
@@ -20,15 +20,16 @@ export const siteDispatchMetaData = (handleUpdate) => {
     //   sortable: false,
     // },
     {
-      name: "Structure Code",
-      selector: "structId",
-      sortable: false,
-    },
-    {
       name: "Structure Name",
       selector: "structureName",
       sortable: false,
     },
+    {
+      name: "Structure Code",
+      selector: "structId",
+      sortable: false,
+    },
+
     {
       name: "Quantity Assigned",
       selector: "createdDateTime",
@@ -58,7 +59,7 @@ export const siteDispatchMetaData = (handleUpdate) => {
               <IconButton
                 id={row.dispatchId}
                 iconName="faList"
-                onClick={() => {}}
+                onClick={() => { }}
               />
             </div>
           </div>

@@ -4,23 +4,23 @@ import Button from "../../common/forms/Button";
 
 export const siteDispatchMetaData = (handleUpdate) => {
   return [
-    {
-      name: "MR Number",
-      selector: "mrNo",
-      sortable: false,
-    },
+    // {
+    //   name: "MR Number",
+    //   selector: "mrNo",
+    //   sortable: false,
+    // },
     {
       name: "DC Number",
       selector: "dispatchNo",
       sortable: false,
     },
     {
-      name: "Structure",
+      name: "Structure Name",
       selector: "structureName",
       sortable: false,
     },
     {
-      name: "Structure ID",
+      name: "Structure Code",
       selector: "structId",
       sortable: false,
     },

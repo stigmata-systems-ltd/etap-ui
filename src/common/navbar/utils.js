@@ -377,9 +377,37 @@ export const metaDataNavbar = [
           },
         ],
       },
-
       {
         id: "7",
+        navText: "Dispatch Mgmt",
+        iconName: "faTruck",
+        hasSubNav: true,
+        isSubNavOpen: false,
+        route: "/dispatch",
+        hasMargin: true,
+        subNavs: [
+          {
+            id: "dispatchSub" + 1,
+            navText: "Dispatch",
+            iconName: "faTruck",
+            route: "/etrack/dispatch/twccDispatch",
+          },
+          {
+            id: "dispatchSub" + 2,
+            navText: "Procurement",
+            iconName: "faBusinessTime",
+            route: "/etrack/dispatch/procurement",
+          },
+          {
+            id: "dispatchSub" + 3,
+            navText: "Vendor",
+            iconName: "faUser",
+            route: "/etrack/dispatch/vendor",
+          },
+        ],
+      },
+      {
+        id: "8",
         navText: "Masters",
         iconName: "faEdit",
         hasSubNav: true,
@@ -457,35 +485,7 @@ export const metaDataNavbar = [
           },
         ],
       },
-      {
-        id: "8",
-        navText: "Dispatch Mgmt",
-        iconName: "faTruck",
-        hasSubNav: true,
-        isSubNavOpen: false,
-        route: "/dispatch",
-        hasMargin: true,
-        subNavs: [
-          {
-            id: "dispatchSub" + 1,
-            navText: "Dispatch",
-            iconName: "faTruck",
-            route: "/etrack/dispatch/twccDispatch",
-          },
-          {
-            id: "dispatchSub" + 2,
-            navText: "Procurement",
-            iconName: "faBusinessTime",
-            route: "/etrack/dispatch/procurement",
-          },
-          {
-            id: "dispatchSub" + 3,
-            navText: "Vendor",
-            iconName: "faUser",
-            route: "/etrack/dispatch/vendor",
-          },
-        ],
-      },
+      
       // {
       //   id: "8",
       //   navText: "Reports",

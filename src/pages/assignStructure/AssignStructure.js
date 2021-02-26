@@ -68,42 +68,6 @@ class AssignStructure extends Component {
             <FormRow>
               <TextInput
                 size="col-md-4"
-                label="Project"
-                name="projectName"
-                id="projectName"
-                labelSize="col-sm-4"
-                fieldSize="col-sm-8"
-                // value={this.props.scr.projName}
-                value="PROJ0001"
-                disabled
-              />
-              <TextInput
-                size="col-md-4"
-                labelSize="col-md-4 pr-0"
-                fieldSize="col-md-8 "
-                label="Structure"
-                name="structureName"
-                id="structureName"
-                // value={this.props.scr.structName}
-                value="Launching Girders"
-                disabled
-              />
-              <TextInput
-                size="col-md-4"
-                labelSize="col-md-4 pr-0"
-                fieldSize="col-md-8 "
-                label="Structure Code"
-                name="structureCode"
-                id="structureCode"
-                // value={this.props.scr.strcutureType}
-                value="STR000001"
-                placeholder="Auto Fetch"
-                disabled
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8 "
                 label="IC"
@@ -128,26 +92,59 @@ class AssignStructure extends Component {
               />
               <TextInput
                 size="col-md-4"
-                labelSize="col-md-4 px-0"
-                fieldSize="col-md-8 "
-                label="Estimated Weight"
-                name="estimatedWeight"
-                id="estimatedWeight"
-                onChange={(e) =>
-                  this.props.handleChangeEstimatedWeight(e.target.value)
-                }
-                value={this.props.scr.estimatedWeight}
+                label="Project"
+                name="projectName"
+                id="projectName"
+                labelSize="col-sm-4"
+                fieldSize="col-sm-8"
+                // value={this.props.scr.projName}
+                value="PROJ0001"
+                disabled
               />
+
             </FormRow>
-            <MultiFileInput
-              innerRef={this.fileInputRef}
-              style={{ display: "none" }}
-              onChange={(e) => this.props.handleFileUpload(e.target.files)}
-              value={this.props.scr.fileInput}
-            />
             <FormRow>
               <TextInput
-                label="No. of Components"
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Struct. Family"
+                name="structureName"
+                id="structureName"
+                // value={this.props.scr.structName}
+                value="LG&Bridge Builders"
+                disabled
+              />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Structure"
+                name="structureName"
+                id="structureName"
+                // value={this.props.scr.structName}
+                value="Launching Girders"
+                disabled
+              />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Struct. Code"
+                name="structureCode"
+                id="structureCode"
+                // value={this.props.scr.strcutureType}
+                value="STR000001"
+                placeholder="Auto Fetch"
+                disabled
+              />
+
+
+            </FormRow>
+
+            <FormRow>
+              <TextInput
+                label="Component"
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -160,19 +157,37 @@ class AssignStructure extends Component {
                 // }
                 // value={this.props.scr.drawingNum}
                 placeholder="No of Components"
-                onChange={() => {}}
+                onChange={() => { }}
+              />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8 "
+                label="Est. Weight"
+                name="estimatedWeight"
+                id="estimatedWeight"
+                onChange={(e) =>
+                  this.props.handleChangeEstimatedWeight(e.target.value)
+                }
+                value={this.props.scr.estimatedWeight}
               />
               <InputGroupButton
                 size="col-md-4"
-                label="Dr No"
-                labelSize="col-md-2"
-                fieldSize="col-md-10 px-0"
-                onChange={() => {}}
+                label="Dr.No"
+                labelSize="col-md-3"
+                fieldSize="col-md-9"
+                onChange={() => { }}
                 value="O17078-Q-BR-CM-FB-1713"
                 btnText={<FaIcon iconName="faFileAlt" />}
                 onClick={() => this.fileInputRef.current.click()}
               />
             </FormRow>
+            <MultiFileInput
+              innerRef={this.fileInputRef}
+              style={{ display: "none" }}
+              onChange={(e) => this.props.handleFileUpload(e.target.files)}
+              value={this.props.scr.fileInput}
+            />
             <FormRow>
               {this.getFiles(this.props.scr.files).map((file, index) => (
                 <Col6 size="col-md-3">
@@ -267,12 +282,12 @@ class AssignStructure extends Component {
             <FormRow className="d-flex justify-content-center">
               <Button
                 btnText="Complete"
-                onClick={() => {}}
+                onClick={() => { }}
                 btnType="btn-primary mr-3"
               />
               <Button
                 btnText="Discard"
-                onClick={() => {}}
+                onClick={() => { }}
                 btnType="btn-danger mr-3"
               />
             </FormRow>

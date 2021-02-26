@@ -46,7 +46,7 @@ class TwccDispatchView extends Component {
                     />
                 )}
                 <TwccDispatchViewMore showTwccDispatchModal={this.props.twccDispatch.showTwccDispatchMoreModal} />
-                <FormContainer formTitle={"TWCC Dispatch"}>
+                <FormContainer formTitle={"Dispatch"}>
                     {this.props.twccDispatch.twccDispatchList && (
                         <CustomDataTable
                             metaData={listTwccDispatchMetaData(

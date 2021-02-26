@@ -33,7 +33,10 @@ class CreateDispatch extends Component {
     }
   };
 
+  
+
   render() {
+    let dataBind=[{}];
     return (
       <>
         <ContentLoader>
@@ -46,7 +49,7 @@ class CreateDispatch extends Component {
             />
           )}
           <TwccDispatchViewMore showAddComponentModal={this.props.createDispatch.showTwccDispatchMoreModal} />
-          <FormContainer formTitle={"TWCC Dispatch"}>
+          <FormContainer formTitle={"Dispatch"}>
             {this.props.createDispatch.siteReqDetails && (
               <CustomDataTable
                 metaData={twccDispatchMetaData(
