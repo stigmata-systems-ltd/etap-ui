@@ -259,7 +259,7 @@ class DispatchStructure extends Component {
                 }}
                 disable={this.props.createDispatch.disableOutSourcing}
               />
-            </FormRow>
+            </FormRow><br/>
             <FormRow className="row">
 
 
@@ -269,11 +269,18 @@ class DispatchStructure extends Component {
                     <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
                   </button>
                 </div>
+                
+                <div style={{ textAlign: "center",marginRight: "50px"  }}>
+                  <button className="btn btn-md btn-primary" onClick={(data)=>this.previous(data)}>
+                    SAVE
+                  </button>
+                </div>
                 <Button
                   btnText="DISPATCH"
                   onClick={this.props.saveAssignStruct}
                   btnType="primary"
                 />
+               
 
               </Col6>
             </FormRow>

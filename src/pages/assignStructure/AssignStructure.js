@@ -5,35 +5,21 @@ import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
 import MultiFileInput from "../../common/forms/MultiFileInput";
 import Button from "../../common/forms/Button";
-import SimpleDropDown from "../../common/forms/SimpleDropDown";
 import CustomAlert from "../../common/forms/customAlert";
 import Loader from "../../common/Loader";
-import DataTable from "../../common/DataTable";
 import CustomDataTable from "../../common/CustomDataTable";
-import SearchableDropDown from "../../common/forms/SearchableDropDown";
-import { transformDropDownData } from "../../utils/dataTransformer";
+
 import ExportExcel from "../../common/ExportExcel";
 import StructureAttributesTable from "./StructureAttributesTable";
 import FaIcon from "../../common/FaIcon";
 
-import {
-  _componentInputData,
-  _componentInputBodyData,
-  _assignStructureInputData,
-  _assignStructureBodyData,
-  structAttriMetaData,
-  componentsMetaData,
-  getExcelData,
-  getComponentTableData,
-} from "./utils";
+import { componentsMetaData, getExcelData } from "./utils";
 
 import Col6 from "../../common/forms/Col6";
 import { CSVReader } from "react-papaparse";
 import IconTextButton from "../../common/forms/IconTextButton";
 import IconButton from "../../common/forms/IconButton";
-import DownloadToExcelButton from "../../common/forms/DownloadToExcelButton";
-import { CSVDownloader } from "react-papaparse";
-import Col from "reactstrap/lib/Col";
+
 import InputGroupButton from "../../common/forms/InputGroupButton";
 
 class AssignStructure extends Component {
@@ -236,7 +222,7 @@ class AssignStructure extends Component {
               /> */}
             </FormRow>
             <br />
-            <FormRow className="excel-upload-btn">
+            <FormRow className="excel-upload-btn mb-2">
               <CSVReader
                 onDrop={this.props.handleOnDrop}
                 onError={this.handleOnError}
@@ -249,10 +235,12 @@ class AssignStructure extends Component {
                   <FaIcon iconName="faUpload" /> Upload Excel Template
                 </span>
               </CSVReader>
-
+            </FormRow>
+            <FormRow>
               <CustomDataTable
                 metaData={componentsMetaData()}
-                bodyData={getComponentTableData(this.props.scr)}
+                // bodyData={getComponentTableData(this.props.scr)}
+                bodyData={[{}, {}]}
                 // progressPending={this.props.assignStructure.isLoading}
                 pagination={true}
                 paginationTotalRows={

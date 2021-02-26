@@ -227,22 +227,37 @@ export const metaDataNavbar = [
         subNavs: [
           {
             id: "costMgmnt" + 1,
-            navText: "Cost Accounting",
-            hasSubNav: true,
+            navText: "Fabrication Cost",
+            iconName: "faMoneyBill",
+            // hasSubNav: true,
             route: "/etrack/fabCost",
-            subNavs: [
-              {
-                id: "costMgmntSub" + 1,
-                navText: "Procurement",
-                route: "/etrack/fabCost/procurement",
-              },
-              {
-                id: "costMgmntSub" + 2,
-                navText: "Site Approval",
-                route: "/etrack/fabCost/siteApproval",
-              },
-            ],
+            // subNavs: [
+            //   {
+            //     id: "costMgmntSub" + 1,
+            //     navText: "Procurement",
+            //     route: "/etrack/fabCost/procurement",
+            //   },
+            //   {
+            //     id: "costMgmntSub" + 2,
+            //     navText: "Site Approval",
+            //     route: "/etrack/fabCost/siteApproval",
+            //   },
+            // ],
           },
+          {
+            id: "costMgmnt" + 2,
+            navText: "Monthly Hire Charge",
+            iconName: "faTasks",
+            // hasSubNav: true,
+            route: "/etrack/fabCost",
+          },
+          {
+            id: "costMgmnt" + 3,
+            navText: "BV. & DPR.",
+            iconName: "faBusinessTime",
+            // hasSubNav: true,
+            route: "/etrack/fabCost",
+          }
           // {
           //   id: "costMgmnt" + 2,
           //   navText: "Hire charges details",
@@ -412,7 +427,7 @@ export const metaDataNavbar = [
         iconName: "faEdit",
         hasSubNav: true,
         isSubNavOpen: false,
-        route: "/masters",
+        route: "/etrack/masters",
         hasMargin: true,
         subNavs: [
           {
@@ -470,15 +485,9 @@ export const metaDataNavbar = [
             iconName: "faBoxes",
             route: "/etrack/masters/viewComponent",
           },
+         
           {
             id: "mastersSub" + 10,
-            navText: "Unavailability Reason",
-            iconName: "faBan",
-            route: "/etrack/masters/viewComponent",
-          },
-
-          {
-            id: "mastersSub" + 11,
             navText: "Vendors",
             iconName: "faStore",
             route: "/etrack/masters/viewVendors",

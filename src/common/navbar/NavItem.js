@@ -24,7 +24,7 @@ class NavItem extends Component {
     };
   }
   componentDidMount = () => {
-    console.log("didmount")
+    console.log("didmount");
     this.setActiveMenu(this.props.navData);
   };
   renderSubNavs = (subNavs, id) => {
@@ -71,9 +71,12 @@ class NavItem extends Component {
   };
   setActiveMenu = (navData) => {
     const parentPath = "/" + this.props.history.location.pathname.split("/")[1];
-    const lvl1Path = parentPath + "/" + this.props.history.location.pathname.split("/")[2];
-    const lvl2Path = lvl1Path + "/" + this.props.history.location.pathname.split("/")[3];
-    const lvl3Path = lvl2Path + "/" + this.props.history.location.pathname.split("/")[4];
+    const lvl1Path =
+      parentPath + "/" + this.props.history.location.pathname.split("/")[2];
+    const lvl2Path =
+      lvl1Path + "/" + this.props.history.location.pathname.split("/")[3];
+    const lvl3Path =
+      lvl2Path + "/" + this.props.history.location.pathname.split("/")[4];
 
     navData.map((nav) => {
       if (nav.route === parentPath) {
@@ -83,18 +86,21 @@ class NavItem extends Component {
             isLvl1Open: true,
             currentOpenParentId: nav.id,
           });
-          if(nav.hasSubNav) {
-            nav.subNavs.map(lvl1Nav => {
-              if(lvl1Nav.route === lvl1Path) {
+          if (nav.hasSubNav) {
+            nav.subNavs.map((lvl1Nav) => {
+              if (lvl1Nav.route === lvl1Path) {
                 this.setState({ activeLvl1: lvl1Nav.id });
-                if (this.state.currentOpenLvl1Id !== lvl1Nav.id && lvl1Nav.hasSubNav) {
+                if (
+                  this.state.currentOpenLvl1Id !== lvl1Nav.id &&
+                  lvl1Nav.hasSubNav
+                ) {
                   this.setState({
                     isLvl2Open: true,
                     currentOpenLvl1Id: lvl1Nav.id,
                   });
                 }
               }
-            })
+            });
           }
         }
       }
@@ -144,27 +150,35 @@ class NavItem extends Component {
                 }`}
                 onClick={() => this.showLvl4(navItem, true)}
               >
-                {navItem.iconName && (
-                  <FontAwesomeIcon
-                    key={"navIcon" + navItem.id}
-                    icon={fa[navItem.iconName]}
-                    className="navIcons"
-                  />
-                )}
-                <span class="menu-title">{navItem.navText}</span>
-                {navItem.hasSubNav &&
-                  (this.state.isLvl3Open &&
-                  this.state.activeLvl3 === navItem.id ? (
-                    <FontAwesomeIcon
-                      icon={fa.faAngleDown}
-                      className="menu-arrow"
-                    />
-                  ) : (
-                    <FontAwesomeIcon
-                      icon={fa.faAngleRight}
-                      className="menu-arrow"
-                    />
-                  ))}
+                <div className="row w-100 align-items-end">
+                  <div className="col-md-1 px-0">
+                    {navItem.iconName && (
+                      <FontAwesomeIcon
+                        key={"navIcon" + navItem.id}
+                        icon={fa[navItem.iconName]}
+                        className="navIcons"
+                      />
+                    )}
+                  </div>
+                  <div className="col-md-10 pl-3 text-left">
+                    <span class="menu-title">{navItem.navText}</span>
+                  </div>
+                  <div className="d-flex justify-content-end">
+                    {navItem.hasSubNav &&
+                      (this.state.isLvl3Open &&
+                      this.state.activeLvl3 === navItem.id ? (
+                        <FontAwesomeIcon
+                          icon={fa.faAngleDown}
+                          className="menu-arrow"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={fa.faAngleRight}
+                          className="menu-arrow"
+                        />
+                      ))}
+                  </div>
+                </div>
               </button>
               {/* {this.renderLvl3(navItem.subNavs, navItem.id)} */}
             </li>
@@ -214,27 +228,35 @@ class NavItem extends Component {
                 }`}
                 onClick={() => this.showLvl3(navItem)}
               >
-                {navItem.iconName && (
-                  <FontAwesomeIcon
-                    key={"navIcon" + navItem.id}
-                    icon={fa[navItem.iconName]}
-                    className="navIcons"
-                  />
-                )}
-                <span class="menu-title">{navItem.navText}</span>
-                {navItem.hasSubNav &&
-                  (this.state.isLvl2Open &&
-                  this.state.activeLvl2 === navItem.id ? (
-                    <FontAwesomeIcon
-                      icon={fa.faAngleDown}
-                      className="menu-arrow"
-                    />
-                  ) : (
-                    <FontAwesomeIcon
-                      icon={fa.faAngleRight}
-                      className="menu-arrow"
-                    />
-                  ))}
+                <div className="row w-100 align-items-end">
+                  <div className="col-md-1 px-0">
+                    {navItem.iconName && (
+                      <FontAwesomeIcon
+                        key={"navIcon" + navItem.id}
+                        icon={fa[navItem.iconName]}
+                        className="navIcons"
+                      />
+                    )}
+                  </div>
+                  <div className="col-md-10 pl-3 text-left">
+                    <span class="menu-title">{navItem.navText}</span>
+                  </div>
+                  <div className="d-flex justify-content-end">
+                    {navItem.hasSubNav &&
+                      (this.state.isLvl2Open &&
+                      this.state.activeLvl2 === navItem.id ? (
+                        <FontAwesomeIcon
+                          icon={fa.faAngleDown}
+                          className="menu-arrow"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={fa.faAngleRight}
+                          className="menu-arrow"
+                        />
+                      ))}
+                  </div>
+                </div>
               </button>
               {navItem.hasSubNav &&
                 this.state.isLvl3Open &&
@@ -286,25 +308,33 @@ class NavItem extends Component {
                 }`}
                 onClick={() => this.showLvl2(navItem)}
               >
-                <FontAwesomeIcon
-                  key={"navIcon" + navItem.id}
-                  icon={fa[navItem.iconName]}
-                  className="navIcons"
-                />
-                <span class="menu-title">{navItem.navText}</span>
-                {navItem.hasSubNav &&
-                  (this.state.isLvl2Open &&
-                  this.state.activeLvl1 === navItem.id ? (
+                <div className="row w-100 align-items-end">
+                  <div className="col-md-1 px-0">
                     <FontAwesomeIcon
-                      icon={fa.faAngleDown}
-                      className="menu-arrow"
+                      key={"navIcon" + navItem.id}
+                      icon={fa[navItem.iconName]}
+                      className="navIcons"
                     />
-                  ) : (
-                    <FontAwesomeIcon
-                      icon={fa.faAngleRight}
-                      className="menu-arrow"
-                    />
-                  ))}
+                  </div>
+                  <div className="col-md-10 pl-3 text-left">
+                    <span class="menu-title">{navItem.navText}</span>
+                  </div>
+                  <div className="d-flex justify-content-end">
+                    {navItem.hasSubNav &&
+                      (this.state.isLvl2Open &&
+                      this.state.activeLvl1 === navItem.id ? (
+                        <FontAwesomeIcon
+                          icon={fa.faAngleDown}
+                          className="menu-arrow"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={fa.faAngleRight}
+                          className="menu-arrow"
+                        />
+                      ))}
+                  </div>
+                </div>
               </button>
               {navItem.hasSubNav &&
                 this.state.isLvl2Open &&
