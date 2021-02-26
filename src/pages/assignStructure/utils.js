@@ -162,36 +162,8 @@ export const structAttriMetaData = (onChangeValue) => {
 export const componentsMetaData = (onChangeValue) => {
   return [
     {
-      name: "IC",
-      selector: "ic",
-      sortable: false,
-
-    },
-    {
-      name: "BU",
-      selector: "bu",
-      sortable: false,
-
-    },
-    {
-      name: "Project",
-      selector: "project",
-      sortable: false,
-
-    },
-    {
-      name: "Structure Family",
-      selector: "structFamily",
-      sortable: false,
-    },
-    {
-      name: "Structure",
-      selector: "structure",
-      sortable: false,
-    },
-    {
-      name: "Structure ID",
-      selector: "structureId",
+      name: "Component",
+      selector: "component",
       sortable: false,
     },
     {
@@ -200,13 +172,8 @@ export const componentsMetaData = (onChangeValue) => {
       sortable: false,
     },
     {
-      name: "Component",
-      selector: "component",
-      sortable: false,
-    },
-    {
-      name: "Group",
-      selector: "group",
+      name: "Component ID",
+      selector: "compType",
       sortable: false,
     },
     {
@@ -214,6 +181,12 @@ export const componentsMetaData = (onChangeValue) => {
       selector: "compNum",
       sortable: false,
     },
+    {
+      name: "Group",
+      selector: "group",
+      sortable: false,
+    },
+
     {
       name: "Drawing No",
       selector: "drawingNum",
@@ -331,14 +304,13 @@ export const listAssignedStructureMetaData = (
       name: "Structure Name",
       selector: "structureName",
       sortable: false,
-     
     },
-    
+
     {
       name: "Structure ID",
       selector: "structureCode",
       sortable: false,
-      width:"110px",
+      width: "110px",
       cell: (row) => {
         return (
           <>
@@ -365,14 +337,14 @@ export const listAssignedStructureMetaData = (
       name: "Component Count",
       selector: "componentsCount",
       sortable: false,
-      width:"90px"
+      width: "90px",
     },
-    
+
     {
       name: "Total Weight",
       selector: "totalWeight",
       sortable: false,
-      width:"80px"
+      width: "80px",
     },
     {
       name: "Structure Status",
@@ -387,7 +359,7 @@ export const listAssignedStructureMetaData = (
     {
       name: "Actions",
       sortable: false,
-      width:"70px",
+      width: "70px",
       cell: (row) => {
         return (
           <>
@@ -398,15 +370,10 @@ export const listAssignedStructureMetaData = (
               />
             }
           </>
-          
         );
-        
       },
-    
     },
-    
   ];
-  
 };
 
 export const transformAssignedStructureList = (assignStructureList) => {

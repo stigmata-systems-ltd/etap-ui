@@ -384,7 +384,7 @@ export const metaDataNavbar = [
         iconName: "faEdit",
         hasSubNav: true,
         isSubNavOpen: false,
-        route: "/masters",
+        route: "/etrack/masters",
         hasMargin: true,
         subNavs: [
           {
@@ -463,7 +463,7 @@ export const metaDataNavbar = [
         iconName: "faTruck",
         hasSubNav: true,
         isSubNavOpen: false,
-        route: "/dispatch",
+        route: "/etrack/dispatch",
         hasMargin: true,
         subNavs: [
           {
