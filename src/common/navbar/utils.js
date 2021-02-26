@@ -27,7 +27,7 @@ export const metaDataNavbar = [
     subNavs: [
       {
         id: "etrack" + 1,
-        navText: "Structure Mgt.",
+        navText: "Structure Mgmt.",
         iconName: "faBuilding",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -36,19 +36,19 @@ export const metaDataNavbar = [
         subNavs: [
           {
             id: "structMgmnt" + 1,
-            navText: "Structure creation",
+            navText: "Create",
             iconName: "faPlus",
             route: "/etrack/structure/assignStructure",
           },
           {
             id: "structMgmnt" + 2,
-            navText: "Modification Mgt.",
+            navText: "Modify",
             iconName: "faEdit",
             route: "/etrack/structure/assignStructure",
           },
           {
             id: "structMgmnt" + 3,
-            navText: "Structure Mgt.",
+            navText: "View",
             iconName: "faEye",
             route: "/etrack/structure/viewStructure",
           },
@@ -56,7 +56,7 @@ export const metaDataNavbar = [
       },
       {
         id: "etrack" + 2,
-        navText: "Requirement Mgt.",
+        navText: "Requirement Mgmt.",
         iconName: "faClock",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -163,7 +163,7 @@ export const metaDataNavbar = [
       // },
       {
         id: "4",
-        navText: "Fabrication Mgt.",
+        navText: "Fabrication Mgmt.",
         iconName: "faObjectGroup",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -218,7 +218,7 @@ export const metaDataNavbar = [
       },
       {
         id: "5",
-        navText: "Cost Mgt.",
+        navText: "Cost Mgmt.",
         iconName: "faFileArchive",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -304,7 +304,7 @@ export const metaDataNavbar = [
       },
       {
         id: "6",
-        navText: "Life cycle Mgt.",
+        navText: "Life cycle Mgmt.",
         iconName: "faRandom",
         hasSubNav: true,
         isSubNavOpen: false,
@@ -463,7 +463,7 @@ export const metaDataNavbar = [
       },
       {
         id: "8",
-        navText: "Dispatch Mgt",
+        navText: "Dispatch Mgmt",
         iconName: "faTruck",
         hasSubNav: true,
         isSubNavOpen: false,
