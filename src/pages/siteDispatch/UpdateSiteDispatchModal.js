@@ -6,6 +6,8 @@ import SearchableDropDown from "../../common/forms/SearchableDropDown";
 import Label from "../../common/forms/Label";
 import DateInput from "../../common/forms/DateInput";
 import FileInput from "../../common/forms/FileInput";
+import IconButton from "../../common/forms/IconButton";
+import IconTextButton from "../../common/forms/IconTextButton";
 
 class UpdateSiteDispatchModal extends Component {
   constructor() {
@@ -14,6 +16,7 @@ class UpdateSiteDispatchModal extends Component {
       structureNames: [],
     };
   }
+  inputRef = React.createRef();
   render() {
     let tempArr = [];
     this.props.siteDispatch.structureListCode.map((item) => {
@@ -38,10 +41,7 @@ class UpdateSiteDispatchModal extends Component {
         isShowFooter={true}
       >
         <FormRow>
-          <Label label="Vendor Name" />
           <Label label="To Site" />
-        </FormRow>
-        <FormRow>
           <SearchableDropDown
             label="Structure Name"
             name="structureName"
@@ -50,6 +50,19 @@ class UpdateSiteDispatchModal extends Component {
             onChange={(item) =>
               this.props.handleChangeStructureName(item.value)
             }
+          />
+        </FormRow>
+        <FormRow>
+          <TextInput
+            label="Structure Code"
+            name="structureCode"
+            id="structureCode"
+            // value={
+            //   this.props.siteDispatch.activeItem.monthlyRent
+            //     ? this.props.siteDispatch.activeItem.monthlyRent
+            //     : 0
+            // }
+            disabled
           />
           <DateInput
             label="Dispatch Date"
@@ -60,7 +73,26 @@ class UpdateSiteDispatchModal extends Component {
             }
           />
         </FormRow>
-        {this.props.siteDispatch.activeItem.serviceTypeId === 1 && (
+        <FormRow>
+          <IconTextButton
+            className="btn-rounded"
+            fieldSize="col-md-7"
+            iconName="faPlus"
+            size="lg"
+            btnText="Upload WO"
+            onClick={() => this.inputRef.current.click()}
+          />
+          <FileInput
+            innerRef={this.inputRef}
+            size="col-md-6"
+            style={{ display: "none" }}
+            onChange={(e) =>
+              this.props.handleChangeUploadedFile(e.target.files[0])
+            }
+          />
+        </FormRow>
+
+        {/* {this.props.siteDispatch.activeItem.serviceTypeId === 1 && (
           <>
             <FormRow>
               <TextInput
@@ -92,8 +124,8 @@ class UpdateSiteDispatchModal extends Component {
               />
             </FormRow>
           </>
-        )}
-        {this.props.siteDispatch.activeItem.serviceTypeId === 2 && (
+        )} */}
+        {/* {this.props.siteDispatch.activeItem.serviceTypeId === 2 && (
           <>
             <FormRow>
               <TextInput
@@ -135,7 +167,7 @@ class UpdateSiteDispatchModal extends Component {
               <FileInput size="col-md-6" />
             </FormRow>
           </>
-        )}
+        )} */}
       </Modal>
     );
   }

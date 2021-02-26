@@ -15,29 +15,58 @@ export const siteDispatchMetaData = (handleUpdate) => {
       sortable: false,
     },
     {
-      name: "Status",
-      selector: "status",
+      name: "Structure",
+      selector: "structureName",
       sortable: false,
     },
     {
-      name: "Created Date",
-      selector: "createdDateTime",
+      name: "Structure ID",
+      selector: "structId",
       sortable: false,
     },
-
+    {
+      name: "No. of Components",
+      selector: "structId",
+      sortable: false,
+    },
+    {
+      name: "Requested By",
+      selector: "structId",
+      sortable: false,
+    },
+    {
+      name: "Quantity Requested",
+      selector: "structId",
+      sortable: false,
+    },
+    // {
+    //   name: "Created Date",
+    //   selector: "createdDateTime",
+    //   sortable: false,
+    // },
     {
       name: "Actions",
       sortable: false,
+      center: true,
       cell: (row) => {
         return (
-          <>
-            <IconButton
-              id={row.dispatchId}
-              iconName="faEdit"
-              onClick={() => handleUpdate(row.dispatchId)}
-            />
-            <Button btnText="View More" btnType="btn-primary btn-sm" />
-          </>
+          <div className="row">
+            <div className="col-md-5">
+              <IconButton
+                id={row.dispatchId}
+                iconName="faEdit"
+                onClick={() => handleUpdate(row.dispatchId)}
+              />
+            </div>
+            <div className="col-md-5">
+              {/* <Button btnText="View More" btnType="btn-primary btn-sm" /> */}
+              <IconButton
+                id={row.dispatchId}
+                iconName="faList"
+                onClick={() => {}}
+              />
+            </div>
+          </div>
         );
       },
     },

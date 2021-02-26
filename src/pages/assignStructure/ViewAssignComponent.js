@@ -10,6 +10,9 @@ import CustomDataTable from "../../common/CustomDataTable";
 import TableFilter from "../../common/TableFilter";
 import Col6 from "../../common/forms/Col6";
 import AssignComponentViewMore from "../../container/assignStructure/assignComponentViewMore";
+import FormRow from "../../common/forms/FormRow";
+import PieChart from "../../common/forms/charts/PieChart1"
+import TextInput from "../../common/forms/TextInput"
 
 class ViewAssignComponent extends Component {
   constructor(props) {
@@ -36,6 +39,112 @@ class ViewAssignComponent extends Component {
         )}
         <AssignComponentViewMore showAddComponentModal={this.props.assignStructure.showAssignComponentMoreModal} />
         <FormContainer formTitle={"View Component"}>
+          <FormRow>
+          <div className="col-md-6">
+            <PieChart></PieChart>
+          </div>
+          <div className="col-md-6">
+            <PieChart></PieChart>
+          </div>
+          </FormRow>
+          <FormRow>
+          <TextInput
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
+                label="Structure"
+                name="Structure"
+                id="structure"
+                // value={this.state.projectName}
+                value="Launching girders"
+                disabled={true}
+              />
+              <TextInput
+                size="col-md-4"
+                fieldSize="col-md-8"
+                labelSize="col-md-4"
+                label="Structure id"
+                name="Structure id"
+                id="structure id"
+                // value={this.state.projectName}
+                value="STR000001"
+                disabled={true}
+              />
+              <TextInput
+                size="col-md-4"
+                fieldSize="col-md-8"
+                labelsize="col-md-4"
+                name="Project"
+                label="Project"
+                id="project"
+                // value={this.state.projectName}
+                value="BMRC RT 02"
+                disabled={true}
+              />
+              
+          </FormRow>
+          <FormRow>
+          <TextInput
+                size="col-md-6"
+                fieldSize="col-md-8"
+                labelsize="col-md-4"
+                label="BU"
+                name="bu"
+                id="bu"
+                // value={this.state.projectName}
+                value="metro"
+                disabled={true}
+              />
+              <TextInput
+                size="col-md-6"
+                fieldSize="col-md-8"
+                labelSize="col-md-4"
+                label="IC"
+                name="ic"
+                id="ic"
+                // value={this.state.projectName}
+                value="transportation infrastructure"
+                disabled={true}
+              />
+          </FormRow>
+          {/* <FormRow>
+          <TextInput
+                size="col-md-3"
+                fieldSize="col-md-8"
+                name="projectName"
+                id="projectName"
+                value={this.state.projectName}
+                placeholder="Auto Fetch"
+                disabled={true}
+              />
+              <TextInput
+                size="col-md-3"
+                fieldSize="col-md-8"
+                name="projectName"
+                id="projectName"
+                value={this.state.projectName}
+                placeholder="Auto Fetch"
+                disabled={true}
+              />
+              <TextInput
+              size="col-md-3"
+              fieldSize="col-md-8"
+              name="projectName"
+              id="projectName"
+              value={this.state.projectName}
+              placeholder="Auto Fetch"
+              disabled={true}
+            />
+            <TextInput
+            size="col-md-3"
+            fieldSize="col-md-8"
+            name="projectName"
+            id="projectName"
+            value={this.state.projectName}
+            placeholder="Auto Fetch"
+            disabled={true}
+          />
+          </FormRow> */}
           {this.props.assignStructure.assignComponentList.components && (
             <CustomDataTable
               metaData={listAssignedComponentMetaData(

@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
         type: SET_ACTIVE_ITEM,
         payload: id,
       });
-      dispatch(getStructureListCode(id, "VENDOR"));
+      // dispatch(getStructureListCode(id, "VENDOR"));
     },
     closeUpdateSiteDispatchModal() {
       dispatch({

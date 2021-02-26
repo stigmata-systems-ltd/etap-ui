@@ -13,7 +13,7 @@ class Procurement extends Component {
     super(props);
   }
   componentDidMount() {
-    this.props.getSiteDispatchDetails();
+    // this.props.getSiteDispatchDetails();
   }
 
   render() {
@@ -38,7 +38,8 @@ class Procurement extends Component {
                 metaData={siteDispatchMetaData(
                   this.props.showAssignVendorModal
                 )}
-                bodyData={this.props.procurement.siteDispatchDetails}
+                // bodyData={this.props.procurement.siteDispatchDetails}
+                bodyData={[{}, {}]}
                 progressPending={this.props.procurement.isLoading}
                 pagination={true}
                 paginationTotalRows={
