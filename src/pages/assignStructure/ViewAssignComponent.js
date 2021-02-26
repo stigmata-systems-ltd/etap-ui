@@ -47,12 +47,12 @@ class ViewAssignComponent extends Component {
             <PieChart></PieChart>
           </div>
           </FormRow>
-          <FormRow>
+          <FormRow className="mt-5 mb-4">
           <TextInput
-                size="col-md-4"
-                labelSize="col-md-4"
-                fieldSize="col-md-8"
-                label="Structure"
+                size="col-md-3"
+                // labelSize="col-md-4"
+                fieldSize="col-md-12"
+                // label="Structure"
                 name="Structure"
                 id="structure"
                 // value={this.state.projectName}
@@ -60,10 +60,10 @@ class ViewAssignComponent extends Component {
                 disabled={true}
               />
               <TextInput
-                size="col-md-4"
-                fieldSize="col-md-8"
-                labelSize="col-md-4"
-                label="Structure id"
+                size="col-md-3"
+                fieldSize="col-md-12"
+                // labelSize="col-md-4"
+                // label="Structure id"
                 name="Structure id"
                 id="structure id"
                 // value={this.state.projectName}
@@ -71,41 +71,41 @@ class ViewAssignComponent extends Component {
                 disabled={true}
               />
               <TextInput
-                size="col-md-4"
-                fieldSize="col-md-8"
-                labelsize="col-md-4"
+                size="col-md-2"
+                fieldSize="col-md-12"
+                // labelsize="col-md-4"
                 name="Project"
-                label="Project"
+                // label="Project"
                 id="project"
                 // value={this.state.projectName}
                 value="BMRC RT 02"
                 disabled={true}
               />
-              
-          </FormRow>
-          <FormRow>
-          <TextInput
-                size="col-md-6"
-                fieldSize="col-md-8"
-                labelsize="col-md-4"
-                label="BU"
+              <TextInput
+                size="col-md-2"
+                fieldSize="col-md-12"
+                // labelsize="col-md-4"
+                // label="BU"
                 name="bu"
                 id="bu"
                 // value={this.state.projectName}
                 value="metro"
                 disabled={true}
               />
-              <TextInput
-                size="col-md-6"
-                fieldSize="col-md-8"
-                labelSize="col-md-4"
-                label="IC"
+          <TextInput
+                size="col-md-2"
+                fieldSize="col-md-12"
+                // labelSize="col-md-4"
+                // label="IC"
                 name="ic"
                 id="ic"
                 // value={this.state.projectName}
-                value="transportation infrastructure"
+                value="HCIC"
                 disabled={true}
               />
+          </FormRow>
+          <FormRow>
+              
           </FormRow>
           {/* <FormRow>
           <TextInput

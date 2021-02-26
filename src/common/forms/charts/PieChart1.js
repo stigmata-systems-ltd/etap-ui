@@ -23,7 +23,7 @@ class PieChart extends Component {
 				dataPoints: [
 					{ y: 35, label: "Completed" },
 					{ y: 35, label: "InProgress" },
-					{ y: 30, label: "Yet To Start" }
+					// { y: 30, label: "Yet To Start" }
 				]
 			}]
 		}
