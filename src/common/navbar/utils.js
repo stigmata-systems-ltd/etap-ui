@@ -222,7 +222,7 @@ export const metaDataNavbar = [
         iconName: "faFileArchive",
         hasSubNav: true,
         isSubNavOpen: false,
-        route: "/cost",
+        route: "/etrack/cost",
         hasMargin: true,
         subNavs: [
           {
@@ -230,7 +230,7 @@ export const metaDataNavbar = [
             navText: "Fabrication Cost",
             iconName: "faMoneyBill",
             // hasSubNav: true,
-            route: "/etrack/fabCost",
+            route: "/etrack/cost/fabCost",
             // subNavs: [
             //   {
             //     id: "costMgmntSub" + 1,
@@ -257,7 +257,7 @@ export const metaDataNavbar = [
             iconName: "faBusinessTime",
             // hasSubNav: true,
             route: "/etrack/fabCost",
-          }
+          },
           // {
           //   id: "costMgmnt" + 2,
           //   navText: "Hire charges details",
@@ -485,7 +485,7 @@ export const metaDataNavbar = [
             iconName: "faBoxes",
             route: "/etrack/masters/viewComponent",
           },
-         
+
           {
             id: "mastersSub" + 10,
             navText: "Vendors",
@@ -494,7 +494,7 @@ export const metaDataNavbar = [
           },
         ],
       },
-      
+
       // {
       //   id: "8",
       //   navText: "Reports",

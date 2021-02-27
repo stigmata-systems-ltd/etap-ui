@@ -5,7 +5,7 @@ class InputGroupButton extends Component {
   render() {
     return (
       <Col6 size={this.props.size}>
-        <div className="row">
+        <div className="form-group row">
           {this.props.label && (
             <label
               className={`${
@@ -30,6 +30,7 @@ class InputGroupButton extends Component {
               aria-describedby="basic-addon2"
               value={this.props.value}
               onChange={this.props.onChange}
+              disabled={this.props.disabled ? true : false}
             />
             <div className="input-group-append">
               <button

@@ -92,6 +92,10 @@ const PhysicalVerificationn = React.lazy(() =>
   import("./container/physicalVerification/physicalVerification")
 );
 
+const FabricationCost = React.lazy(() =>
+  import("./container/fabricationCost/fabricationCost")
+);
+
 setAuthHeader();
 setRespInterceptor();
 class App extends Component {
@@ -103,6 +107,11 @@ class App extends Component {
             <Route exact path="/" component={Login}></Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/dashboard" component={Dashboard}></Route>
+            <Route
+              exact
+              path="/etrack/cost/fabCost"
+              component={FabricationCost}
+            ></Route>
             <Route
               exact
               path="/etrack/masters/addComponent"
