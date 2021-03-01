@@ -7,69 +7,69 @@ export const fromSiteApprovalMetaData = (handleApprove, handleReject) => {
         // {
         //     name: "MR Number",
         //     selector: "mrNo",
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: "DA Number",
         //     selector: "dispatchNo",
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: "Structure Name",
         //     selector: "structureName",
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: "Quantity Requested",
         //     selector: "quantityRequested",
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: "From Site",
         //     selector: "fromSite",
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: "To Site",
         //     selector: "toSite",
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: "Transfer Price",
         //     selector: "transferPrice",
-        //     sortable: false,
+        //     sortable: true,
         // },
         {
             name: 'MR No',
             selector: 'mrNo',
-            sortable: false,
+            sortable: true,
 
         },
         {
             name: 'DC No',
             selector: 'dispatchNo',
-            sortable: false,
+            sortable: true,
         },
         {
             name: 'Structure Name',
             selector: 'structureName',
-            sortable: false,
+            sortable: true,
         },
 
         {
             name: 'Service Type',
             selector: 'serviceType',
-            sortable: false,
+            sortable: true,
         },
         {
             name: 'Created Date & Time',
             selector: 'createdDateTime',
-            sortable: false,
+            sortable: true,
         },
 
         {
             name: "Actions",
-            sortable: false,
+            sortable: true,
             cell: (row) => {
                 return (
                     <>

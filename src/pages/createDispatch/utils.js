@@ -7,27 +7,27 @@ export const createDispatchMetaData = (handleEditIconPress) => {
     {
       name: "MR Number",
       selector: "mrNo",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Project",
       selector: "projectName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Project ID",
       selector: "projectId",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Status",
       selector: "status",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -50,13 +50,13 @@ export const twccDispatchMetaData = (
     {
       name: "MR Number",
       selector: "mrNo",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
 
       cell: (row) => {
         return (
@@ -78,21 +78,21 @@ export const twccDispatchMetaData = (
     {
       name: "Req By",
       selector: "projectId",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Raised By",
       selector: "projectId",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Status",
       selector: "status",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -123,7 +123,7 @@ export const transformDropDownData = (data, valueKey, labelKey) => {
 export const dispatchStructureMetaData = (setSelectedStructures) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: row => {
         return (
           <>
@@ -142,21 +142,21 @@ export const dispatchStructureMetaData = (setSelectedStructures) => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Structure ID",
       selector: "structureCode",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Project",
       selector: "projectName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Availability",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return row.availProjectId === null ? "NO" : "YES";
       },
@@ -164,19 +164,19 @@ export const dispatchStructureMetaData = (setSelectedStructures) => {
     {
       name: "Dispatch Structure Status",
       selector: "dispStructureStatus",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Available Project",
       selector: "availProjectName",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
 export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: row => {
         return (
           <>
@@ -195,12 +195,12 @@ export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Availability",
       selector: "availability",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return row.availProjectId === null ? "NO" : "YES";
       },
@@ -208,22 +208,22 @@ export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore
     {
       name: "Avail.Site",
       selector: "site",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Avail.Date",
-      sortable: false,
+      sortable: true,
       selector: "date",
 
     },
     {
       name: "Attribute",
       selector: "attr",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -244,12 +244,12 @@ export const lstVerifyStructureQtyMetaData = () => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Quantity",
       selector: "quantity",
-      sortable: false,
+      sortable: true,
     },
   ];
 };

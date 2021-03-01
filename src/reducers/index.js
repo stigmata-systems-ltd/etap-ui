@@ -34,6 +34,7 @@ import fromSiteApprovalReducer from "./fromSiteApprovalReducer";
 import toSiteApprovalReducer from "./toSiteApprovalReducer";
 import createDispatchReducer from "./createDispatchReducer";
 import physicalVerificationReducer from "./physicalVerificationReducer";
+import builtReducer from "./builtReducer";
 
 const rootReducer = combineReducers({
   structure: structureReducer,
@@ -62,6 +63,7 @@ const rootReducer = combineReducers({
   toSiteApproval: toSiteApprovalReducer,
   createDispatch: createDispatchReducer,
   physicalVerification: physicalVerificationReducer,
+  built: builtReducer
 });
 
 export default rootReducer;

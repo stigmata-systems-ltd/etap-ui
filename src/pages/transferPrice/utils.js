@@ -9,36 +9,36 @@ export const transferPriceMetaData = (handleEdit, handleMore) => {
     {
       name: 'MR No',
       selector: 'mrNo',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'DA No',
       selector: 'dispatchNo',
-      sortable: false,
+      sortable: true,
     },
     // {
     //   name: 'Structure Name',
     //   selector: 'structureName',
-    //   sortable: false,
+    //   sortable: true,
     // },
     {
       name: 'Quantity Requested',
       selector: 'quantityRequested',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'From Site',
       selector: 'fromSite',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'To Site',
       selector: 'toSite',
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>

@@ -134,17 +134,17 @@ export const structAttriMetaData = (onChangeValue) => {
     {
       name: "Description",
       selector: "name",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "UoM",
       selector: "uom",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Value",
       selector: "value",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         console.log("in meta", row.id, row.value);
         return (
@@ -164,68 +164,68 @@ export const componentsMetaData = (onChangeValue) => {
     {
       name: "Component",
       selector: "component",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component Type",
       selector: "compType",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component ID",
       selector: "compType",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component No",
       selector: "compNum",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Group",
       selector: "group",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Drawing No",
       selector: "drawingNum",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Length",
       selector: "length",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Breadth",
       selector: "breadth",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Height",
       selector: "height",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Thickness",
       selector: "thickness",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Weight",
       selector: "weight",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Type",
       selector: "type",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Tag",
       selector: "tag",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
@@ -303,13 +303,13 @@ export const listAssignedStructureMetaData = (
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Structure ID",
       selector: "structureCode",
-      sortable: false,
+      sortable: true,
       width: "110px",
       cell: (row) => {
         return (
@@ -331,34 +331,34 @@ export const listAssignedStructureMetaData = (
     {
       name: "Structure Family",
       selector: "structureFamily",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component Count",
       selector: "componentsCount",
-      sortable: false,
+      sortable: true,
       width: "90px",
     },
 
     {
       name: "Total Weight",
       selector: "totalWeight",
-      sortable: false,
+      sortable: true,
       width: "80px",
     },
     {
       name: "Structure Status",
       selector: "structureStatus",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Current Status",
       selector: "currentStatus",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       width: "70px",
       cell: (row) => {
         return (
@@ -402,41 +402,41 @@ export const listAssignedComponentMetaData = (handleDelete, handleMore) => {
     {
       name: "Component NO",
       selector: "componentNo",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component",
       selector: "component",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component ID",
       selector: "componentID",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Component Family",
       selector: "componentFamily",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Drawing Number",
       selector: "drawingNumber",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "O/M",
       selector: "oM",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Mod No",
       selector: "modNo",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>

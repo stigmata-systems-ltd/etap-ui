@@ -7,43 +7,43 @@ export const siteDispatchMetaData = (handleUpdate) => {
     // {
     //   name: "MR Number",
     //   selector: "mrNo",
-    //   sortable: false,
+    //   sortable: true,
     // },
     {
       name: "DC Number",
       selector: "dispatchNo",
-      sortable: false,
+      sortable: true,
     },
     // {
     //   name: "Created Date",
     //   selector: "createdDateTime",
-    //   sortable: false,
+    //   sortable: true,
     // },
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Structure Code",
       selector: "structId",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Quantity Assigned",
       selector: "createdDateTime",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Status",
       selector: "status",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
       center: true,
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <div className="row">

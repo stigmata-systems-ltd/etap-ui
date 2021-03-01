@@ -6,22 +6,22 @@ export const listWBSMetaData = (handleDelete, handleEdit) => {
     {
       name: "WBS",
       selector: "wbs",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Segment",
       selector: "segment",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "SubSegment",
       selector: "subSegment",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Element",
       selector: "element",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
@@ -47,27 +47,27 @@ export const listWBSMetaDataView = (handleDelete, handleEdit) => {
     {
       name: "ProjectCode",
       selector: "projectCode",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "WBS",
       selector: "wbs",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Segment",
       selector: "segment",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "SubSegment",
       selector: "subSegment",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Element",
       selector: "element",
-      sortable: false,
+      sortable: true,
     },
   ];
 };

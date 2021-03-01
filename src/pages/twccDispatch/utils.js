@@ -11,14 +11,14 @@ export const listTwccDispatchMetaData = (
         {
             name: "MR No",
             selector: "mrno",
-            sortable: false,
+            sortable: true,
 
         },
 
         {
             name: "Structure Name",
             selector: "structureName",
-            sortable: false,
+            sortable: true,
             width: "110px",
             cell: (row) => {
                 return (
@@ -39,24 +39,24 @@ export const listTwccDispatchMetaData = (
         {
             name: "Req By",
             selector: "requestby",
-            sortable: false,
+            sortable: true,
         },
         {
             name: "Raised By",
             selector: "raisedBy",
-            sortable: false,
+            sortable: true,
             width: "90px"
         },
 
         {
             name: "Req Status",
             selector: "requestStatus",
-            sortable: false,
+            sortable: true,
             width: "80px"
         },
         {
             name: "Actions",
-            sortable: false,
+            sortable: true,
             width: "70px",
             cell: (row) => {
                 return (

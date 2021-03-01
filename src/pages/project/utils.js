@@ -7,31 +7,31 @@ export const listProjectMetaData = (handleDelete, handleEdit) => {
       {
         name: 'Project',
         selector: 'name',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Project Code',
         selector: 'projCode',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Area',
         selector: 'area',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'IC',
         selector: 'icName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'BU',
         selector: 'buName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Actions',
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>
