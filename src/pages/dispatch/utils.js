@@ -11,42 +11,42 @@ export const listViewDispatchMetaData = (
       {
         name: "MR Number",
         selector: "mrNo",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Structure Name",
         selector: "structureName",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Structure ID",
         selector: "structureID",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Quantity Requested",
         selector: "quantityRequested",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Request Status",
         selector: "requestStatus",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Availability",
         selector: "availability",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Available Project",
         selector: "availableProject",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Project Id",
         selector: "projectId",
-        sortable: false,
+        sortable: true,
       }
     ];
   };

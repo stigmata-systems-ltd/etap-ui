@@ -91,6 +91,9 @@ const DispatchStructure = React.lazy(() =>
 const PhysicalVerificationn = React.lazy(() =>
   import("./container/physicalVerification/physicalVerification")
 );
+const ViewAsBuilt = React.lazy(() =>
+  import("./container/built/built")
+);
 
 const FabricationCost = React.lazy(() =>
   import("./container/fabricationCost/fabricationCost")
@@ -370,6 +373,11 @@ class App extends Component {
               exact
               path="/newFabrication/siteApproval"
               component={NewFabricationSiteApproval}
+            ></Route>
+            <Route
+              exact
+              path="/etrack/built/builtDetails"
+              component={ViewAsBuilt}
             ></Route>
             <Route
               exact

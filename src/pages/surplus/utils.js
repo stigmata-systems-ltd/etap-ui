@@ -50,36 +50,36 @@ export const listViewSurplusMetaData = (
       {
         name: "Project",
         selector: "projectName",
-        sortable: false,
+        sortable: true,
        
       },
       {
         name: "Structure Name",
         selector: "structureName",
-        sortable: false,
+        sortable: true,
         
       },
       {
         name: "Structure Family",
         selector: "structureTypeName",
-        sortable: false,
+        sortable: true,
         
       },
       {
         name: "Surplus Date",
         selector: "surplusDate",
-        sortable: false,
+        sortable: true,
         
       },
       
       {
         name: "Status",
         selector: "status",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Action",
-        sortable: false,
+        sortable: true,
         cell: (row) => {
           console.log(`Row Action: ${row.isAction}`)
           if(row.isAction == "1"){

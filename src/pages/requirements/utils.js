@@ -60,26 +60,26 @@ export const listViewRequirementsMetaData = (
       {
         name: "MR Number",
         selector: "mrNo",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Project",
         selector: "project",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Structure Name",
         selector: "structureName",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Status",
         selector: "status",
-        sortable: false,
+        sortable: true,
       },
       {
         name: "Action",
-        sortable: false,
+        sortable: true,
         cell: (row) => {
           if(row.isAction == "1"){
             return (

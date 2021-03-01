@@ -7,11 +7,11 @@ export const icbuMetaData = (handleDelete, handleEdit) => {
       {
         name: 'Independent Company Name',
         selector: 'independentCompanyName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Actions',
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>

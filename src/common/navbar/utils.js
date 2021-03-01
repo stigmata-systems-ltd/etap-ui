@@ -3,7 +3,7 @@ import store from "../../store";
 export const getNavbar = () => {
   const auth = store.getState().auth;
   let tmpArr = [];
-  auth.pageAccess && auth.pageAccess.map((item) => {});
+  auth.pageAccess && auth.pageAccess.map((item) => { });
 };
 export const metaDataNavbar = [
   {
@@ -174,20 +174,8 @@ export const metaDataNavbar = [
             id: "fabMgmnt" + 1,
             navText: "As built details",
             iconName: "faBuilding",
-            hasSubNav: true,
-            route: "/etrack/built",
-            subNavs: [
-              {
-                id: "fabSub" + 1,
-                navText: "Built details",
-                route: "/etrack/built/builtDetails",
-              },
-              {
-                id: "fabSub" + 2,
-                navText: "Book Value",
-                route: "/etrack/built/bookValue",
-              },
-            ],
+            route: "/etrack/built/builtDetails",
+
           },
           // {
           //   id: "fabMgmnt" + 2,

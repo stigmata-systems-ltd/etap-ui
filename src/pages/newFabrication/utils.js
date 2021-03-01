@@ -23,37 +23,37 @@ export const _newFabricationBodyData = [
 //         {
 //             name: "MR Number",
 //             selector: "mrNo",
-//             sortable: false,
+//             sortable: true,
 //         },
 //         {
 //             name: "DC Number",
 //             selector: "dispatchNo",
-//             sortable: false,
+//             sortable: true,
 //         },
 //         {
 //             name: "Structure Nanme",
 //             selector: "structureName",
-//             sortable: false,
+//             sortable: true,
 //         },
 //         {
 //             name: "Structure ID",
 //             selector: "structureId",
-//             sortable: false,
+//             sortable: true,
 //         },
 //         {
 //             name: "Structure Family",
 //             selector: "structureFamily",
-//             sortable: false,
+//             sortable: true,
 //         },
 //         {
 //             name: "Quantity Assigned",
 //             selector: "quantityAssigned",
-//             sortable: false,
+//             sortable: true,
 //         },
 
 //         {
 //             name: "Actions",
-//             sortable: false,
+//             sortable: true,
 //             cell: (row) => {
 //                 return (
 //                     <>

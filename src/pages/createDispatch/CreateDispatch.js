@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ContentLoader from "../../common/ContentLoader";
 import FormContainer from "../../common/forms/FormContainer";
 import TableFilter from "../../common/TableFilter";
-
 import Loader from "../../common/Loader";
 import { twccDispatchMetaData } from "./utils";
 import CustomDataTable from "../../common/CustomDataTable";
@@ -36,7 +35,7 @@ class CreateDispatch extends Component {
   
 
   render() {
-    let dataBind=[{}];
+    // let dataBind=[{mrNo:"123",structureName:"arun",projectId:"321",projectId:"456",status:"Done"}];
     return (
       <>
         <ContentLoader>
