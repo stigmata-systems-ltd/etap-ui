@@ -13,7 +13,11 @@ import ExportExcel from "../../common/ExportExcel";
 import StructureAttributesTable from "./StructureAttributesTable";
 import FaIcon from "../../common/FaIcon";
 
-import { componentsMetaData, getExcelData } from "./utils";
+import {
+  componentsMetaData,
+  getExcelData,
+  getComponentTableData,
+} from "./utils";
 
 import Col6 from "../../common/forms/Col6";
 import { CSVReader } from "react-papaparse";
@@ -21,6 +25,8 @@ import IconTextButton from "../../common/forms/IconTextButton";
 import IconButton from "../../common/forms/IconButton";
 
 import InputGroupButton from "../../common/forms/InputGroupButton";
+import SearchableDropDown from "../../common/forms/SearchableDropDown";
+import { transformDropDownData } from "../../utils/dataTransformer";
 
 class AssignStructure extends Component {
   fileInputRef = React.createRef();
@@ -52,6 +58,58 @@ class AssignStructure extends Component {
           )}
           <FormContainer formTitle={"Create Structure"}>
             <FormRow>
+              <SearchableDropDown
+                size="col-md-4"
+                label="Project"
+                name="projectName"
+                id="projectName"
+                selectOptions={transformDropDownData(
+                  this.props.scr.projList,
+                  "id",
+                  "name"
+                )}
+                labelSize="col-sm-4"
+                fieldSize="col-sm-8"
+                onChange={(obj) =>
+                  this.props.handleChangeComponentProjectName(obj)
+                }
+                value={this.props.scr.projName}
+              />
+              <SearchableDropDown
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Structure"
+                name="structureName"
+                id="structureName"
+                selectOptions={transformDropDownData(
+                  this.props.scr.structList,
+                  "id",
+                  "name"
+                )}
+                onChange={(obj) =>
+                  this.props.handleChangeComponentStructureName(obj)
+                }
+                value={this.props.scr.structName}
+              />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Structure Family"
+                name="structureFamily"
+                id="structureFamily"
+                onChange={(e) =>
+                  this.props.handleChangeComponentStructureFamily(
+                    e.target.value
+                  )
+                }
+                value={this.props.scr.strcutureType}
+                placeholder="Auto Fetch"
+                disabled={true}
+              />
+            </FormRow>
+            <FormRow>
               <TextInput
                 size="col-md-4"
                 labelSize="col-md-4"
@@ -76,56 +134,23 @@ class AssignStructure extends Component {
                 placeholder="Auto Fetch"
                 disabled={true}
               />
-              <TextInput
-                size="col-md-4"
-                label="Project"
-                name="projectName"
-                id="projectName"
-                labelSize="col-sm-4"
-                fieldSize="col-sm-8"
-                // value={this.props.scr.projName}
-                value="PROJ0001"
-                disabled
-              />
 
-            </FormRow>
-            <FormRow>
               <TextInput
                 size="col-md-4"
                 labelSize="col-md-4 pr-0"
                 fieldSize="col-md-8 "
-                label="Struct. Family"
-                name="structureName"
-                id="structureName"
-                // value={this.props.scr.structName}
-                value="LG&Bridge Builders"
-                disabled
-              />
-              <TextInput
-                size="col-md-4"
-                labelSize="col-md-4 pr-0"
-                fieldSize="col-md-8 "
-                label="Structure"
-                name="structureName"
-                id="structureName"
-                // value={this.props.scr.structName}
-                value="Launching Girders"
-                disabled
-              />
-              <TextInput
-                size="col-md-4"
-                labelSize="col-md-4 pr-0"
-                fieldSize="col-md-8 "
-                label="Struct. Code"
+                label="Structure Code"
                 name="structureCode"
                 id="structureCode"
-                // value={this.props.scr.strcutureType}
-                value="STR000001"
+                onChange={(e) =>
+                  this.props.handleChangeComponentStructureFamily(
+                    e.target.value
+                  )
+                }
+                value={this.props.scr.structureCode}
                 placeholder="Auto Fetch"
-                disabled
+                disabled={true}
               />
-
-
             </FormRow>
 
             <FormRow>
@@ -143,7 +168,7 @@ class AssignStructure extends Component {
                 // }
                 // value={this.props.scr.drawingNum}
                 placeholder="No of Components"
-                onChange={() => { }}
+                onChange={() => {}}
               />
               <TextInput
                 size="col-md-4"
@@ -162,7 +187,7 @@ class AssignStructure extends Component {
                 label="Dr.No"
                 labelSize="col-md-3"
                 fieldSize="col-md-9"
-                onChange={() => { }}
+                onChange={() => {}}
                 value="O17078-Q-BR-CM-FB-1713"
                 btnText={<FaIcon iconName="faFileAlt" />}
                 onClick={() => this.fileInputRef.current.click()}
@@ -239,8 +264,7 @@ class AssignStructure extends Component {
             <FormRow>
               <CustomDataTable
                 metaData={componentsMetaData()}
-                // bodyData={getComponentTableData(this.props.scr)}
-                bodyData={[{}, {}]}
+                bodyData={getComponentTableData(this.props.scr)}
                 // progressPending={this.props.assignStructure.isLoading}
                 pagination={true}
                 paginationTotalRows={
@@ -270,12 +294,12 @@ class AssignStructure extends Component {
             <FormRow className="d-flex justify-content-center">
               <Button
                 btnText="Complete"
-                onClick={() => { }}
+                onClick={() => {}}
                 btnType="btn-primary mr-3"
               />
               <Button
                 btnText="Discard"
-                onClick={() => { }}
+                onClick={() => {}}
                 btnType="btn-danger mr-3"
               />
             </FormRow>

@@ -1,6 +1,5 @@
-import React from 'react';
-import IconButton from '../../common/forms/IconButton';
-
+import React from "react";
+import IconButton from "../../common/forms/IconButton";
 
 export const listBuiltTypeMetaData = (
   // redirectBuiltDetails,
@@ -9,55 +8,52 @@ export const listBuiltTypeMetaData = (
 ) => {
   return [
     {
-      name: 'DC No',
-      selector: 'dcNo',
+      name: "DC No",
+      selector: "dcNo",
       sortable: true,
-
     },
 
     {
-      name: 'Structure Name',
-      selector: 'structureName',
+      name: "Structure Name",
+      selector: "structureName",
       sortable: true,
       cell: (row) => {
         return (
-          <>
-            {
-              <button className="btn btn-sm btn-primary" onClick={() => {
+          <div className="row w-100">
+            <div className="col-md-12">
+              <button
+                className="btn btn-sm btn-primary w-100"
+                onClick={() => {
                   //redirectBuiltDetails(row.dcNo);
                 }}
               >
                 {row.structureName}
               </button>
-            }
-          </>
+            </div>
+          </div>
         );
       },
     },
     {
-      name: 'Structure Code',
-      selector: 'structureCode',
+      name: "Structure Code",
+      selector: "structureCode",
       sortable: true,
     },
 
     {
-      name: 'Actions',
+      name: "Actions",
       sortable: true,
-      cell: row => {
+      cell: (row) => {
         return (
           <>
-            {(
+            {
               <IconButton
                 iconName="faPlus"
                 onClick={() => handleEdit(row.id)}
               />
-            )},
-            {(
-              <IconButton
-                iconName="faEye"
-                onClick={() => handleMore(row.id)}
-              />
-            )}
+            }
+            ,
+            {<IconButton iconName="faEye" onClick={() => handleMore(row.id)} />}
           </>
         );
       },
@@ -65,61 +61,47 @@ export const listBuiltTypeMetaData = (
   ];
 };
 
-
 export const listBuiltDetailsMetaData = () => {
   return [
-
     {
-      name: 'Comp',
-      selector: 'component',
+      name: "Comp",
+      selector: "component",
       sortable: true,
     },
     {
-      name: 'ID',
-      selector: 'id',
+      name: "ID",
+      selector: "id",
       sortable: true,
     },
     {
-      name: 'DR No',
-      selector: 'drNo',
+      name: "DR No",
+      selector: "drNo",
       sortable: true,
-
     },
     {
-      name: 'Attr 1',
-      selector: 'attributeOne',
+      name: "Attr 1",
+      selector: "attributeOne",
       sortable: true,
-
     },
     {
-      name: 'Attr 2',
-      selector: 'attributeTwo',
+      name: "Attr 2",
+      selector: "attributeTwo",
       sortable: true,
-
     },
     {
-      name: 'Attr 3',
-      selector: 'attributeThree',
+      name: "Attr 3",
+      selector: "attributeThree",
       sortable: true,
-
     },
     {
-      name: 'Vendor',
-      selector: 'vendor',
+      name: "Vendor",
+      selector: "vendor",
       sortable: true,
-
     },
     {
-      name: 'QR',
-      selector: 'qrCode',
+      name: "QR",
+      selector: "qrCode",
       sortable: true,
-
     },
-
   ];
 };
-
-
-
-
-
