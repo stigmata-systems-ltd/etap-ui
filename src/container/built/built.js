@@ -10,10 +10,16 @@ import {
 } from '../../actions/types';
 import ViewAsBuilt from '../../pages/built/ViewAsBuilt';
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch,props) => {
   return {
     builtList() {
       dispatch(builtList());
+    },
+
+    redirectToBuiltMoreDetails(id) {
+      props.history.push(
+        `/etrack/built/asBuiltDetails/${window.btoa(id)}`
+      );
     },
 
     handleMore(id) {

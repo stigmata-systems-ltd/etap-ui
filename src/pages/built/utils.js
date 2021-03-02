@@ -2,7 +2,7 @@ import React from "react";
 import IconButton from "../../common/forms/IconButton";
 
 export const listBuiltTypeMetaData = (
-  // redirectBuiltDetails,
+  redirectToBuiltMoreDetails,
   handleEdit,
   handleMore
 ) => {
@@ -19,18 +19,18 @@ export const listBuiltTypeMetaData = (
       sortable: true,
       cell: (row) => {
         return (
-          <div className="row w-100">
-            <div className="col-md-12">
-              <button
-                className="btn btn-sm btn-primary w-100"
+          <>
+            {
+              <a
+                href="#"
                 onClick={() => {
-                  //redirectBuiltDetails(row.dcNo);
+                  redirectToBuiltMoreDetails(row.structureName);
                 }}
               >
                 {row.structureName}
-              </button>
-            </div>
-          </div>
+              </a>
+            }
+          </>
         );
       },
     },

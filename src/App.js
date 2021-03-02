@@ -94,6 +94,9 @@ const PhysicalVerificationn = React.lazy(() =>
 const ViewAsBuilt = React.lazy(() =>
   import("./container/built/built")
 );
+const BuiltMoreDetails = React.lazy(() =>
+  import("./container/built/builtMoreDetails")
+);
 
 const FabricationCost = React.lazy(() =>
   import("./container/fabricationCost/fabricationCost")
@@ -381,6 +384,11 @@ class App extends Component {
             ></Route>
             <Route
               exact
+              path="/etrack/built/asBuiltDetails/:siteReqId"
+              component={BuiltMoreDetails}
+            ></Route>
+            <Route
+              exact
               path="/outSourcing/outSourceSiteApproval"
               component={OutSourcingSiteApproval}
             ></Route>
@@ -421,6 +429,7 @@ class App extends Component {
               path="/etrack/dispatch/createDispatch/dispatchStructure/:siteReqId"
               component={DispatchStructure}
             ></Route>
+            
             <Route exact path="/reuse/reuse" component={Reuse}></Route>
           </Suspense>
           <Route exact path="/unauthorized" component={unauthorized} />
