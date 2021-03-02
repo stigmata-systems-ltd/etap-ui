@@ -3,7 +3,7 @@ import IconButton from '../../common/forms/IconButton';
 
 
 export const listBuiltTypeMetaData = (
-  // redirectBuiltDetails,
+  redirectToBuiltMoreDetails,
   handleEdit,
   handleMore
 ) => {
@@ -23,12 +23,13 @@ export const listBuiltTypeMetaData = (
         return (
           <>
             {
-              <button className="btn btn-sm btn-primary" onClick={() => {
-                  //redirectBuiltDetails(row.dcNo);
+              <a href="#"
+              onClick={() => {
+                redirectToBuiltMoreDetails(row.structureName);
                 }}
               >
                 {row.structureName}
-              </button>
+              </a>
             }
           </>
         );

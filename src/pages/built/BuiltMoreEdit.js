@@ -159,7 +159,7 @@ class BuiltMoreEdit extends Component {
                         fieldSize="col-md-9"
                         onChange={() => { }}
                         value="O17078-Q-BR-CM-FB-1713"
-                        btnText={<FaIcon iconName="faFileAlt" />}
+                        btnText={<FaIcon iconName="faFileUpload" />}
                         onClick={() => this.fileInputRef.current.click()}
                     />
                     <InputGroupButton
@@ -167,7 +167,7 @@ class BuiltMoreEdit extends Component {
                         fieldSize="col-md-9"
                         onChange={() => { }}
                         value="O17078-Q-BR-CM-FB-1713"
-                        btnText={<FaIcon iconName="faFileAlt" />}
+                        btnText={<FaIcon iconName="faFileUpload" />}
                         onClick={() => this.fileInputRef.current.click()}
                     />
                 </FormRow>
