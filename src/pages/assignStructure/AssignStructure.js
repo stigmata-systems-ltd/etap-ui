@@ -5,35 +5,22 @@ import FormRow from "../../common/forms/FormRow";
 import TextInput from "../../common/forms/TextInput";
 import MultiFileInput from "../../common/forms/MultiFileInput";
 import Button from "../../common/forms/Button";
-import SimpleDropDown from "../../common/forms/SimpleDropDown";
 import CustomAlert from "../../common/forms/customAlert";
 import Loader from "../../common/Loader";
-import DataTable from "../../common/DataTable";
 import CustomDataTable from "../../common/CustomDataTable";
-import SearchableDropDown from "../../common/forms/SearchableDropDown";
-import { transformDropDownData } from "../../utils/dataTransformer";
+
 import ExportExcel from "../../common/ExportExcel";
 import StructureAttributesTable from "./StructureAttributesTable";
-
-import {
-  _componentInputData,
-  _componentInputBodyData,
-  _assignStructureInputData,
-  _assignStructureBodyData,
-  structAttriMetaData,
-  componentsMetaData,
-  getExcelData,
-  getComponentTableData,
-} from "./utils";
-
 import FaIcon from "../../common/FaIcon";
+
+import { componentsMetaData, getExcelData } from "./utils";
+
 import Col6 from "../../common/forms/Col6";
 import { CSVReader } from "react-papaparse";
 import IconTextButton from "../../common/forms/IconTextButton";
 import IconButton from "../../common/forms/IconButton";
-import DownloadToExcelButton from "../../common/forms/DownloadToExcelButton";
-import { CSVDownloader } from "react-papaparse";
-import Col from "reactstrap/lib/Col";
+
+import InputGroupButton from "../../common/forms/InputGroupButton";
 
 class AssignStructure extends Component {
   fileInputRef = React.createRef();
@@ -50,6 +37,12 @@ class AssignStructure extends Component {
   };
 
   render() {
+    let tempArr = [
+      { id: "1", name: "Capacity", uom: "MT", value: "2509" },
+      { id: "2", name: "Capacity", uom: "MT", value: "2509" },
+      { id: "3", name: "Capacity", uom: "MT", value: "2509" },
+      { id: "4", name: "Capacity", uom: "MT", value: "2509" },
+    ];
     return (
       <>
         <ContentLoader>
@@ -59,45 +52,104 @@ class AssignStructure extends Component {
           )}
           <FormContainer formTitle={"Create Structure"}>
             <FormRow>
-              <SearchableDropDown
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8 "
+                label="IC"
+                name="ic"
+                id="ic"
+                // value={this.props.scr.strcutureType}
+                value="BNF IC"
+                placeholder="Auto Fetch"
+                disabled
+              />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 "
+                fieldSize="col-md-8 "
+                label="BU"
+                name="bu"
+                id="bu"
+                // value={this.props.scr.structureCode}
+                value="Metro"
+                placeholder="Auto Fetch"
+                disabled={true}
+              />
+              <TextInput
                 size="col-md-4"
                 label="Project"
                 name="projectName"
                 id="projectName"
-                selectOptions={transformDropDownData(
-                  this.props.scr.projList,
-                  "id",
-                  "name"
-                )}
                 labelSize="col-sm-4"
                 fieldSize="col-sm-8"
-                onChange={(obj) =>
-                  this.props.handleChangeComponentProjectName(obj)
-                }
-                value={this.props.scr.projName}
+                // value={this.props.scr.projName}
+                value="PROJ0001"
+                disabled
               />
-              <SearchableDropDown
+
+            </FormRow>
+            <FormRow>
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Struct. Family"
+                name="structureName"
+                id="structureName"
+                // value={this.props.scr.structName}
+                value="LG&Bridge Builders"
+                disabled
+              />
+              <TextInput
                 size="col-md-4"
                 labelSize="col-md-4 pr-0"
                 fieldSize="col-md-8 "
                 label="Structure"
                 name="structureName"
                 id="structureName"
-                selectOptions={transformDropDownData(
-                  this.props.scr.structList,
-                  "id",
-                  "name"
-                )}
-                onChange={(obj) =>
-                  this.props.handleChangeComponentStructureName(obj)
-                }
-                value={this.props.scr.structName}
+                // value={this.props.scr.structName}
+                value="Launching Girders"
+                disabled
               />
               <TextInput
                 size="col-md-4"
-                labelSize="col-md-5 pr-0"
-                fieldSize="col-md-7 "
-                label="Estimated Weight"
+                labelSize="col-md-4 pr-0"
+                fieldSize="col-md-8 "
+                label="Struct. Code"
+                name="structureCode"
+                id="structureCode"
+                // value={this.props.scr.strcutureType}
+                value="STR000001"
+                placeholder="Auto Fetch"
+                disabled
+              />
+
+
+            </FormRow>
+
+            <FormRow>
+              <TextInput
+                label="Component"
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8"
+                name="noOfComponents"
+                id="noOfComponents"
+                // onChange={(e) =>
+                //   this.props.handleChangeComponentDrawingNumber(
+                //     e.target.value
+                //   )
+                // }
+                // value={this.props.scr.drawingNum}
+                placeholder="No of Components"
+                onChange={() => { }}
+              />
+              <TextInput
+                size="col-md-4"
+                labelSize="col-md-4"
+                fieldSize="col-md-8 "
+                label="Est. Weight"
                 name="estimatedWeight"
                 id="estimatedWeight"
                 onChange={(e) =>
@@ -105,67 +157,16 @@ class AssignStructure extends Component {
                 }
                 value={this.props.scr.estimatedWeight}
               />
-            </FormRow>
-            <FormRow>
-              <TextInput
+              <InputGroupButton
                 size="col-md-4"
-                labelSize="col-md-4 pr-0"
-                fieldSize="col-md-8 "
-                label="Structure Family"
-                name="structureFamily"
-                id="structureFamily"
-                onChange={(e) =>
-                  this.props.handleChangeComponentStructureFamily(
-                    e.target.value
-                  )
-                }
-                value={this.props.scr.strcutureType}
-                placeholder="Auto Fetch"
-                disabled={true}
+                label="Dr.No"
+                labelSize="col-md-3"
+                fieldSize="col-md-9"
+                onChange={() => { }}
+                value="O17078-Q-BR-CM-FB-1713"
+                btnText={<FaIcon iconName="faFileAlt" />}
+                onClick={() => this.fileInputRef.current.click()}
               />
-              <TextInput
-                size="col-md-4"
-                labelSize="col-md-4 pr-0"
-                fieldSize="col-md-8 "
-                label="Structure Code"
-                name="structureCode"
-                id="structureCode"
-                onChange={(e) =>
-                  this.props.handleChangeComponentStructureFamily(
-                    e.target.value
-                  )
-                }
-                value={this.props.scr.structureCode}
-                placeholder="Auto Fetch"
-                disabled={true}
-              />
-              <Col6 size="col-md-4">
-                <FormRow>
-                  <TextInput
-                    label="Dr No"
-                    size="col-md-7 px-0"
-                    labelSize="col-md-5 pl-4"
-                    fieldSize="col-md-7 px-0"
-                    name="drawingNumber"
-                    id="drawingNumber"
-                    onChange={(e) =>
-                      this.props.handleChangeComponentDrawingNumber(
-                        e.target.value
-                      )
-                    }
-                    value={this.props.scr.drawingNum}
-                  />
-                  <Col6 size="col-md-5">
-                    <IconTextButton
-                      fieldSize="col-md-7"
-                      iconName="faFileAlt"
-                      size="lg"
-                      btnText="Upload"
-                      onClick={() => this.fileInputRef.current.click()}
-                    />
-                  </Col6>
-                </FormRow>
-              </Col6>
             </FormRow>
             <MultiFileInput
               innerRef={this.fileInputRef}
@@ -195,14 +196,15 @@ class AssignStructure extends Component {
               ))}
             </FormRow>
             {/* table */}
-
-            {this.props.scr.structAttri.length > 0 ? (
-              <StructureAttributesTable
-                onChange={(e, id) => this.props.handleChangeAssignStruct(e, id)}
-                bodyData={this.props.scr.structAttri}
-                title="Structure Attributes"
-              />
-            ) : null}
+            <hr />
+            {/* {this.props.scr.structAttri.length > 0 ? ( */}
+            <StructureAttributesTable
+              onChange={(e, id) => this.props.handleChangeAssignStruct(e, id)}
+              // bodyData={this.props.scr.structAttri}
+              bodyData={tempArr}
+              title="Structure Attributes"
+            />
+            {/* ) : null} */}
             <hr />
             <FormRow className="row">
               <Col6 size="col-md-6 offset-md-3 d-flex justify-content-center">
@@ -220,7 +222,7 @@ class AssignStructure extends Component {
               /> */}
             </FormRow>
             <br />
-            <FormRow className="excel-upload-btn">
+            <FormRow className="excel-upload-btn mb-2">
               <CSVReader
                 onDrop={this.props.handleOnDrop}
                 onError={this.handleOnError}
@@ -233,42 +235,50 @@ class AssignStructure extends Component {
                   <FaIcon iconName="faUpload" /> Upload Excel Template
                 </span>
               </CSVReader>
-
+            </FormRow>
+            <FormRow>
               <CustomDataTable
                 metaData={componentsMetaData()}
-                bodyData={getComponentTableData(this.props.scr)}
+                // bodyData={getComponentTableData(this.props.scr)}
+                bodyData={[{}, {}]}
                 // progressPending={this.props.assignStructure.isLoading}
                 pagination={true}
                 paginationTotalRows={
-                  this.props.scr.uploadData &&
-                  this.props.scr.uploadData.length
+                  this.props.scr.uploadData && this.props.scr.uploadData.length
                 }
                 paginationPerPage={5}
                 noHeader={true}
                 style={{ margin: "0" }}
               />
             </FormRow>
-            <br />
-            <FormRow>
+            <FormRow className="d-flex justify-content-center">
               <Button
                 btnText="SAVE"
                 onClick={this.props.saveAssignComp}
                 btnType="primary"
               />
-              <Button
-                btnText="DISCARD"
-                btnType="cancel"
-                onClick={this.props.resetSubContractorData}
+            </FormRow>
+            <FormRow className="mb-3">
+              <ExportExcel
+                data={getExcelData(this.props.scr)}
+                // header={this.props.headers}
+                filename={"test"}
+                className="download-btn"
+                iconName="faDownload"
               />
             </FormRow>
-            <br />
-            <ExportExcel
-              data={getExcelData(this.props.scr)}
-              // header={this.props.headers}
-              filename={"test"}
-              className="download-btn"
-              iconName="faDownload"
-            />
+            <FormRow className="d-flex justify-content-center">
+              <Button
+                btnText="Complete"
+                onClick={() => { }}
+                btnType="btn-primary mr-3"
+              />
+              <Button
+                btnText="Discard"
+                onClick={() => { }}
+                btnType="btn-danger mr-3"
+              />
+            </FormRow>
           </FormContainer>
         </ContentLoader>
       </>

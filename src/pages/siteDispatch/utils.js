@@ -4,40 +4,65 @@ import Button from "../../common/forms/Button";
 
 export const siteDispatchMetaData = (handleUpdate) => {
   return [
-    {
-      name: "MR Number",
-      selector: "mrNo",
-      sortable: false,
-    },
+    // {
+    //   name: "MR Number",
+    //   selector: "mrNo",
+    //   sortable: true,
+    // },
     {
       name: "DC Number",
       selector: "dispatchNo",
-      sortable: false,
+      sortable: true,
+    },
+    // {
+    //   name: "Created Date",
+    //   selector: "createdDateTime",
+    //   sortable: true,
+    // },
+    {
+      name: "Structure Name",
+      selector: "structureName",
+      sortable: true,
+    },
+    {
+      name: "Structure Code",
+      selector: "structId",
+      sortable: true,
+    },
+
+    {
+      name: "Quantity Assigned",
+      selector: "createdDateTime",
+      sortable: true,
     },
     {
       name: "Status",
       selector: "status",
-      sortable: false,
+      sortable: true,
     },
-    {
-      name: "Created Date",
-      selector: "createdDateTime",
-      sortable: false,
-    },
-
     {
       name: "Actions",
-      sortable: false,
+      center: true,
+      sortable: true,
       cell: (row) => {
         return (
-          <>
-            <IconButton
-              id={row.dispatchId}
-              iconName="faEdit"
-              onClick={() => handleUpdate(row.dispatchId)}
-            />
-            <Button btnText="View More" btnType="btn-primary btn-sm" />
-          </>
+          <div className="row">
+            <div className="col-md-5">
+              <IconButton
+                id={row.dispatchId}
+                iconName="faEdit"
+                onClick={() => handleUpdate(row.dispatchId)}
+              />
+            </div>
+            <div className="col-md-5">
+              {/* <Button btnText="View More" btnType="btn-primary btn-sm" /> */}
+              <IconButton
+                id={row.dispatchId}
+                iconName="faList"
+                onClick={() => { }}
+              />
+            </div>
+          </div>
         );
       },
     },

@@ -9,6 +9,8 @@ import {
   SET_SERVICE_TYPE_ID,
   SET_DISPATCH_ERROR,
   CREATE_DISPATCH,
+  TWCC_DISPATCH_MORE_PAGE,
+  CHANGE_TWCC_DISPATCH_MORE_MODAL_STATUS,
 } from "../actions/types";
 
 const initialState = {
@@ -25,10 +27,11 @@ const initialState = {
   siteReqDetails: [],
   siteReqDetailsById: [],
   selectedItems: [],
-  lstStructforDispatch:[],
+  lstStructforDispatch: [],
   disableReuse: true,
   disableFabrication: true,
-  disableOutSourcing: true
+  disableOutSourcing: true,
+  showTwccDispatchMoreModal:false,
 };
 
 export default (state = initialState, action) => {
@@ -66,7 +69,7 @@ export default (state = initialState, action) => {
         message: action.payload.response.data.message,
       };
     case `${GET_SITE_REQ_DETAILS_BY_ID}_FULFILLED`:
-      let lstStructforDispatchData = action.payload.data.lstStructforDispatch.map(obj=> ({ ...obj, checked: false }))
+      let lstStructforDispatchData = action.payload.data.lstStructforDispatch.map(obj => ({ ...obj, checked: false }))
       return {
         ...state,
         isLoading: false,
@@ -120,15 +123,24 @@ export default (state = initialState, action) => {
         modalMessage: action.payload.message,
       };
     case SET_SELECTED_ITEMS:
-      
+
       return {
         ...state,
         selectedItems: action.payload,
-        lstStructforDispatch:action.structureList,
+        lstStructforDispatch: action.structureList,
         disableReuse: action.reuseResult,
-    disableFabrication: action.fabOutResult,
-    disableOutSourcing: action.fabOutResult
+        disableFabrication: action.fabOutResult,
+        disableOutSourcing: action.fabOutResult
       };
+
+   
+    case CHANGE_TWCC_DISPATCH_MORE_MODAL_STATUS:
+      return {
+        ...state,
+        showTwccDispatchMoreModal: action.payload
+      }
+
+
     case RESET_MESSAGE:
       return { ...state, message: "", isSuccess: false, isError: false };
     case RESET_SELECTION:

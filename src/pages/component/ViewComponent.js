@@ -61,7 +61,7 @@ class ViewComponent extends Component {
         <CreateComponent showAddComponentModal={this.props.component.showAddComponentModal} />
         <FormContainer formTitle={"Component Management"}>
           {this.props.component.componentTypeList && (
-            <CustomDataTable
+           <CustomDataTable
               metaData={listComponentTypeMetaData(
                 (id) => this.setState({ activeId: id, showDeleteModal: true }),
                 (id) => this.props.handleEdit(id),

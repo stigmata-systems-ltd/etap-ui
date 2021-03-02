@@ -19,8 +19,8 @@ import Col6 from "../../common/forms/Col6";
 import DateInput from "../../common/forms/DateInput";
 import TextArea from "../../common/forms/TextArea";
 import SiteRequirementStructure from "./SiteRequirementStructure";
-import {transformProjectValue} from "./utils";
-
+import { transformProjectValue } from "./utils";
+import SiteRequirementsModal from "./SiteRequirementsModal";
 
 class AddRequirement extends Component {
   constructor(props) {
@@ -30,14 +30,13 @@ class AddRequirement extends Component {
     };
   }
   componentDidMount() {
-    const name=transformProjectValue();
-      console.log(`Project Name: ${name}`);
-       this.setState({ projectName : name});
-       this.props.getProjectList();
-       this.props.getWBSList();
-       this.props.getStructureData();
+    const name = transformProjectValue();
+    console.log(`Project Name: ${name}`);
+    this.setState({ projectName: name });
+    this.props.getProjectList();
+    this.props.getWBSList();
+    this.props.getStructureData();
   }
-    
 
   render() {
     // const subprop = this.props.addRequirement;
@@ -45,10 +44,10 @@ class AddRequirement extends Component {
     return (
       <>
         <ContentLoader>
-          <FormContainer formTitle={"Add Requirement"}>
+          <FormContainer formTitle={"Request Creation"}>
             <FormRow>
-            <TextInput
-                size="col-md-4"
+              <TextInput
+                size="col-md-6"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
                 label="Project"
@@ -61,9 +60,9 @@ class AddRequirement extends Component {
             </FormRow>
             <FormRow>
               <SearchableDropDown
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
+                fieldSize="col-md-6"
                 label="Required for WBS"
                 name="requiredWorkBreak"
                 selectOptions={transformDropDownData(
@@ -76,7 +75,7 @@ class AddRequirement extends Component {
                 }
                 value={this.props.requirement.requiredWorkBreak}
               />
-              <SearchableDropDown
+              {/* <SearchableDropDown
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -91,11 +90,11 @@ class AddRequirement extends Component {
                   this.props.handleChangeRequirementActualWorkBreak(obj)
                 }
                 value={this.props.requirement.actualWorkBreak}
-              />
+              /> */}
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
+                fieldSize="col-md-6"
                 label="Planned Start Date"
                 name="plannedStartDate"
                 id="plannedStartDate"
@@ -109,7 +108,7 @@ class AddRequirement extends Component {
             </FormRow>
 
             <FormRow>
-              <DateInput
+              {/* <DateInput
                 size="col-md-4"
                 labelSize="col-md-4"
                 fieldSize="col-md-8"
@@ -122,11 +121,11 @@ class AddRequirement extends Component {
                   )
                 }
                 value={this.props.requirement.actualStartDateOfUsage}
-              />
+              /> */}
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
+                fieldSize="col-md-6"
                 label="Planned Release"
                 name="plannedReleaseDate"
                 id="plannedReleaseDate"
@@ -138,10 +137,10 @@ class AddRequirement extends Component {
                 value={this.props.requirement.expectedReleaseDate}
               />
               <DateInput
-                size="col-md-4"
+                size="col-md-6"
                 labelSize="col-md-4"
-                fieldSize="col-md-8"
-                label="Expected Release"
+                fieldSize="col-md-6"
+                label="Required By"
                 name="expectedReleaseDate"
                 id="expectedReleaseDate"
                 onChange={(e) =>
@@ -153,56 +152,63 @@ class AddRequirement extends Component {
               />
             </FormRow>
 
-
             <div class="form-group row">
               <div class="col-sm-8">
                 <IconTextButton
-                  btnText="Add Site Requirement"
+                  btnText="Requirement"
                   onClick={this.props.addSiteRequirement}
                 />
               </div>
             </div>
-            <div class="form-group row location-row">
+            <div class="form-group row">
               {this.props.requirement.siteRequirementList.map((e, i) => {
                 return (
-                  <SiteRequirementStructure
-                    onStructureIDChange={(e) =>
-                      this.props.onStructureIDChange(e.target.value, i)
-                    }
-                    ondrawingNumberChange={(e) =>
-                      this.props.ondrawingNumberChange(e.target.value, i)
-                    }
-                    onQuantityChange={(e) =>
-                      this.props.onQuantityChange(e.target.value, i)
-                    }
-                    handleStructureNameChange={(obj) =>
-                      this.props.handleStructureNameChange(obj, i)
-                    }
-                    onSiteRequirementRemove={(i) =>
-                      this.props.onSiteRequirementRemove(i)
-                    }
-                    index={i}
-                    structureFamily={
-                      this.props.requirement.siteRequirementList[i].structFamily
-                    }
-                    componentsCount={
-                      this.props.requirement.siteRequirementList[i].componentsCount
-                    }
-                    drawingNumber={
-                      this.props.requirement.siteRequirementList[i]
-                        .drawingNo
-                    }
-                    quantity={
-                      this.props.requirement.siteRequirementList[i].quantity
-                    }
-                    structureList={this.props.requirement.structureList}
-                    structureName={
-                      this.props.requirement.siteRequirementList[i]
-                        .structureName
-                    }
-                  />
+                  <Col6>
+                    <SiteRequirementStructure
+                      {...this.props}
+                      onStructureIDChange={(e) =>
+                        this.props.onStructureIDChange(e.target.value, i)
+                      }
+                      ondrawingNumberChange={(e) =>
+                        this.props.ondrawingNumberChange(e.target.value, i)
+                      }
+                      onQuantityChange={(e) =>
+                        this.props.onQuantityChange(e.target.value, i)
+                      }
+                      handleStructureNameChange={(obj) =>
+                        this.props.handleStructureNameChange(obj, i)
+                      }
+                      onSiteRequirementRemove={(i) =>
+                        this.props.onSiteRequirementRemove(i)
+                      }
+                      index={i}
+                      structureFamily={
+                        this.props.requirement.siteRequirementList[i]
+                          .structFamily
+                      }
+                      componentsCount={
+                        this.props.requirement.siteRequirementList[i]
+                          .componentsCount
+                      }
+                      drawingNumber={
+                        this.props.requirement.siteRequirementList[i].drawingNo
+                      }
+                      quantity={
+                        this.props.requirement.siteRequirementList[i].quantity
+                      }
+                      structureList={this.props.requirement.structureList}
+                      structureName={
+                        this.props.requirement.siteRequirementList[i]
+                          .structureName
+                      }
+                    />
+                  </Col6>
                 );
               })}
+              <SiteRequirementsModal
+                showModal={this.props.requirement.showModal}
+                {...this.props}
+              />
             </div>
             <FormRow>
               <TextArea

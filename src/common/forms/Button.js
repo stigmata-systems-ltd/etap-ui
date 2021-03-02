@@ -7,6 +7,7 @@ class Button extends Component {
         type="button"
         class={`btn mb-2 ${
           this.props.btnType === 'primary' ? 'btn-primary' : this.props.btnType
+          
         }`}
         onClick={this.props.onClick}
         disabled={this.props.disable}

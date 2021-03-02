@@ -32,57 +32,57 @@ export const siteApprovalMetaData = (handleApprove, handleReject, handleMore) =>
         {
             name: 'MR No',
             selector: 'mrNo',
-            sortable: false,
+            sortable: true,
 
         },
         {
             name: 'DC No',
             selector: 'dispatchNo',
-            sortable: false,
+            sortable: true,
         },
         {
             name: 'Structure Name',
             selector: 'structureName',
-            sortable: false,
+            sortable: true,
         },
         // {
         //     name: 'Vendor',
         //     selector: 'subContractorName',
-        //     sortable: false,
+        //     sortable: true,
         // },
         {
             name: 'Service Type',
             selector: 'serviceType',
-            sortable: false,
+            sortable: true,
         },
         {
             name: 'Created Date & Time',
             selector: 'createdDateTime',
-            sortable: false,
+            sortable: true,
         },
         {
             name: 'Status',
             selector: 'status',
-            sortable: false,
+            sortable: true,
         },
         // {
         //     name: 'Quantity',
         //     selector: 'quantity',
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: 'Fabrication Cost',
         //     selector: 'fabricationCost',
-        //     sortable: false,
+        //     sortable: true,
         // },
         // {
         //     name: 'To Site',
         //     selector: 'toSite',
-        //     sortable: false,
+        //     sortable: true,
         // },
         {
             name: "Actions",
-            sortable: false,
+            sortable: true,
            
 
             cell: (row) => {

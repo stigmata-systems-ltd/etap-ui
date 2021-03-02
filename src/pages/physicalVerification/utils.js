@@ -9,24 +9,24 @@ export const physicalVerificationMetaData = (handleMore) => {
         {
             name: 'Structure Name',
             selector: 'mrNo',
-            sortable: false,
+            sortable: true,
 
         },
         {
             name: 'Structure Code',
             selector: 'dispatchNo',
-            sortable: false,
+            sortable: true,
         },
         {
             name: 'Structure Family',
             selector: 'structureName',
-            sortable: false,
+            sortable: true,
         },
 
 
         {
             name: "Actions",
-            sortable: false,
+            sortable: true,
             cell: (row) => {
 
                 return (

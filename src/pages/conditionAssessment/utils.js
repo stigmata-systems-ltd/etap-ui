@@ -7,32 +7,32 @@ export const conditionAssessmentMetaData = (handleApprove, handleReject) => {
     {
       name: "MR Number",
       selector: "mrNo",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "DA Number",
       selector: "dispatchNo",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Structure ID",
       selector: "structureId",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Structure Family",
       selector: "structureFamily",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -64,7 +64,7 @@ export const conditionAssessmentMetaData = (handleApprove, handleReject) => {
 export const fabricationTableMetaData = (handleDelete) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -81,17 +81,17 @@ export const fabricationTableMetaData = (handleDelete) => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Vendor Name",
       selector: "vendorName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Fabrication cost",
       selector: "fabricationCost",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
@@ -99,7 +99,7 @@ export const fabricationTableMetaData = (handleDelete) => {
 export const outSourcingTableMetaData = (handleDelete) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -116,37 +116,37 @@ export const outSourcingTableMetaData = (handleDelete) => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Vendor Name",
       selector: "vendorName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Monthly Rent",
       selector: "monthlyRent",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Contract Years",
       selector: "contractYears",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Planned Release Date",
       selector: "plannedReleaseDate",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actual Start Date",
       selector: "actualStartDate",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Expected Release Date",
       selector: "expectedReleaseDate",
-      sortable: false,
+      sortable: true,
     },
   ];
 };

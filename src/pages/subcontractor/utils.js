@@ -52,27 +52,27 @@ export const listVendorMetaData = (handleDelete, handleEdit) => {
     {
       name: 'Vendor Name',
       selector: 'name',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'Vendor Email',
       selector: 'email',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'Vendor Code',
       selector: 'vendorCode',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'Phone Number',
       selector: 'phoneNunmber',
-      sortable: false,
+      sortable: true,
     },   
     {
       name: 'Status',
       selector: 'isStatus',
-      sortable: false,
+      sortable: true,
       cell: row => {
         return (
           <>
@@ -83,7 +83,7 @@ export const listVendorMetaData = (handleDelete, handleEdit) => {
     },
     {
       name: 'Actions',
-      sortable: false,
+      sortable: true,
       cell: row => {
         return (
           <>

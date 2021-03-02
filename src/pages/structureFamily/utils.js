@@ -8,16 +8,16 @@ export const structureFamilyMetaData = (handleDelete, handleEdit) => {
       {
         name: 'Structure Family Type',
         selector: 'structureFamilyType',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Status',
         selector: 'status',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Actions',
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>

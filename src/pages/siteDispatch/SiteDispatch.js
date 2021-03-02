@@ -40,13 +40,14 @@ class SiteDispatch extends Component {
             {...this.props}
             showModal={this.props.siteDispatch.showEditModalFlag}
           />
-          <FormContainer formTitle={"Site Dispatch"}>
+          <FormContainer formTitle={"Vendor"}>
             {this.props.siteDispatch.siteDispatchDetails && (
               <CustomDataTable
                 metaData={siteDispatchMetaData(
                   this.props.showUpdateSiteDispatchModal
                 )}
-                bodyData={this.props.siteDispatch.siteDispatchDetails}
+                // bodyData={this.props.siteDispatch.siteDispatchDetails}
+                bodyData={[{}, {}]}
                 progressPending={this.props.siteDispatch.isLoading}
                 pagination={true}
                 paginationTotalRows={

@@ -1,6 +1,5 @@
 import React from "react";
 import IconButton from "../../common/forms/IconButton";
-import Button from "../../common/forms/Button";
 import CheckBox from "../../common/forms/CheckBox";
 
 export const createDispatchMetaData = (handleEditIconPress) => {
@@ -8,27 +7,27 @@ export const createDispatchMetaData = (handleEditIconPress) => {
     {
       name: "MR Number",
       selector: "mrNo",
-      sortable: false,
+      sortable: true,
     },
 
     {
       name: "Project",
       selector: "projectName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Project ID",
       selector: "projectId",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Status",
       selector: "status",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -43,11 +42,88 @@ export const createDispatchMetaData = (handleEditIconPress) => {
     },
   ];
 };
+export const twccDispatchMetaData = (
+  redirectToDispatchStructure,
+  handleMore
+) => {
+  return [
+    {
+      name: "MR Number",
+      selector: "mrNo",
+      sortable: true,
+    },
+
+    {
+      name: "Structure Name",
+      selector: "structureName",
+      sortable: true,
+
+      cell: (row) => {
+        return (
+          <>
+            {
+              <a
+                href="#"
+                onClick={() => {
+                  redirectToDispatchStructure(row.projectId);
+                }}
+              >
+                {row.structureName}
+              </a>
+            }
+          </>
+        );
+      },
+    },
+    {
+      name: "Req By",
+      selector: "projectId",
+      sortable: true,
+    },
+    {
+      name: "Raised By",
+      selector: "projectId",
+      sortable: true,
+    },
+    {
+      name: "Status",
+      selector: "status",
+      sortable: true,
+    },
+    {
+      name: "Actions",
+      sortable: true,
+      cell: (row) => {
+        return (
+          <>
+            <IconButton
+              iconName="faEye"
+              onClick={() => handleMore(row.id)}
+            />
+          </>
+        );
+      },
+    },
+  ];
+};
+
+
+export const transformDropDownData = (data, valueKey, labelKey) => {
+  let tmpArr = [];
+  data &&
+    data.map((dt) => {
+      tmpArr.push({
+        label: dt[labelKey],
+        value: dt[valueKey],
+      });
+    });
+  return tmpArr;
+};
 
 export const dispatchStructureMetaData = (setSelectedStructures) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: row => {
         return (
           <>
@@ -55,7 +131,7 @@ export const dispatchStructureMetaData = (setSelectedStructures) => {
               <CheckBox
                 checked={row.checked}
                 onChange={() => setSelectedStructures(row)}
-                disabled={row.dispStructureStatus === "DISPATCHED"?true:false}
+                disabled={row.dispStructureStatus === "DISPATCHED" ? true : false}
               />
             )}
           </>
@@ -66,21 +142,21 @@ export const dispatchStructureMetaData = (setSelectedStructures) => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Structure ID",
       selector: "structureCode",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Project",
       selector: "projectName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Availability",
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return row.availProjectId === null ? "NO" : "YES";
       },
@@ -88,13 +164,78 @@ export const dispatchStructureMetaData = (setSelectedStructures) => {
     {
       name: "Dispatch Structure Status",
       selector: "dispStructureStatus",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Available Project",
       selector: "availProjectName",
-      sortable: false,
+      sortable: true,
     },
+  ];
+};
+export const twccdispatchStructureMetaData = (setSelectedStructures , handleMore) => {
+  return [
+    {
+      sortable: true,
+      cell: row => {
+        return (
+          <>
+            { (
+              <CheckBox
+                checked={row.checked}
+                onChange={() => setSelectedStructures(row)}
+                disabled={row.availability === "No" ? true : false}
+              />
+            )}
+          </>
+        );
+      },
+      width: '2%',
+    },
+    {
+      name: "Structure Name",
+      selector: "structureName",
+      sortable: true,
+    },
+    {
+      name: "Availability",
+      selector: "availability",
+      sortable: true,
+      cell: (row) => {
+        return row.availProjectId === null ? "NO" : "YES";
+      },
+    },
+    {
+      name: "Avail.Site",
+      selector: "site",
+      sortable: true,
+    },
+    {
+      name: "Avail.Date",
+      sortable: true,
+      selector: "date",
+
+    },
+    {
+      name: "Attribute",
+      selector: "attr",
+      sortable: true,
+    },
+    {
+      name: "Actions",
+      sortable: true,
+      cell: (row) => {
+        return (
+          <>
+            <IconButton
+              iconName="faEye"
+              onClick={() => handleMore(row.id)}
+            />
+          </>
+        );
+      },
+    },
+
   ];
 };
 
@@ -103,12 +244,12 @@ export const lstVerifyStructureQtyMetaData = () => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Quantity",
       selector: "quantity",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
@@ -118,8 +259,8 @@ export const transformdispatchStructure = dispatchStructure => {
   let tmpArr = [];
   let statusValue;
   dispatchStructure &&
-  dispatchStructure.map(structure => {
-      
+    dispatchStructure.map(structure => {
+
       let tmpObj = {
         structureName: structure.structureName,
         structureCode: structure.structureCode,
@@ -127,7 +268,8 @@ export const transformdispatchStructure = dispatchStructure => {
         dispStructureStatus: structure.dispStructureStatus,
         availProjectName: structure.availProjectName,
         checked: structure.checked,
-        availProjectId: structure.availProjectId
+        availProjectId: structure.availProjectId,
+        planStartdate: structure.planStartdate
       };
       tmpArr.push(tmpObj);
     });

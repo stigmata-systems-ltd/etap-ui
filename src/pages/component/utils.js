@@ -5,7 +5,7 @@ import IconButton from '../../common/forms/IconButton';
 export const listComponentTypeMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>
@@ -24,16 +24,16 @@ export const listComponentTypeMetaData = (handleDelete, handleEdit) => {
       {
         name: 'Component Type',
         selector: 'componentType',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Status',
         selector: 'status',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Actions',
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>

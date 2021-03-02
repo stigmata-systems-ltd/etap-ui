@@ -4,37 +4,33 @@ import DataTable from "react-data-table-component";
 const customStyles = {
   table: {
     style: {
-     // borderRadius: "10px !important",
+      // borderRadius: "10px !important",
       boxShadow: "0 0 40px  rgba(0,0,0,.15) !important",
-     // border:"0.5px solid #656565",
-    //  borderTopRightRadius: "25px",
-     // borderTopLeftRadius: "25px",
-
-    }
+      // border:"0.5px solid #656565",
+      //  borderTopRightRadius: "25px",
+      // borderTopLeftRadius: "25px",
+    },
   },
   headRow: {
     style: {
-    //  borderTopRightRadius: "25px",
-     // borderTopLeftRadius: "25px",
+      //  borderTopRightRadius: "25px",
+      // borderTopLeftRadius: "25px",
 
-backgroundColor:"#000080",
+      backgroundColor: "#000080",
     },
   },
   headCells: {
     style: {
       fontSize: "14px",
       fontWeight: "bold",
-      color:"#fff",
-
-
+      color: "#fff",
     },
   },
   rows: {
     style: {
       fontSize: "14px",
-      color:"#545353",
+      color: "#545353",
       fontWeight: "bold",
-
     },
   },
 };

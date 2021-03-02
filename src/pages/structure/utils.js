@@ -5,7 +5,7 @@ import { getSelectedValue } from "../../utils/dataTransformer";
 export const listStructureMetaData = (handleDelete, handleEdit) => {
     return [
       {
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>
@@ -24,16 +24,16 @@ export const listStructureMetaData = (handleDelete, handleEdit) => {
       {
         name: 'Structure Name',
         selector: 'structureName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Structure Family',
         selector: 'structureType',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Actions',
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>

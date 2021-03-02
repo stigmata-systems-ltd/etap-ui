@@ -5,7 +5,7 @@ import IconButton from '../../common/forms/IconButton';
 export const businessUnitMetaData = (handleDelete, handleEdit) => {
   return [
     // {
-    //   sortable: false,
+    //   sortable: true,
     //   cell: row => {
     //     return (
     //       <>
@@ -24,16 +24,16 @@ export const businessUnitMetaData = (handleDelete, handleEdit) => {
     {
       name: 'BU Name',
       selector: 'businessUnit',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'IC Name',
       selector: 'icName',
-      sortable: false,
+      sortable: true,
     },
     {
       name: 'Actions',
-      sortable: false,
+      sortable: true,
       cell: row => {
         return (
           <>

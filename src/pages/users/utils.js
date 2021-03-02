@@ -8,26 +8,26 @@ export const listUsersMetaData = (handleDelete, handleEdit) => {
       {
         name: 'First Name',
         selector: 'firstName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Last Name',
         selector: 'lastName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'PS No',
         selector: 'userName',
-        sortable: false,
+        sortable: true,
       },
       {
         name: 'Email',
         selector: 'email',
-        sortable: false,
+        sortable: true,
       },      
       {
         name: 'Actions',
-        sortable: false,
+        sortable: true,
         cell: row => {
           return (
             <>

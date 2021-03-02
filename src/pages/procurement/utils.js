@@ -4,40 +4,69 @@ import Button from "../../common/forms/Button";
 
 export const siteDispatchMetaData = (handleUpdate) => {
   return [
-    {
-      name: "MR Number",
-      selector: "mrNo",
-      sortable: false,
-    },
+    // {
+    //   name: "MR Number",
+    //   selector: "mrNo",
+    //   sortable: true,
+    // },
     {
       name: "DC Number",
       selector: "dispatchNo",
-      sortable: false,
+      sortable: true,
     },
     {
-      name: "Status",
-      selector: "status",
-      sortable: false,
+      name: "Structure Name",
+      selector: "structureName",
+      sortable: true,
     },
     {
-      name: "Created Date",
-      selector: "createdDateTime",
-      sortable: false,
+      name: "Structure Code",
+      selector: "structId",
+      sortable: true,
     },
-
+    {
+      name: "No. of Components",
+      selector: "structId",
+      sortable: true,
+    },
+    {
+      name: "Requested By",
+      selector: "structId",
+      sortable: true,
+    },
+    {
+      name: "Quantity Requested",
+      selector: "structId",
+      sortable: true,
+    },
+    // {
+    //   name: "Created Date",
+    //   selector: "createdDateTime",
+    //   sortable: true,
+    // },
     {
       name: "Actions",
-      sortable: false,
+      sortable: true,
+      center: true,
       cell: (row) => {
         return (
-          <>
-            <IconButton
-              id={row.dispatchId}
-              iconName="faEdit"
-              onClick={() => handleUpdate(row.dispatchId)}
-            />
-            <Button btnText="View More" btnType="btn-primary btn-sm" />
-          </>
+          <div className="row">
+            <div className="col-md-5">
+              <IconButton
+                id={row.dispatchId}
+                iconName="faEdit"
+                onClick={() => handleUpdate(row.dispatchId)}
+              />
+            </div>
+            <div className="col-md-5">
+              {/* <Button btnText="View More" btnType="btn-primary btn-sm" /> */}
+              <IconButton
+                id={row.dispatchId}
+                iconName="faList"
+                onClick={() => {}}
+              />
+            </div>
+          </div>
         );
       },
     },
@@ -47,7 +76,7 @@ export const siteDispatchMetaData = (handleUpdate) => {
 export const fabricationTableMetaData = (handleDelete) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -64,17 +93,17 @@ export const fabricationTableMetaData = (handleDelete) => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Vendor Name",
       selector: "vendorName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Fabrication cost",
       selector: "fabricationCost",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
@@ -82,7 +111,7 @@ export const fabricationTableMetaData = (handleDelete) => {
 export const outSourcingTableMetaData = (handleDelete) => {
   return [
     {
-      sortable: false,
+      sortable: true,
       cell: (row) => {
         return (
           <>
@@ -99,37 +128,37 @@ export const outSourcingTableMetaData = (handleDelete) => {
     {
       name: "Structure Name",
       selector: "structureName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Vendor Name",
       selector: "vendorName",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Monthly Rent",
       selector: "monthlyRent",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Contract Years",
       selector: "contractYears",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Planned Release Date",
       selector: "plannedReleaseDate",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Actual Start Date",
       selector: "actualStartDate",
-      sortable: false,
+      sortable: true,
     },
     {
       name: "Expected Release Date",
       selector: "expectedReleaseDate",
-      sortable: false,
+      sortable: true,
     },
   ];
 };
